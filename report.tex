@@ -11,6 +11,16 @@
 
 \input{titlepage.tex}
 
+\setcounter{page}{1}
+\pagenumbering{roman}
+
+\input{authorRevisionpage.tex}
+\tableofcontents
+\newpage
+
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
 \input{1-context/context.tex}
 
 \input{2-business/business.tex}
@@ -29,5 +39,6 @@
 
 \input{9-evolution/evolution.tex}
 
+\input{appendices/timetracking.tex}
 
 \end{document}
