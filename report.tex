@@ -1,29 +1,33 @@
 \documentclass[a4paper]{report}
 
-\title{Smart Flood Monitoring}
+\newcommand{\VersionNumber}{0.1}
+
+\input{packages.tex}
+\input{commands.tex}
+\input{customization.tex}
+
 
 \begin{document}
-\maketitle
 
-\newpage
+\input{titlepage.tex}
 
-\input{context/context.tex}
+\input{1-context/context.tex}
 
-\input{business/business.tex}
+\input{2-business/business.tex}
 
-\input{requirements/requirements.tex}
+\input{3-requirements/requirements.tex}
 
-\input{analysis/analysis.tex}
+\input{4-analysis/analysis.tex}
 
-\input{system/system.tex}
+\input{5-system/system.tex}
 
-\input{hardware/hardware.tex}
+\input{6-hardware/hardware.tex}
 
-\input{software/software.tex}
+\input{7-software/software.tex}
 
-\input{evaluation/evaluation.tex}
+\input{8-evaluation/evaluation.tex}
 
-\input{evolution/evolution.tex}
+\input{9-evolution/evolution.tex}
 
 
 \end{document}

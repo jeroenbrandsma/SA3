@@ -1,2 +1,28 @@
 \chapter{Analysis}
 \label{ch:analysis}
+
+Assumptions:
+\noindent{
+	\begin{itemize}
+	  \item People requesting guidance have access to a phone that is either connected 		to a mobile network or to the internet
+	  \item The system is able to monitor various kinds of sensors
+	  \item The system has access to the internet
+	  \item The sensors are (in some way) connected to the system
+	  \item The system is able to use various kinds of sensors in order to predict floods.
+	  \item When the system has enough proof of a flood, the users will be informed in a timely manner (within 30 seconds maximal).
+	  \item People within a range of (30km?) will be warned about a detected flood
+	  \item The system uses multiple weather forecasting services to make its own predictions about possible upcoming floods.
+	\end{itemize}
+}
+
+\attention{
+In what ways will the system detect a flood? Sensors, UAV’s, forecasting?\\
+How to detect a flood based on the forecasting? Warn beforehand? Pay extra attention to the new upcoming flood by sending extra robots/uav's?
+}
+
+Decision:
+Security? (What if someone tries to manipulate a sensor?)\\
+One or multiple warning systems (failover)\\
+Networking? Redundancy of cables (trunked?)\\
+When to alarm? What to do if only 1 sensor warns about a flood?\\
+Security decisions?\\
