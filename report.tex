@@ -1,25 +1,47 @@
 \documentclass[a4paper]{report}
 
+
+%----------------------------------------------------------------------------------------
+%	VARIABLES
+%----------------------------------------------------------------------------------------
+
 \newcommand{\VersionNumber}{0.1}
+\newcommand{\CompanyName}{RugSAG3 }
+
+
+%----------------------------------------------------------------------------------------
+%	LATEX BUILD INFO
+%----------------------------------------------------------------------------------------
 
 \input{packages.tex}
 \input{commands.tex}
 \input{customization.tex}
 
 
+%----------------------------------------------------------------------------------------
+%	PRE-DOCUMENT PAGES
+%----------------------------------------------------------------------------------------
+
 \begin{document}
 
-\input{titlepage.tex}
+\input{0-predocument/titlepage.tex}
 
+% Change the page numbering to roman ("i", "ii", etc) for the first few pages
 \setcounter{page}{1}
 \pagenumbering{roman}
 
-\input{authorRevisionpage.tex}
-\tableofcontents
-\newpage
+\input{0-predocument/authorRevisionpage.tex}
 
+\tableofcontents
+\thispagestyle{empty}
+
+% Change the page numbering back to the normal 1,2,3 form starting at 1
 \setcounter{page}{1}
 \pagenumbering{arabic}
+
+%----------------------------------------------------------------------------------------
+%	START OF DOCCUMENT CONTENT
+%----------------------------------------------------------------------------------------
 
 \input{1-context/context.tex}
 
@@ -39,6 +61,6 @@
 
 \input{9-evolution/evolution.tex}
 
-\input{appendices/timetracking.tex}
+\input{appendices/appendices.tex}
 
 \end{document}
