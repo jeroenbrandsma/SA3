@@ -32,15 +32,3 @@
 *.vrb
 *.xdy
 *.tdo
-
-
-###TeX###
-
-## Core latex/pdflatex auxiliary files:
-*.aux
-*.lof
-*.log
-*.lot
-*.fls
-*.out
-*.toc

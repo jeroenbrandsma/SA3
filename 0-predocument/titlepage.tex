@@ -22,34 +22,37 @@
 %	AUTHOR SECTION
 %----------------------------------------------------------------------------------------
 
-\textsc{\Large Authors:}\\
-\texttt{
-Eedema, Gerrit\\
-Putra, Guntur\\
-Fakambi, Aur\'{e}lie\\
-Schaefers, Joris\\
-Klinkenberg, Guus\\
-Brandsma, Jeroen\\
-Menninga, Wouter
+\pbox[t]{\textwidth}{
+	\textsc{\Large Authors:}\\
+	\\
+	\texttt{Eedema, Gerrit}\\
+	\texttt{Putra, Guntur}\\
+	\texttt{Fakambi, Aur\'{e}lie}\\
+	\texttt{Schaefers, Joris}\\
+	\texttt{Klinkenberg, Guus}\\
+	\texttt{Brandsma, Jeroen}\\
+	\texttt{Menninga, Wouter}
 }
-
-%Gerrit Eedema\\
-%Guntur Putra\\
-%Aurélie Fakambi\\
-%Joris Schaefers\\
-%Guus Klinkenberg\\
-%Jeroen Brandsma\\
-%Wouter Menninga\\
 
 %----------------------------------------------------------------------------------------
 %	HEADER/FOOTER SECTION
 %----------------------------------------------------------------------------------------
 
+%\fancypagestyle{empty}{%
+%	\fancyhf{}% Clear header/footer
+%	\renewcommand{\headrulewidth}{0pt}
+%  	\fancyfoot[L]{Release date: \today}
+%  	\fancyfoot[R]{Version: \VersionNumber}
+%}
+
 \fancypagestyle{empty}{%
 	\fancyhf{}% Clear header/footer
 	\renewcommand{\headrulewidth}{0pt}
-  	\fancyfoot[L]{Release date: \today}
-  	\fancyfoot[R]{Version: \VersionNumber}
+  	\fancyfoot[C]{
+  		Version: \VersionNumber \\
+  		\mydate\today
+  	}
 }
+
 
 \end{titlepage}
