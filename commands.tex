@@ -1,5 +1,13 @@
 %!TEX root = report.tex
 \newcommand{\todonote}[1]{\textcolor{red}{#1}}
 \newcommand{\attention}[1]{\textcolor{green}{#1}}
+
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
-\newcommand{\cellBox}[1]{\pbox{0.6\textwidth}{#1}}
+
+\newcommand{\tw}[1]{#1\textwidth}
+
+\newcommand{\GetNextNr}[1]{%
+  \stepcounter{#1}%
+  \arabic{#1}
+}
+

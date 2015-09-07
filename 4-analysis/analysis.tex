@@ -33,25 +33,21 @@ Decisions:
 	\end{itemize}
 }
 
-%Clean decision table:
-%\begin{tabularx}{\textwidth}{ l l }
-%    \textbf{Name} & \textbf{Linux} \\ \hline
-%    \textbf{Decision} & \textbf{1} \\ \hline \hline
-%    \textbf{Status} & \textbf{New} \\ \hline
-%    \textbf{Decision} &  \\ \hline
-%    \textbf{Alternatives} & \\ \hline
-%    \textbf{Arguments} & \\ \hline
-%\end{tabularx}
 
-\newcounter{DecisionNumberCounter}
-\setcounter{DecisionNumberCounter}{1}
+%Create a new counter to keep track of the decision number
+%Use \GetNextNr{DecisionNr} to get the next decision number
+%This will automatically increase the counter
+\newcounter{DecisionNr}
+\setcounter{DecisionNr}{0}
 
-\begin{tabular}{p{0.2\textwidth} p{0.6\textwidth}}
-    \textbf{Name} & \textbf{Linux} \\ \hline
-    \textbf{Decision} & \textbf{\arabic{DecisionNumberCounter}} \\ \hline \hline
-    \textbf{Status} & \textbf{New} \\ \hline
-    \textbf{Problem/Issue} & The warning system software for the natural disasters need a platform to work on.  \\ \hline
-    \textbf{Decision} &  The warning system will use Linux as a platform\\ \hline
-    \textbf{Alternatives} & \cellBox{\textit{Linux}\\ Linux is a free platform that has proven itself and is used by many servers. It is reliable and more secure. } \\ \hline
-    \textbf{Arguments} & \cellBox{} \\ \hline
+\begin{tabular}{L{\tw{0.2}} L{\tw{0.6}}}
+    \textbf{Name} & \textbf{Linux} \\ \midrule
+    \textbf{Decision} & \textbf{\GetNextNr{DecisionNr}} \\ 
+    \midrule \midrule
+    \textbf{Status} & \textbf{New} \\ \midrule
+    \textbf{Problem/Issue} & The warning system software for the natural disasters need a platform to work on.  \\ \midrule
+    \textbf{Decision} &  The warning system will use Linux as a platform\\ \midrule
+    \textbf{Alternatives} & \textit{Linux} \newline 
+    Linux is a free platform that has proven itself and is used by many servers. It is reliable and more secure. \\ \midrule
+    \textbf{Arguments} &  \\ \bottomrule
 \end{tabular}
