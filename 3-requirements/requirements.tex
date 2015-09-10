@@ -2,126 +2,16 @@
 \chapter{Requirements}
 \label{ch:requirements}
 
-\section{Architectural vision}
-\section{Stakeholder and their concerns}
+\input{3-requirements/stakeholders.tex}
 
-\section{Stories and use-cases}
-\noindent{
-	\begin{itemize}
-		\item A user receives a warning about warning about an upcoming flood in his or her area, within a reach of 30 kilometer
-		\item A user requests guidance to get to a certain place in a flooded area
-		\item A user reports an obstruction
-		\item A user reports a (upcoming) flood
-		\item A user verifies a reported flood warning
-	\end{itemize}
-}
+\input{3-requirements/storiesusecases.tex}
 
-\section{Functional requirements}
-\begin{tabular}{p{0.1\textwidth} p{0.1\textwidth} p{0.8\textwidth}}
-    \textbf{Nr.} & \textbf{Prio}  & \textbf{Description} \\
-    
-    \hline \phantomsection \label{fr:1} FR-1 & 
-    \phantomsection  \textbf{Must} &
-    \phantomsection  The system is able to receive and process input from sensors with regards to the water level. \\
-    
-    \hline \phantomsection \label{fr:2} FR-2 & 
-    \phantomsection  \textbf{Must} &
-    \phantomsection  The system is able to receive and process input from sensors with regards to the pressure/consistency of the dykes. \\
-    
-    \hline \phantomsection \label{fr:3} FR-3 & 
-    \phantomsection  \textbf{Must} &
-    \phantomsection  The system retrieves weather forecasting data from weather forecasting services. % which data?
-     \\
-     
-    \hline \phantomsection \label{fr:4} FR-4 & 
-    \phantomsection  \textbf{Must} &
-    \phantomsection  The system is able to detect from the sensor data and weather forecast information when a flood is imminent. \\
-    
-    \hline \phantomsection \label{fr:5} FR-5 & 
-    \phantomsection  \textbf{Must} &
-    \phantomsection The system provides emergency services with information about the flood. This includes the area affected by the flood and the severity of the flood. \\
-    
-	\hline \phantomsection \label{fr:4} FR-4 & 
-    \phantomsection  \textbf{Must} &
-    \phantomsection  When a flood is imminent, the system should send a warning to the emergency services. \\
-    
-    \hline \phantomsection \label{fr:5} FR-5 & 
-    \phantomsection  \textbf{Must} &
-    \phantomsection  The system is able to compute a safe area where citizens can be evacuated to in case of a(n) (imminent) flood. \\    
+\input{3-requirements/functionalrequirements.tex}
 
-    \hline \phantomsection \label{fr:6} FR-6 & 
-    \phantomsection  \textbf{Must} &
-    \phantomsection  When a flood is imminent, the system should send a warning to citizens who are subscribed for such warnings. This warning will contain information about how to get to a safe area. \\
-	
-    \hline \phantomsection \label{fr:7} FR-7 & 
-    \phantomsection  \textbf{Must} &
-    \phantomsection  The system is able to predict the development of the water level. \\
-	
-    \hline \phantomsection \label{fr:8} FR-8 & 
-    \phantomsection  \textbf{Must} &
-    \phantomsection The system uses different sources to confirm imminent flood warnings, in order to limit false positives. \\
-	
-    \hline \phantomsection \label{fr:9} FR-9 & 
-    \phantomsection  \textbf{Must} &
-    \phantomsection The system can detect a faulty sensor, either because the sensor raises an error or when the data from the sensor is inconsistent with other sensor data. \\
-	
-    \hline \phantomsection \label{fr:10} FR-10 & 
-    \phantomsection  \textbf{Must} &
-    \phantomsection The system can detect a faulty sensor, either when the sensor raises an error or when the data from the sensor is inconsistent with other sensor data. \\
-    
-	\hline \phantomsection \label{fr:11} FR-11 & 
-    \phantomsection  \textbf{Must} &
-    \phantomsection In case of a flood, the system will provide emergency services with safe routes to incident locations. \\	
-	
-    \hline \phantomsection \label{fr:x} FR-? & 
-    \phantomsection  Future &
-    \phantomsection The system is able to detect extreme weather phenomena, like storms etc. \\
-\end{tabular}
+\input{3-requirements/commercialnonfunctionalreq.tex}
 
-\section{Commercial non-functional requirements}
+\input{3-requirements/technicalnonfunctionalreq.tex}
 
+\input{3-requirements/evolutionrequirements.tex}
 
-\section{Technical non-functional requirements}
-In this section, the technical non-functional requirements important to this system are discussed.
-
-\subsection{Resilience}
-The system will have many connected sensors, which can have failures. The system should be able to recognize such failures timely and recover from them without the QoS or the functionality of the system being affected. 
-
-The system should be able to continue functioning with the same QoS in a situation where up to 5\% of the sensors suffer from failures.  % WM: is 5% realistic?
-
-\subsection{Interoperability}
-The system has dependencies on third-party systems. For example, to make predictions about the development of waterlevel, the system will need to retrieve information from water forecasting services. 
-
-Not only for input, but also for output, the system will need to interoperate with third-party systems. If the system has registered a risk of a flood, it should interact with systems of emergency services and other authorities to alert them and sent relevant information.
-% TODO: how to measure? 
-
-% ============================================================
-% From Gerrit:
-% The three main requirements:
-% 1: Monitoring activities: the system should monitor activities and properties of
-% rivers, waterways, dykes, such as the water level and pressure or the consistency
-% of the dyke. Monitoring can be performed through different devices, e.g. analog
-% and digital sensors, Unmanned Aerial Vehicles (UAVs) and Vehicular Ad-hoc
-% Networks (VANETs) etc.
-% 2: Warning: in case of an imminent flood, the system should issue warnings to the
-% authorities and emergency services, but also directly to citizens who are
-% subscribed for such messages (e.g. through SMS or mobile apps).
-% 3: Guidance: the system should provide runtime information to guide its
-% constituents or third parties, .e.g. the UAVs may provide information to
-% VANETs embedded in vehicles crossing the area, thereby guiding vehicles
-% driving towards a flood area to avoid certain routes. Meanwhile, the VANETs
-% can also provide an alternative route to emergency services or citizens to avoid
-% the flood area. 
-
-% ToDo:
-% Stakeholders
-% Use-cases
-% Make them smart
-% Assign value (must/should/...
-% ============================================================
-
-
-
-\section{Evolution requirements}
-\section{Risk assessment}
-
+\input{3-requirements/riskassessment.tex}

@@ -1,0 +1,62 @@
+%!TEX root = ../report.tex
+\section{Functional requirements}
+\begin{tabular}{p{0.1\textwidth} p{0.1\textwidth} p{0.8\textwidth}}
+    \textbf{Nr.} & \textbf{Prio}  & \textbf{Description} \\
+    
+    \hline \phantomsection \label{fr:1} FR-1 & 
+    \phantomsection  \textbf{Must} &
+    \phantomsection  The system is able to receive and process input from sensors with regards to the water level. \\
+    
+    \hline \phantomsection \label{fr:2} FR-2 & 
+    \phantomsection  \textbf{Must} &
+    \phantomsection  The system is able to receive and process input from sensors with regards to the pressure/consistency of the dykes. \\
+    
+    \hline \phantomsection \label{fr:3} FR-3 & 
+    \phantomsection  \textbf{Must} &
+    \phantomsection  The system retrieves weather forecasting data from weather forecasting services. % which data?
+     \\
+     
+    \hline \phantomsection \label{fr:4} FR-4 & 
+    \phantomsection  \textbf{Must} &
+    \phantomsection  The system is able to detect from the sensor data and weather forecast information when a flood is imminent. \\
+    
+    \hline \phantomsection \label{fr:5} FR-5 & 
+    \phantomsection  \textbf{Must} &
+    \phantomsection The system provides emergency services with information about the flood. This includes the area affected by the flood and the severity of the flood. \\
+    
+	\hline \phantomsection \label{fr:4} FR-4 & 
+    \phantomsection  \textbf{Must} &
+    \phantomsection  When a flood is imminent, the system should send a warning to the emergency services. \\
+    
+    \hline \phantomsection \label{fr:5} FR-5 & 
+    \phantomsection  \textbf{Must} &
+    \phantomsection  The system is able to compute a safe area where citizens can be evacuated to in case of a(n) (imminent) flood. \\    
+
+    \hline \phantomsection \label{fr:6} FR-6 & 
+    \phantomsection  \textbf{Must} &
+    \phantomsection  When a flood is imminent, the system should send a warning to citizens who are subscribed for such warnings. This warning will contain information about how to get to a safe area. \\
+	
+    \hline \phantomsection \label{fr:7} FR-7 & 
+    \phantomsection  \textbf{Must} &
+    \phantomsection  The system is able to predict the development of the water level. \\
+	
+    \hline \phantomsection \label{fr:8} FR-8 & 
+    \phantomsection  \textbf{Must} &
+    \phantomsection The system uses different sources to confirm imminent flood warnings, in order to limit false positives. \\
+	
+    \hline \phantomsection \label{fr:9} FR-9 & 
+    \phantomsection  \textbf{Must} &
+    \phantomsection The system can detect a faulty sensor, either because the sensor raises an error or when the data from the sensor is inconsistent with other sensor data. \\
+	
+    \hline \phantomsection \label{fr:10} FR-10 & 
+    \phantomsection  \textbf{Must} &
+    \phantomsection The system can detect a faulty sensor, either when the sensor raises an error or when the data from the sensor is inconsistent with other sensor data. \\
+    
+	\hline \phantomsection \label{fr:11} FR-11 & 
+    \phantomsection  \textbf{Must} &
+    \phantomsection In case of a flood, the system will provide emergency services with safe routes to incident locations. \\	
+	
+    \hline \phantomsection \label{fr:x} FR-? & 
+    \phantomsection  Future &
+    \phantomsection The system is able to detect extreme weather phenomena, like storms etc. \\
+\end{tabular}
