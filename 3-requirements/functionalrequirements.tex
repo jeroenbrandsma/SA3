@@ -1,12 +1,17 @@
 %!TEX root = ../report.tex
 \section{Functional requirements}
 \begin{longtable}{p{0.1\textwidth} p{0.1\textwidth} p{0.8\textwidth}}
+
+% GK: General, try to make the requirements one sentence. Not possible for all, but for most it is.
+% GK: Try to have a sequential story in your requirements. FR18 and FR17 should be higher in the list/have lower number, because they are needed for other requirements
+% 
     \textbf{Nr.} & \textbf{Prio}  & \textbf{Description} \\
     
     \hline \phantomsection \label{fr:1} FR-1 & 
     \phantomsection  \textbf{Must} &
     \phantomsection  The system is able to receive and process input from sensors with regards to the water level. This information will be used to determine if there is an imminent flood. \\
-    
+    % GK: In what way is the information delivered from the sensors?
+
     \hline \phantomsection \label{fr:2} FR-2 & 
     \phantomsection  \textbf{Must} &
     \phantomsection  The system is able to receive and process input from sensors with regards to the pressure/consistency of the dykes. This information will be used to determine if there is an imminent flood. \\
@@ -23,10 +28,12 @@
     \hline \phantomsection \label{fr:5} FR-5 & 
     \phantomsection  \textbf{Must} &
     \phantomsection The system can compute (from geographic information) the area which will be affected by a flood. \\
-    
+    %GK: be careful with exactness in this, add some estimation
+
     \hline \phantomsection \label{fr:6} FR-6 & 
     \phantomsection  \textbf{Must} &
     \phantomsection The system is able to collect information pertaining to the severity of the flood. The severity can be deducted from the expected water level, how fast the water level in the flood area will rise, and by the number of civilians living in the affected area (population density). \\
+    % GK: Last sentances is probably something for analysis
     
     \hline \phantomsection \label{fr:7} FR-7 & 
     \phantomsection  \textbf{Must} &
@@ -40,7 +47,8 @@
     
     \hline \phantomsection \label{fr:9} FR-9 & 
     \phantomsection  \textbf{Must} &
-    \phantomsection  The system is able to compute a safe route to a safe area where citizens can be evacuated to in case of an (imminent) flood. \\    
+    \phantomsection  The system is able to compute a safe route to a safe area where citizens can be evacuated to in case of an (imminent) flood. \\ 
+    % GK: define safe. I know you mean unflooded roads, but what if youhaven't read anything else all
 
     \hline \phantomsection \label{fr:10} FR-10 & 
     \phantomsection  \textbf{Must} &
