@@ -4,6 +4,11 @@
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
 \newcommand{\cellBox}[1]{\pbox{0.6\textwidth}{#1}}
 
+%command to decrease the size it takes to write
+%L{0.5\textwidth}. This will now be:
+%L{\tw{0.5}}. A small difference, but it adds up
+\newcommand{\tw}[1]{#1\textwidth}
+
 \makeatletter
 
 %manually lable something
@@ -39,12 +44,22 @@
 }
 
 \newcommand{\req}[1]{%
-	\uppercase{#1}:\nextNrRef{#1}
+	\uppercase{#1}-\nextNrRef{#1}
 }
 
 \newcommand{\reql}[2]{%
 	\req{#1}
 	\manuallabel{#1:#2}{\arabic{#1}}
+}
+
+\newcommand{\frReqRow}[3]{%
+	\midrule
+	\phantomsection
+	\manuallabel{fr:#1}{#1} 	
+	FR-#1 &
+	\textbf{#2} &
+	#3
+	\\
 }
 
 \makeatother
