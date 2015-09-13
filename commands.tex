@@ -4,6 +4,8 @@
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
 \newcommand{\cellBox}[1]{\pbox{0.6\textwidth}{#1}}
 
+\newcommand*\rot{\rotatebox{90}}
+
 %command to decrease the size it takes to write
 %L{0.5\textwidth}. This will now be:
 %L{\tw{0.5}}. A small difference, but it adds up
@@ -64,6 +66,21 @@
 	\fi
 	 &
 	#3
+	\\
+}
+
+\newcommand{\reqRow}[4]{%
+	\midrule
+	\phantomsection
+	\manuallabel{#1:#2}{#2} 	
+	\uppercase{#1}-#2 &
+	\ifcase\pdfstrcmp{#3}{Must}%
+	   \textbf{#3}
+	\else
+	  #3
+	\fi
+	 &
+	#4
 	\\
 }
 

@@ -1,2 +1,32 @@
 %!TEX root = ../report.tex
-\section{Commercial non-functional requirements}
+\section{Quality attributes / non-functional requirements}
+Attribute priority:
+
+%Todo:
+%Yeah i know, its a mess. I've created it online, but it works. I'n my next commit i've cleaned it up :)
+\begin{tabular}{lllcccccccc}
+Attribute        & Score & \rot{Availability}                                    & \multicolumn{1}{l}{\rot{Integrity}}                            & \multicolumn{1}{l}{\rot{Interoperability}}                     & \multicolumn{1}{l}{\rot{Performance}}                          & \multicolumn{1}{l}{\rot{Reliability}}                                  & \multicolumn{1}{l}{\rot{Robustness}}                                   & \multicolumn{1}{l}{\rot{Security}}                                     & \multicolumn{1}{l}{\rot{Usability}}                            & \multicolumn{1}{l}{\rot{Verifiability}}                        \\
+Availability     & 8     & \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} } & \cellcolor[HTML]{FFFFFF}{\color[HTML]{000000} \textless} & \cellcolor[HTML]{FFFFFF}{\color[HTML]{000000} \textless} & \cellcolor[HTML]{FFFFFF}{\color[HTML]{000000} \textless} & \cellcolor[HTML]{FFFFFF}{\color[HTML]{000000} \textless}         & \cellcolor[HTML]{FFFFFF}{\color[HTML]{000000} \textless}         & \cellcolor[HTML]{FFFFFF}{\color[HTML]{000000} \textless}         & \cellcolor[HTML]{FFFFFF}{\color[HTML]{000000} \textless} & \cellcolor[HTML]{FFFFFF}{\color[HTML]{000000} \textless} \\
+Integrity        & 7     & \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} } & \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} }          & \cellcolor[HTML]{FFFFFF}{\color[HTML]{000000} \textless} & \cellcolor[HTML]{FFFFFF}{\color[HTML]{000000} \textless} & \cellcolor[HTML]{FFFFFF}{\color[HTML]{000000} \textless}         & \cellcolor[HTML]{FFFFFF}{\color[HTML]{000000} \textless}         & \cellcolor[HTML]{FFFFFF}{\color[HTML]{000000} \textless}         & \cellcolor[HTML]{FFFFFF}{\color[HTML]{000000} \textless} & \cellcolor[HTML]{FFFFFF}{\color[HTML]{000000} \textless} \\
+Interoperability & 3     & \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} } & \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} }          & \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} }          & \cellcolor[HTML]{FFFFFF}{\color[HTML]{000000} \textless} & \cellcolor[HTML]{FFFFFF}{\color[HTML]{000000} \textasciicircum } & \cellcolor[HTML]{FFFFFF}{\color[HTML]{000000} \textasciicircum } & \cellcolor[HTML]{FFFFFF}{\color[HTML]{000000} \textasciicircum } & \cellcolor[HTML]{FFFFFF}{\color[HTML]{000000} \textless} & \cellcolor[HTML]{FFFFFF}{\color[HTML]{000000} \textless} \\
+Performance      & 2     & \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} } & \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} }          & \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} }          & \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} }          & \cellcolor[HTML]{FFFFFF}{\color[HTML]{000000} \textasciicircum } & \cellcolor[HTML]{FFFFFF}{\color[HTML]{000000} \textasciicircum } & \cellcolor[HTML]{FFFFFF}{\color[HTML]{000000} \textasciicircum } & \cellcolor[HTML]{FFFFFF}{\color[HTML]{000000} \textless} & \cellcolor[HTML]{FFFFFF}{\color[HTML]{000000} \textless} \\
+Reliability      & 5     & \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} } & \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} }          & \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} }          & \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} }          & \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} }                  & \cellcolor[HTML]{FFFFFF}{\color[HTML]{000000} \textasciicircum } & \cellcolor[HTML]{FFFFFF}{\color[HTML]{000000} \textless}         & \cellcolor[HTML]{FFFFFF}{\color[HTML]{000000} \textless} & \cellcolor[HTML]{FFFFFF}{\color[HTML]{000000} \textless} \\
+Robustness       & 6     & \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} } & \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} }          & \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} }          & \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} }          & \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} }                  & \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} }                  & \cellcolor[HTML]{FFFFFF}{\color[HTML]{000000} \textless}         & \cellcolor[HTML]{FFFFFF}{\color[HTML]{000000} \textless} & \cellcolor[HTML]{FFFFFF}{\color[HTML]{000000} \textless} \\
+Security         & 4     & \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} } & \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} }          & \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} }          & \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} }          & \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} }                  & \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} }                  & \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} }                  & \cellcolor[HTML]{FFFFFF}{\color[HTML]{000000} \textless} & \cellcolor[HTML]{FFFFFF}{\color[HTML]{000000} \textless} \\
+Usability        & 3     & \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} } & \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} }          & \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} }          & \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} }          & \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} }                  & \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} }                  & \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} }                  & \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} }          & \cellcolor[HTML]{FFFFFF}{\color[HTML]{000000} \textless} \\
+Verifiability    & 1     & \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} } & \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} }          & \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} }          & \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} }          & \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} }                  & \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} }                  & \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} }                  & \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} }          & \cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} }         
+\end{tabular}
+
+
+\begin{longtable}{L{0.1\textwidth} L{0.12\textwidth} L{0.78\textwidth}}
+\textbf{Nr.} & \textbf{Prio}  & \textbf{Description} \\
+
+\reqRow{avl}{1}{Must}{The system shall be at least 99\% available.}
+
+\reqRow{int}{1}{Must}{The system shall protect against unauthorized addition, deletion or modification of sensor data}
+\reqRow{int}{1}{Must}{The system shall verify unusual sensor data that shouldn't happen in normal situations, with at least one other sensor}
+\reqRow{int}{1}{Must}{The system shall send warning and guidance messages only in case of a flood}
+
+
+\bottomrule
+\end{longtable}
