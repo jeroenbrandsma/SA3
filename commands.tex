@@ -71,6 +71,21 @@
 	\\
 }
 
+\newcommand{\reqRow}[4]{%
+	\midrule
+	\phantomsection
+	\manuallabel{#1:#2}{#2} 	
+	\uppercase{#1}-#2 &
+	\ifcase\pdfstrcmp{#3}{Must}%
+	   \textbf{#3}
+	\else
+	  #3
+	\fi
+	 &
+	#4
+	\\
+}
+
 \makeatother
 
 
