@@ -1,13 +1,5 @@
 %!TEX root = ../report.tex
 \section{Stories and use-cases}
-	\begin{itemize}
-		\item A user receives a warning about an upcoming flood in his or her area, within a reach of 30 kilometer
-		\item A user requests guidance to get to a certain place in a flooded area
-		\item A user reports an obstruction
-		\item A user reports a (upcoming) flood
-		\item A user verifies a reported flood warning
-	\end{itemize} 
-
 \subsection{A citizen receives a warning about an upcoming flood}
 \textbf{Scope:} Warning part of the system\\\\
 \textbf{Level:} Main process\\\\
@@ -26,78 +18,40 @@
 \textbf{Extensions:} \\
 2a - The flood doesn't get to dangerous, it retreats. No warning mechanism is triggered.
 
+\subsection{A citizen requests guidance to get to a safe place in a flooded area}
+\textbf{Scope:} Guidance part of the system\\\\
+\textbf{Level:} Main process\\\\
+\textbf{Primary actor:} Citizen\\\\
+\textbf{Stakeholders and interests:}\\
+	1. Government - the government wants to guide the citizens to a safe place in case of a flood. \\
+	2. Citizens - citizens want to be guided to a safe place in case of a flood. \\\\
+\textbf{Precondition:} There is a flood and the citizen wants guidance to a safe place. \\
+\textbf{Postcondition:} Citizen is guided to a safe place. \\\\
+\textbf{Main succes scenario:} \\
+1 - There is a flood going on.\\
+2 - A citizen requests guidance to a safe place.\\
+3 - The citizen gets guidance through a smartphone.\\
+4 - The citizen makes it to the safe place.\\\\
+\textbf{Extensions:} \\
+3a - Smartphone has no internet connection, provide latest information available.\\
+3b - GPS of smartphone doesn't work, provide the citizen with the right information to make decisions by himself.\\
+4a - Citizen can't make it to the safe place. Provide the citizen with a route to an alternative safe place.
 
-% \subsection{A user requests guidance to get to a certain place in a flooded area}
-% \textbf{Scope:} Guidance part of the system\\\\
-% \textbf{Level:} Main process\\\\
-% \textbf{Primary actor:} Citizen\\\\
-% \textbf{Stakeholders and interests:}\\
-% 	1. Government - the government wants to warn the citizens in case of a flood \\
-% 	2. Citizens - citizens want to be warned in case of a flood \\\\
-% \textbf{Preconditions:} There is an upcoming flood and the citizens are not warned\\
-% \textbf{Postconditions:} There is a flood and the citizens are warned\\\\
-% \textbf{Main succes scenario:} \\
-% 1 - There is the threat of an upcoming flood.\\
-% 2 - A warning mechanism is triggered.\\
-% 3 - The authorities are warned about the upcoming flood.\\
-% 4 - The authorities use their systems to warn the citizens.\\
-% 5 - The citizens are warned and can move to a safer place.\\\\
-% \textbf{Extensions:} \\
-% 2a - The flood doesn't get to dangerous, it retreats. No warning mechanism is triggered.
-
-
-% \subsection{A user requests guidance to get to a certain place in a flooded area}
-% \textbf{Scope:} Guidance part of the system\\\\
-% \textbf{Level:} Main process\\\\
-% \textbf{Primary actor:} Citizen\\\\
-% \textbf{Stakeholders and interests:}\\
-% 	1. Government - the government wants to warn the citizens in case of a flood \\
-% 	2. Citizens - citizens want to be warned in case of a flood \\\\
-% \textbf{Preconditions:} There is an upcoming flood and the citizens are not warned\\
-% \textbf{Postconditions:} There is a flood and the citizens are warned\\\\
-% \textbf{Main succes scenario:} \\
-% 1 - There is the threat of an upcoming flood.\\
-% 2 - A warning mechanism is triggered.\\
-% 3 - The authorities are warned about the upcoming flood.\\
-% 4 - The authorities use their systems to warn the citizens.\\
-% 5 - The citizens are warned and can move to a safer place.\\\\
-% \textbf{Extensions:} \\
-% 2a - The flood doesn't get to dangerous, it retreats. No warning mechanism is triggered.
-
-
-% \subsection{A user requests guidance to get to a certain place in a flooded area}
-% \textbf{Scope:} Guidance part of the system\\\\
-% \textbf{Level:} Main process\\\\
-% \textbf{Primary actor:} Citizen\\\\
-% \textbf{Stakeholders and interests:}\\
-% 	1. Government - the government wants to warn the citizens in case of a flood \\
-% 	2. Citizens - citizens want to be warned in case of a flood \\\\
-% \textbf{Preconditions:} There is an upcoming flood and the citizens are not warned\\
-% \textbf{Postconditions:} There is a flood and the citizens are warned\\\\
-% \textbf{Main succes scenario:} \\
-% 1 - There is the threat of an upcoming flood.\\
-% 2 - A warning mechanism is triggered.\\
-% 3 - The authorities are warned about the upcoming flood.\\
-% 4 - The authorities use their systems to warn the citizens.\\
-% 5 - The citizens are warned and can move to a safer place.\\\\
-% \textbf{Extensions:} \\
-% 2a - The flood doesn't get to dangerous, it retreats. No warning mechanism is triggered.
-
-
-% \subsection{A user requests guidance to get to a certain place in a flooded area}
-% \textbf{Scope:} Guidance part of the system\\\\
-% \textbf{Level:} Main process\\\\
-% \textbf{Primary actor:} Citizen\\\\
-% \textbf{Stakeholders and interests:}\\
-% 	1. Government - the government wants to warn the citizens in case of a flood \\
-% 	2. Citizens - citizens want to be warned in case of a flood \\\\
-% \textbf{Preconditions:} There is an upcoming flood and the citizens are not warned\\
-% \textbf{Postconditions:} There is a flood and the citizens are warned\\\\
-% \textbf{Main succes scenario:} \\
-% 1 - There is the threat of an upcoming flood.\\
-% 2 - A warning mechanism is triggered.\\
-% 3 - The authorities are warned about the upcoming flood.\\
-% 4 - The authorities use their systems to warn the citizens.\\
-% 5 - The citizens are warned and can move to a safer place.\\\\
-% \textbf{Extensions:} \\
-% 2a - The flood doesn't get to dangerous, it retreats. No warning mechanism is triggered.
+%If we decide to use user input
+\subsection{A citizen reports an obstruction}
+\textbf{Scope:} Monitoring part of the system\\\\
+\textbf{Level:} Main process\\\\
+\textbf{Primary actor:} Citizen\\\\
+\textbf{Stakeholders and interests:}\\
+	1. Citizen - A citizen wants to report an obstruction to make the guidance part more reliable. \\\\
+\textbf{Preconditions:} There is an obstruction which is not yet reported. \\
+\textbf{Postconditions:} There is an obstruction which is reported by a citizen and is known in the system. \\\\
+\textbf{Main succes scenario:} \\
+1 - There is an obstruction somewhere in the area. \\
+2 - The citizen opens our application on his smartphone. \\
+3 - The citizen reports the kind of obstruction and the location. \\
+4 - The system gets the obstruction information as input. \\
+5 - The obstruction is processed in the system and visible to other citizens. \\\\
+\textbf{Extensions:} \\
+3a - The citizen doesn't know the location, GPS can be used in this case. If GPS doesn't work, the obstruction can't be reported. \\
+4a - The smartphone can't send the information. In this case, the obstruciton can't be reported. 
