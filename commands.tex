@@ -57,7 +57,12 @@
 	\phantomsection
 	\manuallabel{fr:#1}{#1} 	
 	FR-#1 &
-	\textbf{#2} &
+	\ifcase\pdfstrcmp{#2}{Must}%
+	   \textbf{#2}
+	\else
+	  #2
+	\fi
+	 &
 	#3
 	\\
 }
