@@ -1,2 +1,43 @@
 %!TEX root = ../report.tex
 \section{Stakeholder and their concerns}
+
+% wonder where do these factors come from
+
+There are eight stakeholders who are involved in our system. Detailed description is written below.
+
+\begin{description}
+\item[Product owner] is concerned about usability, reliability, profitability, affordability. Product owner funds the whole project. Product owner has to make sure that the system is reliable and profitable. As the product owner is willing to get a good market penetration, this system has to be affordable to the customers.
+\item[Developers] are concerned about usability, reliability, maintainability, and testability. They are those who are responsible for the development of the systems until its ready for production. Including designing, analysis, testing and implementing the RugSAG3.
+\item[Competitors] are concerned about usability, reliability, adaptability, profitability, and affortability. Competitors give negative effect on the system because competitors will be aiming on the same customer target. Thus, competitors must be kept in consideration. 
+\item[Government] is concerned about reliability, adaptability, and affortability. Government will be part of mitigation when the flood is immitent. This system will also notify government when this system detects flood. Thus, government have to make sure that the sistem is reliable, adaptable and affordable.
+\item[Citizens] are concerned about usability, reliability, and affordability. They will be one of the main user of the system. Citizens want this system to run correctly and notify them with the reliable information. They also want to have this system to be as affordable as possible.
+\item[Insurance companies] are concerned about reliability, profitability, and affordability. The damages caused by flood sometimes are also covered by the insurance companies. Thus, the insurance companies will also be part of the stakeholders and they will make sure that their business is running well.
+\item[Local companies] are concerned about reliability, adaptability, and affordability. Local companies will also be affected by the flood, they also have a lot of resources that are in danger. Local companies want to know whether or not this system is reliable so that they can arrange a proper action sets when the flood comes to save their assets.
+\item[Emergency services] are concerned about usability, reliability, adaptability, and testability. Emergency services are important when any accident happens, including flood. They will be really concerned about the thing that makes this system reliable, adaptable to their current system, and could be tested in order to make sure things are running correctly.
+\end{description}
+
+Table \ref{table:stakeholder_concern} illustrates the stakeholder concern matrix. In our approach, each stakeholder receives 100 points in total that has to be distributed among all the concerns.
+
+\begin{table}[!htbp] \centering
+	\caption{Matrix of stakeholders concern.}
+	\label{table:stakeholder_concern}
+    \begin{tabular}{@{} cl*{10}c @{}}
+        & & \multicolumn{7}{c}{\textbf{Concerns}} \\[2ex]
+        & & \rot{Usability} & \rot{Reliability} & \rot{Adaptability} & \rot{Profitability} 
+        & \rot{Affordability} & \rot{Maintainability} & \rot{Testability}\\
+        \cmidrule[1pt]{2-9}		
+        					  % usa  reli adap prof aff  main test
+        & Product owner			& 30 & 30 &    & 20 & 20 &    &    \\
+        & Developers			& 30 & 20 &    &    &    & 30 & 20 \\
+        & Competitors 			& 20 & 20 & 20 & 20 & 20 &    &    \\
+        & Government 			& 30 & 40 &    &    & 30 &    &    \\
+        & Citizens				& 30 & 30 &    &    & 40 &    &    \\
+        & Insurance companies	&    & 30 &    & 30 & 40 &    &    \\
+        & Local companies		&    & 30 & 30 &    & 40 &    &    \\
+ \rot{\rlap{\textbf{~Stakeholder}}}
+        & Emergency services	& 30 & 30 & 30 &    &    &    & 10 \\
+        \cmidrule{2-9}
+        & Total                	& 140 & 230 & 80 & 70 & 190 & 30  & 30 \\
+        \cmidrule{2-9}
+    \end{tabular}
+\end{table}
