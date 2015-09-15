@@ -2,9 +2,11 @@
 \section{Technical non-functional requirements}
 In this section, the technical non-functional requirements important to this system are discussed.
 
-\subsection{Resilience}
-The system will have many connected sensors, which can have failures. The system should be able to recognize such failures timely and recover from them without the QoS or the functionality of the system being affected. 
+\subsection{Reliability}
 
+\subsection{Resilience}
+The system will have many connected sensors, which can have failures. 
+The system should be able to recognize such failures timely and recover from them without the QoS or the functionality of the system being affected. 
 The system should be able to continue functioning with the same QoS in a situation where up to 5\% of the sensors suffer from failures.  % WM: is 5% realistic?
 
 \subsection{Interoperability}
@@ -12,6 +14,10 @@ The system has dependencies on third-party systems. For example, to make predict
 
 Not only for input, but also for output, the system will need to interoperate with third-party systems. If the system has registered a risk of a flood, it should interact with systems of emergency services and other authorities to alert them and sent relevant information.
 % TODO: how to measure? 
+
+\subsection{Security}
+The access to the system and datas must be controled by : a firewall and passwords .
+The sensors are connected to each other ( redundancy ... ) .
 
 % ============================================================
 % From Gerrit:
