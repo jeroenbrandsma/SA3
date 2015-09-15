@@ -11,6 +11,7 @@
 *.fls
 *.out
 *.toc
+report.pdf
 
 ## Intermediate documents:
 *.dvi
@@ -139,3 +140,4 @@ sympy-plots-for-*.tex/
 # WinEdt
 *.bak
 *.sav
+report.pdf
