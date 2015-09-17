@@ -1,11 +1,16 @@
 %!TEX root = ../report.tex
 \section{Technical non-functional requirements}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 89462d9aed40ba89fa89bfb24af73d5802479848
 In this section, the technical non-functional requirements important to this system are discussed.
 
-\subsection{Resilience}
-The system will have many connected sensors, which can have failures. The system should be able to recognize such failures timely and recover from them without the QoS or the functionality of the system being affected. 
+\subsection{Reliability}
 
+\subsection{Resilience}
+The system will have many connected sensors, which can have failures. 
+The system should be able to recognize such failures timely and recover from them without the QoS or the functionality of the system being affected. 
 The system should be able to continue functioning with the same QoS in a situation where up to 5\% of the sensors suffer from failures.  % WM: is 5% realistic?
 
 \subsection{Reliability}
@@ -26,6 +31,10 @@ The sensors are protected (connected to each others, redundancy)
 \subsection{Scalability}
 The system will be developed with more sensors and in more places.
 %New functionalities, for example GPS
+
+\subsection{Security}
+The access to the system and datas must be controled by : a firewall and passwords .
+The sensors are connected to each other ( redundancy ... ) .
 
 % ============================================================
 % From Gerrit:
