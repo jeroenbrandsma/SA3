@@ -1,5 +1,9 @@
 %!TEX root = ../report.tex
 \section{Technical non-functional requirements}
+<<<<<<< HEAD
+
+=======
+>>>>>>> 89462d9aed40ba89fa89bfb24af73d5802479848
 In this section, the technical non-functional requirements important to this system are discussed.
 
 \subsection{Reliability}
@@ -9,11 +13,24 @@ The system will have many connected sensors, which can have failures.
 The system should be able to recognize such failures timely and recover from them without the QoS or the functionality of the system being affected. 
 The system should be able to continue functioning with the same QoS in a situation where up to 5\% of the sensors suffer from failures.  % WM: is 5% realistic?
 
+\subsection{Reliability}
+The response time should be about NUMBER mS
+Failure rate ?
+% Data transmission
+
 \subsection{Interoperability}
 The system has dependencies on third-party systems. For example, to make predictions about the development of waterlevel, the system will need to retrieve information from water forecasting services. 
 
 Not only for input, but also for output, the system will need to interoperate with third-party systems. If the system has registered a risk of a flood, it should interact with systems of emergency services and other authorities to alert them and sent relevant information.
-% TODO: how to measure? 
+
+\subsection{Security}
+The access to the system and datas must be controled by : a firewall, passwords,hashcodes.
+The sensors are protected (connected to each others, redundancy)
+% TODO: how to measure?
+
+\subsection{Scalability}
+The system will be developed with more sensors and in more places.
+%New functionalities, for example GPS
 
 \subsection{Security}
 The access to the system and datas must be controled by : a firewall and passwords .
