@@ -4,8 +4,7 @@ In this section, the technical non-functional requirements important to this sys
 
 \subsection{Reliability or Resilience ? }
 
-The system will have many connected sensors, which can have failures. \\
-The system should be able to recognize such failures timely \\
+The system should be able to recognize sensors failures timely \\
 The system recover from failures without the QoS or the functionality of the system being affected. \\
 The margin of error tolerated has to be as low as possible .\\
 The system should be able to continue functioning with the same QoS in a situation where up to 5\% of the sensors suffer from failures. \\ % WM: is 5% realistic?
@@ -17,10 +16,9 @@ The response time and data transmission time are about 1 sec ( ? How to calculat
 
 \subsection{Interoperability}
 %The system has dependencies on third-party systems. For example, to make predictions about the development of waterlevel, 
-The system will retrieve information from water forecasting services.\\ 
+The system will retrieve information from water forecasting services (autorization of access to their database).\\ 
 The system will interact with the governement, emergency services and the citizens.\\
 
-<<<<<<< HEAD
 %Not only for input, but also for output, the system will need to interoperate with third-party systems. If the system has registered a risk of a flood, it should interact with systems of emergency services and other authorities to alert them and sent relevant information.
 % TODO: how to measure? 
 
@@ -33,7 +31,7 @@ The access to the system and datas is controled by a firewall and passwords .\\
 Only the developers and ??? can modify datas of the system.\\
 The sensors are connected to each other and control each other (some kind of redundancy).\\
 All system data must be backed up every 24 hours and the backup copies stored in a secure location which is not in the same building as the system.\\
-All communications between the system’s data server and clients must be encrypted.\\
+All communications between the system's data server and clients must be encrypted.\\
 
 
 
