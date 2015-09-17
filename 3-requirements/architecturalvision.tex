@@ -1,8 +1,16 @@
 %!TEX root = ../report.tex
 \section{Architectural vision}
-[This needs to be edited, depending on our final vision of the project]\\
-The smart flood monitoring system consists of multiple parts. First of all there is the monitoring part. This part monitors the current state of the environment. To achieve this, we need a lot of data. This data is obtained by sensors and weather data. First of all we use sensors to get the current water level of waterways. The data that is obtained through these sensors is monitored in a control station. In the control station works a person who keeps track of all the relevant information. 
 
-In case of an imminent flood a warning will be issued to the government and the citizens who live in the threatened area. This can be done in multiple ways. We issue a warning to the government, who then in their turn, warns the citizens. They do this by using the sirens that are installed through the netherlands. Besides this they also use the NL-Alert service. We can also do this by warning the citizens ourselves. We do this by sending a text message to all the people that are in the threatened area. This is done by sending text messages to all the phones that are connected to the celltowers of the providers. 
+\begin{figure}[h]
+\centering
+\includegraphics[width=90mm]{images/architecturalVision.png}
+\caption{Schematic overview of the flood monitoring system}
+\label{fig:architectural-vision}
+\end{figure}
 
-After a warning is send, the citizens can use our smartphone application to get a proper guidance to a safe place. The application gives the shortest route and takes obstacles into account. A citizen can report an obstacle to our system. This means the guidance part of out system becomes flexible. 
+The smart flood monitoring system consists of multiple parts. First of all there is the monitoring part. This part monitors the current state of the environment. To achieve this, we need a lot of data. This data is obtained by sensors and weather data. We use sensors to get the current water level of waterways. We also measure the density and structure of dikes. The data that is obtained through all sensors will be automatically processed. The processed information represents a risk level for the area in which the system is deployed.
+
+In case of an imminent flood a warning will be issued to the government and the citizens who live in the threatened area. We do this by issuing a warning to the government. In their turn the government uses their infrastructure to warn the citizens. In the Netherlands this infrastructure consists of a siren system and an SMS-system. Besides this people can also apply for our service. People who are subscribed to this service will receive a text message with more information about the (imminent) flood. 
+
+In case of a real flood the citizens who subscribed to our service will receive a text message with a route to a safe area. These text messages are personalized to the citizens. This means that when a flood happens, different people will have different routes to get to safety.
+%http://www.waterforum.net/Artikel/PrintArtikel.aspx?ID=9132
