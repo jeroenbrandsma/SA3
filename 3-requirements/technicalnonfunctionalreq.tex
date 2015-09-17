@@ -2,22 +2,35 @@
 \section{Technical non-functional requirements}
 In this section, the technical non-functional requirements important to this system are discussed.
 
-\subsection{Reliability}
+\subsection{Reliability or Resilience ? }
 
-\subsection{Resilience}
-The system will have many connected sensors, which can have failures. 
-The system should be able to recognize such failures timely and recover from them without the QoS or the functionality of the system being affected. 
-The system should be able to continue functioning with the same QoS in a situation where up to 5\% of the sensors suffer from failures.  % WM: is 5% realistic?
+The system will have many connected sensors, which can have failures. \\
+The system should be able to recognize such failures timely \\
+The system recover from failures without the QoS or the functionality of the system being affected. \\
+The margin of error tolerated has to be as low as possible .\\
+The system should be able to continue functioning with the same QoS in a situation where up to 5\% of the sensors suffer from failures. \\ % WM: is 5% realistic?
+
+\subsection{Performance}
+%Speed of operation
+The response time and data transmission time are about 1 sec ( ? How to calculate ) \\
 
 \subsection{Interoperability}
-The system has dependencies on third-party systems. For example, to make predictions about the development of waterlevel, the system will need to retrieve information from water forecasting services. 
+%The system has dependencies on third-party systems. For example, to make predictions about the development of waterlevel, 
+The system will retrieve information from water forecasting services.\\ 
+The system will interact with the governement, emergency services and the citizens.\\
 
-Not only for input, but also for output, the system will need to interoperate with third-party systems. If the system has registered a risk of a flood, it should interact with systems of emergency services and other authorities to alert them and sent relevant information.
+%Not only for input, but also for output, the system will need to interoperate with third-party systems. If the system has registered a risk of a flood, it should interact with systems of emergency services and other authorities to alert them and sent relevant information.
 % TODO: how to measure? 
 
 \subsection{Security}
-The access to the system and datas must be controled by : a firewall and passwords .
-The sensors are connected to each other ( redundancy ... ) .
+The access to the system and datas is controled by a firewall and passwords .\\
+Only the developers and ??? can modify datas of the system.\\
+The sensors are connected to each other and control each other (some kind of redundancy).\\
+All system data must be backed up every 24 hours and the backup copies stored in a secure location which is not in the same building as the system.\\
+All communications between the system’s data server and clients must be encrypted.\\
+
+\subsection{Scalability}
+The system will be able to cover more areas and use more sensors in the future.
 
 % ============================================================
 % From Gerrit:
