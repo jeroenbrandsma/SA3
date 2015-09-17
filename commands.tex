@@ -3,3 +3,99 @@
 \newcommand{\attention}[1]{\textcolor{green}{#1}}
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
 \newcommand{\cellBox}[1]{\pbox{0.6\textwidth}{#1}}
+
+% Commands for rotating table header
+\newcommand*\rot{\rotatebox{90}}
+\newcommand*\OK{\ding{51}}
+
+%command to decrease the size it takes to write
+%L{0.5\textwidth}. This will now be:
+%L{\tw{0.5}}. A small difference, but it adds up
+\newcommand{\tw}[1]{#1\textwidth}
+
+\makeatletter
+
+%manually lable something
+%like \manuallabel{fr:01}{The first req}
+% \ref{fr:01} will then hold "The first req"
+\newcommand{\manuallabel}[2]{\def\@currentlabel{#2}\label{#1}}
+
+\newcommand{\getNext}[1]{%
+%check if counter with that name excists
+  \@ifundefined{c@#1}
+    {% the counter doesn't exist
+     \newcounter{#1}\setcounter{#1}{1}%
+    }
+    {% the counter exists
+     \stepcounter{#1}%
+    }%
+}
+
+\newcommand{\getNr}[1]{%
+	\getNext{1}
+	\arabic{#1}
+}
+
+\newcommand{\nextNrRef}[1]{%
+	\getNext{#1}
+	\manuallabel{#1:\arabic{#1}}{\arabic{#1}}
+	\arabic{#1}
+}
+
+\newcommand{\nextNrRefl}[2]{%
+	\nextNrRef{#1}
+	\manuallabel{#1:#2}{\arabic{#1}}
+}
+
+\newcommand{\req}[1]{%
+	\uppercase{#1}-\nextNrRef{#1}
+}
+
+\newcommand{\reql}[2]{%
+	\req{#1}
+	\manuallabel{#1:#2}{\arabic{#1}}
+}
+
+\newcommand{\frReqRow}[3]{%
+	\midrule
+	\phantomsection
+	\manuallabel{fr:#1}{#1} 	
+	FR-#1 &
+	\ifcase\pdfstrcmp{#2}{Must}%
+	   \textbf{#2}
+	\else
+	  #2
+	\fi
+	 &
+	#3
+	\\
+}
+
+\newcommand{\reqRow}[4]{%
+	\midrule
+	\phantomsection
+	\manuallabel{#1:#2}{#2} 	
+	\uppercase{#1}-#2 &
+	\ifcase\pdfstrcmp{#3}{Must}%
+	   \textbf{#3}
+	\else
+	  #3
+	\fi
+	 &
+	#4
+	\\
+}
+
+\makeatother
+
+
+
+%\makeatletter
+%\newcommand{\req}[1]{%
+%	\newcommand{\curCountVal}{\arabic{\getNr{#1}}}
+%	\label{\curCountVal}
+%}
+%\makeatother
+
+%	\label{#1:\arabic{#1}}
+%	\arabic{#1}

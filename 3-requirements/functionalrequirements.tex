@@ -1,95 +1,60 @@
 %!TEX root = ../report.tex
 \section{Functional requirements}
-\begin{longtable}{p{0.1\textwidth} p{0.1\textwidth} p{0.8\textwidth}}
+\begin{longtable}{L{0.1\textwidth} L{0.12\textwidth} L{0.78\textwidth}}
+
+% GK: General, try to make the requirements one sentence. Not possible for all, but for most it is.
+% GK: Try to have a sequential story in your requirements. FR18 and FR17 should be higher in the list/have lower number, because they are needed for other requirements
+% 
     \textbf{Nr.} & \textbf{Prio}  & \textbf{Description} \\
     
-    \hline \phantomsection \label{fr:1} FR-1 & 
-    \phantomsection  \textbf{Must} &
-    \phantomsection  The system is able to receive and process input from sensors with regards to the water level. This information will be used to determine if there is an imminent flood. \\
+    \frReqRow{1}{Must}{The system is able to receive and process input from sensors with regards to the water level. This information will be used to determine if there is an imminent flood.}
+    % GK: In what way is the information delivered from the sensors?
+    %   WM: Is that not for analysis?
     
-    \hline \phantomsection \label{fr:2} FR-2 & 
-    \phantomsection  \textbf{Must} &
-    \phantomsection  The system is able to receive and process input from sensors with regards to the pressure/consistency of the dykes. This information will be used to determine if there is an imminent flood. \\
-    
-    \hline \phantomsection \label{fr:3} FR-3 & 
-    \phantomsection  \textbf{Must} &
-    \phantomsection  The system retrieves weather forecasting data from weather forecasting services. The retrieved weather forecasting data consists of predictions about the precipitation and wind data. This data will be used by the system to help in determining when a flood becomes imminent.
-     \\
+	\frReqRow{2}{Must}{The system is able to receive and process input from sensors with regards to the pressure/consistency of the dykes. This information will be used to determine if there is an imminent flood.}
+
+    \frReqRow{3}{Must}{The system retrieves weather forecasting data from weather forecasting services. The retrieved weather forecasting data consists of predictions about the precipitation and wind data and is used by the system to help in determining when a flood becomes imminent.}
      
-    \hline \phantomsection \label{fr:4} FR-4 & 
-    \phantomsection  \textbf{Must} &
-    \phantomsection  The system is able to detect from the sensor data and weather forecast information when a flood is imminent. \\ % what are the criteria for an imminent flood??
+    \frReqRow{4}{Must}{ The system is able to detect from the sensor data and weather forecast information when a flood is imminent.}
     
-    \hline \phantomsection \label{fr:5} FR-5 & 
-    \phantomsection  \textbf{Must} &
-    \phantomsection The system can compute (from geographic information) the area which will be affected by a flood. \\
+    \frReqRow{5}{Must}{ The system has access to geographic information, including road data and terrain height data.}
+        
+    \frReqRow{6}{Must}{ The system can determine the area affected by a flood, by using the location data of the sensors and geographic information.}
     
-    \hline \phantomsection \label{fr:6} FR-6 & 
-    \phantomsection  \textbf{Must} &
-    \phantomsection The system is able to collect information pertaining to the severity of the flood. The severity can be deducted from the expected water level, how fast the water level in the flood area will rise, and by the number of civilians living in the affected area (population density). \\
+    \frReqRow{7}{Must}{ The system computes (from geographic information) the area which will be affected by a flood.}
+    %GK: be careful with exactness in this, add some estimation
+
+    \frReqRow{8}{Must}{ The system collects information pertaining to the severity of the flood: the expected water level, how fast the water level in the flood area will rise, and the number of civilians living in the affected area (population density).}
     
-    \hline \phantomsection \label{fr:7} FR-7 & 
-    \phantomsection  \textbf{Must} &
-    \phantomsection The system provides emergency services with information about the flood. This includes the area affected by the flood and information needed to deduct the severity of the flood. \\
+    \frReqRow{9}{Must}{ The system provides emergency services with information about the flood. This includes the area affected by the flood and information needed to deduct the severity of the flood.}
     
-	\hline \phantomsection \label{fr:8} FR-8 & 
-    \phantomsection  \textbf{Must} &
-    \phantomsection  When a flood is imminent, the system should send a warning to the emergency services and to the authorities.\\
+	\frReqRow{10}{Must}{ When a flood is imminent, the system sends a warning to the emergency services and to the authorities. The warning contains information about the area affected by the flood. }\\
     % what info is in the warning
     % who is that: authorities?
     
-    \hline \phantomsection \label{fr:9} FR-9 & 
-    \phantomsection  \textbf{Must} &
-    \phantomsection  The system is able to compute a safe route to a safe area where citizens can be evacuated to in case of an (imminent) flood. \\    
+    \frReqRow{11}{Must}{ The system is able to compute a safe route, free of obstruction and floods, to a safe area, not affected by the flood, where citizens can be evacuated to in case of an (imminent) flood.}
+    
+    \frReqRow{12}{Must}{The system is able to receive and process input from sensors with regards to the pressure/consistency of the dykes. This information will be used to determine if there is an imminent flood.}
+    
+    \frReqRow{13}{Must}{Citizens are warned about imminent floods through an app.}
+    
+    \frReqRow{14}{Must}{The location of citizens who are warned through the app can be determined in order to supply them with a safe route to a safe area.}
+	
+    \frReqRow{15}{Must}{ The system is able to predict the development of the water level. This information can be used to predict how fast a flood will develop. }
+	
+    \frReqRow{16}{Must}{ The system uses different sources to confirm imminent flood warnings, in order to limit false positives. } % not very specific yet
+	
+    \frReqRow{17}{Must}{ The system can detect a faulty sensor, either when the sensor raises an error or when the data from the sensor is inconsistent with other sensor data. }
+    
+    \frReqRow{18}{Must}{ There is a control panel, where an overview of warnings and errors of the system can be viewed. }
+	
+    \frReqRow{19}{Must}{ The system can detect and report faulty sensors, so these sensors can be repaired or replaced. } %how will it be reported and to whom?? \\
+    
+	\frReqRow{20}{Must}{ In case of a flood, the system provides emergency services with safe routes to incident locations. }
+    
+    \frReqRow{21}{Must}{ The system can determine the location of an emergency vehicle, so it is able to compute a safe route to incident locations. }
 
-    \hline \phantomsection \label{fr:10} FR-10 & 
-    \phantomsection  \textbf{Must} &
-    \phantomsection  When a flood is imminent, the system should send a warning to citizens who are subscribed for such warnings. This warning will contain information about how to get to a safe area. \\
-	
-    \hline \phantomsection \label{fr:11} FR-11 & 
-    \phantomsection  \textbf{Must} &
-    \phantomsection  The system is able to predict the development of the water level. This information can be used to predict how fast a flood will develop. \\
-	
-    \hline \phantomsection \label{fr:12} FR-12 & 
-    \phantomsection  \textbf{Must} &
-    \phantomsection The system uses different sources to confirm imminent flood warnings, in order to limit false positives. \\% not very specific yet
-	
-    \hline \phantomsection \label{fr:13} FR-13 & 
-    \phantomsection  \textbf{Must} &
-    \phantomsection The system can detect a faulty sensor, either when the sensor raises an error or when the data from the sensor is inconsistent with other sensor data. \\
-	
-    \hline \phantomsection \label{fr:14} FR-14 & 
-    \phantomsection  \textbf{Must} &
-    \phantomsection The system can report faulty sensors, so these sensors can be repaired or replaced. \\ %how will it be reported and to whom?? \\
+    \frReqRow{22}{Optional}{ The system is able to detect extreme weather phenomena, like storms etc. }
     
-	\hline \phantomsection \label{fr:15} FR-15 & 
-    \phantomsection  \textbf{Must} &
-    \phantomsection In case of a flood, the system will provide emergency services with safe routes to incident locations. \\
-    
-    \hline \phantomsection \label{fr:16} FR-16 & 
-    \phantomsection  \textbf{Must} &
-    \phantomsection Citizens are able to subscribe to flood warning messages. \\
-    % TODO: we need to decide how citizens will subscribe: web page, app??
-    
-    \hline \phantomsection \label{fr:17} FR-17 & 
-    \phantomsection  \textbf{Must} &
-    \phantomsection The system has access to geographic information, including road data and terrain height data. \\
-    
-    \hline \phantomsection \label{fr:18} FR-18 & 
-    \phantomsection  \textbf{Must} &
-    \phantomsection The system can determine the area affected by a flood, by using the location data of the sensors and geographic information. \\
-    
-    \hline \phantomsection \label{fr:19} FR-19 & 
-    \phantomsection  \textbf{Must} &
-    \phantomsection The system can determine the location of the citizen, after he/she is warned about a flood, in order to compute a safe route to a safe area. \\
-    
-    \hline \phantomsection \label{fr:20} FR-20 & 
-    \phantomsection  \textbf{Must} &
-    \phantomsection The system can determine the location of an emergency vehicle, so it is able to compute a safe route to incident locations. \\
-    
-    
-	
-    \hline \phantomsection \label{fr:21} FR-21 & 
-    \phantomsection  Future &
-    \phantomsection The system is able to detect extreme weather phenomena, like storms etc. \\
+    \bottomrule
 \end{longtable}
