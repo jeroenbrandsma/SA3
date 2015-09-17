@@ -1,9 +1,20 @@
 %!TEX root = ../report.tex
 \section{Risk assessment}
 
-\begin{itemize}
-	\item \req{ri}: The warning system does not detect floods in time
-	\item \req{ri}: The system sends warnings of a non-excising flood (false positive), making people more negligent to future messages.
-	\item \req{ri}: The system can't send messages to the necessary people because the communication platform is also destroyed by the flood.
-	\item \req{ri}: The system sends incorrect information, causing extra damage.
-\end{itemize}
+\begin{longtable}{L{0.1\textwidth} L{0.0\textwidth} L{0.7\textwidth}}
+	\textbf{Nr.} &  & \textbf{Description} \\
+	\reqRow{risk}{1}{}{The warning system does not detect floods in time}
+	\reqRow{risk}{2}{}{The system sends warnings of a non-excising flood (false positive), making people more negligent to future messages.}
+	\reqRow{risk}{3}{}{The system can't send messages to the necessary people because the communication platform is also destroyed by the flood.}
+	\reqRow{risk}{4}{}{The system sends incorrect information, causing extra damage.}
+	\bottomrule
+\end{longtable}
+
+
+
+% \begin{itemize}
+% 	\item \req{ri}: The warning system does not detect floods in time
+% 	\item \req{ri}: The system sends warnings of a non-excising flood (false positive), making people more negligent to future messages.
+% 	\item \req{ri}: The system can't send messages to the necessary people because the communication platform is also destroyed by the flood.
+% 	\item \req{ri}: The system sends incorrect information, causing extra damage.
+% \end{itemize}
