@@ -14,7 +14,6 @@ The Smart Flood Monitor will cause a revolutionary innovation on the environment
 \CompanyName will not be the only competitor on the environmental monitoring market. This means \CompanyName will have to take their own strength and weaknesses into account. If we combine these qualities with an analysis of the opportunities and weaknesses on the market, we should be able to become a core part of the future environmental monitoring systems.\\\\
 
 Such an analysis is called a SWOT-analysis. 
-\missingfigure{Create table for SWOT elements}\\
 
 %%Strengths
 %\newcommand{\Strengths}{
@@ -60,11 +59,11 @@ Such an analysis is called a SWOT-analysis.
 \newcommand{\Strengths}{
 \SwotItems{
 	\item An easily adjustable system that is future proof
-	\item Having a low selling place. Lower then the compatitors
+	\item Having a low selling price. Lower then the competitors
 	\item Having a good management team
 	\item Frequent discussion with technical and business experts in the field.
 	\item Main features don't focus on user-interaction.
-	\item Having a reletively big project team
+	\item Having a relatively big project team
 	\item Financial stability
 }
 }
@@ -96,82 +95,23 @@ Such an analysis is called a SWOT-analysis.
 }
 }
 
-\usetikzlibrary{matrix}
+\input{2-business/swotfigurecode.tex}
 
-\colorlet{helpful}{lime!70}
-\colorlet{harmful}{red!30}
-\colorlet{internal}{yellow!20}
-\colorlet{external}{cyan!30}
-\colorlet{S}{helpful!50!internal}
-\colorlet{W}{harmful!50!internal}
-\colorlet{O}{helpful!50!external}
-\colorlet{T}{harmful!50!external}
-
-\newcommand{\texta}{Helpful\\ \tiny (to achieve the objective)\par}
-\newcommand{\textb}{Harmful\\ \tiny (to achieve the objective)\par}
-\newcommand{\textcn}{Internal origin\\ \tiny (product\slash company attributes)\par}
-\newcommand{\textdn}{External origin\\ \tiny (environment\slash market attributes)\par}
-
-\newcommand{\back}[1]{\fontsize{60}{70}\selectfont #1}
-
-\begin{tikzpicture}[
-    any/.style={minimum width=8cm,minimum height=10cm,%
-                 text width=7cm,align=center,outer sep=0pt},
-    header/.style={any,minimum height=1cm,fill=black!10},
-    leftcol/.style={header,rotate=90},
-    mycolor/.style={fill=#1, text=#1!60!black}
-]
-
-\matrix (SWOT) [matrix of nodes,nodes={any,anchor=center},%
-                column sep=-\pgflinewidth,%
-                row sep=-\pgflinewidth,%
-                row 1/.style={nodes=header},%
-                column 1/.style={nodes=leftcol},
-                inner sep=0pt]
-{
-          &|[fill=helpful]| {\texta} & |[fill=harmful]| {\textb} \\
-|[fill=internal]| {\textcn} & |[mycolor=S]| \back{S} & |[mycolor=W]| \back{W} \\
-|[fill=external]| {\textdn} & |[mycolor=O]| \back{O} & |[mycolor=T]| \back{T} \\
-};
-
-%\node[below right, any] at (SWOT-2-2.north west) {\Strengths};
-\node[any, anchor=center] at (SWOT-2-2) {\Strengths};
-\node[any, anchor=center] at (SWOT-2-3) {\Weaknesses};
-\node[any, anchor=center] at (SWOT-3-2) {\Opportunities};
-\node[any, anchor=center] at (SWOT-3-3) {\Threats};
-\end{tikzpicture}
-
-Our unique selling point is to provide a system with low selling price and high profit from the service contracts and upgrades.
-\todo{More \ignore{BS} on High ROI?}
-
-%http://www.reuters.com/article/2015/03/10/us-disaster-risk-food-idUSKBN0M61G620150310
-%http://www.emdat.be/natural-disasters-trends
-
-\section{Business objectives}
-Main problem: natural disasters cause too much damage\\
-Main objective: reduce natural disaster damage costs by 20\%
-
+The unique selling point's of our system are: 
 \begin{itemize}
-	\item \req{bp}: People don't know when a natural disaster is about to happen
-	\item \req{bp}: People don't know how to prepare for a natural disaster
-	\item \req{bp}: People don't know what to do during a natural disaster
+	\item To provide a system with low selling price and high profit from the service contracts and upgrades.
+	\item Warn the people in and around the area as soon as possible if the system is very certain that a flood is or will happen.
+	\item Inform people about the details of the flood so the right preparations are made. 
+	\item Inform people how to save themselves, others or goods.
 \end{itemize}
 
+This way, people will know when an area get's flooded, or when it's about to happen. People who requested it, will get informed on how to prepare for the flood and what to do during the flood.\\
+These features are things that are be unique for our system and that will make successful. However, the project isn't yet successful when the system implemented these features. The main goal of this project is to safe lives, reduce costs and reduce social consequences. This will be satisfied when:
 \begin{itemize}
-	\item \req{bo}: Warn the people in and around the area of a flood, at least 1 hour in advance.
-	\item \req{bo}: Inform people about the details of the flood so the right preparations are made. 
-	\item \req{bo}: Inform people how to save themselves, others or goods.
+	\item 80\% of the people in a dangerous area regarding a flood, receive a warning message. This message must contain enough information for receivers to know whether they are save or not and if not, how they can get to a save location.
+	\item 80\% of the people who receive a warning successfully get to a safe environment in time.
+	\item 80\% of the people receiving information before or during a flood, find these messages helpful and reported that it guided them successfully in order to save extra lives and/or goods.
 \end{itemize}
-
-\section{Success metrics}
-\begin{itemize}
-	\item \req{sm}: 80\% of the people in a dangerous area regarding a flood,  receive a warning message.
-	\item \req{sm}: 80\% of the people who receive a warning successfully get to a safe environment in time.
-	\item \req{sm}: 80\% of the people that received information before or during a flood, reported it helped them save extra lives or goods.
-\end{itemize}
-
-
-
 
 \section{Business assumptions and dependencies}
 \begin{itemize}
@@ -190,7 +130,7 @@ Main objective: reduce natural disaster damage costs by 20\%
 \end{itemize}
 \subsection{Scope of Initial and subsequent releases}
 \todo{create fancy images}
-\todo{If you want to make this distinction you should mention the functionalities of the first version too. Use some charts to show the progress during time from business and technical perspective.}
+\todo{If you want to make this distinction you should mention the functionality of the first version too. Use some charts to show the progress during time from business and technical perspective.}
 
 The initial release will only focus on floods as a natural disaster. The subsequent releases will further increase the different kinds of natural disasters that are supported by the system.\\
 
@@ -206,7 +146,7 @@ The initial release will only focus on floods as a natural disaster. The subsequ
 \section{Product and service description}
 \todo{move up?}
 
-The product is a flood warning system. When there is a high tread of a flood that is probably coming a warning system will be triggered to warm people in the area. The company will provide a complete package of software and hardware. The hardware part will consist of products which are currently available on the market. In the future the product must be scalable to install new innovations. For customers it must be possible to interact with other systems they use.
+The product is a flood warning system. When there is a high tread of a flood that is probably coming a warning system will be triggered to warm people in the area. The company will provide a complete package of software and hardware. The hardware part will consist of products which are currently available on the market. In the future the product must be scaleable to install new innovations. For customers it must be possible to interact with other systems they use.
 
 The service will consist of maintenance for the product and upgrades.
 
