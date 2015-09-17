@@ -8,6 +8,7 @@ This section will describe the technical aspects that are important to the syste
 % The response time should be about NUMBER mS
 % Failure rate ?
 % Data transmission
+% The margin of error tolerated has to be as low as possible .\\ GK: Margin of error in what aspect?
 \begin{longtable}{L{0.1\textwidth} L{0.12\textwidth} L{0.7\textwidth}}
 	\textbf{Nr.} & \textbf{Prio}  & \textbf{Description} \\
 	\reqRow{rel}{1}{Must}{Sensorsites are equiped with atleast two sensors}
@@ -19,8 +20,15 @@ This section will describe the technical aspects that are important to the syste
 The system needs to be resilliant to recover from errors and mistakes without impacting the systems functionality.
 \begin{longtable}{L{0.1\textwidth} L{0.12\textwidth} L{0.7\textwidth}}
 	\textbf{Nr.} & \textbf{Prio}  & \textbf{Description} \\
-	\reqRow{res}{1}{Must}{The system continues to function with the same \qos in a situation where up to 5\% of the sensors suffer from failures.} % WM: is 5% realistic?
-	\reqRow{res}{2}{Must}{The system recognizes failures within an hour and recovers from them without the \qos or the functionality of the system being affected.}
+	\reqRow{res}{1}{Must}{The system recognizes failures within an hour and recovers from them without the \qos or the functionality of the system being affected.}
+	\reqRow{res}{2}{Must}{The system continues to function with the same \qos in a situation where up to 5\% of the sensors suffer from failures.} % WM: is 5% realistic?
+	\bottomrule
+\end{longtable}
+
+\subsection{Performance}
+\begin{longtable}{L{0.1\textwidth} L{0.12\textwidth} L{0.7\textwidth}}
+	\textbf{Nr.} & \textbf{Prio}  & \textbf{Description} \\
+	\reqRow{perf}{1}{Must}{The response time and data transmission time are about 1 sec} % How to calculate GK: Doesn't really matter for requirements, but good to think about. Also: response time to what? Request? Detecting floods? Furthermore, 10 (just saying something) GB of data is not transferable witihin 1 second if you include connection setup time etc etc
 	\bottomrule
 \end{longtable}
 
@@ -42,16 +50,23 @@ The system needs to be resilliant to recover from errors and mistakes without im
 	\reqRow{sec}{1}{Must}{Access to the system is restricted to user accounts that are stored in a database.}
 	\reqRow{sec}{2}{Must}{User account information are hashed using bcrypt after being salted with 128 randomly generated characters.}
 	\reqRow{sec}{3}{Must}{The system is protected by a firewall that atleast scans at the application layer, while also scanning for and preventing DDoS attacks.}
+	\reqRow{sec}{1}{Must}{All communication to, from and within the system are encrypted.}
 	\reqRow{sec}{4}{Must}{The system communicates with it's sensors via a REST API that only allows for HTTPS connection.} % Do we want to communicate with the sensors via REST?
+	\reqRow{sec}{5}{Must}{All system data must be backed up every 24 hours.}
+	\reqRow{sec}{6}{Must}{Backup copies are stored in a secure location which is not in the same building as the system.}
+	\reqRow{sec}{5}{Must}{All system data must be backed up every 24 hours and the backup copies stored in a secure location which is not in the same building as the system.}
+	
 	\bottomrule
 \end{longtable}
 % TODO: how to measure?
 
 \subsection{Scalability}
+% The system will be able to cover more areas and use more sensors in the future. GK: too vague, but added scale-3 based on this idea
 \begin{longtable}{L{0.1\textwidth} L{0.12\textwidth} L{0.7\textwidth}}
 	\textbf{Nr.} & \textbf{Prio}  & \textbf{Description} \\
 	\reqRow{scale}{1}{Must}{The database and services run in parallel on a private cloud that is hosted within the Netherlands} % do we want a private cloud?\
 	\reqRow{scale}{2}{Must}{Cassandra is used as database for the storage of the sensordata} % do we want to use cassandra?
+	\reqRow{scale}{2}{Must}{Cassandra is used as database for the storage of the sensordata} %
 	\bottomrule
 \end{longtable}
 % The system will be developed with more sensors and in more places.
