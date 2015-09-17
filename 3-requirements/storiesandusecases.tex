@@ -5,53 +5,84 @@
 \textbf{Level:} Main process\\\\
 \textbf{Primary actor:} Citizen\\\\
 \textbf{Stakeholders and interests:}\\
-	1. Government - the government wants to warn the citizens in case of a flood \\
-	2. Citizens - citizens want to be warned in case of a flood \\\\
+	1. Citizens - citizens want to be warned in case of a flood \\\\
 \textbf{Precondition:} There is an upcoming flood and the citizens are not warned\\
-\textbf{Postcondition:} There is a flood and the citizens are warned\\\\
+\textbf{Postcondition:} There is an upcoming flood and the citizens are warned\\\\
 \textbf{Main succes scenario:} \\
-1 - There is the threat of an upcoming flood.\\
-2 - A warning mechanism is triggered.\\
-3 - The authorities are warned about the upcoming flood.\\
-4 - The authorities use their systems to warn the citizens.\\
-5 - The citizens are warned and can move to a safer place.\\\\
+1 - The sensors send the data to the processing unit.\\
+2 - The processing unit determines there is an imminent flood.\\
+3 - The processing unit generates a map with vulnerable areas.\\
+4 - A text message with a warning is send to all subscribers in the vulnerable area.\\\\
 \textbf{Extensions:} \\
-2a - The flood doesn't get to dangerous, it retreats. No warning mechanism is triggered.
+2a - The flood doesn't get to dangerous, it retreats. No warning mechanism is triggered.\\
+4a - The citizen is not in the vulnerable area. No text message is send.
+
+\todo{Discussion on main succes scenario step 4: How do we send a warning to the government. Also extension nr 5.}
+\subsection{Government and emergency services receive a warning about an upcoming flood}
+\textbf{Scope:} Warning part of the system\\\\
+\textbf{Level:} Main process\\\\
+\textbf{Primary actor:} Government, Emergency services\\\\
+\textbf{Stakeholders and interests:}\\
+	1. Government - the government wants to warn the citizens in case of a flood \\
+	2. Emergengy services - the emergency services want to help the citizens in times of need.\\\\
+\textbf{Precondition:} There is an upcoming flood and the government and emergency services are not warned\\
+\textbf{Postcondition:} There is an upcoming flood and the government and emergency services is warned\\\\
+\textbf{Main succes scenario:} \\
+1 - The sensors send their data to the processing unit.\\
+2 - The processing unit determines there is an upcoming flood.\\
+3 - The processing unit generates a map with vulnerable areas.\\
+4 - A warning attachted with the map is send to the government and the emergency services.\\
+5 - The system receives a confirmation that the government and the emergency services received the warning.\\\\
+\textbf{Extensions:} \\
+2a - The flood doesn't get to dangerous, it retreats. No warning mechanism is triggered.\\
+5a - No confirmation is received within 15 seconds. Send warning message in another way. 
 
 \subsection{A citizen requests guidance to get to a safe place in a flooded area}
 \textbf{Scope:} Guidance part of the system\\\\
 \textbf{Level:} Main process\\\\
 \textbf{Primary actor:} Citizen\\\\
 \textbf{Stakeholders and interests:}\\
-	1. Government - the government wants to guide the citizens to a safe place in case of a flood. \\
-	2. Citizens - citizens want to be guided to a safe place in case of a flood. \\\\
-\textbf{Precondition:} There is a flood and the citizen wants guidance to a safe place. \\
-\textbf{Postcondition:} Citizen is guided to a safe place. \\\\
+	1. Citizens - citizens want to be guided to a safe place in case of a flood. \\\\
+\textbf{Precondition:} There is a flood and the citizen is subscribed to the SMS service. \\
+\textbf{Postcondition:} Citizen received his personal route to safety. \\\\
 \textbf{Main succes scenario:} \\
-1 - There is a flood going on.\\
-2 - A citizen requests guidance to a safe place.\\
-3 - The citizen gets guidance through a smartphone.\\
-4 - The citizen makes it to the safe place.\\\\
+1 - The processing unit determined there is a flood.\\
+2 - The processing unit determines the optimal route for every known phone number.\\
+3 - The processing unit turns this route into a MMS message with the right directions.\\
+4 - The personal route is send through MMS message to all known phone numbers.\\\\
 \textbf{Extensions:} \\
-3a - Smartphone has no internet connection, provide latest information available.\\
-3b - GPS of smartphone doesn't work, provide the citizen with the right information to make decisions by himself.\\
-4a - Citizen can't make it to the safe place. Provide the citizen with a route to an alternative safe place.
+4a - MMS message can't be send. Wait a minute and try to resend.\\
 
-%If we decide to use user input
-\subsection{A citizen reports an obstruction}
+\subsection{The system receives data from the weather forecast service}
 \textbf{Scope:} Monitoring part of the system\\\\
 \textbf{Level:} Main process\\\\
-\textbf{Primary actor:} Citizen\\\\
+\textbf{Primary actor:} Developers\\\\
 \textbf{Stakeholders and interests:}\\
-	1. Citizen - A citizen wants to report an obstruction to make the guidance part more reliable. \\\\
-\textbf{Preconditions:} There is an obstruction which is not yet reported. \\
-\textbf{Postconditions:} There is an obstruction which is reported by a citizen and is known in the system. \\\\
+	1. Developers - Developers would like to have a simple to use API.\\\\
+\textbf{Precondition:} The system needs external data from a weather forecast service.\\
+\textbf{Postcondition:} The system received the forecast data.\\\\
 \textbf{Main succes scenario:} \\
-1 - There is an obstruction somewhere in the area. \\
-2 - The citizen opens our application on his smartphone. \\
-3 - The citizen reports the kind of obstruction and the location. \\
-4 - The system gets the obstruction information as input. \\
-5 - The obstruction is processed in the system and visible to other citizens. \\\\
+1 - The processing unit determines it needs forecast weather data.\\
+2 - A call is made to the weather forecast service.\\
+3 - The weather forecast service returns the requested data.\\\\
 \textbf{Extensions:} \\
-3a - The citizen doesn't know the location, GPS can be used in this case. If GPS doesn't work, the obstruction can't be reported. \\
-4a - The smartphone can't send the information. In this case, the obstruciton can't be reported. 
+3a - The data can't be returned. Repeat this process with another weather forecast service. If non is available, proceed monitoring without weather forecast data.\\
+
+%If we decide to use user input
+% \subsection{A citizen reports an obstruction}
+% \textbf{Scope:} Monitoring part of the system\\\\
+% \textbf{Level:} Main process\\\\
+% \textbf{Primary actor:} Citizen\\\\
+% \textbf{Stakeholders and interests:}\\
+% 	1. Citizen - A citizen wants to report an obstruction to make the guidance part more reliable. \\\\
+% \textbf{Preconditions:} There is an obstruction which is not yet reported. \\
+% \textbf{Postconditions:} There is an obstruction which is reported by a citizen and is known in the system. \\\\
+% \textbf{Main succes scenario:} \\
+% 1 - There is an obstruction somewhere in the area. \\
+% 2 - The citizen opens our application on his smartphone. \\
+% 3 - The citizen reports the kind of obstruction and the location. \\
+% 4 - The system gets the obstruction information as input. \\
+% 5 - The obstruction is processed in the system and visible to other citizens. \\\\
+% \textbf{Extensions:} \\
+% 3a - The citizen doesn't know the location, GPS can be used in this case. If GPS doesn't work, the obstruction can't be reported. \\
+% 4a - The smartphone can't send the information. In this case, the obstruciton can't be reported. 
