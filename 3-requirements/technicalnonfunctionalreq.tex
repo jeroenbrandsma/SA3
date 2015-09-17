@@ -1,41 +1,76 @@
 %!TEX root = ../report.tex
 \section{Technical non-functional requirements}
-In this section, the technical non-functional requirements important to this system are discussed.
+This section will describe the technical aspects that are important to the system as requirements. These requirements will determine various APIs and programms that the system will rely on.
 
-\subsection{Reliability or Resilience ? }
+% In this section, the technical non-functional requirements important to this system are discussed.
 
-The system will have many connected sensors, which can have failures. \\
-The system should be able to recognize such failures timely \\
-The system recover from failures without the QoS or the functionality of the system being affected. \\
-The margin of error tolerated has to be as low as possible .\\
-The system should be able to continue functioning with the same QoS in a situation where up to 5\% of the sensors suffer from failures. \\ % WM: is 5% realistic?
+\subsection{Reliability}
+% The response time should be about NUMBER mS
+% Failure rate ?
+% Data transmission
+% The margin of error tolerated has to be as low as possible .\\ GK: Margin of error in what aspect?
+\begin{longtable}{L{0.1\textwidth} L{0.12\textwidth} L{0.7\textwidth}}
+	\textbf{Nr.} & \textbf{Prio}  & \textbf{Description} \\
+	\reqRow{rel}{1}{Must}{Sensorsites are equiped with atleast two sensors}
+	\reqRow{rel}{2}{Must}{Data from the sensors is sent via a TCP connection} % Already mention REST here?
+	\bottomrule
+\end{longtable}
+
+\subsection{Resilience}
+The system needs to be resilliant to recover from errors and mistakes without impacting the systems functionality.
+\begin{longtable}{L{0.1\textwidth} L{0.12\textwidth} L{0.7\textwidth}}
+	\textbf{Nr.} & \textbf{Prio}  & \textbf{Description} \\
+	\reqRow{res}{1}{Must}{The system recognizes failures within an hour and recovers from them without the \qos or the functionality of the system being affected.}
+	\reqRow{res}{2}{Must}{The system continues to function with the same \qos in a situation where up to 5\% of the sensors suffer from failures.} % WM: is 5% realistic?
+	\bottomrule
+\end{longtable}
 
 \subsection{Performance}
-%Speed of operation
-The response time and data transmission time are about 1 sec ( ? How to calculate ) \\
-
+\begin{longtable}{L{0.1\textwidth} L{0.12\textwidth} L{0.7\textwidth}}
+	\textbf{Nr.} & \textbf{Prio}  & \textbf{Description} \\
+	\reqRow{perf}{1}{Must}{The response time and data transmission time are about 1 sec} % How to calculate GK: Doesn't really matter for requirements, but good to think about. Also: response time to what? Request? Detecting floods? Furthermore, 10 (just saying something) GB of data is not transferable witihin 1 second if you include connection setup time etc etc
+	\bottomrule
+\end{longtable}
 
 \subsection{Interoperability}
-%The system has dependencies on third-party systems. For example, to make predictions about the development of waterlevel, 
-The system will retrieve information from water forecasting services.\\ 
-The system will interact with the governement, emergency services and the citizens.\\
+% The system has dependencies on third-party systems. For example, to make predictions about the development of waterlevel, the system will need to retrieve information from water forecasting services. Not only for input, but also for output, the system will need to interoperate with third-party systems. If the system has registered a risk of a flood, it should interact with systems of emergency services and other authorities to alert them and sent relevant information.
 
-<<<<<<< HEAD
-%Not only for input, but also for output, the system will need to interoperate with third-party systems. If the system has registered a risk of a flood, it should interact with systems of emergency services and other authorities to alert them and sent relevant information.
-% TODO: how to measure? 
-
-
-\subsection{Scalability}
-The system will be able to cover more areas and use more sensors in the future.
+\begin{longtable}{L{0.1\textwidth} L{0.12\textwidth} L{0.7\textwidth}}
+	\textbf{Nr.} & \textbf{Prio}  & \textbf{Description} \\
+	\reqRow{intr}{1}{Must}{The system pulls weather forecasts from five weather forecasting services.}
+	\reqRow{intr}{2}{Must}{The system pulls water forecasts from one water forecasting service.}
+	\reqRow{intr}{3}{Must}{When the system detects a high risk of flood, it warns the government automatically using the government provided API.}
+	\reqRow{intr}{4}{Must}{When the system detects a high risk of flood, it warns emergency services automatically using the API provided by the emergency services.}
+	\bottomrule
+\end{longtable}
 
 \subsection{Security}
-The access to the system and datas is controled by a firewall and passwords .\\
-Only the developers and ??? can modify datas of the system.\\
-The sensors are connected to each other and control each other (some kind of redundancy).\\
-All system data must be backed up every 24 hours and the backup copies stored in a secure location which is not in the same building as the system.\\
-All communications between the system’s data server and clients must be encrypted.\\
+\begin{longtable}{L{0.1\textwidth} L{0.12\textwidth} L{0.7\textwidth}}
+	\textbf{Nr.} & \textbf{Prio}  & \textbf{Description} \\
+	\reqRow{sec}{1}{Must}{Access to the system is restricted to user accounts that are stored in a database.}
+	\reqRow{sec}{2}{Must}{User account information are hashed using bcrypt after being salted with 128 randomly generated characters.}
+	\reqRow{sec}{3}{Must}{The system is protected by a firewall that atleast scans at the application layer, while also scanning for and preventing DDoS attacks.}
+	\reqRow{sec}{1}{Must}{All communication to, from and within the system are encrypted.}
+	\reqRow{sec}{4}{Must}{The system communicates with it's sensors via a REST API that only allows for HTTPS connection.} % Do we want to communicate with the sensors via REST?
+	\reqRow{sec}{5}{Must}{All system data must be backed up every 24 hours.}
+	\reqRow{sec}{6}{Must}{Backup copies are stored in a secure location which is not in the same building as the system.}
+	\reqRow{sec}{5}{Must}{All system data must be backed up every 24 hours and the backup copies stored in a secure location which is not in the same building as the system.}
+	
+	\bottomrule
+\end{longtable}
+% TODO: how to measure?
 
-
+\subsection{Scalability}
+% The system will be able to cover more areas and use more sensors in the future. GK: too vague, but added scale-3 based on this idea
+\begin{longtable}{L{0.1\textwidth} L{0.12\textwidth} L{0.7\textwidth}}
+	\textbf{Nr.} & \textbf{Prio}  & \textbf{Description} \\
+	\reqRow{scale}{1}{Must}{The database and services run in parallel on a private cloud that is hosted within the Netherlands} % do we want a private cloud?\
+	\reqRow{scale}{2}{Must}{Cassandra is used as database for the storage of the sensordata} % do we want to use cassandra?
+	\reqRow{scale}{2}{Must}{Cassandra is used as database for the storage of the sensordata} %
+	\bottomrule
+\end{longtable}
+% The system will be developed with more sensors and in more places.
+%New functionalities, for example GPS
 
 % ============================================================
 % From Gerrit:
