@@ -3,14 +3,146 @@
 \label{ch:business}
 The following section describes the different aspects of the business environment of the Smart Flood Monitor. First we will explain our vision and why there is place for us at the market. After this the product and its customers will be explained. This chapter is completed with a more detailed look at the business model and some models about the market and the financial prospect.
 
-%Start book template
-% from "Software Requirements" | (Alterded by Joris) 
-% ignored the section "Background" since this has allready been discussed in the previous context chapter.
-
 \section{Business opportunity}
 There are many natural disasters happening each year all over the world. Each year these disasters take lives, waste a lot of property and money and cause social disturbance. It is expected that natural disasters will cause \$300 billion in losses annually in the upcoming decade. Climate change causes the natural disasters to get worse every year. Also the number of natural disasters has increased significantly since 1970.\\
 Looking at, for example, the Indian ocean's tsunami in 2004, it looks that the damage could have been significantly reduced if the necessary people were warned. A system that would reduce the damage of natural disaster, could result in billions. \\
 A system that warns and guides the people before or during the floods can result in billions being saved and will save allot of lives.
+
+\section{Vision statement}
+The Smart Flood Monitor will cause a revolutionary innovation on the environmental monitoring market. \CompanyName will offer a system which can detect floods early and correctly. This system helps us to enforce our vision, to limit the social and financial consequences of floods and avoid the loss of human lives. 
+
+\CompanyName will not be the only competitor on the environmental monitoring market. This means \CompanyName will have to take their own strength and weaknesses into account. If we combine these qualities with an analysis of the opportunities and weaknesses on the market, we should be able to become a core part of the future environmental monitoring systems.\\\\
+
+Such an analysis is called a SWOT-analysis. 
+\missingfigure{Create table for SWOT elements}\\
+
+%%Strengths
+%\newcommand{\Strengths}{
+%An easily adjustable system that is future proof \\
+%Having a low selling place. Lower then the compatitors \\
+%Having a good management team \\
+%Frequent discussion with technical and business experts in the field. \\
+%Main features don't focus on user-interaction. \\
+%Having a reletively big project team \\
+%Financial stability \\
+%}
+%
+%\newcommand{\Weaknesses}{
+%Decisions need to be made by the entire project team. There is a higher chance of a difference of opinion is members, holding back the project and leads to time wastes \\
+%No experience with creating such system \\
+%Some main features rely on country-specific systems \\
+%}
+%
+%\newcommand{\Opportunities}{
+%Due to climate change, the market will grow and such a system becomes more urgent \\
+%With a bigger program team, the pros and cons of the decisions are more clear \\
+%Allowing the system to be flexible so it can also be used for other kinds of monitoring activities \\
+%Adding more ways the system can the people in dangerous areas \\
+%Though the team doesn't have direct experience in this field, the team does have experience with specific parts of the system \\
+%Allowing the system to support and use the newest sensors in order to obtain more, and a wider variaty of, information \\
+%}
+%
+%\newcommand{\Threats}{
+%New competitors will enter the market and Climate change will force to improve the system over time. \\
+%Changes of the external systems that our system uses to properly communicate. \\
+%The sizes of certain area's to monitor can be too big to get a good and reliable view of them \\
+%}
+
+\newcommand{\SwotItems}[1]{
+	\begin{itemize}
+	%\begin{minipage}[t][8cm]{5cm}
+		#1
+	%\end{minipage}	
+	\end{itemize}
+}
+
+%Strengths
+\newcommand{\Strengths}{
+\SwotItems{
+	\item An easily adjustable system that is future proof
+	\item Having a low selling place. Lower then the compatitors
+	\item Having a good management team
+	\item Frequent discussion with technical and business experts in the field.
+	\item Main features don't focus on user-interaction.
+	\item Having a reletively big project team
+	\item Financial stability
+}
+}
+
+\newcommand{\Weaknesses}{
+\SwotItems{
+	\item Decisions need to be made by the entire project team. There is a higher chance of a difference of opinion is members, holding back the project and leads to time wastes
+	\item No experience with creating such system
+	\item Some main features rely on country-specific systems
+}
+}
+
+\newcommand{\Opportunities}{
+\SwotItems{
+	\item Due to climate change, the market will grow and such a system becomes more urgent
+	\item With a bigger program team, the pros and cons of the decisions are more clear
+	\item Allowing the system to be flexible so it can also be used for other kinds of monitoring activities
+	\item Adding more ways the system can the people in dangerous areas
+	\item Though the team doesn't have direct experience in this field, the team does have experience with specific parts of the system
+	\item Allowing the system to support and use the newest sensors in order to obtain more, and a wider variaty of, information
+}
+}
+
+\newcommand{\Threats}{
+\SwotItems{
+	\item New competitors will enter the market and Climate change will force to improve the system over time.
+	\item Changes of the external systems that our system uses to properly communicate.
+	\item The sizes of certain area's to monitor can be too big to get a good and reliable view of them
+}
+}
+
+\usetikzlibrary{matrix}
+
+\colorlet{helpful}{lime!70}
+\colorlet{harmful}{red!30}
+\colorlet{internal}{yellow!20}
+\colorlet{external}{cyan!30}
+\colorlet{S}{helpful!50!internal}
+\colorlet{W}{harmful!50!internal}
+\colorlet{O}{helpful!50!external}
+\colorlet{T}{harmful!50!external}
+
+\newcommand{\texta}{Helpful\\ \tiny (to achieve the objective)\par}
+\newcommand{\textb}{Harmful\\ \tiny (to achieve the objective)\par}
+\newcommand{\textcn}{Internal origin\\ \tiny (product\slash company attributes)\par}
+\newcommand{\textdn}{External origin\\ \tiny (environment\slash market attributes)\par}
+
+\newcommand{\back}[1]{\fontsize{60}{70}\selectfont #1}
+
+\begin{tikzpicture}[
+    any/.style={minimum width=8cm,minimum height=10cm,%
+                 text width=7cm,align=center,outer sep=0pt},
+    header/.style={any,minimum height=1cm,fill=black!10},
+    leftcol/.style={header,rotate=90},
+    mycolor/.style={fill=#1, text=#1!60!black}
+]
+
+\matrix (SWOT) [matrix of nodes,nodes={any,anchor=center},%
+                column sep=-\pgflinewidth,%
+                row sep=-\pgflinewidth,%
+                row 1/.style={nodes=header},%
+                column 1/.style={nodes=leftcol},
+                inner sep=0pt]
+{
+          &|[fill=helpful]| {\texta} & |[fill=harmful]| {\textb} \\
+|[fill=internal]| {\textcn} & |[mycolor=S]| \back{S} & |[mycolor=W]| \back{W} \\
+|[fill=external]| {\textdn} & |[mycolor=O]| \back{O} & |[mycolor=T]| \back{T} \\
+};
+
+%\node[below right, any] at (SWOT-2-2.north west) {\Strengths};
+\node[any, anchor=center] at (SWOT-2-2) {\Strengths};
+\node[any, anchor=center] at (SWOT-2-3) {\Weaknesses};
+\node[any, anchor=center] at (SWOT-3-2) {\Opportunities};
+\node[any, anchor=center] at (SWOT-3-3) {\Threats};
+\end{tikzpicture}
+
+Our unique selling point is to provide a system with low selling price and high profit from the service contracts and upgrades.
+\todo{More \ignore{BS} on High ROI?}
 
 %http://www.reuters.com/article/2015/03/10/us-disaster-risk-food-idUSKBN0M61G620150310
 %http://www.emdat.be/natural-disasters-trends
@@ -33,31 +165,13 @@ Main objective: reduce natural disaster damage costs by 20\%
 
 \section{Success metrics}
 \begin{itemize}
+	\item \req{sm}: 80\% of the people in a dangerous area regarding a flood,  receive a warning message.
 	\item \req{sm}: 80\% of the people who receive a warning successfully get to a safe environment in time.
-	\item \req{sm}: 80\% of the people that received information (before or during) a flood, reported it helped them safe extra lives or goods.
+	\item \req{sm}: 80\% of the people that received information before or during a flood, reported it helped them save extra lives or goods.
 \end{itemize}
 
-\section{Vision statement}
-The Smart Flood Monitor will cause a revolutionary innovation on the environmental monitoring market. \CompanyName will offer a system which can detect floods early and correctly. This system helps us to enforce our vision, to limit the social and financial consequences of floods and avoid the loss of human lives. 
 
-\CompanyName will not be the only competitor on the environmental monitoring market. This means \CompanyName will have to take their own strength and weaknesses into account. If we combine these qualities with an analysis of the opportunities and weaknesses on the market, we should be able to become a core part of the future environmental monitoring systems.\\\\
 
-Such an analysis is called a SWOT-analysis. 
-\missingfigure{Create table for SWOT elements}\\
-Strengths: Quality of the product and low selling place.\\ 
-Weaknesses: No experience with creating such system\\
-Opportunities: Due to climate change, the market will grow and such a system becomes more urgent \\
-Threats: New competitors will enter the market and Climate change will force to improve the system over time. \\\\
-
-Our unique selling point is to provide a system with low selling price and profit from the service contracts and upgrades.
-
-\section{Business risks}
-\begin{itemize}
-	\item \req{ri}: The warning system does not detect floods in time
-	\item \req{ri}: The system sends warnings of a non-excising flood (false positive), making people more negligent to future messages.
-	\item \req{ri}: The system can't send messages to the necessary people because the communication platform is also destroyed by the flood.
-	\item \req{ri}: The system sends incorrect information, causing extra damage.
-\end{itemize}
 
 \section{Business assumptions and dependencies}
 \begin{itemize}
@@ -75,6 +189,9 @@ Our unique selling point is to provide a system with low selling price and profi
 		
 \end{itemize}
 \subsection{Scope of Initial and subsequent releases}
+\todo{create fancy images}
+\todo{If you want to make this distinction you should mention the functionalities of the first version too. Use some charts to show the progress during time from business and technical perspective.}
+
 The initial release will only focus on floods as a natural disaster. The subsequent releases will further increase the different kinds of natural disasters that are supported by the system.\\
 
 \todo{Create tables and diagrams of this?}
@@ -87,6 +204,8 @@ The initial release will only focus on floods as a natural disaster. The subsequ
 
 %\section{Business rationale}
 \section{Product and service description}
+\todo{move up?}
+
 The product is a flood warning system. When there is a high tread of a flood that is probably coming a warning system will be triggered to warm people in the area. The company will provide a complete package of software and hardware. The hardware part will consist of products which are currently available on the market. In the future the product must be scalable to install new innovations. For customers it must be possible to interact with other systems they use.
 
 The service will consist of maintenance for the product and upgrades.

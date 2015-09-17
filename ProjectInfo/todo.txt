@@ -1,0 +1,3 @@
+Create general table settings that can be used easily and create a more adjustable way of managing the tables.
+
+2.4: Swot maken
