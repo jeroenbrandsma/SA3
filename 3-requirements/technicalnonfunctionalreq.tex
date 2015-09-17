@@ -1,5 +1,9 @@
 %!TEX root = ../report.tex
 \section{Technical non-functional requirements}
+<<<<<<< HEAD
+
+=======
+>>>>>>> 89462d9aed40ba89fa89bfb24af73d5802479848
 In this section, the technical non-functional requirements important to this system are discussed.
 
 \subsection{Reliability or Resilience ? }
@@ -14,13 +18,31 @@ The system should be able to continue functioning with the same QoS in a situati
 %Speed of operation
 The response time and data transmission time are about 1 sec ( ? How to calculate ) \\
 
+\subsection{Reliability}
+The response time should be about NUMBER mS
+Failure rate ?
+% Data transmission
+
 \subsection{Interoperability}
 %The system has dependencies on third-party systems. For example, to make predictions about the development of waterlevel, 
 The system will retrieve information from water forecasting services.\\ 
 The system will interact with the governement, emergency services and the citizens.\\
 
+<<<<<<< HEAD
 %Not only for input, but also for output, the system will need to interoperate with third-party systems. If the system has registered a risk of a flood, it should interact with systems of emergency services and other authorities to alert them and sent relevant information.
 % TODO: how to measure? 
+=======
+Not only for input, but also for output, the system will need to interoperate with third-party systems. If the system has registered a risk of a flood, it should interact with systems of emergency services and other authorities to alert them and sent relevant information.
+
+\subsection{Security}
+The access to the system and datas must be controled by : a firewall, passwords,hashcodes.
+The sensors are protected (connected to each others, redundancy)
+% TODO: how to measure?
+
+\subsection{Scalability}
+The system will be developed with more sensors and in more places.
+%New functionalities, for example GPS
+>>>>>>> ed4a6bd9a7bd63aac3f0528076255e9713213e07
 
 \subsection{Security}
 The access to the system and datas is controled by a firewall and passwords .\\
