@@ -43,25 +43,55 @@ Decisions:
 %    \textbf{Arguments} & \\ \hline
 %\end{tabularx}
 
+A higher score means a more favourable result. Meaning a high score for costs means a low cost for the system.
+
 \begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
-    \textbf{Name} & \textbf{Linux} \\ \toprule
-    \textbf{Decision} & \textbf{\nextNrRef{dn}} \\ \midrule \midrule
-    \textbf{Status} & \textbf{New} \\ \midrule
-    \textbf{Problem/Issue} & The warning system software for the natural disasters need a platform to work on.  \\ \midrule
-    \textbf{Decision} &  The warning system will use Linux as a platform\\ \midrule
-    \textbf{Alternatives} & \cellBox{\textit{Linux}\\ Linux is a free platform that has proven itself and is used by many servers. It is reliable and more secure. } \\ \midrule
-    \textbf{Arguments} & \cellBox{} \\ \bottomrule
+    \textbf{Name} 			& \textbf{Linux} \\ \toprule
+    \textbf{Decision} 		& \textbf{DEC-}\textbf{\nextNrRef{dn}} \\ \midrule \midrule
+    \textbf{Status} 		& \textbf{New} \\ \midrule
+    \textbf{Problem/Issue} 	& The warning system software for the natural disasters need a platform to work on.  \\ \midrule
+    \textbf{Decision} 		&  The warning system will use Linux as a platform\\ \midrule
+    \textbf{Alternatives} 	& \textit{Linux}\\ 
+    						& Linux is a free platform that has proven itself and is used by many servers. It is reliable and more secure. \\ \midrule
+    \textbf{Arguments} 		& \\ \bottomrule
 \end{tabular}
 
-Connectivity of the sensors
-Sensors must be connecting to the system in some sort of way, there are various ways to connect:
-- mobile broadband
-- landline
-- satalite
-- direct lines
 
-mobile broadband is probably the best option because of reliability when floods happen.
+\begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
+    \textbf{Name} 			& \textbf{Connectivity of the sensors} \\ \toprule
+    \textbf{Decision} 		& \textbf{DEC-}\textbf{\nextNrRef{dn}} \\ \midrule \midrule
+    \textbf{Status} 		& \textbf{New} \\ \midrule
+    \textbf{Problem/Issue} 	& The sensors need to deliver their data to the system and are located outdoors with atleast 100m distance between each other.  \\ \midrule
+    \textbf{Decision} 		&  The sensors will send their data to the system using mobile broadband. Using cellphone towers to communicate with the system.\\ \midrule
+    \textbf{Alternatives} 	& \textit{Landline}\\ 
+    						& Connecting the sensors to the telephone network and use that network to communicate with the server.\\
+    \textbf{Arguments} 		& \\
+    						& 	\begin{tabular}{l|lllllll|l}
+							& 		\rot{Reliability} & \rot{Resilience} & \rot{Performance} & \rot{Interopertability} & \rot{Security} & \rot{Scalability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline 
+									Weight 				& 1 & 1 & 1 & 1 & 1 & 1 & 1 & \\ \hline
+									Mobile broadband 	& 4 & 4 & 4 & 4 & 2 & 5 & 4 & 27 \\
+									Landline 			& 2 & 2 & 3 & 4 & 3 & 3 & 5 & 22 \\
+									Satalite 		 	& 3 & 1 & 2 & 4 & 4 & 4 & 3 & 21 \\
+									Direct lines 		& 2 & 1 & 5 & 2 & 5 & 1 & 1 & 17 \\
+								\end{tabular} \\ \bottomrule
+\end{tabular}
 
-todo:
-sensors, which kind and which one
-defend database and cloud
+% Template:
+% We removed the status from the orignal entry, because we do not use this document to get confirmation on our decisions
+% \begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
+%     \textbf{Name} 			& \textbf{Topic} \\ \toprule
+%     \textbf{Decision} 		& \textbf{DEC-}\textbf{\nextNrRef{dn}} \\ \midrule \midrule
+%     \textbf{Problem/Issue} 	& A problem description \\ \midrule
+%     \textbf{Decision} 		& The method/product that has be chosen and why\\ \midrule
+%     \textbf{Alternatives} 	& \textit{Other option}\\ 
+%     							& Details about the other options\\
+%    \textbf{Arguments} 		& A short discussion of the cons and pro's supported by the table below\\
+%    						& 	\begin{tabular}{l|lllllll|l}
+%							& 		\rot{Reliability} & \rot{Resilience} & \rot{Performance} & \rot{Interopertability} & \rot{Security} & \rot{Scalability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline 
+%									weight 				& ? & ? & ? & ? & ? & ? & ? & ?\\ \hline
+%									Mobile broadband 	& ? & ? & ? & ? & ? & ? & ? & ?\\
+%									landline 			& ? & ? & ? & ? & ? & ? & ? & ?\\
+%									satalite 		 	& ? & ? & ? & ? & ? & ? & ? & ?\\
+%									direct lines 		& ? & ? & ? & ? & ? & ? & ? & ?\\
+%								\end{tabular} \\ \bottomrule
+% \end{tabular}
