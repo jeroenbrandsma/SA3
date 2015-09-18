@@ -33,15 +33,25 @@ Decisions:
 	\end{itemize}
 }
 
-%Clean decision table:
-%\begin{tabularx}{\textwidth}{ l l }
-%    \textbf{Name} & \textbf{Linux} \\ \hline
-%    \textbf{Decision} & \textbf{1} \\ \hline \hline
-%    \textbf{Status} & \textbf{New} \\ \hline
-%    \textbf{Decision} &  \\ \hline
-%    \textbf{Alternatives} & \\ \hline
-%    \textbf{Arguments} & \\ \hline
-%\end{tabularx}
+% Template for decision table:
+% We removed the status from the orignal entry, because we do not use this document to get confirmation on our decisions
+% \begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
+%     \textbf{Name} 			& \textbf{Topic} \\ \toprule
+%     \textbf{Decision} 		& \textbf{DEC-}\textbf{\nextNrRef{dn}} \\ \midrule \midrule
+%     \textbf{Problem/Issue} 	& A problem description \\ \midrule
+%     \textbf{Decision} 		& The method/product that has be chosen and why\\ \midrule
+%     \textbf{Alternatives} 	& \textit{Other option}\\ 
+%     							& Details about the other options\\
+%    \textbf{Arguments} 		& A short discussion of the cons and pro's supported by the table below\\
+%    						& 	\begin{tabular}{l|lllllll|l}
+%							& 		\rot{Reliability} & \rot{Resilience} & \rot{Performance} & \rot{Interopertability} & \rot{Security} & \rot{Scalability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline 
+%									weight 				& ? & ? & ? & ? & ? & ? & ? & ?\\ \hline
+%									Mobile broadband 	& ? & ? & ? & ? & ? & ? & ? & ?\\
+%									landline 			& ? & ? & ? & ? & ? & ? & ? & ?\\
+%									satalite 		 	& ? & ? & ? & ? & ? & ? & ? & ?\\
+%									direct lines 		& ? & ? & ? & ? & ? & ? & ? & ?\\
+%								\end{tabular} \\ \bottomrule
+% \end{tabular}
 
 A higher score means a more favourable result. Meaning a high score for costs means a low cost for the system.
 
@@ -50,12 +60,23 @@ A higher score means a more favourable result. Meaning a high score for costs me
     \textbf{Decision} 		& \textbf{DEC-}\textbf{\nextNrRef{dn}} \\ \midrule \midrule
     \textbf{Status} 		& \textbf{New} \\ \midrule
     \textbf{Problem/Issue} 	& The warning system software for the natural disasters need a platform to work on.  \\ \midrule
-    \textbf{Decision} 		&  The warning system will use Linux as a platform\\ \midrule
-    \textbf{Alternatives} 	& \textit{Linux}\\ 
-    						& Linux is a free platform that has proven itself and is used by many servers. It is reliable and more secure. \\ \midrule
-    \textbf{Arguments} 		& \\ \bottomrule
+    \textbf{Decision} 		&  The warning system will use Linux as a platform. Based on Unix, Linux is a free platform that has proven itself and is used by many servers. It's open source meaning that everyone can check out how it works.\\ \midrule
+    \textbf{Alternatives} 	& \textit{Windows}\\
+    						& Operating system is a closed platform developed by one of the biggest tech companies who provide a big development environment with it.\\
+    						& \textit{OpenBSD}\\
+    						& A Unix-based system that is famous for it's proactive security and runs most of the Linux applications. However, some software packages aren't certified to run on OpenBSD, but are for Linux.\\
+    \textbf{Arguments} 		& \\
+    						& 	\begin{tabular}{l|lllllll|l}
+							& 		\rot{Reliability} & \rot{Resilience} & \rot{Performance} & \rot{Interopertability} & \rot{Security} & \rot{Scalability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline
+							% 							rel res perf int sec sca cost
+									Weight 				& 1 & 1 & 1 & 1 & 1 & 1 & 1 & \\ \hline
+									Linux 			 	& 4 & 4 & 4 & 4 & 4 & 4 & 4 & 28 \\
+									Windows 			& 3 & 2 & 3 & 2 & 3 & 3 & 1 & 17 \\
+									OpenBSD 		 	& 5 & 5 & 4 & 4 & 5 & 4 & 4 & 31 \\
+								\end{tabular} \\
+    \\ \bottomrule
 \end{tabular}
-
+\todo[inline]{We either need to adjust some weights or we need to switch to OpenBSD. Also, I might be biased.}
 
 \begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
     \textbf{Name} 			& \textbf{Connectivity of the sensors} \\ \toprule
@@ -75,23 +96,3 @@ A higher score means a more favourable result. Meaning a high score for costs me
 									Direct lines 		& 2 & 1 & 5 & 2 & 5 & 1 & 1 & 17 \\
 								\end{tabular} \\ \bottomrule
 \end{tabular}
-
-% Template:
-% We removed the status from the orignal entry, because we do not use this document to get confirmation on our decisions
-% \begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
-%     \textbf{Name} 			& \textbf{Topic} \\ \toprule
-%     \textbf{Decision} 		& \textbf{DEC-}\textbf{\nextNrRef{dn}} \\ \midrule \midrule
-%     \textbf{Problem/Issue} 	& A problem description \\ \midrule
-%     \textbf{Decision} 		& The method/product that has be chosen and why\\ \midrule
-%     \textbf{Alternatives} 	& \textit{Other option}\\ 
-%     							& Details about the other options\\
-%    \textbf{Arguments} 		& A short discussion of the cons and pro's supported by the table below\\
-%    						& 	\begin{tabular}{l|lllllll|l}
-%							& 		\rot{Reliability} & \rot{Resilience} & \rot{Performance} & \rot{Interopertability} & \rot{Security} & \rot{Scalability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline 
-%									weight 				& ? & ? & ? & ? & ? & ? & ? & ?\\ \hline
-%									Mobile broadband 	& ? & ? & ? & ? & ? & ? & ? & ?\\
-%									landline 			& ? & ? & ? & ? & ? & ? & ? & ?\\
-%									satalite 		 	& ? & ? & ? & ? & ? & ? & ? & ?\\
-%									direct lines 		& ? & ? & ? & ? & ? & ? & ? & ?\\
-%								\end{tabular} \\ \bottomrule
-% \end{tabular}
