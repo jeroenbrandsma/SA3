@@ -20,8 +20,8 @@ This section describes the technical aspects that are important to the system as
 The system needs to be resilliant to recover from errors and mistakes without impacting the systems functionality.
 \begin{longtable}{L{0.1\textwidth} L{0.12\textwidth} L{0.7\textwidth}}
 	\textbf{Nr.} & \textbf{Prio}  & \textbf{Description} \\
-	\reqRow{res}{1}{Must}{The system recognizes failures within an hour and recovers from them without the \qos or the functionality of the system being affected.}
-	\reqRow{res}{2}{Must}{The system continues to function with the same \qos in a situation where up to 5\% of the sensors suffer from failures.} % WM: is 5% realistic?
+	\reqRow{res}{1}{Must}{The system recognizes failures within an hour and recovers from them without the \qos or the functionality of the system being affected.} % GK: split in two requirements. reduce to detect sensor failures within half an hour
+	\reqRow{res}{2}{Must}{The system continues to function with the same \qos in a situation where up to 10\% of the sensors suffer from failures.} % WM: is 5% realistic?
 	\bottomrule
 \end{longtable}
 
@@ -29,8 +29,10 @@ The system needs to be resilliant to recover from errors and mistakes without im
 \begin{longtable}{L{0.1\textwidth} L{0.12\textwidth} L{0.7\textwidth}}
 	\textbf{Nr.} & \textbf{Prio}  & \textbf{Description} \\
 	\reqRow{perf}{1}{Must}{The response time and data transmission time are about 1 sec} % How to calculate GK: Doesn't really matter for requirements, but good to think about. Also: response time to what? Request? Detecting floods? Furthermore, 10 (just saying something) GB of data is not transferable witihin 1 second if you include connection setup time etc etc
+	% GK: only about datatransmission express in dataspeed
 	\bottomrule
 \end{longtable}
+% GK: requirement for amount of concurrent users
 
 \subsection{Interoperability}
 % The system has dependencies on third-party systems. For example, to make predictions about the development of waterlevel, the system will need to retrieve information from water forecasting services. Not only for input, but also for output, the system will need to interoperate with third-party systems. If the system has registered a risk of a flood, it should interact with systems of emergency services and other authorities to alert them and sent relevant information.
@@ -40,10 +42,11 @@ The system needs to be resilliant to recover from errors and mistakes without im
 	\reqRow{intr}{1}{Must}{The system pulls weather forecasts from five weather forecasting services.}
 	\reqRow{intr}{2}{Must}{The system pulls water forecasts from one water forecasting service.}
 	\reqRow{intr}{3}{Must}{When the system detects a high risk of flood, it warns the government automatically using the government provided API.}
-	\reqRow{intr}{4}{Must}{When the system detects a high risk of flood, it warns emergency services automatically using the API provided by the emergency services.}
-	
+	\reqRow{intr}{4}{Must}{When the system detects a high risk of flood, it warns emergency services automatically using the API provided by the emergency services.} % GK: change it guidance for emergency service
+	% GK: introduce requirement to connect with telecom provider
 	\bottomrule
 \end{longtable}
+% GK; Requirement about working with different kind of sensors for the same data
 
 \subsection{Security}
 \begin{longtable}{L{0.1\textwidth} L{0.12\textwidth} L{0.7\textwidth}}
@@ -51,11 +54,11 @@ The system needs to be resilliant to recover from errors and mistakes without im
 	\reqRow{sec}{1}{Must}{Access to the system is restricted to user accounts that are stored in a database.}
 	\reqRow{sec}{2}{Must}{User account information are hashed using bcrypt after being salted with 128 randomly generated characters.}
 	\reqRow{sec}{3}{Must}{The system is protected by a firewall that at least scans at the application layer, while also scanning for and preventing DDoS attacks.}
-	\reqRow{sec}{1}{Must}{All communication to, from and within the system are encrypted.}
+	\reqRow{sec}{4}{Must}{All communication to, from and within the system are encrypted.}
 	% WM: does communication within the system mean between the different components of the system?
-	\reqRow{sec}{4}{Must}{The system communicates with it's sensors via a REST API that only allows for HTTPS connection.} % Do we want to communicate with the sensors via REST? WM: Could this be more generic? Like: 'the system communicates with the sensors via a secure connection'
-	\reqRow{sec}{5}{Must}{All system data must be backed up every 24 hours.}
-	\reqRow{sec}{6}{Must}{Backup copies are stored in a secure location which is not in the same area as the system.} % WM: maybe make area more specific, like range of 50 km or something
+	\reqRow{sec}{5}{Must}{The system communicates with it's sensors via a REST API that only allows for HTTPS connection.} % Do we want to communicate with the sensors via REST? WM: Could this be more generic? Like: 'the system communicates with the sensors via a secure connection'
+	\reqRow{sec}{6}{Must}{All system data must be backed up every 24 hours.}
+	\reqRow{sec}{7}{Must}{Backup copies are stored in a secure location which is not in the same area as the system.} % WM: maybe make area more specific, like range of 50 km or something
 	
 	\bottomrule
 \end{longtable}
