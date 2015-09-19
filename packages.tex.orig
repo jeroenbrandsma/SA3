@@ -1,0 +1,64 @@
+%!TEX root = report.tex
+\usepackage{color}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{datetime}
+\usepackage{courier}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{hyperref}
+\usepackage{longtable}
+% \usepackage{float}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage[table,xcdraw,svgnames]{xcolor}
+
+<<<<<<< HEAD
+\usepackage{adjustbox}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{multirow}
+=======
+% To make the table captions on top
+\usepackage{floatrow}
+\floatsetup[table]{capposition=top}
+>>>>>>> 729b3d7e0609d3cfc9e7e23cdb2f21f48e36bbff
+
+% Accept é ë etc
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+% Thanks, Laura Baakman
+
+%Show todonotes:
+\usepackage{todonotes}
+%Hide todonotes:
+%\usepackage[disable]{todonotes}
+
+% For shoing euro currency
+\usepackage[gen]{eurosym}
+
+%%%%
+\usepackage{selinput}
+\usepackage[margin=2cm]{geometry}
+\usepackage{enumitem,varwidth}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+\usepackage{lmodern}
+%%%%%%
+
+% parskip puts a lot more white space in to the paper
+% I (Guus) prefer it as it allows me te distinguish text
+% way faster. However, it's preference, so we could 
+% also remove it, if people feel that is needed
+\usepackage{parskip}
+
+\usepackage{pbox}
+\usepackage[toc]{appendix}
+
+% These packages are used for rotating table header
+\usepackage{array,graphicx}
+\usepackage{booktabs}
+\usepackage{pifont}
+
+% To determine if a space is needed or not
+\usepackage{xspace}

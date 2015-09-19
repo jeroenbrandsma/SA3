@@ -1,15 +1,18 @@
 %!TEX root = ../report.tex
 \section{Risk assessment}
+<<<<<<< HEAD
 The system is confronted by several risks which are determined and mitigated in this section.
+=======
+The system is confronted by severals risks which are determined and mitigated in this section.
 The risk management involves : the identifcation of the risks, their probability and potential impact or consequences.
 
 %Risk impact assesment and Prioritization
 % Probability of Occurrence ( In the appendice is the table to which show how to evaluate a risk and the severity of consequences 
 %http://www.mitre.org/publications/systems-engineering-guide/acquisition-systems-engineering/risk-management/risk-impact-assessment-and-prioritization % COSTS
 
-\todo{Static path to local image}
-%\includegraphics[scale=0.5]{C:/Users/admin/Desktop/M1/RISKSOCCURENCE.jpg} % maybe in the appendice ?
+\includegraphics[scale=0.5]{C:/Users/admin/Desktop/M1/RISKSOCCURENCE.jpg} % maybe in the appendice ?
 \subsection{Techincal}
+>>>>>>> 729b3d7e0609d3cfc9e7e23cdb2f21f48e36bbff
 
 \begin{longtable}{L{0.1\textwidth} L{0.0\textwidth} L{0.7\textwidth}}
 	\textbf{Nr.} &  & \textbf{Description} \\
@@ -42,6 +45,12 @@ The risk management involves : the identifcation of the risks, their probability
 	\bottomrule
 \end{longtable}
 
+<<<<<<< HEAD
+% False positive GK: Is this really a risk?
+% Failure ( how many sensors could be damaged and the system still working ? percentage ... ) \\ GK: This is already covered by the tnfr
+% The sensors company become bankrupt \\
+% Reducing the price because of competition \\
+=======
 
 
 %\begin{tabular} {l | c | r }
@@ -77,6 +86,7 @@ The risk management involves : the identifcation of the risks, their probability
 \end{longtable}
 
 \subsection{Schedule}
+>>>>>>> 729b3d7e0609d3cfc9e7e23cdb2f21f48e36bbff
 
 \begin{longtable}{L{0.1\textwidth} L{0.0\textwidth} L{0.7\textwidth}}
 	\textbf{Nr.} &  & \textbf{Description} \\
@@ -89,3 +99,7 @@ The risk management involves : the identifcation of the risks, their probability
 \end{longtable}
 
 
+<<<<<<< HEAD
+%How to evaluate a risk ? Measurement ?
+=======
+>>>>>>> 729b3d7e0609d3cfc9e7e23cdb2f21f48e36bbff
