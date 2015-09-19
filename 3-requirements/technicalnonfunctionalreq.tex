@@ -1,4 +1,5 @@
 %!TEX root = ../report.tex
+
 \section{Technical non-functional requirements}
 This section describes the technical aspects that are important to the system as requirements. These requirements determine various APIs and programs that the system will rely on.
 
@@ -13,6 +14,8 @@ This section describes the technical aspects that are important to the system as
 	\textbf{Nr.} & \textbf{Prio}  & \textbf{Description} \\
 	\reqRow{rel}{1}{Must}{Sensorsites are equiped with atleast two sensors}
 	\reqRow{rel}{2}{Must}{Data from the sensors is sent via a TCP connection} % Already mention REST here?
+	\reqRow{rel}{2}{Must}{Redundancy}
+	%This means adding redundancy to the system so that failure of a component does not mean failure of the entire system
 	\bottomrule
 \end{longtable}
 
@@ -31,9 +34,15 @@ The system needs to be resilliant to recover from errors and mistakes without im
 	\textbf{Nr.} & \textbf{Prio}  & \textbf{Description} \\
 	\reqRow{perf}{1}{Must}{Data is transmitted from and to the system with a minimum speed of 10 megabits per second} % How to calculate GK: Doesn't really matter for requirements, but good to think about. Also: response time to what? Request? Detecting floods? Furthermore, 10 (just saying something) GB of data is not transferable witihin 1 second if you include connection setup time etc etc
 	% GK: only about datatransmission express in dataspeed
+	
+	\reqRow{perf}{2}{Must}{	The data transmission between the sensors and the system is about 10 mB/sec}
+	% How many data the system can receive in one second ?
+	\reqRow{perf}{3}{Must}{	The time for the system to calculate if there is a flood or no according to a critical level and the data received from the sensors is about one minute(?). }
 	\bottomrule
 \end{longtable}
 % GK: requirement for amount of concurrent users
+
+\includegraphics[scale=0.8]{C:/Users/admin/Desktop/M1/Performance.jpg}
 
 \subsection{Interoperability}
 % The system has dependencies on third-party systems. For example, to make predictions about the development of waterlevel, the system will need to retrieve information from water forecasting services. Not only for input, but also for output, the system will need to interoperate with third-party systems. If the system has registered a risk of a flood, it should interact with systems of emergency services and other authorities to alert them and sent relevant information.
@@ -43,15 +52,13 @@ The system needs to be resilliant to recover from errors and mistakes without im
 	\reqRow{intr}{1}{Must}{The system pulls weather forecasts from five weather forecasting services.}
 	\reqRow{intr}{2}{Must}{The system pulls water forecasts from one water forecasting service.}
 	\reqRow{intr}{3}{Must}{When the system detects a high risk of flood, it warns the government automatically using the government provided API.}
-<<<<<<< HEAD
 	\reqRow{intr}{4}{Must}{When the system detects a high risk of flood, it warns emergency services automatically using the API provided by the emergency services.}
 	
-=======
 	\reqRow{intr}{4}{Must}{When the system detects a flood, it automatically tells emergency services where a flood is happening using the API provided by the emergency services.} % GK: change it guidance for emergency service
 	\reqRow{intr}{5}{Must}{The system sends out a SMS to all users who are subscribed to flood warnings.}
 	\reqRow{intr}{6}{Must}{The systems is able to easily connect to different sensors.}
 	% GK: introduce requirement to connect with telecom provider
->>>>>>> c4b1f8e221b1b11ac8dde453c2709967a7b3515d
+
 	\bottomrule
 \end{longtable}
 \todo[inline]{intr-6 Not measurable}
@@ -63,20 +70,12 @@ The system needs to be resilliant to recover from errors and mistakes without im
 	\reqRow{sec}{1}{Must}{Access to the system is restricted to user accounts that are stored in a database.}
 	\reqRow{sec}{2}{Must}{User account information are hashed using bcrypt after being salted with 128 randomly generated characters.}
 	\reqRow{sec}{3}{Must}{The system is protected by a firewall that at least scans at the application layer, while also scanning for and preventing DDoS attacks.}
-<<<<<<< HEAD
-	\reqRow{sec}{1}{Must}{All communication to, from and within the system are encrypted.}
+\reqRow{sec}{1}{Must}{All communication to, from and within the system are encrypted.}
 	% WM: does communication within the system mean between the different components of the system?
 	\reqRow{sec}{4}{Must}{The system communicates with it's sensors via a REST API that only allows for HTTPS connection.} % Do we want to communicate with the sensors via REST? WM: Could this be more generic? Like: 'the system communicates with the sensors via a secure connection'
 	\reqRow{sec}{5}{Must}{All system data must be backed up every 24 hours.}
-	\reqRow{sec}{6}{Must}{Backup copies are stored in a secure location which is not in the same area as the system.} % WM: maybe make area more specific, like range of 50 km or something
-=======
-	\reqRow{sec}{4}{Must}{All communication to, from and between different subsystems of the system are encrypted.}
-	% WM: does communication within the system mean between the different components of the system?
-	\reqRow{sec}{5}{Must}{The system communicates with it's sensors via a REST API that only allows for HTTPS connection.} % Do we want to communicate with the sensors via REST? WM: Could this be more generic? Like: 'the system communicates with the sensors via a secure connection'
-	\reqRow{sec}{6}{Must}{All system data must be backed up every 24 hours.}
-	\reqRow{sec}{7}{Must}{Backup copies are stored in a secure location which is not in the same area as the system.} % WM: maybe make area more specific, like range of 50 km or something
->>>>>>> c4b1f8e221b1b11ac8dde453c2709967a7b3515d
-	
+	\reqRow{sec}{6}{Must}{Backup copies are stored in a secure location which is not in the same area as the system (50 km).} % WM: maybe make area more specific, like range of 50 km or something
+
 	\bottomrule
 \end{longtable}
 % TODO: how to measure?
@@ -86,12 +85,9 @@ The system needs to be resilliant to recover from errors and mistakes without im
 \begin{longtable}{L{0.1\textwidth} L{0.12\textwidth} L{0.7\textwidth}}
 	\textbf{Nr.} & \textbf{Prio}  & \textbf{Description} \\
 	\reqRow{scale}{1}{Must}{The database and services run in parallel on a private cloud that is hosted within the Netherlands} % do we want a private cloud? WM: I think public cloud is more scalable (but does government allow it)?
-<<<<<<< HEAD
 	\reqRow{scale}{2}{Must}{Cassandra is used as database for the storage of the sensor data} % do we want to use cassandra?
-=======
 	\reqRow{scale}{2}{Must}{Cassandra is used as database for the storage of the sensor data.} % do we want to use cassandra?
 	\reqRow{scale}{3}{Must}{The system is configurable to run in different areas and with different sensors.}
->>>>>>> c4b1f8e221b1b11ac8dde453c2709967a7b3515d
 	\bottomrule
 \end{longtable}
 % The system will be developed with more sensors and in more places.
