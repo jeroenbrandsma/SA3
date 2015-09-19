@@ -35,23 +35,27 @@ Decisions:
 
 % Template for decision table:
 % We removed the status from the orignal entry, because we do not use this document to get confirmation on our decisions
+% \begin{table}
 % \begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
 %     \textbf{Name} 			& \textbf{Topic} \\ \toprule
 %     \textbf{Decision} 		& \textbf{DEC-}\textbf{\nextNrRef{dn}} \\ \midrule \midrule
 %     \textbf{Problem/Issue} 	& A problem description \\ \midrule
 %     \textbf{Decision} 		& The method/product that has be chosen and why\\ \midrule
 %     \textbf{Alternatives} 	& \textit{Other option}\\ 
-%     							& Details about the other options\\
+%     							& Details about the other options\\\midrule
 %    \textbf{Arguments} 		& A short discussion of the cons and pro's supported by the table below\\
 %    						& 	\begin{tabular}{l|lllllll|l}
-%							& 		\rot{Reliability} & \rot{Resilience} & \rot{Performance} & \rot{Interopertability} & \rot{Security} & \rot{Scalability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline 
-%									weight 				& ? & ? & ? & ? & ? & ? & ? & ?\\ \hline
-%									Mobile broadband 	& ? & ? & ? & ? & ? & ? & ? & ?\\
-%									landline 			& ? & ? & ? & ? & ? & ? & ? & ?\\
-%									satalite 		 	& ? & ? & ? & ? & ? & ? & ? & ?\\
-%									direct lines 		& ? & ? & ? & ? & ? & ? & ? & ?\\
-%								\end{tabular} \\ \bottomrule
+% 							& 		\rot{Reliability} & \rot{Resilience} & \rot{Performance} & \rot{Interopertability} & \rot{Security} & \rot{Scalability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline 
+% 									weight 				& ? & ? & ? & ? & ? & ? & ? & ?\\ \hline
+% 									Mobile broadband 	& ? & ? & ? & ? & ? & ? & ? & ?\\
+% 									landline 			& ? & ? & ? & ? & ? & ? & ? & ?\\
+% 									satalite 		 	& ? & ? & ? & ? & ? & ? & ? & ?\\
+% 									direct lines 		& ? & ? & ? & ? & ? & ? & ? & ?\\
+% 								\end{tabular} \\ \bottomrule
 % \end{tabular}
+% \caption{Decision -- Decision name.}
+% \label{table:caption_alias}
+% \end{table}
 
 A higher score means a more favourable result. Meaning a high score for costs means a low cost for the system.
 
@@ -65,6 +69,7 @@ A higher score means a more favourable result. Meaning a high score for costs me
     						& Operating system is a closed platform developed by one of the biggest tech companies who provide a big development environment with it.\\
     						& \textit{OpenBSD}\\
     						& A Unix-based system that is famous for it's proactive security and runs most of the Linux applications. However, some software packages aren't certified to run on OpenBSD, but are for Linux.\\
+    						\midrule
     \textbf{Arguments} 		& \\
     						& 	\begin{tabular}{l|lllllll|l}
 							& 		\rot{Reliability} & \rot{Resilience} & \rot{Performance} & \rot{Interopertability} & \rot{Security} & \rot{Scalability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline
@@ -86,6 +91,7 @@ A higher score means a more favourable result. Meaning a high score for costs me
     \textbf{Decision} 		&  The sensors will send their data to the system using mobile broadband. Using cellphone towers to communicate with the system.\\ \midrule
     \textbf{Alternatives} 	& \textit{Landline}\\ 
     						& Connecting the sensors to the telephone network and use that network to communicate with the server.\\
+    						\midrule
     \textbf{Arguments} 		& \\
     						& 	\begin{tabular}{l|lllllll|l}
 							& 		\rot{Reliability} & \rot{Resilience} & \rot{Performance} & \rot{Interopertability} & \rot{Security} & \rot{Scalability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline 
@@ -96,3 +102,29 @@ A higher score means a more favourable result. Meaning a high score for costs me
 									Direct lines 		& 2 & 1 & 5 & 2 & 5 & 1 & 1 & 17 \\
 								\end{tabular} \\ \bottomrule
 \end{tabular}
+
+\begin{table}
+\begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
+    \textbf{Name} 			& \textbf{Cassandra Database} \\ \toprule
+    \textbf{Decision} 		& \textbf{DEC-}\textbf{\nextNrRef{dn}} \\ \midrule \midrule
+    \textbf{Problem/Issue} 	& A reliable database, which is the best in scalability and availability is needed to store our data for further processing and analysis. \\ \midrule
+    \textbf{Decision} 		& Smart Flood Monitoring system will use Cassandra, which will run on top of the Linux platform, to store great amount of data from huge sensor arrays needed to carry out analytics and logging.\\ \midrule
+    \textbf{Alternatives} 	& \textit{Redis}\\ 
+    						& Redis is a database that is best for storing data that changes rapidly with foreseeable database size which mostly fits in memory. This database is good to store real-time stock prices.\\
+    						&\textit{MongoDB}\\ 
+    						& MongoDB is suitable for a database that needs dynamic queries. Indexes are mainly needed to runs this database system rather than Map/Reduce functions.\\
+    						&\textit{HBase}\\ 
+    						& HBase is also written in Java. HBase is the database for Hadoop. This database is the best way to run Map/Reduce tasks on huge datasets.\\
+   	\textbf{Arguments} 		& A short discussion of the cons and pro's is described by the table below\\
+   						& 	\begin{tabular}{l|lllllll|l}
+							& 		\rot{Reliability} & \rot{Resilience} & \rot{Performance} & \rot{Interoperability} & \rot{Security} & \rot{Scalability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline 
+									weight 		& 1 & 1 & 1 & 1 & 1 & 1 & 4 &  \\ \hline
+									Cassandra 	& 4 & 3 & 5 & 3 & 3 & 5 & 4 & 27\\
+									Redis 		& 2 & 3 & 3 & 3 & 3 & 2 & 4 & 20\\
+									MongoDB 	& 2 & 3 & 3 & 3 & 3 & 3 & 4 & 21\\
+									HBase 		& 3 & 3 & 4 & 3 & 3 & 4 & 4 & 24\\
+								\end{tabular} \\ \bottomrule
+\end{tabular}
+\caption{Decision -- Cassandra Database.}
+\label{table:caption_alias}
+\end{table}

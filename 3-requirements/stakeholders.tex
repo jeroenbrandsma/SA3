@@ -6,14 +6,15 @@
 There are eight stakeholders who are involved in our system. The stakeholders are ranged from first parties to third parties stakeholders. Detailed description is written below.
 
 \begin{description}
-\item[Product owner] is concerned about usability, reliability, profitability, affordability. Product owner funds the whole project. Product owner has to make sure that the system is reliable and profitable. As the product owner is willing to get a good market penetration, this system has to be affordable to the customers.
-\item[Developers] are concerned about usability, reliability, maintainability, and testability. They are those who are responsible for the development of the systems until its ready for production. Including designing, analysis, testing and implementing the RugSAG3.
-\item[Competitors] are concerned about usability, reliability, adaptability, profitability, and affordability. Competitors give negative effect on the system because competitors will be aiming on the same customer target. Thus, competitors must also be kept in consideration. 
-\item[Government] is concerned about reliability, adaptability, and affortability. Government will be part of mitigation when the flood is imminent. This system will also notify government when this system detects flood. Thus, government have to make sure that the system is reliable, adaptable and affordable.
-\item[Citizens] are concerned about usability, reliability, and affordability. They will be one of the main user of the system. Citizens want this system to run correctly and notify them with the reliable information. They also want to have this system to be as affordable as possible.
-\item[Insurance companies] are concerned about reliability, profitability, and affordability. The damages caused by flood sometimes are also covered by the insurance companies. Thus, the insurance companies will also be part of the stakeholders and they will make sure that their business is running well.
-\item[Local companies] are concerned about reliability, adaptability, and affordability. Local companies will also be affected by the flood, they also have a lot of resources that are in danger. Local companies want to know whether or not this system is reliable so that they can arrange a proper action sets when the flood comes to save their assets.
-\item[Emergency services] are concerned about usability, reliability, adaptability, and testability. Emergency services are important when any accident happens, including flood. They will be really concerned about the thing that makes this system reliable, adaptable to their current system, and could be tested in order to make sure things are running correctly.
+\item[Product owner] is concerned about reliability, profitability, affordability. Product owner funds the whole project. Product owner highly concerns about the profitability. Thus, to gain big market share and extract large profit from this product, product owner has to make this product reliable. Furthermore, to compete with other competitors in this area, affordability will also be another concern.
+\item[Developers] are concerned about reliability, maintainability, and testability. We, the architect team of RugSAG3 company, are also part of this. This stakeholder is responsible for the development of the systems until its ready for production. Including architecting, designing, analyzing, testing and implementing this Smart Flood Monitoring System.
+\item[Competitors] are concerned about reliability, adaptability, profitability, and affordability. Competitors give negative effect on the system because competitors will be aiming on the same customer target. On the other hand, competitors are also triggering us to make a really good system in order to be able to compete with them and to save more lives. Thus, competitors must also be kept in consideration.
+\item[Government] is concerned about reliability, adaptability, and affortability. Government will be the main customer of this product, specifically, The Dutch Ministry of Infrastructure and the Environment. Government will be part of mitigation when the flood is imminent. This system will help the government by notifying them when this system detects flood and what is the recommendations to do next along with some data regarding this system's findings.
+\item[Citizens] are concerned about reliability and adaptability. The Dutch residents are indirect user of this systems. However, they are also able to directly subscribe to this service and thus they want this system to be adaptable to their current technological viewpoint. Furthermore, they want this system to run correctly and notify them with the reliable information.
+% Guntur: I do not know the exact position of insurance companies in our stakeholders. Can anybody explain about this? Or should we just remove this stakeholder?
+\item[Insurance companies] are concerned about reliability of this system. The damages caused by flood sometimes are also covered by the insurance companies. Thus, the insurance companies will also be part of the stakeholders and they will make sure that their business is running well.
+\item[Local companies] are concerned about reliability and adaptability. Local companies will also be affected by the flood, they also have a lot of resources that are in danger. Local companies want to know whether or not this system is reliable so that they can arrange a proper action sets when the flood comes to save their assets. Moreover, local companies are also willing this system to be as adaptable as possible to their current technological viewpoint.
+\item[Emergency services] are concerned about reliability, adaptability, and testability. Emergency services are important when any accident happens, including flood. They will be really concerned about the thing that makes this system reliable, adaptable to their current system, and could be tested in order to make sure things are running correctly.
 \end{description}
 
 \autoref{table:stakeholder_concern} illustrates the stakeholder concern matrix. In our approach every stakeholders are equally the same. Thus, each stakeholder receives 100 points in total that has to be distributed among all the concerns.
@@ -22,24 +23,24 @@ There are eight stakeholders who are involved in our system. The stakeholders ar
 	\caption{Matrix of stakeholders concern.}
 	\label{table:stakeholder_concern}
     \begin{tabular}{@{} cl*{10}c @{}}
-        & & \multicolumn{7}{c}{\textbf{Concerns}} \\[2ex]
-        & & \rot{Usability} & \rot{Reliability} & \rot{Adaptability} & \rot{Profitability} 
+        & & \multicolumn{6}{c}{\textbf{Concerns}} \\[2ex]
+        & & \rot{Reliability} & \rot{Adaptability} & \rot{Profitability} 
         & \rot{Affordability} & \rot{Maintainability} & \rot{Testability}\\
-        \cmidrule[1pt]{2-9}		
-        					  % usa  reli adap prof aff  main test
-        & Product owner			& 30 & 30 &    & 20 & 20 &    &    \\
-        & Developers			& 30 & 20 &    &    &    & 30 & 20 \\
-        & Competitors 			& 20 & 20 & 20 & 20 & 20 &    &    \\
-        & Government 			& 30 & 40 &    &    & 30 &    &    \\
-        & Citizens				& 30 & 30 &    &    & 40 &    &    \\
-        & Insurance companies	&    & 30 &    & 30 & 40 &    &    \\
-        & Local companies		&    & 30 & 30 &    & 40 &    &    \\
+        \cmidrule[1pt]{2-8}		
+        					  % reli adap prof aff  main test
+        & Product owner			& 30 &    & 40 & 30 &    &    \\
+        & Developers			& 40 &    &    &    & 30 & 30 \\
+        & Competitors 			& 25 & 25 & 25 & 25 &    &    \\
+        & Government 			& 55 &    &    & 45 &    &    \\
+        & Citizens				& 70 & 30 &    &    &    &    \\
+        & Insurance companies	& 100&    &    &    &    &    \\
+        & Local companies		& 75 & 25 &    &    &    &    \\
  \rot{\rlap{\textbf{~Stakeholder}}}
-        & Emergency services	& 30 & 30 & 30 &    &    &    & 10 \\
-        \cmidrule{2-9}
-        & Total                	& 140 & 230 & 80 & 70 & 190 & 30  & 30 \\
-        \cmidrule{2-9}
+        & Emergency services	& 45 & 30 &    &    &    & 25 \\
+        \cmidrule{2-8}
+        & Total                	& 440& 110& 65 & 100& 30  & 55 \\
+        \cmidrule{2-8}
     \end{tabular}
 \end{table}
 
-As can be seen from \autoref{table:stakeholder_concern}, the most important concern for our system is the reliability, following usability as the second most important concern. Therefore, reliability is one of our significant key drivers.
+As can be seen from \autoref{table:stakeholder_concern}, the most important concern of our system is the reliability, following adaptability as the second most important concern. This is also identical with our significant key driver.
