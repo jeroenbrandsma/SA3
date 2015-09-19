@@ -7,6 +7,22 @@
 % Commands for rotating table header
 \newcommand*\rot{\rotatebox{90}}
 \newcommand*\OK{\ding{51}}
+%
+%\newcolumntype{R}[2]{%
+%    >{\adjustbox{angle=#1,lap=\width-(#2)}\bgroup}%
+%    l%
+%    <{\egroup}%
+%}
+%\newcommand*\rotmc{\multicolumn{1}{R{90}{1em}}}% no optional argument here, please!
+%
+
+%\newcolumntype{R}[2]{%
+%    >{\adjustbox{angle=#1,lap=\width-(#2)}\bgroup}%
+%    l%
+%    <{\egroup}%
+%}
+%\newcommand*\rot{\multicolumn{1}{R{90}{1em}}}% no optional argument here, please!
+
 
 %command to decrease the size it takes to write
 %L{0.5\textwidth}. This will now be:
@@ -14,6 +30,8 @@
 \newcommand{\tw}[1]{#1\textwidth}
 
 \newcommand{\ignore}[1]{}
+
+\newcommand\crule[3][black]{\textcolor{#1}{\rule{#2}{#3}}}
 
 \makeatletter
 

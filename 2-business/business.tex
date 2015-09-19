@@ -14,41 +14,38 @@ The Smart Flood Monitor will cause a revolutionary innovation on the environment
 \CompanyName{} will not be the only player on the environmental monitoring market as there are a lot of other competitors taking part on this area of expertise. This means \CompanyName{} will have to take their own strength and weaknesses into account. If we combine these qualities with an analysis of the opportunities and weaknesses on the market, we should be able to become a core part of the future environmental monitoring systems.\\
 
 % Such an analysis is called a SWOT-analysis.
-We try to map our position on the market by using SWOT-analysis. This analysis will map our strengths, weaknesses, opportunities, and threats as described as follows: 
+We map our position on the market by using SWOT-analysis. This analysis maps our strengths, weaknesses, opportunities, and threats. The results of our analysis is shown in the table below.
 
 % Strengths: Diverse team with several skills in IT and management. Experience with working with sensors.\\ 
 % Weaknesses: No experience with creating such system. No knowledge of floods. The product is a complex system.\\
 % Opportunities: Due to climate change, the market will grow and such a system becomes more urgent. Few competitors in the market. Smart sensors are a hot topic, new sensors will be developed.\\
 % Threats: High production costs. Competitors will enter the market because of growing market. Climate change will force to improve the system over time.\\
-
-\begin{description}
-  \item[Strengths] \hfill \\
-  Diverse team with several skills in IT and management. Experience with working with sensors.
-  \item[Weaknesses] \hfill \\
-  No experience with creating such system. Less knowledge about floods and environmental sciences. The product is a complex system.
-  \item[Opportunities] \hfill \\
-  Due to climate change, the market will grow and such a system becomes more urgent. Few competitors in the market. Smart sensors are a hot topic, new sensors will be developed.
-  \item[Threats] \hfill \\
-  High production costs. Competitors will enter the market because of growing market. Climate change will force to improve the system over time.
-\end{description}
+%
+%\begin{description}
+%  \item[Strengths] \hfill \\
+%  Diverse team with several skills in IT and management. Experience with working with sensors.
+%  \item[Weaknesses] \hfill \\
+%  No experience with creating such system. Less knowledge about floods and environmental sciences. The product is a complex system.
+%  \item[Opportunities] \hfill \\
+%  Due to climate change, the market will grow and such a system becomes more urgent. Few competitors in the market. Smart sensors are a hot topic, new sensors will be developed.
+%  \item[Threats] \hfill \\
+%  High production costs. Competitors will enter the market because of growing market. Climate change will force to improve the system over time.
+%\end{description}
 
 \newcommand{\SwotItems}[1]{
-	\begin{itemize}
-	%\begin{minipage}[t][8cm]{5cm}
-		#1
-	%\end{minipage}
-	\end{itemize}
+	\begin{minipage}[t]{\linewidth}
+	\begin{itemize}[nosep]#1\end{itemize}%
+	\end{minipage}
 }
-\begin{figure}
-%Strengths
+
 \newcommand{\Strengths}{
-\SwotItems{
+\SwotItems{%
 	\item Adjustable system that is future proof
 	\item Having a low selling price. Lower then the competitors
 	\item Diverse team with several skills in IT and management
 	\item Having a good management team
 	\item Frequent discussion with technical and business experts in the field.
-	\item Experience with working with sensors
+	\item Experience with working with sensors%
 %	\item Main features don't focus on user-interaction.
 %	\item Having a relatively big project team
 %	\item Financial stability
@@ -56,17 +53,17 @@ We try to map our position on the market by using SWOT-analysis. This analysis w
 }
 
 \newcommand{\Weaknesses}{
-\SwotItems{
+\SwotItems{%
 	\item Decisions need to be made by the entire project team. There is a higher chance of a difference of opinion is members, holding back the project and leads to time wastes
 	\item No experience with creating such system
 	\item No knowledge of floods
 	\item The product is a complex system
-	\item Some main features rely on country-specific systems
+	\item Some main features rely on country-specific systems%
 }
 }
 
 \newcommand{\Opportunities}{
-\SwotItems{
+\SwotItems{%
 	\item Due to climate change, the market will grow and such a system becomes more urgent
 	\item Few competitors in the market
 	\item With a bigger program team, the pros and cons of the decisions are more clear
@@ -88,10 +85,31 @@ We try to map our position on the market by using SWOT-analysis. This analysis w
 }
 }
 
-\input{2-business/swotfigurecode.tex}
-\caption{SWOT-analysis diagram.}
-\label{fig:swot}
-\end{figure}
+\colorlet{helpful}{lime!70}
+\colorlet{harmful}{red!30}
+\colorlet{internal}{yellow!20}
+\colorlet{external}{cyan!30}
+\colorlet{S}{helpful!50!internal}
+\colorlet{W}{harmful!50!internal}
+\colorlet{O}{helpful!50!external}
+\colorlet{T}{harmful!50!external}
+
+\begin{tabular}{L{\tw{0.4}} | L{\tw{0.4}}}
+	\toprule
+%	\makebox[\linewidth][s]{\crule[S]{1cm}{1cm} = \crule[W]{1cm}{1cm} = }
+%	 &
+%	 \makebox[\linewidth][s]{\crule[O]{1cm}{1cm} = \crule[T]{1cm}{1cm} = } \\
+%	\midrule
+	
+	\textsc{\Large Strengths} & \textsc{\Large Weaknesses} \\
+	\cellcolor{S} \Strengths &  \cellcolor{W} \Weaknesses \\
+	\midrule
+	\textsc{\Large Opportunities} & \textsc{\Large Threats} \\
+	\cellcolor{O} \Opportunities & \cellcolor{T} \Threats \\
+\end{tabular}
+
+%\input{2-business/swotfigurecode.tex}
+%\caption{SWOT-analysis diagram.}
 
 Our unique selling point is to provide a system with low selling price and high profit from the service contracts and upgrades.
 
