@@ -1,65 +1,108 @@
 %!TEX root = ../report.tex
+\newpage
 \section{Functional requirements}
+This section lists the functional requirements of the system.
 \begin{longtable}{L{0.1\textwidth} L{0.12\textwidth} L{0.78\textwidth}}
 
     \textbf{Nr.} & \textbf{Prio}  & \textbf{Description} \\
     
-    \frReqRow{1}{Must}{The system is able to receive input from sensors with regards to the water level. This information will be used to determine if there is an imminent flood.}
+    \frReqRow{1}{Must}
+    {The system is able to receive input from sensors with regards to the water level. This information will be used to determine if there is an imminent flood.}
     % GK: In what way is the information delivered from the sensors?
     %   WM: Is that not for analysis?
     
-    \frReqRow{2}{Must}{ The system is able to process input from sensors with regards to the water level. }
+    \frReqRow{2}{Must}
+    { The system is able to process input from sensors with regards to the water level. }
     
-	\frReqRow{3}{Must}{The system is able to receive input from sensors with regards to the pressure/consistency of the dykes.}
+	\frReqRow{3}{Must}
+	{The system is able to receive input from sensors with regards to the pressure of the dykes.}
 	
-	\frReqRow{4}{Must}{The system is able to process input from sensors with regards to the pressure/consistency of the dykes. This information will be used to determine if there is an imminent flood.}
+	\frReqRow{4}{Must}
+	{The system is able to process input from sensors with regards to the pressure of the dykes.}
+	
+	\frReqRow{5}{Must}
+	{The system is able to receive input from sensors with regards to the water level of waterways.}
+	
+	\frReqRow{6}{Must}
+	{The system is able to process input from sensors with regards to the water level of waterways.}
 
-    \frReqRow{5}{Must}{The system retrieves weather forecasting data from weather forecasting services. The retrieved weather forecasting data consists of predictions about the precipitation and wind data and is used by the system to help in determining when a flood becomes imminent.}
+    \frReqRow{7}{Must}
+    {The system retrieves weather forecasting data from weather forecasting services. The retrieved weather forecasting data consists of predictions about the precipitation and wind data and is used by the system to help in determining when a flood becomes imminent.}
      
-    \frReqRow{6}{Must}{ The system is able to detect when a flood is imminent by using the retrieved sensor data and weather forecasting data. }
+    \frReqRow{8}{Must}
+    { The system is able to detect when a flood is imminent by combining the retrieved sensor data and weather forecasting data. }
     
-    \frReqRow{7}{Must}{ The system has access to geographic information, including road data and terrain height data.}
+    \frReqRow{9}{Must}
+    { The system can retrieve geographic information (road data and terrain height data).}
         
-    \frReqRow{8}{Must}{ The system can determine the area affected by a flood, by using the location data of the sensors and geographic information.}
+    \frReqRow{10}{Must}
+    { The system computes the area affected by a flood, by using the location data of the sensors and geographic information. The areas are of a resolution of 5 by 5 km. }
     
-    \frReqRow{9}{Must}{ The system computes (from geographic information) the area which will be affected by a flood.}
-    %GK: be careful with exactness in this, add some estimation
+    \frReqRow{11}{Must}
+    { The system computes the expected water level for those areas which are affected by a flood. }
+    
+    \frReqRow{12}{Must}
+    { The system estimates how the water level in the areas affected by the flood will develop for every hour, up to 12 hours in the future. } % WM: i am not sure if it is possible to predict 12h into the future, we might have to lower this is in a later stage
+    
+    \frReqRow{13}{Must}
+    { The system can compute the number of civilians living in the areas affected by the flood. }
+    
+	\frReqRow{14}{Must}
+	{ When a flood is imminent, the system sends a warning to the emergency centre. The warning contains information about the flood. This is the area affected by the flood, the expected water level in those areas and how the water level will develop in the coming hours. The warning also contains information about the number of civilians living in the affected area. }
+    % WM: I am unsure how we send the warning: is this an email, is this a phone call, do we send a pigeon... 
+    % WM: I made the warning to the emergency centre, instead of to the mayor, because it is more practical if the employees in the emergency centre alert the mayor
+    
+    \frReqRow{15}{Must}
+    { The system can compute a safe area, not affected by the flood, where citizens can be evacuated to in case of an (imminent) flood. }
+    
+    \frReqRow{16}{Must}
+    { The system can construct a map, showing citizens safe routes to evacuate the area affected by the flood and how to get to a safe area. }
+    
+    \frReqRow{17}{Must}
+    { Citizens can subscribe to flood warnings about imminent floods. }
+    % WM: how will they subscribe?? is this through a website or do they install an app...
+    
+    \frReqRow{18}{Must}
+    { Citizens who are subscribed for flood warnings are warned about imminent floods by text message. }
+    
+    \frReqRow{19}{Must}
+    { Citizens who are subscribed for flood warnings get a map with generic route information to a safe area by MMS. This is the map generated in \ref{fr:16}. }
+	
+    \frReqRow{20}{Must}
+    { The system can detect a faulty sensor, either when the sensor raises an error or when the data from the sensor is inconsistent with other sensor data. }
+    
+    \frReqRow{21}{Must}
+    { There is a control panel, where maintainers of the system have access to. }  % WM: should this be like a website or is this a program or a phone app...
+    
+    \frReqRow{22}{Must}
+    { The system reports faulty sensors, so they can be viewed in the control panel. }
+    
+    \frReqRow{23}{Must}
+    { Warnings of the system can be viewed in the control panel. }
 
-    \frReqRow{10}{Must}{ The system collects information pertaining to the severity of the flood: the expected water level, how fast the water level in the flood area will rise, and the number of civilians living in the affected area (population density).}
-    
-    \frReqRow{11}{Must}{ The system provides emergency services with information about the flood. This includes the area affected by the flood and information needed to deduct the severity of the flood.}
-    
-	\frReqRow{12}{Must}{ When a flood is imminent, the system sends a warning to the emergency services and to the authorities. The warning contains information about the area affected by the flood. }
-    % what info is in the warning
-    % who is that: authorities?
-    
-    \frReqRow{13}{Must}{ The system is able to compute a safe route, free of obstruction and floods, to a safe area, not affected by the flood, where citizens can be evacuated to in case of an (imminent) flood.}
-    
-    \frReqRow{14}{Must}{The system is able to receive and process input from sensors with regards to the pressure/consistency of the dykes. This information will be used to determine if there is an imminent flood.}
-    
-    \frReqRow{15}{Must}{Citizens who are subscribed for flood warnings are warned about imminent floods through by text message.}
-    
-    \frReqRow{16}{Must}{The system can determine the location of citizens who are subscribed for flood warnings.}
-    
-    \frReqRow{17}{Must}{Citizens who are subscribed for flood warnings get route information to a safe area by MMS.}
-    
-    \frReqRow{18}{Must}{The location of citizens who are warned through the app can be determined in order to supply them with a safe route to a safe area.}
+	\frReqRow{24}{Must}
+	{ Errors of the system can be viewed in the control panel. }
 	
-    \frReqRow{19}{Must}{ The system is able to predict the development of the water level. This information can be used to predict how fast a flood will develop. }
-	
-    \frReqRow{20}{Must}{ The system uses different sources to confirm imminent flood warnings, in order to limit false positives. } % not very specific yet
-	
-    \frReqRow{21}{Must}{ The system can detect a faulty sensor, either when the sensor raises an error or when the data from the sensor is inconsistent with other sensor data. }
+	\frReqRow{25}{Must}
+	{ The state of the sensors (their readings) can be viewed in the control panel. }
     
-    \frReqRow{22}{Must}{ There is a control panel, where an overview of warnings and errors of the system can be viewed. }
-	
-    \frReqRow{23}{Must}{ The system can detect and report faulty sensors, so these sensors can be repaired or replaced. } %how will it be reported and to whom?? \\
+	%\frReqRow{24}{Must}{ In case of a flood, the system provides emergency services with safe routes to incident locations. }
+	% WM: Do we provide emergency services with safe routes to incidents, or just provide them with map of flood area?
     
-	\frReqRow{24}{Must}{ In case of a flood, the system provides emergency services with safe routes to incident locations. }
+    \frReqRow{26}{Must}
+    { The system can make backups of it's data (configuration data etc.). }
     
-    \frReqRow{25}{Must}{ The system can determine the location of an emergency vehicle, so it is able to compute a safe route to incident locations. }
+    \frReqRow{27}{Must}
+    { The system can store created backups on a remote location. }
+      
+    \frReqRow{28}{Must}
+    { The system can retrieve the backups it previously created. }
+    
+    \frReqRow{29}{Must}
+    { The system can restore the backups it previously created. }
 
-    \frReqRow{26}{Optional}{ The system is able to detect extreme weather phenomena, like storms etc. }
+    \frReqRow{30}{Optional}
+    { The system is able to detect extreme weather phenomena, like storms etc. }
     
     \bottomrule
 \end{longtable}
