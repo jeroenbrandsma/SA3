@@ -67,13 +67,13 @@ The system needs to be resilliant to recover from errors and mistakes without im
 \begin{longtable}{L{0.1\textwidth} L{0.12\textwidth} L{0.7\textwidth}}
 	\textbf{Nr.} & \textbf{Prio}  & \textbf{Description} \\
 	\reqRow{sec}{1}{Must}{Access to the system is restricted to user accounts that are stored in a database.}
-	\reqRow{sec}{2}{Must}{User account information are hashed using bcrypt after being salted with 128 randomly generated characters.}
-	\reqRow{sec}{3}{Must}{The system is protected by a firewall that at least scans at the application layer, while also scanning for and preventing DDoS attacks.}
-\reqRow{sec}{1}{Must}{All communication to, from and within the system are encrypted.}
+	\reqRow{sec}{2}{Must}{All communication to, from and within the system are encrypted.}
+	\reqRow{sec}{3}{Must}{User account information are hashed using bcrypt after being salted with 128 randomly generated characters.}
+	\reqRow{sec}{4}{Must}{The system is protected by a firewall that at least scans at the application layer, while also scanning for and preventing DDoS attacks.}
 	% WM: does communication within the system mean between the different components of the system?
-	\reqRow{sec}{4}{Must}{The system communicates with it's sensors via a REST API that only allows for HTTPS connection.} % Do we want to communicate with the sensors via REST? WM: Could this be more generic? Like: 'the system communicates with the sensors via a secure connection'
-	\reqRow{sec}{5}{Must}{All system data must be backed up every 24 hours.}
-	\reqRow{sec}{6}{Must}{Backup copies are stored in a secure location which is not in the same area as the system (50 km).} % WM: maybe make area more specific, like range of 50 km or something
+	\reqRow{sec}{5}{Must}{The system communicates with it's sensors via a REST API that only allows for HTTPS connection.} % Do we want to communicate with the sensors via REST? WM: Could this be more generic? Like: 'the system communicates with the sensors via a secure connection'
+	\reqRow{sec}{6}{Must}{All system data must be backed up every 24 hours.}
+	\reqRow{sec}{7}{Must}{Backup copies are stored in a secure location which is not in the same area as the system (50 km).} % WM: maybe make area more specific, like range of 50 km or something
 
 	\bottomrule
 \end{longtable}
