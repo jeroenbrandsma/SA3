@@ -54,4 +54,22 @@
 			},
 			before row=\midrule,
 		},
+		FinanceTable/.append style={
+			begin table=\begin{longtable},
+			end table=\end{longtable},
+			every head row/.style={
+				before row={\toprule},
+				after row={},			
+			},
+			every last row/.style={%
+				after row=\bottomrule,
+			},
+			columns/Description/.style={
+				column type=L{\tw{0.6}},
+			},
+			columns/description/.style={
+				column type=L{\tw{0.2}},
+			},
+			before row=\midrule,
+		},
 	}
