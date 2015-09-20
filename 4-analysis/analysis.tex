@@ -2,18 +2,22 @@
 \chapter{Analysis}
 \label{ch:analysis}
 
-Assumptions:
+\section{Assumptions}
+There are several assumptions made about the system and it's environment:
+
 \noindent{
-	\begin{itemize}
-	  \item People requesting guidance have access to a phone that is either connected 		to a mobile network or to the internet
-	  \item The system is able to monitor various kinds of sensors
-	  \item The system has access to the internet
-	  \item The sensors are (in some way) connected to the system
-	  \item The system is able to use various kinds of sensors in order to predict floods.
-	  \item When the system has enough proof of a flood, the users will be informed in a timely manner (within 30 seconds maximal).
-	  \item People within a range of (30km?) will be warned about a detected flood
-	  \item The system uses multiple weather forecasting services to make its own predictions about possible upcoming floods.
-	\end{itemize}
+	\begin{enumerate}
+	  \item The safety region / government has means to alert citizens in an area to evacuate.
+	  \item The safety region is informed about our system and will alert citizens if needed when our system alerts the safety region.
+	  \item People who are subscribed for flood warnings/guidance have a mobile phone that can receive text messages and MMS.
+	  \item Sensors can be placed in the water ways and dikes in locations where they can provide representative measurements.
+	  \item Information is available to the system with regards to the population density and terrain height in different areas.
+	  \item A flood will not reach further than 50 km. % see SEC-7
+	  \item Supplying information about the areas affected by the flood in a resolution of 5 by 5 km (as described in \ref{fr:10}) is sufficient for the government/safety region to make decisions regarding alerting and evacuating citizens.
+	  \item It is possible to predict the expected water level up to 12 hours in the future.
+	  \item A weather forecasting API is available that provides precipitation and wind data.
+	  \item The sensors are (in some way) connected to the system.
+	\end{enumerate}
 }
 
 Decisions:
@@ -87,7 +91,7 @@ A higher score means a more favourable result. Meaning a high score for costs me
     \textbf{Name} 			& \textbf{Connectivity of the sensors} \\ \toprule
     \textbf{Decision} 		& \textbf{DEC-}\textbf{\nextNrRef{dn}} \\ \midrule \midrule
     \textbf{Status} 		& \textbf{New} \\ \midrule
-    \textbf{Problem/Issue} 	& The sensors need to deliver their data to the system and are located outdoors with atleast 100m distance between each other.  \\ \midrule
+    \textbf{Problem/Issue} 	& The sensors need to deliver their data to the system and are located outdoors with at least 100m distance between each other.  \\ \midrule
     \textbf{Decision} 		&  The sensors will send their data to the system using mobile broadband. Using cellphone towers to communicate with the system.\\ \midrule
     \textbf{Alternatives} 	& \textit{Landline}\\ 
     						& Connecting the sensors to the telephone network and use that network to communicate with the server.\\
@@ -98,7 +102,7 @@ A higher score means a more favourable result. Meaning a high score for costs me
 									Weight 				& 1 & 1 & 1 & 1 & 1 & 1 & 1 & \\ \hline
 									Mobile broadband 	& 4 & 4 & 4 & 4 & 2 & 5 & 4 & 27 \\
 									Landline 			& 2 & 2 & 3 & 4 & 3 & 3 & 5 & 22 \\
-									Satalite 		 	& 3 & 1 & 2 & 4 & 4 & 4 & 3 & 21 \\
+									Satellite 		 	& 3 & 1 & 2 & 4 & 4 & 4 & 3 & 21 \\
 									Direct lines 		& 2 & 1 & 5 & 2 & 5 & 1 & 1 & 17 \\
 								\end{tabular} \\ \bottomrule
 \end{tabular}
@@ -128,3 +132,26 @@ A higher score means a more favourable result. Meaning a high score for costs me
 \caption{Decision -- Cassandra Database.}
 \label{table:caption_alias}
 \end{table}
+
+
+%\begin{table}
+%\begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
+% \textbf{Name} 			& \textbf{Kind of sensors} \\ \toprule
+% \textbf{Decision} 		& \textbf{DEC-}\textbf{\nextNrRef{dn}} \\ \midrule \midrule
+% \textbf{Problem/Issue} 	& A problem description \\ \midrule
+% \textbf{Decision} 		& The method/product that has be chosen and why\\ \midrule
+% \textbf{Alternatives} 	& \textit{Other option}\\ 
+%    							& Details about the other options\\\midrule
+%\textbf{Arguments} 		& A short discussion of the cons and pro's supported by the table below\\
+%   						& 	\begin{tabular}{l|lllllll|l}
+%							& 		\rot{Reliability} & \rot{Resilience} & \rot{Performance} & \rot{Interopertability} & \rot{Security} & \rot{Scalability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline 
+%									weight 				& ? & ? & ? & ? & ? & ? & ? & ?\\ \hline
+%									Mobile broadband 	& ? & ? & ? & ? & ? & ? & ? & ?\\
+%									landline 			& ? & ? & ? & ? & ? & ? & ? & ?\\
+%									satalite 		 	& ? & ? & ? & ? & ? & ? & ? & ?\\
+%									direct lines 		& ? & ? & ? & ? & ? & ? & ? & ?\\
+%								\end{tabular} \\ \bottomrule
+%\end{tabular}
+%\caption{Decision -- Decision name.}
+%\label{table:caption_alias}
+%\end{table}
