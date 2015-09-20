@@ -33,9 +33,7 @@ We map our position on the market by using SWOT-analysis. This analysis maps our
 %\end{description}
 
 \newcommand{\SwotItems}[1]{
-	\begin{minipage}[t]{\linewidth}
-	\begin{itemize}[nosep]#1\end{itemize}%
-	\end{minipage}
+	\compactList{itemize}{#1}
 }
 
 \newcommand{\Strengths}{
@@ -100,7 +98,6 @@ We map our position on the market by using SWOT-analysis. This analysis maps our
 %	 &
 %	 \makebox[\linewidth][s]{\crule[O]{1cm}{1cm} = \crule[T]{1cm}{1cm} = } \\
 %	\midrule
-	
 	\textsc{\Large Strengths} & \textsc{\Large Weaknesses} \\
 	\cellcolor{S} \Strengths &  \cellcolor{W} \Weaknesses \\
 	\midrule
