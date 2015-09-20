@@ -1,5 +1,14 @@
 %!TEX root = ../report.tex
 \section{Stories and use-cases}
+In figure \ref{fig:usecase-diagram} is the use-case diagram displayed. This provides an overview of the use-cases with their actors.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=90mm]{images/usecaseDiagram.png}
+\caption{Use-case diagram}
+\label{fig:usecase-diagram}
+\end{figure}
+
 \subsection{A citizen receives a warning about an upcoming flood}
 \textbf{Scope:} Warning part of the system\\\\
 \textbf{Level:} Main process\\\\
@@ -20,13 +29,14 @@ UCTable
 ]{%
 	value & description \\
 	Number & \req{uc}\\
-	Name & Citizens receiving warnings\\%A citizen receives a warning about an upcoming flood \\
-	Description & Citizens want to be warned in case of a flood \\	
-	Stakeholders and interests & \\	
+	Name & Warn citizens\\%A citizen receives a warning about an upcoming flood \\
+	Description & Citizens will be warned in case of a flood \\	
+	Stakeholders and interests & \compactList{itemize}{
+			\item \textbf{Citizens}: Citizens want to be warned when a flood happens}	
 	Primary actor & Citizen\\
 	Scope & Warning part of the system \\
 	Level & Main process\\
-	Precondition & There is an upcoming flood and the citizens are not warned \\
+	Precondition & There is an upcoming flood, the citizens are not warned and they are subscribed to our warning service. \\
 	Main success scenario & \compactList{enumerate}{%
 			\item Sensors send the data to the processing unit%
 			\item The processing unit determines there is an imminent flood%
@@ -40,27 +50,25 @@ UCTable
 	%Sub-variations & \\
 }
 
-\todo{Discussion on main success scenario step 4: How do we send a warning to the government. Also extension nr 6.}
-\todo{The precondition "government and emergency services are not warned" does not matter right? we send it anyways. Else we have to check if the goverment has allready received a warning before sending it}
 \pgfplotstabletypeset[%
 UCTable
 ]{%
 	value & description \\
 	Number & \req{uc}\\
-	Name & \\%A citizen receives a warning about an upcoming flood \\
-	Description & Government and emergency services receive a warning about an upcoming flood \\
+	Name & Warn authorities\\
+	Description & Government and emergency services receive a warning about an upcoming flood\\
 	Stakeholders and interests & \compactList{itemize}{%
 			\item \textbf{Government}: The government wants to warn the citizens in case of a flood
 			\item \textbf{Emergency services}: The emergency services want to help the citizens in times of need}\\
 	Primary actor & Government, Emergency services\\
 	Scope & Warning part of the system \\
 	Level & Main process\\
-	Precondition & There is an upcoming flood and the government and emergency services are not warned \\
-	Main success scenario & \compactList{enumerate}{%
-			\item The sensors send their data to the processing unit%
-			\item The processing unit determines there is an upcoming flood%
-			\item The processing unit generates a map with vulnerable areas
-			\item A warning attached with the map is send to the government and the emergency services
+	Precondition & There is an upcoming flood\\
+	Main success scenario & \compactList{enumerate}{
+			\item The sensors send their data to the processing unit
+			\item The processing unit determines there is an upcoming flood
+			\item The processing unit generates a range of vulnerable locations
+			\item A warning containing the locations is send to the government and the emergency services
 			\item The Government and emergency services receive the warning message
 			\item The system receives a confirmation that the government and the emergency services received the warning }\\
 	Postcondition & There is an upcoming flood and the government and emergency services are warned \\
@@ -70,13 +78,13 @@ UCTable
 	%Sub-variations & \\
 }
 
-\todo{joris: "The sensors send their data to the processing unit" is removed here, but is the first mss item in the preview usecases}
+%\todo{joris: "The sensors send their data to the processing unit" is removed here, but is the first mss item in the preview usecases}
 \pgfplotstabletypeset[%
 UCTable
 ]{%
 	value & description \\
 	Number & \req{uc}\\
-	Name & \\%A citizen receives a warning about an upcoming flood \\
+	Name & Guide citizens\\
 	Description & A citizen requests guidance to get to a safe place in a flooded area \\
 	Stakeholders and interests & \compactList{itemize}{%
 			\item \textbf{Citizens}: Citizens want to be guided to a safe place in case of a flood
@@ -84,40 +92,38 @@ UCTable
 	Primary actor & Citizen\\
 	Scope & Guidance part of the system \\
 	Level & Main process\\
-	Precondition & There is a flood and the citizen is subscribed to the SMS service. \\
+	Precondition & There is a flood and the citizen is subscribed to the warning service. \\
 	Main success scenario & \compactList{enumerate}{%
 			\item The processing unit determined there is a flood%
-			\item The processing unit determines the optimal route for every known phone number%
-			\item The processing unit turns this route into a MMS message with the right directions
-			\item The personal route is send through MMS message to all known phone numbers}\\
+			\item The processing unit determines generic routes
+			\item The processing unit turns this routes into a MMS message with the right directions
+			\item The generic routes are send through MMS message to all subscribed phone numbers}\\
 	Postcondition & Citizen received his/her personal route to safety \\
 	Extensions & \compactList{itemize}{%
 			\item[4a.] MMS message can't be send. Wait a minute and try to resend}\\
 	%Sub-variations & \\
 }
 
-\todo{joris: Not a good pre condition}
 \pgfplotstabletypeset[%
 UCTable
 ]{%
 	value & description \\
 	Number & \req{uc}\\
-	Name & \\%A citizen receives a warning about an upcoming flood \\
+	Name & Retrieve weather data\\%A citizen receives a warning about an upcoming flood \\
 	Description & The system receives data from the weather forecast service \\
 	Stakeholders and interests & \compactList{itemize}{%
-			\item \textbf{Developers}: Developers would like to have a simple to use API 
-			\item \textbf{Emergency services}: The emergency services want to help the citizens in times of need}\\
+			\item \textbf{Developers}: Developers would like to have a simple to use API}
 	Primary actor & Developers\\
 	Scope & Monitoring part of the system \\
 	Level & Main process\\
-	Precondition & The system needs external data from a weather forecast service \\
+	Precondition & The system needs external weather data to predict floods \\
 	Main success scenario & \compactList{enumerate}{%
 			\item The processing unit determines it needs forecast weather data%
 			\item A call is made to the weather forecast service%
 			\item The weather forecast service returns the requested data}\\
 	Postcondition & The system received the forecast data \\
 	Extensions & \compactList{itemize}{%
-			\item[3a.] The data can't be returned. Repeat this process with another weather forecast service. If none are available, proceed monitoring without weather forecast data}\\
+			\item[3a.] The data can't be returned. Repeat this process with another weather forecast service. If none are available, proceed monitoring without weather forecast data. After 5 minutes try to reconnect.}\\
 	%Sub-variations & \\
 }
 %If we decide to use user input
