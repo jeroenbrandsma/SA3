@@ -1,0 +1,20 @@
+git config --global user.name "Joris Schafers"
+git config --global user.email imjoris@gmail.com
+
+git config --system receive.denyNonFastForwards true
+
+Adding a mergetool:
+Install kdiff3 (for example)
+Then, in your .gitconfig for windows add:
+
+	[merge]
+	    tool = kdiff3
+
+	[mergetool "kdiff3"]
+	    path = C:/Program Files/KDiff3/kdiff3.exe
+	    keepBackup = false
+	    trustExitCode = false
+	
+list your config:
+git config --list
+

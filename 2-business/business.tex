@@ -4,8 +4,10 @@
 The following section describes the different aspects of the business environment of the Smart Flood Monitor. First we will explain our vision and why there is place for us at the market. After this the product and its customers will be explained. This chapter is completed with a more detailed look at the business model and some models about the market and the financial prospect.
 
 \section{Business opportunity}
-There are many natural disasters happening each year all over the world. Each year these disasters take lives, waste a lot of properties and money and cause social disturbance. It is expected that natural disasters will cause \$300 billion in losses annually in the upcoming decade. Climate change causes the natural disasters to get worse every year. Also the number of natural disasters has increased significantly since 1970.\\
-Looking at, for example, the Indian ocean's tsunami in 2004, it looks that the damage could have been significantly reduced if the necessary people were warned. A system that would reduce the damage of natural disaster, could result in billions. \\
+There are many natural disasters happening each year all over the world. Each year these disasters take lives, waste a lot of properties and money and cause social disturbance. It is expected that natural disasters will cause \$300 billion in losses annually in the upcoming decade. Climate change causes the natural disasters to get worse every year. Also the number of natural disasters has increased significantly since 1970.
+
+Looking at, for example, the Indian ocean's tsunami in 2004, it looks that the damage could have been significantly reduced if the necessary people were warned. A system that would reduce the damage of natural disaster, could result in billions. 
+
 A system that warns and guides the people before or during the floods can result in billions being saved and will save a lot of lives.
 
 \section{Vision statement}
@@ -14,41 +16,36 @@ The Smart Flood Monitor will cause a revolutionary innovation on the environment
 \CompanyName{} will not be the only player on the environmental monitoring market as there are a lot of other competitors taking part on this area of expertise. This means \CompanyName{} will have to take their own strength and weaknesses into account. If we combine these qualities with an analysis of the opportunities and weaknesses on the market, we should be able to become a core part of the future environmental monitoring systems.\\
 
 % Such an analysis is called a SWOT-analysis.
-We try to map our position on the market by using SWOT-analysis. This analysis will map our strengths, weaknesses, opportunities, and threats as described as follows: 
+We map our position on the market by using SWOT-analysis. This analysis maps our strengths, weaknesses, opportunities, and threats. The results of our analysis is shown in the table below.
 
 % Strengths: Diverse team with several skills in IT and management. Experience with working with sensors.\\ 
 % Weaknesses: No experience with creating such system. No knowledge of floods. The product is a complex system.\\
 % Opportunities: Due to climate change, the market will grow and such a system becomes more urgent. Few competitors in the market. Smart sensors are a hot topic, new sensors will be developed.\\
 % Threats: High production costs. Competitors will enter the market because of growing market. Climate change will force to improve the system over time.\\
-
-\begin{description}
-  \item[Strengths] \hfill \\
-  Diverse team with several skills in IT and management. Experience with working with sensors.
-  \item[Weaknesses] \hfill \\
-  No experience with creating such system. Less knowledge about floods and environmental sciences. The product is a complex system.
-  \item[Opportunities] \hfill \\
-  Due to climate change, the market will grow and such a system becomes more urgent. Few competitors in the market. Smart sensors are a hot topic, new sensors will be developed.
-  \item[Threats] \hfill \\
-  High production costs. Competitors will enter the market because of growing market. Climate change will force to improve the system over time.
-\end{description}
+%
+%\begin{description}
+%  \item[Strengths] \hfill \\
+%  Diverse team with several skills in IT and management. Experience with working with sensors.
+%  \item[Weaknesses] \hfill \\
+%  No experience with creating such system. Less knowledge about floods and environmental sciences. The product is a complex system.
+%  \item[Opportunities] \hfill \\
+%  Due to climate change, the market will grow and such a system becomes more urgent. Few competitors in the market. Smart sensors are a hot topic, new sensors will be developed.
+%  \item[Threats] \hfill \\
+%  High production costs. Competitors will enter the market because of growing market. Climate change will force to improve the system over time.
+%\end{description}
 
 \newcommand{\SwotItems}[1]{
-	\begin{itemize}
-	%\begin{minipage}[t][8cm]{5cm}
-		#1
-	%\end{minipage}
-	\end{itemize}
+	\compactList{itemize}{#1}
 }
-\begin{figure}
-%Strengths
+
 \newcommand{\Strengths}{
-\SwotItems{
+\SwotItems{%
 	\item Adjustable system that is future proof
 	\item Having a low selling price. Lower then the competitors
 	\item Diverse team with several skills in IT and management
 	\item Having a good management team
 	\item Frequent discussion with technical and business experts in the field.
-	\item Experience with working with sensors
+	\item Experience with working with sensors%
 %	\item Main features don't focus on user-interaction.
 %	\item Having a relatively big project team
 %	\item Financial stability
@@ -56,17 +53,17 @@ We try to map our position on the market by using SWOT-analysis. This analysis w
 }
 
 \newcommand{\Weaknesses}{
-\SwotItems{
+\SwotItems{%
 	\item Decisions need to be made by the entire project team. There is a higher chance of a difference of opinion is members, holding back the project and leads to time wastes
 	\item No experience with creating such system
 	\item No knowledge of floods
 	\item The product is a complex system
-	\item Some main features rely on country-specific systems
+	\item Some main features rely on country-specific systems%
 }
 }
 
 \newcommand{\Opportunities}{
-\SwotItems{
+\SwotItems{%
 	\item Due to climate change, the market will grow and such a system becomes more urgent
 	\item Few competitors in the market
 	\item With a bigger program team, the pros and cons of the decisions are more clear
@@ -88,19 +85,39 @@ We try to map our position on the market by using SWOT-analysis. This analysis w
 }
 }
 
-\input{2-business/swotfigurecode.tex}
-\caption{SWOT-analysis diagram.}
-\label{fig:swot}
-\end{figure}
+\colorlet{helpful}{lime!70}
+\colorlet{harmful}{red!30}
+\colorlet{internal}{yellow!20}
+\colorlet{external}{cyan!30}
+\colorlet{S}{helpful!50!internal}
+\colorlet{W}{harmful!50!internal}
+\colorlet{O}{helpful!50!external}
+\colorlet{T}{harmful!50!external}
+
+\begin{tabular}{L{\tw{0.4}} | L{\tw{0.4}}}
+	\toprule
+%	\makebox[\linewidth][s]{\crule[S]{1cm}{1cm} = \crule[W]{1cm}{1cm} = }
+%	 &
+%	 \makebox[\linewidth][s]{\crule[O]{1cm}{1cm} = \crule[T]{1cm}{1cm} = } \\
+%	\midrule
+	\textsc{\Large Strengths} & \textsc{\Large Weaknesses} \\
+	\cellcolor{S} \Strengths &  \cellcolor{W} \Weaknesses \\
+	\midrule
+	\textsc{\Large Opportunities} & \textsc{\Large Threats} \\
+	\cellcolor{O} \Opportunities & \cellcolor{T} \Threats \\
+\end{tabular}
+
+%\input{2-business/swotfigurecode.tex}
+%\caption{SWOT-analysis diagram.}
 
 Our unique selling point is to provide a system with low selling price and high profit from the service contracts and upgrades.
 
 \section{Business rationale}
 \CompanyName{} will develop a new flood warning system in order to minimize the damage caused by a flood. In the Netherlands protection against floods is an important issue, because the position of the Netherlands itself is actually below sea level. Global warming will increase the urgency of this issue. The people within the Netherlands must be well protected against floods. The flood warning system will detect floods, warn people and governmental institutions located in the disaster area and provide guidance where to go to. \todo{truncated}
-\\
-\CompanyName{} is new within the flood warning system market. By using sensors and automated systems, a reliable and adequate product that uses of the newest technologies will be launched. \CompanyName{} will use hardware which is already on the market and is tested. Buying third party hardware will also speedup the development of the system and lower the costs.\\
 
-The product price will be low in order to get a market share and prove the product in a real-time environment. By providing maintenance and updates in the future \CompanyName{} will earn money to improve the product further and sell it to other potential customers. This in combination with the increasing need of a reliable warning system for imminent floods will result in a viable business.\\
+\CompanyName{} is new within the flood warning system market. By using sensors and automated systems, a reliable and adequate product that uses of the newest technologies will be launched. \CompanyName{} will use hardware which is already on the market and is tested. Buying third party hardware will also speedup the development of the system and lower the costs.
+
+The product price will be low in order to get a market share and prove the product in a real-time environment. By providing maintenance and updates in the future \CompanyName{} will earn money to improve the product further and sell it to other potential customers. This in combination with the increasing need of a reliable warning system for imminent floods will result in a viable business.
 
 
 The unique selling points of our system are: 
@@ -133,8 +150,9 @@ The initial release will only focus on floods as a natural disaster. It will sen
 		\item Using multiple communication networks to send information
 	\end{itemize}
 
-The first thing \CompanyName{} will focus on after the first release, is to let users interact with the system more. This will allow the system to have better knowledge of the area. However, mistakes can easily be made by a user and so this data needs to be verified in order to get valuable information. That is why adding this feature goes beyond the scope of this project.\\
-Adding sensor support is a continuous process. The sensors that are available are steadily increasing and their technology becomes more advanced. \CompanyName{} will monitor the sensor technologies and improvements to check if these can improve the system. \\
+The first thing \CompanyName{} will focus on after the first release, is to let users interact with the system more. This will allow the system to have better knowledge of the area. However, mistakes can easily be made by a user and so this data needs to be verified in order to get valuable information. That is why adding this feature goes beyond the scope of this project.
+
+Adding sensor support is a continuous process. The sensors that are available are steadily increasing and their technology becomes more advanced. \CompanyName{} will monitor the sensor technologies and improvements to check if these can improve the system.
 Depending on where the system resides, it will need to interact with various kinds of networks en media. Initially the flood warning system will focus on communicating with resources in the Netherlands. However, if a future release implements additional support for monitoring tornadoes or volcanoes, the system will most likely not be in the Netherlands.
 
 \begin{figure}[h!]
@@ -147,17 +165,17 @@ Depending on where the system resides, it will need to interact with various kin
 
 %\section{Business rationale}
 \section{Product and service description}
-\CompanyName{} offers a flood warning system. When a imminent flood is monitored by the sensors of the system a warning should be sent to governmental organizations and people within the danger area. Also guidance should be provided when a flood is happening to assist rescuers and guide inhabitants to safe areas.\\
+\CompanyName{} offers a flood warning system. When a imminent flood is monitored by the sensors of the system a warning should be sent to governmental organizations and people within the danger area. Also guidance should be provided when a flood is happening to assist rescuers and guide inhabitants to safe areas.
 
-Basically the system will consist of four subsystems: monitor the state of dykes and water levels, monitor if a imminent flood is occurring, warn governmental organizations and inhabitants in the danger area, and provide guidance to search and rescue organizations and inhabitants.\\
+Basically the system will consist of four subsystems: monitor the state of dykes and water levels, monitor if a imminent flood is occurring, warn governmental organizations and inhabitants in the danger area, and provide guidance to search and rescue organizations and inhabitants.
 
-The first subsystem, monitor the state of dykes and water levels, will consist of various sensors that are placed near and in dykes and water ways. The state of the dikes must be monitored continuously, i.e. pressure of the dyke. Also, sensors must be installed to monitored continuously the water level. The data of all the sensors will be sent to a server, in a safe location, to store all the data.\\
+The first subsystem, monitor the state of dykes and water levels, will consist of various sensors that are placed near and in dykes and water ways. The state of the dikes must be monitored continuously, i.e. pressure of the dyke. Also, sensors must be installed to monitored continuously the water level. The data of all the sensors will be sent to a server, in a safe location, to store all the data.
 
-The second subsystem, monitor if a imminent flood is occurring, will analyze all the data from the sensors and data from weather forecasting service. Based on this data an algorithm will monitor continuously if there are dangerous situations.\\
+The second subsystem, monitor if a imminent flood is occurring, will analyze all the data from the sensors and data from weather forecasting service. Based on this data an algorithm will monitor continuously if there are dangerous situations.
 
 The third subsystem, warn governmental organizations and inhabitants in the danger area, will send warning messages when the algorithm identified a dangerous situations. The safety region ---in Dutch Veiligheidsregio--- will receive a warning message that an area is in danger. Information like place, sort danger and amount of danger will be send. The safety region will be responsible to take action based on this information. Inhabitants can receive warnings via sirens, mobile phone, radio, television, and by UAV.\todo{truncated}
 
-The last subsystem, provide guidance to search and rescue organizations and inhabitants, will help people that are in the danger area how to flee and rescue in a save way. Rescue organizations will receive information where are probably the most casualties and how to get safe to those locations.\\
+The last subsystem, provide guidance to search and rescue organizations and inhabitants, will help people that are in the danger area how to flee and rescue in a save way. Rescue organizations will receive information where are probably the most casualties and how to get safe to those locations.
 
 
 The service will consist of maintenance for the product and upgrades.

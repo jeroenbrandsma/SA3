@@ -8,12 +8,58 @@
 \newcommand*\rot{\rotatebox{90}}
 \newcommand*\OK{\ding{51}}
 
+\newcommand{\compactList}[2]{%
+	%\begin{minipage}[t][][p]{\linewidth}%
+	%\begin{minipage}{\linewidth}%
+	\adjustbox{valign=t}{%
+		\begin{minipage}{\linewidth}
+		\begin{#1}[%
+			nosep,
+			nolistsep,
+			topsep=1pt,
+			partopsep=0pt,
+			parsep=0pt,
+			%itemsep=0pt,
+			itemindent=0pt,
+			%labelsep=*,
+			%align=margin,
+			align=left,
+			%leftmargin=\linewidth,
+			leftmargin=*,
+			labelwidth=*,
+			after=\strut,
+			]#2\end{#1}%
+			\end{minipage}%
+	}%\end{adjustbox}
+}%
+\newcommand{\allotOfText}{%
+LaTeX styled as LATEX, and a shortening of Lamport TeX is a word processor and a document markup language. It is distinguished from typical word processors such as Microsoft Word and Apple Pages in that the writer uses plain text as opposed to formatted text, relying on markup tagging conventions to define the general structure of a document (such as article, book, and letter), to stylise text throughout a document (such as bold and italic), and to add citations and cross-referencing. A TeX distribution such as TeXlive or MikTeX is used to produce an output file (such as PDF or DVI) suitable for printing or digital distribution.
+}
+%
+%\newcolumntype{R}[2]{%
+%    >{\adjustbox{angle=#1,lap=\width-(#2)}\bgroup}%
+%    l%
+%    <{\egroup}%
+%}
+%\newcommand*\rotmc{\multicolumn{1}{R{90}{1em}}}% no optional argument here, please!
+%
+
+%\newcolumntype{R}[2]{%
+%    >{\adjustbox{angle=#1,lap=\width-(#2)}\bgroup}%
+%    l%
+%    <{\egroup}%
+%}
+%\newcommand*\rot{\multicolumn{1}{R{90}{1em}}}% no optional argument here, please!
+
+
 %command to decrease the size it takes to write
 %L{0.5\textwidth}. This will now be:
 %L{\tw{0.5}}. A small difference, but it adds up
 \newcommand{\tw}[1]{#1\textwidth}
 
 \newcommand{\ignore}[1]{}
+
+\newcommand\crule[3][black]{\textcolor{#1}{\rule{#2}{#3}}}
 
 \makeatletter
 

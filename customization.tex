@@ -17,3 +17,41 @@
 
 %Nice custom column type
 \newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+
+\pgfplotstableset{
+	string type,
+	col sep=&,
+	row sep=\\,
+	%every table/.append style={outfile={#1.out}}
+	%generate an outfile name for every table
+}
+
+\makeatletter
+
+\pgfplotstableset{%
+		bold/.append style={
+	        postproc cell content/.append code={
+	                \pgfkeysalso{@cell content=\textbf{##1}}%
+	        },
+    	},
+		UCTable/.append style={
+			begin table=\begin{longtable},
+			end table=\end{longtable},
+			every head row/.style={
+				output empty row,
+				before row={},
+				after row={},			
+			},
+			every last row/.style={%
+				after row=\bottomrule,
+			},
+			columns/value/.style={
+				bold,
+				column type=L{\tw{0.2}},
+			},
+			columns/description/.style={
+				column type=L{\tw{0.6}},
+			},
+			before row=\midrule,
+		},
+	}

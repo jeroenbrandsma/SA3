@@ -6,70 +6,120 @@
 \textbf{Primary actor:} Citizen\\\\
 \textbf{Stakeholders and interests:}\\
 
-	1. Citizens - citizens want to be warned in case of a flood \\\\
-\textbf{Precondition:} There is an upcoming flood and the citizens are not warned\\
-\textbf{Postcondition:} There is an upcoming flood and the citizens are warned\\\\
-\textbf{Main succes scenario:} \\
-1 - The sensors send the data to the processing unit.\\
-2 - The processing unit determines there is an imminent flood.\\
-3 - The processing unit generates a map with vulnerable areas.\\
-4 - A text message with a warning is send to all subscribers in the vulnerable area.\\\\
-\textbf{Extensions:} \\
-2a - The flood doesn't get to dangerous, it retreats. No warning mechanism is triggered.\\
-4a - The citizen is not in the vulnerable area. No text message is send.
+%slides say:
+%	Name & \\
+%	Number & \\
+%	Primary actor &  \\
+%	Scope &  \\
+%	Level &  \\
+%	Extensions &  \\
+%	Sub-variations & \\
 
-\todo{Discussion on main succes scenario step 4: How do we send a warning to the government. Also extension nr 5.}
-\subsection{Government and emergency services receive a warning about an upcoming flood}
-\textbf{Scope:} Warning part of the system\\\\
-\textbf{Level:} Main process\\\\
-\textbf{Primary actor:} Government, Emergency services\\\\
-\textbf{Stakeholders and interests:}\\
-	1. Government - the government wants to warn the citizens in case of a flood \\
-	2. Emergengy services - the emergency services want to help the citizens in times of need.\\\\
-\textbf{Precondition:} There is an upcoming flood and the government and emergency services are not warned\\
-\textbf{Postcondition:} There is an upcoming flood and the government and emergency services is warned\\\\
-\textbf{Main succes scenario:} \\
-1 - The sensors send their data to the processing unit.\\
-2 - The processing unit determines there is an upcoming flood.\\
-3 - The processing unit generates a map with vulnerable areas.\\
-4 - A warning attachted with the map is send to the government and the emergency services.\\
-5 - The system receives a confirmation that the government and the emergency services received the warning.\\\\
-\textbf{Extensions:} \\
-2a - The flood doesn't get to dangerous, it retreats. No warning mechanism is triggered.\\
-5a - No confirmation is received within 15 seconds. Send warning message in another way. 
+\pgfplotstabletypeset[%
+UCTable
+]{%
+	value & description \\
+	Number & \req{uc}\\
+	Name & Citizens receiving warnings\\%A citizen receives a warning about an upcoming flood \\
+	Description & Citizens want to be warned in case of a flood \\	
+	Stakeholders and interests & \\	
+	Primary actor & Citizen\\
+	Scope & Warning part of the system \\
+	Level & Main process\\
+	Precondition & There is an upcoming flood and the citizens are not warned \\
+	Main success scenario & \compactList{enumerate}{%
+			\item Sensors send the data to the processing unit%
+			\item The processing unit determines there is an imminent flood%
+			\item The processing unit generates a map with vulnerable areas
+			\item Text messages containing a warning are send to all subscribers in the vulnerable area
+			\item The subscribed citizens receive the warning message }\\
+	Postcondition & There is an upcoming flood and the citizens are warned \\
+	Extensions & \compactList{itemize}{%
+			\item[2a.] Flood doesn't get to dangerous, it retreats. No warning mechanism is triggered
+			\item[4a.] The citizen is not in the vulnerable area. No text message is send}\\
+	%Sub-variations & \\
+}
 
-\subsection{A citizen requests guidance to get to a safe place in a flooded area}
-\textbf{Scope:} Guidance part of the system\\\\
-\textbf{Level:} Main process\\\\
-\textbf{Primary actor:} Citizen\\\\
-\textbf{Stakeholders and interests:}\\
+\todo{Discussion on main success scenario step 4: How do we send a warning to the government. Also extension nr 6.}
+\todo{The precondition "government and emergency services are not warned" does not matter right? we send it anyways. Else we have to check if the goverment has allready received a warning before sending it}
+\pgfplotstabletypeset[%
+UCTable
+]{%
+	value & description \\
+	Number & \req{uc}\\
+	Name & \\%A citizen receives a warning about an upcoming flood \\
+	Description & Government and emergency services receive a warning about an upcoming flood \\
+	Stakeholders and interests & \compactList{itemize}{%
+			\item \textbf{Government}: The government wants to warn the citizens in case of a flood
+			\item \textbf{Emergengy services}: The emergency services want to help the citizens in times of need}\\
+	Primary actor & Government, Emergency services\\
+	Scope & Warning part of the system \\
+	Level & Main process\\
+	Precondition & There is an upcoming flood and the government and emergency services are not warned \\
+	Main success scenario & \compactList{enumerate}{%
+			\item The sensors send their data to the processing unit%
+			\item The processing unit determines there is an upcoming flood%
+			\item The processing unit generates a map with vulnerable areas
+			\item A warning attached with the map is send to the government and the emergency services
+			\item The Government and emergency services receive the warning message
+			\item The system receives a confirmation that the government and the emergency services received the warning }\\
+	Postcondition & There is an upcoming flood and the government and emergency services are warned \\
+	Extensions & \compactList{itemize}{%
+			\item[2a.] The flood doesn't get to dangerous, it retreats. No warning mechanism is triggered
+			\item[6a.] No confirmation is received within 15 seconds. Send warning message in another way}\\
+	%Sub-variations & \\
+}
 
-	1. Citizens - citizens want to be guided to a safe place in case of a flood. \\\\
-\textbf{Precondition:} There is a flood and the citizen is subscribed to the SMS service. \\
-\textbf{Postcondition:} Citizen received his personal route to safety. \\\\
-\textbf{Main succes scenario:} \\
-1 - The processing unit determined there is a flood.\\
-2 - The processing unit determines the optimal route for every known phone number.\\
-3 - The processing unit turns this route into a MMS message with the right directions.\\
-4 - The personal route is send through MMS message to all known phone numbers.\\\\
-\textbf{Extensions:} \\
-4a - MMS message can't be send. Wait a minute and try to resend.\\
+\todo{joris: "The sensors send their data to the processing unit" is removed here, but is the first mss item in the preview usecases}
+\pgfplotstabletypeset[%
+UCTable
+]{%
+	value & description \\
+	Number & \req{uc}\\
+	Name & \\%A citizen receives a warning about an upcoming flood \\
+	Description & A citizen requests guidance to get to a safe place in a flooded area \\
+	Stakeholders and interests & \compactList{itemize}{%
+			\item \textbf{Citizens}: Citizens want to be guided to a safe place in case of a flood
+			\item \textbf{Emergengy services}: The emergency services want to help the citizens in times of need}\\
+	Primary actor & Citizen\\
+	Scope & Guidance part of the system \\
+	Level & Main process\\
+	Precondition & There is a flood and the citizen is subscribed to the SMS service. \\
+	Main success scenario & \compactList{enumerate}{%
+			\item The processing unit determined there is a flood%
+			\item The processing unit determines the optimal route for every known phone number%
+			\item The processing unit turns this route into a MMS message with the right directions
+			\item The personal route is send through MMS message to all known phone numbers}\\
+	Postcondition & Citizen received his/her personal route to safety \\
+	Extensions & \compactList{itemize}{%
+			\item[4a.] MMS message can't be send. Wait a minute and try to resend}\\
+	%Sub-variations & \\
+}
 
-\subsection{The system receives data from the weather forecast service}
-\textbf{Scope:} Monitoring part of the system\\\\
-\textbf{Level:} Main process\\\\
-\textbf{Primary actor:} Developers\\\\
-\textbf{Stakeholders and interests:}\\
-	1. Developers - Developers would like to have a simple to use API.\\\\
-\textbf{Precondition:} The system needs external data from a weather forecast service.\\
-\textbf{Postcondition:} The system received the forecast data.\\\\
-\textbf{Main succes scenario:} \\
-1 - The processing unit determines it needs forecast weather data.\\
-2 - A call is made to the weather forecast service.\\
-3 - The weather forecast service returns the requested data.\\\\
-\textbf{Extensions:} \\
-3a - The data can't be returned. Repeat this process with another weather forecast service. If non is available, proceed monitoring without weather forecast data.\\
-
+\todo{joris: Not a good pre condition}
+\pgfplotstabletypeset[%
+UCTable
+]{%
+	value & description \\
+	Number & \req{uc}\\
+	Name & \\%A citizen receives a warning about an upcoming flood \\
+	Description & The system receives data from the weather forecast service \\
+	Stakeholders and interests & \compactList{itemize}{%
+			\item \textbf{Developers}: Developers would like to have a simple to use API 
+			\item \textbf{Emergengy services}: The emergency services want to help the citizens in times of need}\\
+	Primary actor & Developers\\
+	Scope & Monitoring part of the system \\
+	Level & Main process\\
+	Precondition & The system needs external data from a weather forecast service \\
+	Main success scenario & \compactList{enumerate}{%
+			\item The processing unit determines it needs forecast weather data%
+			\item A call is made to the weather forecast service%
+			\item The weather forecast service returns the requested data}\\
+	Postcondition & The system received the forecast data \\
+	Extensions & \compactList{itemize}{%
+			\item[3a.] The data can't be returned. Repeat this process with another weather forecast service. If none are available, proceed monitoring without weather forecast data}\\
+	%Sub-variations & \\
+}
 %If we decide to use user input
 % \subsection{A citizen reports an obstruction}
 % \textbf{Scope:} Monitoring part of the system\\\\
