@@ -1,6 +1,7 @@
 %!TEX root = ../report.tex
 \chapter{Analysis}
 \label{ch:analysis}
+This chapter describes the analysis. It lists the assumptions made about the system and it's environment. Next, an overview of the high-level design decisions is given.
 
 \section{Assumptions}
 There are several assumptions made about the system and it's environment:
@@ -20,22 +21,29 @@ There are several assumptions made about the system and it's environment:
 	\end{enumerate}
 }
 
-Decisions:
-\noindent{
-	\begin{itemize}
-	\item Security? (What if someone tries to manipulate a sensor?)
-	\item One or multiple warning systems (failover)
-	\item Networking? Redundancy of cables (trunked?)
-	\item When to alarm? What to do if only 1 sensor warns about a flood?
-	\item Security decisions?
-	\item Operating system decision
-	\item Storage decision
-	\item Push or pull updates? (Pushing I’m hoping)
-	\item Programming language(s) for the system? Web-interface, sensor monitoring, weather forecasting system, push notification system
-	\item In what ways will the system detect a flood? Sensors, UAV’s, forecasting?
-	\item How to detect a flood based on the forecasting? Warn beforehand? Pay extra attention to the new upcoming flood by sending extra robots/uav's?
-	\end{itemize}
-}
+\newpage
+\section{High-level Design Decisions}
+This section discusses the high-level design decisions.
+
+Each decision is explained in a table. The arguments section of the table lists for each alternative a score for every important quality attribute.
+A higher score means a more favourable result. For example, a high score for costs means a low cost for the system.
+\\[1.0cm]
+
+%\noindent{
+%	\begin{itemize}
+%	\item Security? (What if someone tries to manipulate a sensor?)
+%	\item One or multiple warning systems (failover)
+%	\item Networking? Redundancy of cables (trunked?)
+%	\item When to alarm? What to do if only 1 sensor warns about a flood?
+%	\item Security decisions?
+%	\item Operating system decision
+%	\item Storage decision
+%	\item Push or pull updates? (Pushing I’m hoping)
+%	\item Programming language(s) for the system? Web-interface, sensor monitoring, weather forecasting system, push notification system
+%	\item In what ways will the system detect a flood? Sensors, UAV’s, forecasting?
+%	\item How to detect a flood based on the forecasting? Warn beforehand? Pay extra attention to the new upcoming flood by sending extra robots/uav's?
+%	\end{itemize}
+%}
 
 % Template for decision table:
 % We removed the status from the orignal entry, because we do not use this document to get confirmation on our decisions
@@ -61,8 +69,6 @@ Decisions:
 % \label{table:caption_alias}
 % \end{table}
 
-A higher score means a more favourable result. Meaning a high score for costs means a low cost for the system.
-
 \begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
     \textbf{Name} 			& \textbf{Linux} \\ \toprule
     \textbf{Decision} 		& \textbf{DEC-}\textbf{\nextNrRef{dn}} \\ \midrule \midrule
@@ -86,6 +92,8 @@ A higher score means a more favourable result. Meaning a high score for costs me
     \\ \bottomrule
 \end{tabular}
 \todo[inline]{We either need to adjust some weights or we need to switch to OpenBSD. Also, I might be biased.}
+% WM: we could make cost of BSD a lower score, because developers have less experience with it and it is more expansive because of that
+\newpage
 
 \begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
     \textbf{Name} 			& \textbf{Connectivity of the sensors} \\ \toprule
@@ -122,7 +130,7 @@ A higher score means a more favourable result. Meaning a high score for costs me
    	\textbf{Arguments} 		& A short discussion of the cons and pro's is described by the table below\\
    						& 	\begin{tabular}{l|lllllll|l}
 							& 		\rot{Reliability} & \rot{Resilience} & \rot{Performance} & \rot{Interoperability} & \rot{Security} & \rot{Scalability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline 
-									weight 		& 1 & 1 & 1 & 1 & 1 & 1 & 4 &  \\ \hline
+									Weight 		& 1 & 1 & 1 & 1 & 1 & 1 & 4 &  \\ \hline
 									Cassandra 	& 4 & 3 & 5 & 3 & 3 & 5 & 4 & 27\\
 									Redis 		& 2 & 3 & 3 & 3 & 3 & 2 & 4 & 20\\
 									MongoDB 	& 2 & 3 & 3 & 3 & 3 & 3 & 4 & 21\\
@@ -145,7 +153,7 @@ A higher score means a more favourable result. Meaning a high score for costs me
 %\textbf{Arguments} 		& A short discussion of the cons and pro's supported by the table below\\
 %   						& 	\begin{tabular}{l|lllllll|l}
 %							& 		\rot{Reliability} & \rot{Resilience} & \rot{Performance} & \rot{Interopertability} & \rot{Security} & \rot{Scalability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline 
-%									weight 				& ? & ? & ? & ? & ? & ? & ? & ?\\ \hline
+%									Weight 				& ? & ? & ? & ? & ? & ? & ? & ?\\ \hline
 %									Mobile broadband 	& ? & ? & ? & ? & ? & ? & ? & ?\\
 %									landline 			& ? & ? & ? & ? & ? & ? & ? & ?\\
 %									satalite 		 	& ? & ? & ? & ? & ? & ? & ? & ?\\
