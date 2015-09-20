@@ -1,0 +1,72 @@
+% Siep Kroonenberg (C) 2007, 2008, 2009, 2010, 2012, 2014.
+% For internal use at the Rijksuniversiteit Groningen.
+
+% version 3.0 (2014/02/12)
+% adapted for 2014 updates
+
+% version 2.0 (2012/01/31)
+% alternative font options
+% pict2e and texpower optional
+% smaller/smallest now work correctly with slide environment
+
+\documentclass[%
+  %nofonts,% use default fonts
+  %notexpower,% do not try to load texpower package
+  %nohyperref,% suppress pdf cross-links
+  %handouts,% no backgrounds or dynamic effects
+  english%   alternative: dutch (default)
+]{rug08pres}
+
+%\usepackage{pdfpages}
+% for including the rug08beamer manual as well; see end of file
+
+% I got this template when I googled it, I think it's from FEB:
+% http://tex.aanhet.net/rugtex/index.html
+% To make the cls work, unpack the zip (included in this folder) in your private texmf tree:
+% - Windows XP: something like c:\Documents and Settings\<your user name>\texmf
+% - Windows Vista and later: c:\Users\<your user name>\texmf
+% - Linux/Unix: ~/texmf
+% - MacTeX edition of TeX Live: ~/Library/texmf
+
+\facname{Faculty of Mathematics\\and Natural Sciences} % optional
+\group{Computing Science} % optional
+
+\def\bsl{\textbackslash}
+\def\cmd#1{\texttt{\bsl #1}}
+
+\newenvironment{sverbatim}{%
+  \bgroup\footnotesize\verbatim}{\endverbatim\egroup}
+
+\begin{document}
+
+\titleslide {Smart Flood Monitoring}
+
+% it is ok to use hard formatting for one-off elements
+{Software Architecture}
+
+Group 3
+
+\today
+
+\slide[Members]
+
+\begin{itemize}
+\item Eedema, Gerrit
+\item Putra, Guntur
+\item Fakambi, Aurelie
+\item Schaefers, Joris
+\item Klinkenberg, Guus
+\item Brandsma, Jeroen
+\item Menninga, Wouter
+\end{itemize}
+
+\slide[Outline]
+
+\begin{itemize}
+\item Blah blah 
+\item Blah blah blah 
+\item Blah blah blah blah 
+\end{itemize}
+
+
+\end{document}

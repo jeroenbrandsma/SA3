@@ -1,0 +1,8 @@
+I got this template when I googled it, I think it's from FEB:
+http://tex.aanhet.net/rugtex/index.html
+
+To make the cls work, unpack the zip (included in this folder) in your private texmf tree:
+- Windows XP: something like c:\Documents and Settings\<your user name>\texmf
+- Windows Vista and later: c:\Users\<your user name>\texmf
+- Linux/Unix: ~/texmf
+- MacTeX edition of TeX Live: ~/Library/texmf
