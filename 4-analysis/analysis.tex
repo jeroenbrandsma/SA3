@@ -187,3 +187,31 @@ A higher score means a more favourable result. For example, a high score for cos
 \caption{Decision -- Type of water level sensors}
 \label{table:waterlevelsensortype}
 \end{table}
+
+\begin{table}
+\begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
+ \textbf{Name} 			& \textbf{Cloud service provider} \\ \toprule
+ \textbf{Decision} 		& \textbf{DEC-}\textbf{\nextNrRef{dn}} \\ \midrule \midrule
+ \textbf{Problem/Issue} 	& To connect all sensors and to process all the data, we need computing power. \\ \midrule
+ \textbf{Decision} 		& The system will use Cloud VPS as the cloud provider. This provider is located in europe and can provide all services we need. This also means the privacy of the data is assured. \\ \midrule
+ \textbf{Alternatives} 	
+    					  &\textit{Microsoft Azure}\\ 
+    					    & Microsoft Azure gives a good performance service. However the big disadvantage of this provider is that is not located in europe. This means different laws could apply to the data than in europe. \\
+    					  &\textit{Amazon}\\
+    					    & The pricing and performance of Amazon is good. Unfortunately the same as for Azure also applies to Amazon. We can't be sure where our data is stored.\\
+    					  &\textit{Own server implementation}\\
+    					    & Another option is to maintain our own server park. This will give us more freedom in terms of technical details. However, it will be way more expensive to maintain our own park. \\
+\textbf{Arguments} 		& For this decision we will not take resilience into account. Resilience can also be seen as reliability and interoperability. \\
+   						& 	\begin{tabular}{l|lllllll|l}
+							& 		\rot{Reliability} & \rot{Resilience} & \rot{Performance} & \rot{Interopertability} & \rot{Security} & \rot{Scalability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline 
+							% 								rel res perf int sec sca cost
+									Weight 					& 3 & - & 2 & 2 & 3 & 2 & 2 & \\ \hline
+									Cloud VPS 		 		& 4 & - & 4 & 3 & 4 & 5 & 3 & 54\\
+									Azure				 	& 4 & - & 4 & 3 & 3 & 5 & 3 & 51\\
+									Amazon			 	 	& 4 & - & 4 & 3 & 3 & 5 & 3 & 51\\
+									Own server park 		& 4 & - & 4 & 5 & 4 & 3 & 1 & 50\\
+								\end{tabular} \\ \bottomrule
+\end{tabular}
+\caption{Decision -- Cloud computing provider}
+\label{table:waterlevelsensortype}
+\end{table}
