@@ -12,7 +12,7 @@ This section describes the technical aspects that are important to the system as
 % The margin of error tolerated has to be as low as possible .\\ GK: Margin of error in what aspect?
 \begin{longtable}{L{0.1\textwidth} L{0.12\textwidth} L{0.7\textwidth}}
 	\textbf{Nr.} & \textbf{Prio}  & \textbf{Description} \\
-	\reqRow{rel}{1}{Must}{Sensor sites are equiped with atleast two sensors}
+	\reqRow{rel}{1}{Must}{Sensor sites are equipped with at least two sensors}
 	\reqRow{rel}{2}{Must}{Data from the sensors is sent via a TCP connection} % Already mention REST here?
 	\reqRow{rel}{3}{Must}{Redundancy} % GK: if redundancy is required, which it should be, in what way?
 	%This means adding redundancy to the system so that failure of a component does not mean failure of the entire system
@@ -20,7 +20,7 @@ This section describes the technical aspects that are important to the system as
 \end{longtable}
 
 \subsection{Resilience}
-The system needs to be resilliant to recover from errors and mistakes without impacting the systems functionality.
+The system needs to be resilient to recover from errors and mistakes without impacting the systems functionality.
 \begin{longtable}{L{0.1\textwidth} L{0.12\textwidth} L{0.7\textwidth}}
 	\textbf{Nr.} & \textbf{Prio}  & \textbf{Description} \\
 	\reqRow{res}{1}{Must}{The system recognizes failures within half an hour}
@@ -42,8 +42,7 @@ The system needs to be resilliant to recover from errors and mistakes without im
 \end{longtable}
 % GK: requirement for amount of concurrent users
 
-\todo{Static path to local image}
-%\includegraphics[scale=0.8]{C:/Users/admin/Desktop/M1/Performance.jpg}
+\includegraphics[scale=0.7]{3-requirements/Images/Performance.jpg}
 
 \subsection{Interoperability}
 % The system has dependencies on third-party systems. For example, to make predictions about the development of waterlevel, the system will need to retrieve information from water forecasting services. Not only for input, but also for output, the system will need to interoperate with third-party systems. If the system has registered a risk of a flood, it should interact with systems of emergency services and other authorities to alert them and sent relevant information.
