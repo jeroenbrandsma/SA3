@@ -69,6 +69,7 @@ A higher score means a more favourable result. For example, a high score for cos
 % \label{table:caption_alias}
 % \end{table}
 
+\begin{table}[h]
 \begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
     \textbf{Name} 			& \textbf{Linux} \\ \toprule
     \textbf{Decision} 		& \textbf{DEC-}\textbf{\nextNrRef{dn}} \\ \midrule \midrule
@@ -85,16 +86,21 @@ A higher score means a more favourable result. For example, a high score for cos
 							& 		\rot{Reliability} & \rot{Resilience} & \rot{Performance} & \rot{Interopertability} & \rot{Security} & \rot{Scalability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline
 							% 							rel res perf int sec sca cost
 									Weight 				& 1 & 1 & 1 & 1 & 1 & 1 & 1 & \\ \hline
-									Linux 			 	& 4 & 4 & 4 & 4 & 4 & 4 & 4 & 28 \\
+									Linux 			 	& 4 & 4 & 4 & 4 & 4 & 4 & 5 & 29 \\
 									Windows 			& 3 & 2 & 3 & 2 & 3 & 3 & 1 & 17 \\
-									OpenBSD 		 	& 5 & 5 & 4 & 4 & 5 & 4 & 4 & 31 \\
+									OpenBSD 		 	& 5 & 5 & 4 & 3 & 5 & 4 & 3 & 29 \\
 								\end{tabular} \\
     \\ \bottomrule
 \end{tabular}
-\todo[inline]{We either need to adjust some weights or we need to switch to OpenBSD. Also, I might be biased.}
+\caption{Decision -- Operating system}
+\label{table:os}
+\end{table}
+%\todo[inline]{We either need to adjust some weights or we need to switch to OpenBSD. Also, I might be biased.}
 % WM: we could make cost of BSD a lower score, because developers have less experience with it and it is more expansive because of that
+%   WM: I adjusted some weights, but they are now equal
 \newpage
 
+\begin{table}
 \begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
     \textbf{Name} 			& \textbf{Connectivity of the sensors} \\ \toprule
     \textbf{Decision} 		& \textbf{DEC-}\textbf{\nextNrRef{dn}} \\ \midrule \midrule
@@ -114,6 +120,9 @@ A higher score means a more favourable result. For example, a high score for cos
 									Direct lines 		& 2 & 1 & 5 & 2 & 5 & 1 & 1 & 17 \\
 								\end{tabular} \\ \bottomrule
 \end{tabular}
+\caption{Decision -- Connectivity of the sensors}
+\label{table:connectivitysensors}
+\end{table}
 
 \begin{table}
 \begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
@@ -137,29 +146,44 @@ A higher score means a more favourable result. For example, a high score for cos
 									HBase 		& 3 & 3 & 4 & 3 & 3 & 4 & 4 & 24\\
 								\end{tabular} \\ \bottomrule
 \end{tabular}
-\caption{Decision -- Cassandra Database.}
+\caption{Decision -- Cassandra Database}
 \label{table:caption_alias}
 \end{table}
 
-
-%\begin{table}
-%\begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
-% \textbf{Name} 			& \textbf{Kind of sensors} \\ \toprule
-% \textbf{Decision} 		& \textbf{DEC-}\textbf{\nextNrRef{dn}} \\ \midrule \midrule
-% \textbf{Problem/Issue} 	& A problem description \\ \midrule
-% \textbf{Decision} 		& The method/product that has be chosen and why\\ \midrule
-% \textbf{Alternatives} 	& \textit{Other option}\\ 
-%    							& Details about the other options\\\midrule
-%\textbf{Arguments} 		& A short discussion of the cons and pro's supported by the table below\\
-%   						& 	\begin{tabular}{l|lllllll|l}
-%							& 		\rot{Reliability} & \rot{Resilience} & \rot{Performance} & \rot{Interopertability} & \rot{Security} & \rot{Scalability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline 
-%									Weight 				& ? & ? & ? & ? & ? & ? & ? & ?\\ \hline
-%									Mobile broadband 	& ? & ? & ? & ? & ? & ? & ? & ?\\
-%									landline 			& ? & ? & ? & ? & ? & ? & ? & ?\\
-%									satalite 		 	& ? & ? & ? & ? & ? & ? & ? & ?\\
-%									direct lines 		& ? & ? & ? & ? & ? & ? & ? & ?\\
-%								\end{tabular} \\ \bottomrule
-%\end{tabular}
-%\caption{Decision -- Decision name.}
-%\label{table:caption_alias}
-%\end{table}
+\newpage
+\begin{table}
+\begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
+% http://www.stevenswater.com/water_level_sensors/
+ \textbf{Name} 			& \textbf{Type of water level sensor} \\ \toprule
+ \textbf{Decision} 		& \textbf{DEC-}\textbf{\nextNrRef{dn}} \\ \midrule \midrule
+ \textbf{Problem/Issue} 	& To measure the water level in the water ways and along the coast, a sensor is needed to measure the water level. \\ \midrule
+ \textbf{Decision} 		& The system will use pressure sensors to measure the water level. Pressure sensors are submerged at a fixed level in the water body. By measuring the pressure on the sensor of the water above it, these types of sensors are able to determine the water level. \\ \midrule
+ \textbf{Alternatives} 	
+    					  &\textit{Float-operated sensor}\\ 
+    					    & These types of sensors are mechanical and have a floating element which can move up and down with the water level. The floating element is protected in a `stilling well' and therefore, the risk of damage is low.  \\
+    					  &\textit{Non-contact sensor}\\
+    					    & These types of sensors use (ultra)sonic waves to determine the water level. Sediment in the water can cause issues with the measurements.\\
+    					  &\textit{Bubbler sensors}\\
+    					    & Bubbler sensors can measure the water level by measuring the pressure needed to force an air bubble through a submerged tube. Bubbler sensors have good resistance against damage from floods and debris. \\
+    					    % http://www.fondriest.com/news/flowlevelmeasurements.htm
+\textbf{Arguments} 		& For this decision the interoperability and security have a weight of 0, because those depend on the specific sensor used and not on the type of sensor. Scalability was not taken into account because this depends mostly on the costs of the type of sensor.\\
+   						& 	\begin{tabular}{l|lllllll|l}
+							& 		\rot{Reliability} & \rot{Resilience} & \rot{Performance} & \rot{Interopertability} & \rot{Security} & \rot{Scalability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline 
+							% 								rel res perf int sec sca cost
+									Weight 					& 3 & 2 & 1 & 0 & 0 & 0 & 3 & \\ \hline
+									Pressure sensor 		& 3 & 3 & 3 & - & - & - & 4 & 30\\
+									% wide price range: 250 - 1500 usd
+									Float-operated sensor 	& 3 & 4 & 3 & - & - & - & 3 & 29\\
+									% price ranges 450 - 800 usd
+									Non-contact sensor 	 	& 2 & 4 & 3 & - & - & - & 2 & 23\\
+									% because it is above water, more things affect measurements like air temp.
+									% reliability is less because sediment in water can cause issues
+									% price ranges 600 - 1000 usd
+									Bubbler sensors 		& 4 & 5 & 2 & - & - & - & 1 & 29\\
+									% response time 30s
+									% could not find price, only on request, so probably expensive
+								\end{tabular} \\ \bottomrule
+\end{tabular}
+\caption{Decision -- Type of water level sensors}
+\label{table:waterlevelsensortype}
+\end{table}

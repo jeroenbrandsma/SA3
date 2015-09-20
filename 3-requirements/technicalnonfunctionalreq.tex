@@ -12,7 +12,7 @@ This section describes the technical aspects that are important to the system as
 % The margin of error tolerated has to be as low as possible .\\ GK: Margin of error in what aspect?
 \begin{longtable}{L{0.1\textwidth} L{0.12\textwidth} L{0.7\textwidth}}
 	\textbf{Nr.} & \textbf{Prio}  & \textbf{Description} \\
-	\reqRow{rel}{1}{Must}{Sensor sites are equiped with atleast two sensors}
+	\reqRow{rel}{1}{Must}{Sensor sites are equipped with at least two sensors}
 	\reqRow{rel}{2}{Must}{Data from the sensors is sent via a TCP connection} % Already mention REST here?
 	\reqRow{rel}{3}{Must}{Redundancy} % GK: if redundancy is required, which it should be, in what way?
 	%This means adding redundancy to the system so that failure of a component does not mean failure of the entire system
@@ -20,7 +20,7 @@ This section describes the technical aspects that are important to the system as
 \end{longtable}
 
 \subsection{Resilience}
-The system needs to be resilliant to recover from errors and mistakes without impacting the systems functionality.
+The system needs to be resilient to recover from errors and mistakes without impacting the systems functionality.
 \begin{longtable}{L{0.1\textwidth} L{0.12\textwidth} L{0.7\textwidth}}
 	\textbf{Nr.} & \textbf{Prio}  & \textbf{Description} \\
 	\reqRow{res}{1}{Must}{The system recognizes failures within half an hour}
