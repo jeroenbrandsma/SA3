@@ -214,27 +214,76 @@ After this first release step, we will try to market the system to other countri
 %\section{Roadmaps}
 %\ How to enter the market
 \section{Financial model}
-The financial model will be a low product price. This in order to price the product low in the market. A service description for maintenance will be offered. Also updates will be sold to the customer
-%%\pgfplotstabletypeset[%
-%%UCTable
-%%]{%
-%%\textbf{Description}
-%%}
+The financial model will be a low product price. This in order to price the product low in the market. A service description for maintenance will be offered. Also updates will be sold to the customer\\
 
 \subsection{Software Architecture costs}
 The software architecture team consists of seven members. The project will last 10 weeks. All team members will spend 15 hours a week on the project. This totals 1050 working hours. Each working hour costs \euro{}150,-. Total spend on the software architecture is \euro{}157.500
+
 \subsection{Development costs}
+The development costs are calculated in the table below.\\
+\newline
+\begin{tabular}{|L{\tw{0.6}}|L{\tw{0.2}}|}
+	\toprule
+	\textbf{Description} & \textbf{Man hours} \\ \midrule
+	Get values from various sensors & 160 \\ \midrule
+	Get weather forecasts & 160 \\ \midrule
+	Flood prediction algorithm & 3100 \\ \midrule
+	Warning messaging system  & 2000 \\ \midrule
+	Guidance information system & 1500 \\ \midrule
+	Redundancy and fail over systems & 1000 \\ \midrule
+	Testing \& debugging & 600 \\ \midrule
+	Release build & 250 \\ \midrule
+	Overhead & 1000 \\ \midrule
+	Total hours & 9770 \\ \midrule
+	Total cost & \euro{}488.500 \\ \bottomrule
+\end{tabular}\\
+\newline
+The development team of \CompanyName consists of 6 members. Each member costs  \euro{}{}50 an hour and the project takes 9770 hours. This result in a total development cost of \euro{}{}488,500.
 
 \subsection{Hardware costs}
+The system needs:
+\begin{itemize}
+	\item Sensors
+	\item {State monitor server}
+	\item {Danger check server}	
+	\item {Warning system server}	
+	\item {Guidance server}	
+\end{itemize}
+The system uses dyke meters and water meters. The system needs at least 200 water meters and 75 dyke meter. A water meter costs about \euro{}5 and a dkyke meter costs \euro{}60 each. Each server costs \euro{}1.500. This results in the minimum hardware costs of be \euro{}11,500. \\
+ However, it is very important that the system doesn't fail. So if a few components or sensors fail, the system should still be fully functional. To make sure the system won't fail if a component fails, the hardware is redundantly set up four times.\\
+ The total hardware costs then results in: \euro{}46.000
 
 \subsection{Total costs}
-
+The total costs for the system is calculated in the table below.\\
+\newline
+\begin{tabular}{|L{\tw{0.3}}|L{\tw{0.2}}|}
+	\toprule
+	Software Architecture costs & \euro{}157.500\\ \midrule
+	Development costs & \euro{}{}488,500\\ \midrule
+	Hardware costs & \euro{}46.000\\ \midrule
+	Total cost & \euro{}692.000\\
+	\bottomrule
+\end{tabular}\\
+\newline
+So the total costs for developing the system is \euro{}692.000\\
 % Guntur: Doubled financial model sections?
 % \section{Financial model}
 % The financial model will be a low product price. This in order to price the product low in the market. A service description for maintenance will be offered. Also updates will be sold to the customer
 
 \section{Competitors}
+Siemens is a competitor that already has developed a flood-warning system in Belgium. When the system detects a imminent flood it sends a SMS to people that live near the rivers in order to warn them. The system is implemented in a small region, which consists of only 3 rivers. The total cost for this system were \euro{}230.000.
+
+Later they continued engineering the system. The system uses sensor which measures: temperature, water pressure, and shifting. They participated with this system in the Urban Flood project from the EU. The strong point of this competitor is that they already have funding and also experience with building such a system.
+
 Siemens designed a flood-warning system via SMS in Belgium.
+
+Further there are Universities that do research on flood warning systems. At the Malaysian Institute Information Technology they developed a product prototype of a system called Intelligent Flood Information System via SMS. Waterlevel sensors are the only one they used. When their is a flood they send a warning SMS to people that are within the area. In the future this could become a competitor if they create a start-up or sell the idea to a company.  
+
+%http://www.researchgate.net/publication/239761436_Intelligent_flood_information_system_via_SMS_(IFIS)
+
 %http://datanews.knack.be/ict/nieuws/sms-waarschuwt-voor-overstromingen-br/article-normal-317597.html
 %http://www.urbanflood.eu/Pages/Newsletter6.aspx
+%https://en.wikipedia.org/wiki/Flood_warning (examples)
+%https://www.campbellsci.com/flood-warning (sensors)
+
 
