@@ -7,27 +7,27 @@ This section lists the functional requirements of the system.
     \textbf{Nr.} & \textbf{Prio}  & \textbf{Description} \\
     
     \frReqRow{1}{Must}
-    {The system is able to receive input from sensors with regards to the water level. This information will be used to determine if there is an imminent flood.}
+    {The system is able to receive input from water level sensors. This information will be used to determine if there is an imminent flood.}
     % GK: In what way is the information delivered from the sensors?
     %   WM: Is that not for analysis?
     
     \frReqRow{2}{Must}
-    { The system is able to process input from sensors with regards to the water level. }
+    { The system is able to process input from water level sensors. }
     
 	\frReqRow{3}{Must}
-	{The system is able to receive input from sensors with regards to the pressure of the dykes.}
+	{The system is able to receive input from pressure sensors of the dykes.}
 	
 	\frReqRow{4}{Must}
-	{The system is able to process input from sensors with regards to the pressure of the dykes.}
+	{The system is able to perform an analysis for the pressure on the dykes based on the input from the pressure sensors.}
 	
 	\frReqRow{5}{Must}
-	{The system is able to receive input from sensors with regards to the water level of waterways.}
+	{The system is able to receive input from water level sensors of waterways.}
 	
 	\frReqRow{6}{Must}
-	{The system is able to process input from sensors with regards to the water level of waterways.}
+	{The system is able to perform an analysis for the water level in the waterways based on the input from the water level sensors.}
 
     \frReqRow{7}{Must}
-    {The system retrieves weather forecasting data from weather forecasting services. The retrieved weather forecasting data consists of predictions about the precipitation and wind data and is used by the system to help in determining when a flood becomes imminent.}
+    {The system retrieves weather forecasting data from weather forecasting services, which consists of predictions about the precipitation and wind data. This is used by the system to help in determining when a flood becomes imminent.}
      
     \frReqRow{8}{Must}
     { The system is able to detect when a flood is imminent by combining the retrieved sensor data and weather forecasting data. }
@@ -36,19 +36,19 @@ This section lists the functional requirements of the system.
     { The system can retrieve geographic information (road data and terrain height data).}
         
     \frReqRow{10}{Must}
-    { The system computes the area affected by a flood, by using the location data of the sensors and geographic information. The areas are of a resolution of 5 by 5 km. }
+    { The system computes the area affected by a flood, in zones of 5 by 5 km, by using the location data of the sensors and geographic information. }
     
     \frReqRow{11}{Must}
-    { The system computes the expected water level for those areas which are affected by a flood. }
+    { The system is able to perform an analysis, resulting in an estimated expected water level for those areas which are affected by a flood, based on the water level sensor data, geographic data and weather forecast information. }
     
-    \frReqRow{12}{Must}
+    \frReqRow{12}{Should}
     { The system estimates how the water level in the areas affected by the flood will develop for every hour, up to 12 hours in the future. } % WM: i am not sure if it is possible to predict 12h into the future, we might have to lower this is in a later stage
     
     \frReqRow{13}{Must}
     { The system can compute the number of civilians living in the areas affected by the flood. }
     
 	\frReqRow{14}{Must}
-	{ When a flood is imminent, the system sends a warning to the emergency centre. The warning contains information about the flood. This is the area affected by the flood, the expected water level in those areas and how the water level will develop in the coming hours. The warning also contains information about the number of civilians living in the affected area. }
+	{ When a flood is imminent, the system sends a warning to the emergency center. The warning contains information about the flood: the area affected by the flood, the expected water level in those areas, how the water level will develop in the coming hours and the number of civilians living in the affected area. }
     % WM: I am unsure how we send the warning: is this an email, is this a phone call, do we send a pigeon... 
     % WM: I made the warning to the emergency centre, instead of to the mayor, because it is more practical if the employees in the emergency centre alert the mayor
     
@@ -101,7 +101,7 @@ This section lists the functional requirements of the system.
     \frReqRow{29}{Must}
     { The system can restore the backups it previously created. }
 
-    \frReqRow{30}{Optional}
+    \frReqRow{30}{Could}
     { The system is able to detect extreme weather phenomena, like storms etc. }
     
     \bottomrule
