@@ -213,30 +213,47 @@ The Netherlands is divided into several safety regions. A safety region consists
 The financial model will be a low product price. This in order to price the product low in the market. A service description for maintenance will be offered. Also updates will be sold to the customer\\
 
 \subsection{Software Architecture costs}
-The software architecture team consists of seven members. The project will last 10 weeks. All team members will spend 15 hours a week on the project. This totals 1050 working hours. Each working hour costs \euro{}150,-. Total spend on the software architecture is \euro{}157.500
+The software architecture team of \CompanyName consists of six members. Creating the architecture of the project is estimated to take ten weeks. All team members will spend 15 hours a week on the project. This totals $6*10*15=1050$ working hours. Each working hour costs \euro{}150,-. Total spend on the software architecture is \euro{}157.500
 
 \subsection{Development costs}
 The development costs are calculated in the table below.\\
 \newline
-\begin{tabular}{|L{\tw{0.6}}|L{\tw{0.2}}|}
+\begin{longtable}{|L{\tw{0.3}}|L{\tw{0.2}}|}
 	\toprule
 	\textbf{Description} & \textbf{Man hours} \\ \midrule
-	Get values from various sensors & 160 \\ \midrule
-	Get weather forecasts & 160 \\ \midrule
-	Flood prediction algorithm & 3100 \\ \midrule
-	Warning messaging system  & 2000 \\ \midrule
-	Guidance information system & 1500 \\ \midrule
-	Redundancy and fail over systems & 1000 \\ \midrule
-	Testing \& debugging & 600 \\ \midrule
-	Release build & 250 \\ \midrule
-	Overhead & 1000 \\ \midrule
+	Get values from various sensors & 160 \\ 
+	Get weather forecasts & 160 \\ 
+	Flood prediction algorithm & 3100 \\ 
+	Warning messaging system  & 2000 \\ 
+	Guidance information system & 1500 \\ 
+	Redundancy and fail over systems & 1000 \\ 
+	Testing \& debugging & 600 \\ 
+	Release build & 250 \\
+	Overhead & 1000 \\ 
 	Total hours & 9770 \\ \midrule
-	Total cost & \euro{}488.500 \\ \bottomrule
-\end{tabular}\\
-\newline
-The development team of \CompanyName consists of 6 members. Each member costs  \euro{}{}50 an hour and the project takes 9770 hours. This result in a total development cost of \euro{}{}488,500.
+\end{longtable}
+
+\todo{add talbe refs?}
+The above table shows the project needs approximately 9770 hours to develop the system. The development is done by \CompanyName self. Each member of the project team assigned to develop this system is paid \euro{}50 an hour. This results in a development cost of $50*9770=488.550$. As shown in the table below.
+
+\todo{add the duration?}
+%Members & 6 \\
+%Duration & $\approx$41 weeks \\
+\begin{tabular}{L{\tw{0.3}}|L{\tw{0.2}}|}
+Hours & 9770 \\
+Cost per hour & \euro{}50 \\
+Total cost & \euro{}488.500 \\ \bottomrule
+\end{tabular}
 
 \subsection{Hardware costs}
+Around 17,000 kilometres of dikes protect the Netherlands against flooding \cite{DMC}.
+Sensor costs include:
+\begin{itemize}
+	\item technical costs of the sensor
+	\item implementation costs
+	\item system implementation costs
+\end{itemize}
+
 The system needs:
 \begin{itemize}
 	\item Sensors
@@ -245,6 +262,13 @@ The system needs:
 	\item {Warning system server}	
 	\item {Guidance server}	
 \end{itemize}
+
+%Spaargaren2012.pdf. p127, thank god.
+\cite{UvAPHD} pp 127.
+The first case considers monitoring of the smallest stretch of 6 km with a simple monitoring 
+system S1. The monitoring system consists of MEMS sensor modules (e.g. GeoBeads) with a claimed life time of 10 years, which are installed with conventional CPT push-in techniques. Three sensors are installed per cross-section and a cross-section is installed every 100 m. The total installation costs of monitoring system S1 are,
+
+
 The system uses dyke meters and water meters. The system needs at least 200 water meters and 75 dyke meter. A water meter costs about \euro{}5 and a dkyke meter costs \euro{}60 each. Each server costs \euro{}1.500. This results in the minimum hardware costs of be \euro{}11,500. \\
  However, it is very important that the system doesn't fail. So if a few components or sensors fail, the system should still be fully functional. To make sure the system won't fail if a component fails, the hardware is redundantly set up four times.\\
  The total hardware costs then results in: \euro{}46.000
@@ -260,7 +284,6 @@ The total costs for the system is calculated in the table below.\\
 	Total cost & \euro{}692.000\\
 	\bottomrule
 \end{tabular}\\
-\newline
 So the total costs for developing the system is \euro{}692.000\\
 % Guntur: Doubled financial model sections?
 % \section{Financial model}

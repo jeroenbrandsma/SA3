@@ -54,4 +54,24 @@
 			},
 			before row=\midrule,
 		},
+		KeyValue/.append style={
+			begin table=\begin{longtable},
+			end table=\end{longtable},
+			every head row/.style={
+				output empty row,
+				before row={},
+				after row={},			
+			},
+			every last row/.style={%
+				after row=\bottomrule,
+			},
+			columns/key/.style={
+				bold,
+				column type=L{\tw{0.3}},
+			},
+			columns/value/.style={
+				column type=L{\tw{0.2}},
+			},
+			before row=\midrule,
+		},		
 	}
