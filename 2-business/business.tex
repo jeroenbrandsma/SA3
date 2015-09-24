@@ -5,7 +5,7 @@
 \label{ch:business}
 The following section describes the different aspects of the business environment of the Smart Flood Monitor. First we will explain our vision and why there is place for us at the market.
  
-After this the product and its customers will be explained. This chapter is completed with a more detailed look at the business model and some models about the market and the financial prospect.
+After this the product and its stakeholders will be explained. This chapter is completed with a more detailed look at the business model and some models about the market and the financial prospect.
 
 %\begingroup
 %\renewcommand{\addcontentsline}[3]{}%
@@ -16,15 +16,22 @@ After this the product and its customers will be explained. This chapter is comp
 %\endgroup
 
 \section{Business opportunity}
-There are many natural disasters happening each year all over the world. Each year these disasters take lives, waste a lot of properties and money and cause social disturbance.
-Looking at, for example, the Indian ocean's tsunami in 2004, it looks that the damage could have been significantly reduced if the necessary people were warned. 
-A system that warns and guides the people before or during the floods can result can, overall, save allot of lives and money.
+There are many natural disasters happening each year all over the world. Each year these disasters take lives, destroys a lot of properties, and cause social disturbance.
+Looking at, for example, the Indian ocean's tsunami in 2004, it looks that the damage could have been significantly reduced if the necessary people were warned.  %\We should add a reference here
 
-Climate change causes the natural disasters to get more severe. It is expected that natural disasters will cause \$300 billion in losses annually in the upcoming decade [1]\ignore{\cite{disastercosts} Shows a bibtex section that we don't want \todo{bibtex}}. The frequency of natural disaster occurrence increases too. The number of natural disasters has increased significantly since 1970. \ignore{\cite{disastercharts}}
+In the future more floods are expected because of global warming. The rise of the sea level is a consequence of global warming. Another consequence is the increase of extreme weather events, for instance heavy rainfall. It is expected that natural disasters will cause \$300 billion in losses annually in the upcoming decade. This justifies to invest a high amount of money to minor the losses of a flood. Not only the losses in terms of money, but more importantly lives, and also social impact. %\ Reference needed!
 
-\section{Vision statement}
-This system helps us to enforce our vision, to limit the social and financial consequences of floods and reduce the loss of human lives. \\
-The Smart Flood Monitor will cause a revolutionary innovation on the environmental monitoring market. \CompanyName{} will offer a system that can detect floods early and correctly. But our system won't only be usable in the monitoring of natural disasters. By making our system as adaptable and flexible as possible, the system can be used in a wide variety of situations and contexts that also need monitoring.
+A next generation reliable flood monitoring and warning system will help lower the catastrophic impact of floods. The system will imminent floods and send out people in order to reduce the impact of a flood. In the future the system should be able to monitor other kinds of disasters and send out warnings. 
+
+The Netherlands is a country that is situated for large parts under the sea level. Using dikes and other solutions they protect their country against the water. The increasing sea level causes extreme danger in the Netherlands. It is important that they can monitor how dangerous imminent floods are and take action if things are looking to wrong. If things go wrong people within the area should be warned in order to take action and safe their self, others, and their belongings.
+
+\section{Mission statement}
+A flood monitoring and warning system helps us to enforce our vision, to limit the social and financial consequences of floods and reduce the loss of human lives. \\
+The Smart Flood Monitor will cause a revolutionary innovation on the environmental monitoring market. \CompanyName{} will be able to offer a system that can detect floods early and correctly by using the newest available techniques. At first the system will be build for monitoring floods, but in the design there is taken in to account to monitor other kind of natural disasters.
+
+\section{Business Rational}
+
+
 
 Our unique selling point is to provide a system with a low selling price and high profit from the service contracts and upgrades. However, \CompanyName{} is not the only player on the environmental monitoring market as there are a lot of other competitors taking part on this area of expertise. This means that it is important to evaluate the strengths and weaknesses of \CompanyName. Using this info, we can reflect ourselves with respect to the competitors, leading to a better understanding of the opportunities and threats \CompanyName has in the market.
 This will increase our position in the market and further enables \CompanyName to play a leading role in future environmental monitoring systems.\\
@@ -125,14 +132,7 @@ We map our position on the market by using SWOT-analysis. This analysis maps our
 %\caption{SWOT-analysis diagram.}
 
 \section{Business rationale}
-\CompanyName{} will develop a new flood warning system in order to minimize the damage caused by a flood. In the Netherlands protection against floods is an important issue, because a major part of the Netherlands itself is actually below sea level. Global warming will increase the urgency of this issue. The people within the Netherlands must be well protected against floods. The flood warning system will detect floods, warn people and governmental institutions located in the disaster area and provide guidance where to go to. This visualized in the figure below.
-
-\begin{figure}[h!]
-   \label{fig:process}
-  \centering
-    \includegraphics[width=0.7\textwidth]{{{images/process_overview}.jpg}}
-   \caption{Process overview}
-\end{figure}
+\CompanyName{} will develop a new flood warning system in order to minimize the damage caused by a flood. As said before, in the Netherlands protection against floods is an important issue, because a major part of the Netherlands itself is actually below sea level. Global warming will increase the urgency of this issue. The people within the Netherlands must be well protected against floods. The flood warning system will detect floods, warn people and governmental institutions located in the disaster area and provide guidance where to go to. This visualized in the figure below.
 
 \CompanyName{} is new within the flood warning system market. By using sensors and automated systems, a reliable and adequate product that uses the newest technologies will be launched. \CompanyName{} will use hardware which is already on the market and is tested. Buying third party hardware will also speedup the development of the system and lower the costs.
 
@@ -158,17 +158,32 @@ These are unique features for our system, which will eventually make the system 
 
 When the first version of \ProjectName{} is released and is used to start monitoring actual floods, its success will be measured according these statistics. Getting a warning message to the people who requested to be warned is the most important thing to do. Using this warning message, people can move to a saver location.
 
-\subsection{Scope of Initial and subsequent releases}
-%\todo{If you want to make this distinction you should mention the functionality of the first version too. Use some charts to show the progress during time from business and technical perspective.}
 
-Floods will be the first natural disaster the initial system supports. The initial system sends warnings to the necessary people, but will not yet interact much with the user. However, the system doesn't stop there and will get increasingly more capabilities. The extra capabilities of system include:
+\section{Product and service description}
+\CompanyName{} offers a flood warning system. When a imminent flood is monitored by the sensors of the system a warning should be sent to governmental organizations and people within the danger area. Also a possibility of guidance should be provided when a flood is happening to assist rescuers and guide inhabitants to safe areas.
+
+Basically the system will consist of four subsystems: monitor the state of dykes and water levels, analyze the data from the monitoring part to detect imminent floods, warn governmental organizations and inhabitants in the danger area, and provide guidance to search and rescue organizations and inhabitants.
+
+The first subsystem (monitor the state of dykes and water levels) will consist of various sensors that are placed near and in dykes and water ways. The state of the dikes must be monitored continuously, i.e. pressure of the dyke. Also, sensors must be installed to monitored continuously the water level. The data of all the sensors will be sent to a server, in a safe location, to store all the data.
+
+The second subsystem (analyze the data from the monitoring part to detect imminent floods) will analyze all the data from the sensors and data from weather forecasting service. Based on this data an algorithm will monitor continuously if there are dangerous situations.
+
+The third subsystem (warn governmental organizations and inhabitants in the danger area) will send warning messages when the algorithm identified a dangerous situations. The safety region \ignore{---in Dutch Veiligheidsregio--- }will receive a warning message that an area is in danger. Information like position, area, sort of danger and amount of danger will be send. The safety region will be responsible to take action based on this information. Inhabitants can receive warnings via sirens, mobile phone, radio, television, and by UAV.
+
+The last subsystem (provides guidance to search and rescue organizations and inhabitants) It will help people that are in a dangerous area by sending them information on how to rescue themselves as in a save way. Rescue organizations  receive information about the area's that are likely to have casualties in them and it informs them on how to get to those locations save.
+
+The service will consist of maintenance for the product and upgrades.
+
+Floods will be the first natural disaster the initial system supports. The initial system sends warnings to the people in danger and to emergency services, but will not yet interact much with the user. However, the system doesn't stop there and will get increasingly more capabilities. The extra capabilities of system include:
 	\begin{itemize}
-		\item Support for more kinds natural disasters
+		\item Support for more kinds natural of disasters
 		\item More individual guidance
 		\item Interaction with the system, users can give input
-		\item Adding more sensor support
-		\item Using multiple communication networks to send information
+		\item Support more sensor 
+		\item Support of multiple communication networks to send information
 	\end{itemize}
+
+% We should discuss more about this
 
 The first thing \CompanyName{} will focus on after the first release, is increasing the ability for the users to interaction with the system. This allows the system to provide more personal help to the users and increases knowledge the system has of the area. However, mistakes can easily be made by a user and so this data needs to be verified in order to get valuable information. That is why adding this feature goes beyond the scope of this project.
 
@@ -182,44 +197,18 @@ Depending on where the system resides, it will need to interact with various kin
    \label{fig:future-releases}
 \end{figure}
 
-%\section{Business rationale}
-\section{Product and service description}
-\CompanyName{} offers a flood warning system. When a imminent flood is monitored by the sensors of the system a warning should be sent to governmental organizations and people within the danger area. Also guidance should be provided when a flood is happening to assist rescuers and guide inhabitants to safe areas.
-
-Basically the system will consist of four subsystems: monitor the state of dykes and water levels, monitor if a imminent flood is occurring, warn governmental organizations and inhabitants in the danger area, and provide guidance to search and rescue organizations and inhabitants.
-
-The first subsystem, monitor the state of dykes and water levels, will consist of various sensors that are placed near and in dykes and water ways. The state of the dikes must be monitored continuously, i.e. pressure of the dyke. Also, sensors must be installed to monitored continuously the water level. The data of all the sensors will be sent to a server, in a safe location, to store all the data.
-
-The second subsystem, monitor if a imminent flood is occurring, will analyze all the data from the sensors and data from weather forecasting service. Based on this data an algorithm will monitor continuously if there are dangerous situations.
-
-The third subsystem, warn governmental organizations and inhabitants in the danger area, will send warning messages when the algorithm identified a dangerous situations. The safety region \ignore{---in Dutch Veiligheidsregio--- }will receive a warning message that an area is in danger. Information like position, area, sort of danger and amount of danger will be send. The safety region will be responsible to take action based on this information. Inhabitants can receive warnings via sirens, mobile phone, radio, television, and by UAV.
-
-The last subsystem, provides guidance to search and rescue organizations and inhabitants. It will help people that are in a dangerous area by sending them information on how to rescue themselves as in a save way. Rescue organizations  receive information about the area's that are likely to have casualties in them and it informs them on how to get to those locations save.
-
-The service will consist of maintenance for the product and upgrades.
+%\ Keuzes maken hier. We moeten hier een plaatje maken dat over tijd eerst ons main product met opties toont en in de toekomst welke extere futures we willen toevoegen
 
 \section{Target audience}
-The Dutch Ministry of Infrastructure and the Environment is the target customer. They have the responsibility in the government to identify unsafe situations caused by floods. When this ministry wants a new warning system they need to start a procurement. This gives the opportunity for various companies to bid on the procurement. At first the Dutch Ministry is our target audience, later on the product can be sold to other countries.
+The target audience is where we focus on to market our product. The Dutch Ministry of Infrastructure and the Environment is responsible for floods in the Netherlands. They make the decisions to buy the system. 
+
+The Netherlands is divided into several safety regions. A safety region consists of all the emergency services, municipalities, water boards. They make decisions about how to make their region safer. All those organizations should be seen as the target audience. They must see the benefit of using \CompanyName{}'s Monitoring and Warning system.
+
 
 %\section{Business model}
 %\ Insert a business model diagram
-%\section{Roadmaps}
-%\ How to enter the market
-
-\section{Road maps}
-The Dutch Ministry of Infrastructure and the Environment will end the procurement of a flood warning system on 31-12-2015. The bid must consists of the design of the system and a financial analysis must be made. The engineering part of the system will be finished on 31-12-2016. An operating system is then up and running.
-
-Directly after finishing the initial product, new features will be developed and can be sold.
-
-After this first release step, we will try to market the system to other countries in the world. 
-% Guntur: Two target audience sections?
-% \section{Target audience}
-% The product will be sold to governmental institutions. 
-
-%\section{Business model}
-%\ Insert a business model diagram
-%\section{Roadmaps}
-%\ How to enter the market
+%\section{Domain model}
+%\ Internal how our system works?
 \section{Financial model}
 The financial model will be a low product price. This in order to price the product low in the market. A service description for maintenance will be offered. Also updates will be sold to the customer\\
 
@@ -278,13 +267,11 @@ So the total costs for developing the system is \euro{}692.000\\
 % The financial model will be a low product price. This in order to price the product low in the market. A service description for maintenance will be offered. Also updates will be sold to the customer
 
 \section{Competitors}
-Siemens is a competitor that already has developed a flood-warning system in Belgium. When the system detects a imminent flood it sends a SMS to people that live near the rivers in order to warn them. The system is implemented in a small region, which consists of only 3 rivers. The total cost for this system were \euro{}230.000.
-
-Later they continued engineering the system. The system uses sensor which measures: temperature, water pressure, and shifting. They participated with this system in the Urban Flood project from the EU. The strong point of this competitor is that they already have funding and also experience with building such a system.
-
-Siemens designed a flood-warning system via SMS in Belgium.
+Siemens is a competitor that already has developed a flood-warning system in Belgium in 2006. When the system detects a imminent flood it sends a SMS to people that live near the rivers in order to warn them. The system is implemented in a small region, which consists of only 3 rivers. The total cost for this system were \euro{}230.000. Later on they continued engineering the system. The system uses sensor which measures: temperature, water pressure, and shifting. They participated with this system in the Urban Flood project from the EU. The strong point of this competitor is that they already have funding and also experience with building such a system. Siemens is the main competitor for \CompanyName{}. Their strength is that they already have a proven system in Belgium and have a lot of experience through participating in flood monitoring research projects. The opportunity for \CompanyName{} is Engineering a flexible system that can be used in the future for other kind of disasters. Further on by selling the product at a low selling price and profit on the maintenance work and upgrades the Netherlands will be interesting in using the product.
 
 Further there are Universities that do research on flood warning systems. At the Malaysian Institute Information Technology they developed a product prototype of a system called Intelligent Flood Information System via SMS. Waterlevel sensors are the only one they used. When their is a flood they send a warning SMS to people that are within the area. In the future this could become a competitor if they create a start-up or sell the idea to a company.  
+
+
 
 %http://www.researchgate.net/publication/239761436_Intelligent_flood_information_system_via_SMS_(IFIS)
 
@@ -292,5 +279,3 @@ Further there are Universities that do research on flood warning systems. At the
 %http://www.urbanflood.eu/Pages/Newsletter6.aspx
 %https://en.wikipedia.org/wiki/Flood_warning (examples)
 %https://www.campbellsci.com/flood-warning (sensors)
-
-
