@@ -80,14 +80,12 @@ LaTeX styled as LATEX, and a shortening of Lamport TeX is a word processor and a
 }
 
 \newcommand{\getNr}[1]{%
-	\getNext{1}
+	\getNext{#1}
 	\arabic{#1}
 }
 
 \newcommand{\nextNrRef}[1]{%
-	\getNext{#1}
-	\manuallabel{#1:\arabic{#1}}{\arabic{#1}}
-	\arabic{#1}
+\getNext{#1}\manuallabel{#1:\arabic{#1}}{\arabic{#1}}\arabic{#1}
 }
 
 \newcommand{\nextNrRefl}[2]{%
@@ -132,6 +130,20 @@ LaTeX styled as LATEX, and a shortening of Lamport TeX is a word processor and a
 	 &
 	#4
 	\\
+}
+
+\newcommand{\risk}[6]{%
+\begin{longtable}{L{0.3\textwidth} L{0.7\textwidth}}\toprule\phantomsection\getNext{#1-RISK}\manuallabel{#1-RISK\arabic{#1-RISK}}{#1-RISK\arabic{#1-RISK}}\textbf{#1-RISK\arabic{#1-RISK}} & \textbf{#2} \\*
+\midrule
+\textbf{Probability of occurrence} & #3 \\*
+\midrule
+\textbf{Consequences} & #4 \\*
+	\midrule
+	\textbf{Prevention} & #5 \\*
+	\midrule
+	\textbf{Reaction} & #6 \\*
+	\bottomrule
+\end{longtable}
 }
 
 \makeatother
