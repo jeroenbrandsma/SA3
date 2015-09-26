@@ -10,10 +10,22 @@ This section describes the technical aspects that are important to the system as
 % Failure rate ?
 % Data transmission
 % The margin of error tolerated has to be as low as possible .\\ GK: Margin of error in what aspect?
+Reliability is an important non-functional requirement for the system, and a key-driver of the architecture as well.
 \begin{longtable}{L{0.1\textwidth} L{0.12\textwidth} L{0.7\textwidth}}
 	\textbf{Nr.} & \textbf{Prio}  & \textbf{Description} \\
 	%\reqRow{rel}{1}{Must}{Sensor sites are equipped with at least two sensors} ( why two ? )
-	\reqRow{rel}{2}{Must}{Data from the sensors is sent via a TCP connection} % Already mention REST here?
+	\reqRow{rel}{1}{Must}{Data from the sensors is sent via a TCP connection} % Already mention REST here?
+	
+	\reqRow{rel}{2}{Must}{The system must have an uptime of $99.7\%$. This effectively means, that the system should not be down for more than 2 hours per month. $AV = \frac{\text{MTTF}}{\text{MTTF} + \text{MTTR}} = \frac{\text{6 months}}{\text{6 months }+\text{ 12 hours}} = \frac{4380 \text{ hours}}{4380 + 12 \text{ hours}} = 99.7 \%$}
+	
+	\reqRow{rel}{3}{Must}{The system must not experience a period of downtime, spanning more than 12 hours. Within twelve hours of the system going offline, it should be back up again. }
+	 
+	\reqRow{rel}{4}{Must}{The system must detect if a sensor supplies wrong measurements, which can be caused, e.g. by improper calibration or defects in the sensor.} 
+	
+	\reqRow{rel}{5}{Must}{The system must at no time fail to detect a flood when this flood becomes imminent (\textit{false negative}).}
+	
+	\reqRow{rel}{6}{Must}{The system must not detect a flood, when this flood is not there in reality (\textit{false positive}), on average more than once per 5 years.}
+	 
 	%\reqRow{rel}{3}{Must}{Redundancy} % GK: if redundancy is required, which it should be, in what way?
 	%This means adding redundancy to the system so that failure of a component does not mean failure of the entire system
 	\bottomrule
@@ -23,22 +35,31 @@ This section describes the technical aspects that are important to the system as
 The system needs to be resilient to recover from errors and mistakes without impacting the systems functionality.
 \begin{longtable}{L{0.1\textwidth} L{0.12\textwidth} L{0.7\textwidth}}
 	\textbf{Nr.} & \textbf{Prio}  & \textbf{Description} \\
+	
 	\reqRow{res}{1}{Must}{The system recognizes failures within half an hour}
+	
 	\reqRow{res}{2}{Must}{The system recovers from failures without the \qos or the functionality of the system being affected.} % GK: split in two requirements. reduce to detect sensor failures within half an hour
-	\reqRow{res}{3}{Must}{The system continues to function with the same \qos in a situation where up to 10\% of the sensors suffer from failures.} % 
+	
+	\reqRow{res}{3}{Must}{All system data must be backed up every 24 hours, so that in case of data loss, this data can be restored.}
+	
+	\reqRow{res}{4}{Must}{In case of a data loss, the data should be retrieved and restored from a backup within 2 hours.}
+	
+	\reqRow{res}{5}{Must}{Backup copies are stored in a secure location which is not in the same area as the system (50 km).}
+	
 	\bottomrule
 \end{longtable}
 
 \subsection{Performance}
+
 \begin{longtable}{L{0.1\textwidth} L{0.12\textwidth} L{0.7\textwidth}}
 	\textbf{Nr.} & \textbf{Prio}  & \textbf{Description} \\
-	\reqRow{perf}{1}{Must}{Data is transmitted from and to the system with a minimum speed of 10 megabits per second} % How to calculate GK: Doesn't really matter for requirements, but good to think about. Also: response time to what? Request? Detecting floods? Furthermore, 10 (just saying something) GB of data is not transferable witihin 1 second if you include connection setup time etc etc
+	\reqRow{perf}{1}{Must}{Data is transmitted from and to the system with a minimum average speed of 10 megabits per second} % How to calculate GK: Doesn't really matter for requirements, but good to think about. Also: response time to what? Request? Detecting floods? Furthermore, 10 (just saying something) GB of data is not transferable witihin 1 second if you include connection setup time etc etc
 	% GK: only about datatransmission express in dataspeed
 	
-	\reqRow{perf}{2}{Must}{	The data transmission between the sensors and the system is about 10 mB/sec}
+	\reqRow{perf}{2}{Must}{	The data transmission between the sensors and the system is on average at least 10 megabits per second for each sensor.}
 	% How many data the system can receive in one second ?
-	\reqRow{perf}{3}{Must}{	The time for the system to calculate if there is a flood or no according to a critical level and the data received from the sensors is about one minute(?). }
-	\reqRow{perf}{4}{Must}{	The system should be 99.9 available. }
+	\reqRow{perf}{3}{Must}{	The time for the system to compute if there is a flood or not according to a critical level and the data received from the sensors is at most 5 minutes. }
+
 	\bottomrule
 \end{longtable}
 % GK: requirement for amount of concurrent users
@@ -46,17 +67,18 @@ The system needs to be resilient to recover from errors and mistakes without imp
 %\includegraphics[scale=0.7]{3-requirements/Images/Performance.jpg}
 
 \subsection{Interoperability}
-% The system has dependencies on third-party systems. For example, to make predictions about the development of waterlevel, the system will need to retrieve information from water forecasting services. Not only for input, but also for output, the system will need to interoperate with third-party systems. If the system has registered a risk of a flood, it should interact with systems of emergency services and other authorities to alert them and sent relevant information.
+The system has dependencies on several third-party systems and also allows third parties to retrieve information from it.
 
 \begin{longtable}{L{0.1\textwidth} L{0.12\textwidth} L{0.7\textwidth}}
 	\textbf{Nr.} & \textbf{Prio}  & \textbf{Description} \\
-	\reqRow{intr}{1}{Must}{The system pulls weather forecasts from five weather forecasting services.}
-	\reqRow{intr}{2}{Must}{The system pulls water forecasts from one water forecasting service.}
-	\reqRow{intr}{3}{Must}{When the system detects a high risk of flood, it warns the government automatically using the government provided API.}
-	\reqRow{intr}{4}{Must}{When the system detects a flood, it automatically tells emergency services where a flood is happening using the API provided by the emergency services.} % GK: change it guidance for emergency service
-	\reqRow{intr}{5}{Must}{The system sends out a SMS to all users who are subscribed to flood warnings.}
-	\reqRow{intr}{6}{Must}{The systems is able to easily connect to different sensors.}
-	% GK: introduce requirement to connect with telecom provider
+	\reqRow{intr}{1}{Must}{The system pulls weather forecasts from at least two weather forecasting services.}
+	%\reqRow{intr}{3}{Must}{When the system detects a high risk of flood, it warns the government automatically using the government provided API.} WM: removed this, the safety region will warn the government (mayor etc.)
+	\reqRow{intr}{2}{Must}{When the system detects a flood, it notifies the safety region through an API provided by them.}
+	\reqRow{intr}{3}{Must}{The system sends out a SMS to all users who are subscribed to flood warnings using the mobile network.}
+	\reqRow{intr}{4}{Must}{The systems is able to connect to different types of sensors.}
+	\reqRow{intr}{5}{Must}{The system is able to retrieve geographical data from an API.}
+	\reqRow{intr}{6}{Must}{The system exposes an API, allowing third parties to develop applications using the systems data.}
+	\reqRow{intr}{7}{Must}{The sensors are able to communicate with the system using a mobile broadband connection.}
 
 	\bottomrule
 \end{longtable}
@@ -64,28 +86,31 @@ The system needs to be resilient to recover from errors and mistakes without imp
 % GK; Requirement about working with different kind of sensors for the same data
 
 \subsection{Security}
+The security of the system is very relevant to its success. The system should be secure, because unauthorized access can have a big impact on society (when e.g. false flood warnings are triggered).
 \begin{longtable}{L{0.1\textwidth} L{0.12\textwidth} L{0.7\textwidth}}
 	\textbf{Nr.} & \textbf{Prio}  & \textbf{Description} \\
-	\reqRow{sec}{1}{Must}{Access to the system is restricted to user accounts that are stored in a database.}
+	\reqRow{sec}{1}{Must}{Access to the system is restricted to users, which are authorized and authenticated using a password protected user account.}
 	\reqRow{sec}{2}{Must}{All communication to, from and within the system are encrypted.}
-	\reqRow{sec}{3}{Must}{User account information are hashed using bcrypt after being salted with 128 randomly generated characters.}
-	\reqRow{sec}{4}{Must}{The system is protected by a firewall that at least scans at the application layer, while also scanning for and preventing DDoS attacks.}
+	\reqRow{sec}{3}{Must}{User account information is hashed using bcrypt after being salted with 128 randomly generated characters.}
+	\reqRow{sec}{4}{Must}{The system is protected by a firewall that at least scans at the application layer, while also scanning for and mitigating DDoS attacks.}
 	% WM: does communication within the system mean between the different components of the system?
-	\reqRow{sec}{5}{Must}{The system communicates with it's sensors via a REST API that only allows for HTTPS connection.} % Do we want to communicate with the sensors via REST? WM: Could this be more generic? Like: 'the system communicates with the sensors via a secure connection'
-	\reqRow{sec}{6}{Must}{All system data must be backed up every 24 hours.}
-	\reqRow{sec}{7}{Must}{Backup copies are stored in a secure location which is not in the same area as the system (50 km).} % WM: maybe make area more specific, like range of 50 km or something
+	\reqRow{sec}{5}{Must}{The system communicates with its sensors via a REST API that only allows for HTTPS connection.} % Do we want to communicate with the sensors via REST? WM: Could this be more generic? Like: 'the system communicates with the sensors via a secure connection'
 
 	\bottomrule
 \end{longtable}
 % TODO: how to measure?
 
 \subsection{Scalability}
+The system has to be designed in a way that it can expand over time. Not only should it span larger geographic areas, but more functionality will be added later as well.
 % The system will be able to cover more areas and use more sensors in the future. GK: too vague, but added scale-3 based on this idea
 \begin{longtable}{L{0.1\textwidth} L{0.12\textwidth} L{0.7\textwidth}}
 	\textbf{Nr.} & \textbf{Prio}  & \textbf{Description} \\
-	\reqRow{scale}{1}{Must}{The database and services run in parallel on a private cloud that is hosted within the Netherlands} % do we want a private cloud? WM: I think public cloud is more scalable (but does government allow it)?
-	\reqRow{scale}{2}{Must}{Cassandra is used as database for the storage of the sensor data} % do we want to use cassandra?
-	\reqRow{scale}{3}{Must}{The system is configurable to run in different areas and with different sensors.}
+	\reqRow{scale}{1}{Must}{ The database and services of the system should run in a cloud environment where they can scale, when the systems resource usage increases. }
+
+	\reqRow{scale}{2}{Must}{The system is configurable to run in different areas and with different sensors.}
+	
+	\reqRow{scale}{3}{Must}{ The system maintains the performance requirements when the geographic area the system covers is expanded. }
+	
 	\bottomrule
 \end{longtable}
 % The system will be developed with more sensors and in more places.
