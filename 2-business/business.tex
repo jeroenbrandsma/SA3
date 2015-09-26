@@ -13,13 +13,12 @@ Looking at, for example, the Indian ocean's tsunami in 2004, it looks that the d
 
 In the future more floods are expected because of global warming\cite{climateincrease}. The rise of the sea level is a consequence of global warming. Another consequence is the increase of extreme weather events, for instance heavy rainfall. It is expected that natural disasters will cause 300 billion in losses annually in the upcoming decade\cite{disastercosts}. This justifies to invest a high amount of money to minor the losses of a flood. Not only the losses in terms of money, but more importantly lives, and also social impact.
 
-A next generation reliable flood monitoring and warning system will help lower the catastrophic impact of floods. The system will imminent floods and send out people in order to reduce the impact of a flood. In the future the system should be able to monitor other kinds of disasters and send out warnings. 
+The increasing thread of the floods is the basis for our vision. \CompanyName has the following vision: No people in the world will be harmed by floods. They want to find solutions so floods does not take lives, cause social consequences, and damage properties.   
+
+The mission of \CompanyName is design of a flood warning system in order to save lives and reduce costs. A next generation reliable flood monitoring and warning system will help lower the catastrophic impact of floods. The system will imminent floods and send out people in order to reduce the impact of a flood. In the future the system should be able to monitor other kinds of disasters and send out warnings. 
 
 The Netherlands is a country that is situated for large parts(26\%) under the sea level\cite{holland}. Using dikes and other solutions they protect their country against the water. The increasing sea level causes extreme danger in the Netherlands. It is important that they can monitor how dangerous imminent floods are and take action if things are looking to wrong. If things go wrong people within the area should be warned in order to take action and safe their self, others, and their belongings.
-
-\section{Mission statement}
-A flood monitoring and warning system helps us to enforce our vision, to limit the social and financial consequences of floods and reduce the loss of human lives. \\
-The Smart Flood Monitor will cause a revolutionary innovation on the environmental monitoring market. \CompanyName{} will be able to offer a system that can detect floods early and correctly by using the newest available techniques. At first the system will be build for monitoring floods, but in the design there is taken in to account to monitor other kind of natural disasters.
+% Maybe put the previous paragraph to the context?????
 
 \section{Business Rational}
 
@@ -151,9 +150,9 @@ When the first version of \ProjectName{} is released and is used to start monito
 
 
 \section{Product and service description}
-\CompanyName{} offers a flood warning system. When a imminent flood is monitored by the sensors of the system a warning should be sent to governmental organizations and people within the danger area. Also a possibility of guidance should be provided when a flood is happening to assist rescuers and guide inhabitants to safe areas.
+\CompanyName{} offers a flood warning system. When a imminent flood is monitored by the sensors of the system a warning should be sent to governmental organizations and people within the danger area. Also a possibility of guidance should be provided when a flood is happening to assist rescuers and guide inhabitants to safe areas. The guidance part will be done by third party application developers. The system will publish the data that these developers can use to build their service.
 
-Basically the system will consist of four subsystems: monitor the state of dykes and water levels, analyze the data from the monitoring part to detect imminent floods, warn governmental organizations and inhabitants in the danger area, and provide guidance to search and rescue organizations and inhabitants.
+Basically the system will consist of four subsystems: monitor the state of dykes and water levels, analyze the data from the monitoring part to detect imminent floods, warn governmental organizations and inhabitants in the danger area, and provide data which third party developers can use to build applications which help search and rescue organizations and inhabitants for guidance.
 
 The first subsystem (monitor the state of dykes and water levels) will consist of various sensors that are placed near and in dykes and water ways. The state of the dikes must be monitored continuously, i.e. pressure of the dyke. Also, sensors must be installed to monitored continuously the water level. The data of all the sensors will be sent to a server, in a safe location, to store all the data.
 
@@ -161,51 +160,35 @@ The second subsystem (analyze the data from the monitoring part to detect immine
 
 The third subsystem (warn governmental organizations and inhabitants in the danger area) will send warning messages when the algorithm identified a dangerous situations. The safety region \ign{---in Dutch Veiligheidsregio--- }will receive a warning message that an area is in danger. Information like position, area, sort of danger and amount of danger will be send. The safety region will be responsible to take action based on this information. Inhabitants can receive warnings via sirens, mobile phone, radio, television, and by UAV.
 
-The last subsystem (provides guidance to search and rescue organizations and inhabitants) It will help people that are in a dangerous area by sending them information on how to rescue themselves as in a save way. Rescue organizations  receive information about the area's that are likely to have casualties in them and it informs them on how to get to those locations save.
+The last subsystem (provides data to third party developers) will publish data that other companies can use to build applications. The data that will be published is mainly for provide guidance for emergency services and people which are in the dangerous area. 
 
 The service will consist of maintenance for the product and upgrades.
 
-Floods will be the first natural disaster the initial system supports. The initial system sends warnings to the people in danger and to emergency services, but will not yet interact much with the user. However, the system doesn't stop there and will get increasingly more capabilities. The extra capabilities of system include:
-	\begin{itemize}
-		\item Support for more kinds natural of disasters
-		\item More individual guidance
-		\item Interaction with the system, users can give input
-		\item Support more sensor 
-		\item Support of multiple communication networks to send information
-	\end{itemize}
+As described before, floods will be the first natural disaster the initial system supports. The system will be based on an architecture that other kind of disasters that can be monitored by sensors can be easily implemented. Natural disasters that can be monitored in the future by the system are: Volcano eruption, earthquakes, and slides. By implementing sensors and algorithm's for these natural disasters our system will become more viable for in the future. In figure 
+%Make a picture here.
+there is an overview of the implementation of natural disasters over time.
 
-% We should discuss more about this
+\section{System in the market}
+All over the world floods are causing tremendous trouble to people. This makes that our system can be sold all over the world. First the system focuses on the Netherlands. When the system is working correctly other governments in the world must be informed about the system. First focusing on Europe and than other continents.
 
-The first thing \CompanyName{} will focus on after the first release, is increasing the ability for the users to interaction with the system. This allows the system to provide more personal help to the users and increases knowledge the system has of the area. However, mistakes can easily be made by a user and so this data needs to be verified in order to get valuable information. That is why adding this feature goes beyond the scope of this project.
+Third party application developers have the opportunity to build application that enables guidance for emergency services and people. First the focus is on finding one company that has experience with building such products. Then other software companies should get noticed about the system. The more third party applications are build, the better system will reach it's mission.
 
-Adding sensor support is a continuous process. The sensors that are available are steadily increasing and their technology becomes more advanced. \CompanyName{} will monitor the sensor technologies and improvements to check if these can improve the system.
-Depending on where the system resides, it will need to interact with various kinds of networks en media. Initially the flood warning system will focus on communicating with resources in the Netherlands. However, if a future release implements additional support for monitoring tornadoes or volcanoes, the system will most likely not be in the Netherlands.
+Safety regions are responsible when disasters are happening in the region. They consist of local governments, emergency services, the army, and water boards. Safety regions and the organizations that are part of the safety regions should be informed about the system. When they know about the system they can inform the government and put pressure to buy this system.
 
-\begin{figure}[h!]
-  \centering
-    \includegraphics[width=0.95\textwidth]{{{2-business/images/release}.png}}
-   \caption{Future releases.}
-   \label{fig:future-releases}
-\end{figure}
-
-%\ Keuzes maken hier. We moeten hier een plaatje maken dat over tijd eerst ons main product met opties toont en in de toekomst welke extere futures we willen toevoegen
-
-\section{Target audience}
-The target audience is where we focus on to market our product. The Dutch Ministry of Infrastructure and the Environment is responsible for floods in the Netherlands. They make the decisions to buy the system. 
-
-The Netherlands is divided into several safety regions. A safety region consists of all the emergency services, municipalities, water boards. They make decisions about how to make their region safer. All those organizations should be seen as the target audience. They must see the benefit of using \CompanyName{}'s Monitoring and Warning system.
-
+When a flood is happening and things go wrong inhabitants will ask governments what went wrong and state that they want to be better protected. They will pressure governments that they have the best flood warning system.
 
 %\section{Business model}
 %\ Insert a business model diagram
+%\ Joris
 %\section{Domain model}
 %\ Internal how our system works?
+%\ Joris
 \section{Financial model}
 The financial model will be a low product price. This in order to price the product low in the market. A service description for maintenance will be offered. Also updates will be sold to the customer\\
-
+%\Joris
 \subsection{Software Architecture costs}
 The software architecture team of \CompanyName consists of six members. Creating the architecture of the project is estimated to take ten weeks. All team members will spend 15 hours a week on the project. This totals $6*10*15=1050$ working hours. Each working hour costs \euro{}150,-. Total spend on the software architecture is \euro{}157.500
-
+%\Joris
 \subsection{Development costs}
 The costs of developing the system is approximated in table \ref{table:develop-costs}, shown below.
 \newline
@@ -234,7 +217,7 @@ display columns/1/.append style={
 \caption{Approximation of development costs}
 \label{table:develop-costs}
 \end{table}
-
+%\Joris
 Development of the system comprises the development of several different aspects. For each of these aspects, table \ref{table:develop-costs} shows an approximation of the hours needed for the development. Resulting in a total amount of $9770$ hours needed to create the system.\\
 The development is done by \CompanyName self. Each member of the project team assigned to develop this system is paid $\euro{}50$ an hour. This results in a development cost of $50*9770=488.550$. As shown in the table below.
 
@@ -332,7 +315,7 @@ Siemens is a competitor that already has developed a flood-warning system in Bel
 
 Further there are Universities that do research on flood warning systems. At the Malaysian Institute Information Technology they developed a product prototype of a system called Intelligent Flood Information System via SMS. Waterlevel sensors are the only one they used. When their is a flood they send a warning SMS to people that are within the area. In the future this could become a competitor if they create a start-up or sell the idea to a company.  
 
-
+%\Joris can you put references in?
 
 %http://www.researchgate.net/publication/239761436_Intelligent_flood_information_system_via_SMS_(IFIS)
 
