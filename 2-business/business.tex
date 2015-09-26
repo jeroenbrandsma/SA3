@@ -235,7 +235,7 @@ The development is done by \CompanyName self. Each member of the project team as
 	Description & Costs \\
 	Hours & 9770 \\
 	Cost per hour & \EUR{}50 \\
-	Total cost & \EUR{}488.500 \\
+	Total cost & \EUR{}488,500 \\
 }\tdevcost
 
 \begin{table}[H]
@@ -248,14 +248,36 @@ The development is done by \CompanyName self. Each member of the project team as
 
 \subsection{Hardware costs}
 Around 17,000 kilometres of dikes protect the Netherlands against flooding \cite{DMC}. 
-Sensor costs include:
-\begin{itemize}
-	\item technical costs of the sensor
-	\item implementation costs
-	\item system implementation costs
-\end{itemize}
+The monitoring system consists of MEMS sensor modules (e.g. GeoBeads) with a claimed life time of 10 years, which are installed with conventional CPT push-in techniques. Three sensors are installed per cross-section and a cross-section is installed every 100 m.
+Each CPT push-in costs about \EUR{}200 per sensor (Feitsma,2002)\cite{TUDelftPHD}.%pp126
+The table below shows of this data.
+\begin{table}[H]
+	\pgfplotstabletypeset[
+		KeyValue
+	]{%
+		Description & Value &UoM\\
+		Total length of all dikes to be monitored & 250 & km \\
+		Sensor cost & 350 & \EUR{}\\
+		Installment cost per sensor & 200 &\EUR{}\\
+		Distance between cross-sections  & 100 & m \\
+		Sensors per cross-section & 3 & \\
+		Base installation cost factor like labor and wiring & 0.2 & \\
+		Period of investment & 10 & years \\
+	}
+\caption{Total costs of development. UoM=Unit of measurement}
+\label{table:installationdata}
+\end{table}
 
-The system needs:
+This results in an installation cost of:
+Installation cost per km$=(350+200)\cdot10\cdot3\cdot(1+0.2)=\EUR{}16,830$\\
+Installation cost$=100*16,830=1.683,000$
+
+\newcommand{\installationCosts}{1.683.000}
+
+The yearly maintenance and operation cost will be calculated as being a fraction of the installment cost.\\ 
+Maintenance cost$=0.2\cdot1,683,000=336,600$ per year %
+
+The system then needs several servers:
 \begin{itemize}
 	\item Sensors
 	\item {State monitor server}
@@ -264,48 +286,40 @@ The system needs:
 	\item {Guidance server}	
 \end{itemize}
 
-The monitoring system consists of MEMS sensor modules (e.g. GeoBeads) with a claimed life time of 10 years, which are installed with conventional CPT push-in techniques. Three sensors are installed per cross-section and a cross-section is installed every 100 m.
-Each CPT push-in costs about \EUR{}200 per sensor (Feitsma,2002).
-The total installation costs of monitoring system S1 are.
-
+There are four servers and each server costs $\EUR{}1,500$. To enhance the availability, the servers will be redundantly set up four times. Resulting in a hardware cost for the servers of\\
+Server cost$=4*1500*4=24,00$. 
+The total hardware costs is shown in the table below.
 \begin{table}[H]
 	\pgfplotstabletypeset[
-		KeyValue
-	]{%
-		key & value &uom\\
-		Total length of all dikes to be monitored & 7 & km \\
-		Sensor cost & 350 & \EUR{}\\
-		Instalment cost per sensor & 200 &\EUR{}\\
-		Distance between cross-sections  & 100 & m \\
-		Sensors per cross-section & 3 & \\
-		Base installation cost factor & 0.2 & \\
-		Period of investment & 10 & years \\
-	}
-\caption{Total costs of development}
-\label{table:total-dev-costs}
+		Costs
+	]{
+	Description & Cost\\
+	Installation costs & $\EUR{}$1,683,000\\
+	Maintenance costs & $\euro{}$336,600\\
+	Server costs & $\euro{}$24.000\\
+	Total cost & $\euro{}$2,443,600\\
+}
+\caption{Total hardware cost}
+\label{table:total-hardw-cost}
 \end{table}
-
-This results in an installation cost of:
-$$6\cdot(350+200)\cdot10\cdot3\cdot(1+0.2)=10090$$
-
-The yearly maintenance and operation cost will be calculated as being a fraction of the instalment cost.\\
-The yearly maintenance and operation costs is: 
-$$0.1*10090\cdot0.1*10090$$ %
-The total hardware costs then results in: \euro{}46.000
 
 \subsection{Total costs}
 The total costs for the system is calculated in the table below.\\
 \newline
+\begin{table}[H]
 \pgfplotstabletypeset[%
 Costs
 ]{%
 	Description & Cost\\
-	Software Architecture costs & \EUR{}157.500\\
+	Software Architecture costs & \EUR{}157,500\\
 	Development costs & $\euro{}$488.500\\
-	Hardware costs & $\euro{}$46.000\\
-	Total cost & $\euro{}$692.000\\
+	Hardware costs & $\euro{}$2,443,600\\
+	Total cost & $\euro{}$3,089,600\\
 }
-So the total costs for developing the system is \euro{}692.000\\
+\caption{Total cost of the system}
+\label{table:totalcosts}
+\end{table}
+So the total costs of the system is \euro{}3,089,600\\
 % Guntur: Doubled financial model sections?
 % \section{Financial model}
 % The financial model will be a low product price. This in order to price the product low in the market. A service description for maintenance will be offered. Also updates will be sold to the customer
