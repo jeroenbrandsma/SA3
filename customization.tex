@@ -4,7 +4,7 @@
 \titleformat{\chapter}{\normalfont\LARGE\bfseries}{\thechapter}{1em}{}
 \titlespacing*{\chapter}{0pt}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
 \newdateformat{mydate}{\twodigit{\THEDAY}{ }\shortmonthname[\THEMONTH], \THEYEAR}
-
+\restylefloat{table}
 % The example architecture document numbers subsubsections (3.2.1)
 % And it those subsubsections are also included in the table of content
 % The following commands make sure that this numbering/listing happens as in the example.
@@ -16,7 +16,8 @@
 \setcounter{tocdepth}{3}
 
 %Nice custom column type
-\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash}p{#1}}
+\newcolumntype{d}[1]{D{.}{.}{#1}}
 
 \pgfplotstableset{
 	string type,
@@ -28,12 +29,34 @@
 
 \makeatletter
 
+\def\getcell#1#2#3{
+	\pgfplotstablegetelem{#1}{#2}\of{#3}\pgfplotsretval%
+}
 \pgfplotstableset{%
 		bold/.append style={
 	        postproc cell content/.append code={
 	                \pgfkeysalso{@cell content=\textbf{##1}}%
 	        },
     	},
+    highlight last row/.style={
+        postproc cell content/.append code={
+            \count0=\pgfplotstablerow
+            \advance\count0 by1
+            \ifnum\count0=\pgfplotstablerows
+                \pgfkeysalso{@cell content=\textbf{##1}}%
+            \fi
+        },
+    },
+%    bold header/.append style={
+%		column type={>{\fontseries{bx}\selectfont}l},
+%		postproc cell content/.append code={
+%			\pgfkeysalso{@cell content={\fontseries{\seriesdefault}\selectfont}{}}}
+%    },
+		bold header/.append style={
+			column type={>{\fontseries{bx}\selectfont\centering\arraybackslash}c},
+			postproc cell content/.append style={
+				/pgfplots/table/@cell content/.add={\fontseries{\seriesdefault}\selectfont}{}}
+		},		
 		UCTable/.append style={
 			begin table=\begin{longtable},
 			end table=\end{longtable},
@@ -57,21 +80,30 @@
 		KeyValue/.append style={
 			begin table=\begin{longtable},
 			end table=\end{longtable},
+			column type=l,
+			every last row/.style={%
+				after row=\bottomrule,
+			},
 			every head row/.style={
-				output empty row,
-				before row={},
-				after row={},			
+				before row={\toprule},
+				after row={\midrule},			
 			},
 			every last row/.style={%
 				after row=\bottomrule,
 			},
-			columns/key/.style={
-				bold,
-				column type=L{\tw{0.3}},
-			},
-			columns/value/.style={
-				column type=L{\tw{0.2}},
-			},
-			before row=\midrule,
-		},		
+%			To add borders:
+%			column type/.add={|}{},
+%			every last column/.style={column type/.add={}{|}}
+%			Set width of specific column:
+%			display columns/0/.style={column type={L{\tw{0.6}}}},
+		},
+		Costs/.append style={
+			KeyValue,
+			display columns/0/.style={
+    			column name={\textbf{Description}},column type = {l},string type
+  			},
+			display columns/1/.style={
+    			column name={\textbf{Cost}},fixed,column type = {r}
+  			},		
+		}		
 	}
