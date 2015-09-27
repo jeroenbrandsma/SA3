@@ -1,11 +1,10 @@
 %!TEX root = ../report.tex
 \section{Architectural vision}
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=180mm]{images/archVision.png}
-\caption{Schematic overview of the flood monitoring system}
-\label{fig:architectural-vision}
+\begin{figure}[hb!]
+%\centering
+\includegraphics[keepaspectratio=true,width=0.9\textwidth]{images/archVision.png}
+%\caption{Schematic overview of the flood monitoring system}
+%\label{fig:architectural-vision}
 \end{figure}
 
 The smart flood monitoring system consists of multiple parts. These are represented in figure \ref{fig:architectural-vision}. First of all there is the monitoring part. This part monitors the current state of the environment. To achieve this, we need a lot of data. This data is obtained by sensors and weather data. We use sensors to get the current water level of waterways, these water sensors are shown in the figure as blue squares. We also measure the density and structure of dikes, this is done by pressure meters, temperature meters and tilt meters. These are represented as green squares. The data that is obtained through all sensors will be send to the central server. Here the information will be processed. The system then determines if there is an imminent flood.
