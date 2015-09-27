@@ -48,12 +48,12 @@ UCTable
 	Precondition & The sensor is connected to a processing unit \\
 	Main success scenario & \compactList{enumerate}{%
 			\item The sensor does a measurement
-			\item The sensor sends the data to a processing unit
-			\item The processing unit normalizes the received data
-			\item The processing unit sends the normalized data to the main processing node
-			\item The main processing node stores the data in the database
+			\item The sensor sends the data to a monitoring unit
+			\item The monitoring unit normalizes the received data
+			\item The monitoring unit sends the normalized data to the database
+			\item The database stores the data
 	}\\
-	Postcondition & The system received and stored the sensor data \\
+	Postcondition & The database received and stored the sensor data \\
 	Alternatives & \compactList{itemize}{%
 			\item[2a.] The data can't be sent. \\
 			Data will be lost \\
@@ -131,7 +131,7 @@ UCTable
 ]{%
 	value & description \\
 	Number & \req{uc}\\
-	Description & The central processing unit calculated the probability of a flood \\
+	Description & The central processing unit calculates the probability of a flood \\
 	Stakeholders and interests & \compactList{itemize}{%
 			\item \textbf{Developers}: Developers have to work on this part
 			\item \textbf{Emergency Services}: Emergency services want to know when a flood warning is triggered

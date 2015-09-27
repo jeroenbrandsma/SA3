@@ -9,15 +9,15 @@ After this the product and its stakeholders will be explained. This chapter is c
 
 \section{Business opportunity}
 There are many natural disasters happening each year all over the world. Each year these disasters take lives, destroys a lot of properties, and cause social disturbance.
-Looking at, for example, the Indian ocean's tsunami in 2004, it looks that the damage could have been significantly reduced if the necessary people were warned\cite{tsunami10ylater, tsunamiwarnsavelives}.  %\We should add a reference here
+Looking for example at the Indian ocean's tsunami in 2004, it looks that the damage could have been significantly reduced if the necessary people were warned\cite{tsunami10ylater, tsunamiwarnsavelives}.  %\We should add a reference here
 
 In the future more floods are expected because of global warming\cite{climateincrease}. The rise of the sea level is a consequence of global warming. Another consequence is the increase of extreme weather events, for instance heavy rainfall. It is expected that natural disasters will cause 300 billion in losses annually in the upcoming decade\cite{disastercosts}. This justifies to invest a high amount of money to minor the losses of a flood. Not only the losses in terms of money, but more importantly lives, and also social impact.
 
-The increasing thread of the floods is the basis for our vision. \CompanyName has the following vision: No people in the world will be harmed by floods. They want to find solutions so floods does not take lives, cause social consequences, and damage properties.   
+The increasing thread of the floods is the basis for our vision. \CompanyName has the following vision: No people in the world will be harmed by floods. We want to find solutions so floods does not take lives, cause social consequences, and damage properties.   
 
-The mission of \CompanyName is design of a flood warning system in order to save lives and reduce costs. A next generation reliable flood monitoring and warning system will help lower the catastrophic impact of floods. The system will imminent floods and send out people in order to reduce the impact of a flood. In the future the system should be able to monitor other kinds of disasters and send out warnings. 
+The mission of \CompanyName is to design a flood warning system in order to save lives and reduce costs. A next generation reliable flood monitoring and warning system will help lower the catastrophic impact of floods. The system will predict imminent floods and send out people in order to reduce the impact of a flood. In the future the system should be able to monitor other kinds of disasters and send out warnings. 
 
-The Netherlands is a country that is situated for large parts(26\%) under the sea level\cite{holland}. Using dikes and other solutions they protect their country against the water. The increasing sea level causes extreme danger in the Netherlands. It is important that they can monitor how dangerous imminent floods are and take action if things are looking to wrong. If things go wrong people within the area should be warned in order to take action and safe their self, others, and their belongings.
+The Netherlands is a country that is situated for large parts(26\%) under the sea level\cite{holland}. Using dikes and other solutions they protect their country against the water. The increasing sea level causes extreme danger in the Netherlands. It is important that they can monitor how dangerous imminent floods are and take action if things are looking to wrong. These properties of the Netherlands make it an ideal market to start deploying our system. %If things go wrong, people within the area should be warned in order to take action and safe their self, others, and their belongings.
 % Maybe put the previous paragraph to the context?????
 
 \section{Business rationale}
@@ -85,10 +85,10 @@ It is important to evaluate the strengths and weaknesses of \CompanyName{}. Usin
 \newcommand{\Threats}{
 \SwotItems{
 	\item High hardware costs
-	\item Competitors will enter the market because of growing market
-	\item New competitors will enter the market
-	\item Climate change will forces the system to be improved over time.
-	\item Changes of the external systems that our system uses to properly communicate.
+	\item New competitors will enter the market because of a growing market
+	%\item New competitors will enter the market
+	\item Climate change will force the system to be improved over time
+	\item External parties that affect our system could change or stop
 	%\item The sizes of certain area{'}s to monitor can be too big to get a good and reliable view of them
 }
 }
@@ -147,7 +147,7 @@ The first subsystem (monitor the state of dykes and water levels) will consist o
 
 The second subsystem (analyze the data from the monitoring part to detect imminent floods) will analyze all the data from the sensors and data from weather forecasting service. Based on this data an algorithm will monitor continuously if there are dangerous situations.
 
-The third subsystem (warn governmental organizations and inhabitants in the danger area) will send warning messages when the algorithm identified a dangerous situations. The safety region \ign{---in Dutch Veiligheidsregio--- }will receive a warning message that an area is in danger. Information like position, area, sort of danger and amount of danger will be send. The safety region will be responsible to take action based on this information. Inhabitants can receive warnings via sirens, mobile phone, radio, television, and by UAV.
+The third subsystem (warn governmental organizations and inhabitants in the danger area) will send warning messages when the algorithm identified a dangerous situations. The safety region \ign{---in Dutch Veiligheidsregio--- }will receive a warning message that an area is in danger. Information like position, area, sort of danger and amount of danger will be send. The safety region will be responsible to take action based on this information. Inhabitants can receive warnings via sirens, mobile phone, radio, television. %, and by UAV
 
 The last subsystem (provides data to third party developers) will publish data that other companies can use to build applications. The data that will be published is mainly for provide guidance for emergency services and people which are in the dangerous area. 
 
@@ -181,6 +181,7 @@ The software architecture team of \CompanyName consists of six members. Creating
 \subsection{Development costs}
 The costs of developing the system is approximated in table \ref{table:develop-costs}, shown below.
 \newline
+
 \begin{table}[H]
 \pgfplotstabletypeset[%
 KeyValue,
@@ -224,7 +225,7 @@ The development is done by \CompanyName self. Each member of the project team as
 	Description & Costs \\
 	Hours & 9770 \\
 	Cost per hour & \EUR{}50 \\
-	Total cost & \EUR{}488,500 \\
+	Total cost & \EUR{}488.500 \\
 }\tdevcost
 
 \begin{table}[H]
@@ -236,7 +237,7 @@ The development is done by \CompanyName self. Each member of the project team as
 \end{table}
 
 \subsection{Hardware costs}
-Around 17,000 kilometres of dikes protect the Netherlands against flooding \cite{DMC}. 
+Around 17.000 kilometres of dikes protect the Netherlands against flooding \cite{DMC}. 
 The monitoring system consists of MEMS sensor modules (e.g. GeoBeads) with a claimed life time of 10 years, which are installed with conventional CPT push-in techniques. Three sensors are installed per cross-section and a cross-section is installed every 100 m.
 Each CPT push-in costs about \EUR{}200 per sensor (Feitsma,2002)\cite{TUDelftPHD}.%pp126
 The table below shows of this data.
@@ -258,13 +259,13 @@ The table below shows of this data.
 \end{table}
 
 This results in an installation cost of:
-Installation cost per km$=(350+200)\cdot10\cdot3\cdot(1+0.2)=\EUR{}16,830$\\
-Installation cost$=100*16,830=1.683,000$
+Installation cost per km$=(350+200)\cdot10\cdot3\cdot(1+0.2)=\EUR{}16.830$\\
+Installation cost$=100*16.830=1.683.000$
 
 \newcommand{\installationCosts}{1.683.000}
 
 The yearly maintenance and operation cost will be calculated as being a fraction of the installment cost.\\ 
-Maintenance cost$=0.2\cdot1,683,000=336,600$ per year %
+Maintenance cost$=0.2\cdot1.683.000=336.600$ per year %
 
 The system then needs several servers:
 \begin{itemize}
@@ -275,18 +276,18 @@ The system then needs several servers:
 	\item {Guidance server}	
 \end{itemize}
 
-There are four servers and each server costs $\EUR{}1,500$. To enhance the availability, the servers will be redundantly set up four times. Resulting in a hardware cost for the servers of\\
-Server cost$=4*1500*4=24,00$. 
+There are four servers and each server costs $\EUR{}1.500$. To enhance the availability, the servers will be redundantly set up four times. Resulting in a hardware cost for the servers of\\
+Server cost$=4*1500*4=24.000$. 
 The total hardware costs is shown in the table below.
 \begin{table}[H]
 	\pgfplotstabletypeset[
 		Costs
 	]{
 	Description & Cost\\
-	Installation costs & $\EUR{}$1,683,000\\
-	Maintenance costs & $\euro{}$336,600\\
+	Installation costs & $\EUR{}$1.683.000\\
+	Maintenance costs & $\euro{}$336.600\\
 	Server costs & $\euro{}$24.000\\
-	Total cost & $\euro{}$2,443,600\\
+	Total cost & $\euro{}$2.443.600\\
 }
 \caption{Total hardware cost}
 \label{table:total-hardw-cost}
@@ -300,23 +301,23 @@ The total costs for the system is calculated in the table below.\\
 Costs
 ]{%
 	Description & Cost\\
-	Software Architecture costs & \EUR{}157,500\\
+	Software Architecture costs & \EUR{}157.500\\
 	Development costs & $\euro{}$488.500\\
-	Hardware costs & $\euro{}$2,443,600\\
-	Total cost & $\euro{}$3,089,600\\
+	Hardware costs & $\euro{}$2.443.600\\
+	Total cost & $\euro{}$3.089.600\\
 }
 \caption{Total cost of the system}
 \label{table:totalcosts}
 \end{table}
-So the total costs of the system is \euro{}3,089,600\\
+So the total costs of the system is \euro{}3.089.600\\
 % Guntur: Doubled financial model sections?
 % \section{Financial model}
 % The financial model will be a low product price. This in order to price the product low in the market. A service description for maintenance will be offered. Also updates will be sold to the customer
 
 \section{Competitors}
-Siemens is a competitor that already has developed a flood-warning system in Belgium in 2006. When the system detects a imminent flood it sends a SMS to people that live near the rivers in order to warn them. The system is implemented in a small region, which consists of only 3 rivers. The total cost for this system were \euro{}230.000. Later on they continued engineering the system. The system uses sensor which measures: temperature, water pressure, and shifting. They participated with this system in the Urban Flood project from the EU. The strong point of this competitor is that they already have funding and also experience with building such a system. Siemens is the main competitor for \CompanyName{}. Their strength is that they already have a proven system in Belgium and have a lot of experience through participating in flood monitoring research projects. The opportunity for \CompanyName{} is Engineering a flexible system that can be used in the future for other kind of disasters. Further on by selling the product at a low selling price and profit on the maintenance work and upgrades the Netherlands will be interesting in using the product.
+Siemens is a competitor that already has developed a flood-warning system in Belgium in 2006. When the system detects an imminent flood it sends a SMS to people that live near the rivers in order to warn them. The system is implemented in a small region, which consists of only 3 rivers. The total costs for this system were \euro{}230.000. Later on they continued engineering the system. The system uses sensor which measures: temperature, water pressure, and shifting. They participated with this system in the Urban Flood project from the EU. The strong point of this competitor is that they already have funding and also experience with building such a system. Siemens is the main competitor for \CompanyName{}. Their strength is that they already have a proven system in Belgium and have a lot of experience through participating in flood monitoring research projects. The opportunity for \CompanyName{} is to engineer a flexible system that can be used in the future for other kind of disasters. Further on by selling the product at a low selling price and profit on the maintenance work and upgrades the Netherlands will be interesting in using the product.
 
-Further there are Universities that do research on flood warning systems. At the Malaysian Institute Information Technology they developed a product prototype of a system called Intelligent Flood Information System via SMS. Waterlevel sensors are the only one they used. When their is a flood they send a warning SMS to people that are within the area. In the future this could become a competitor if they create a start-up or sell the idea to a company.  
+Further there are Universities that do research on flood warning systems. At the Malaysian Institute Information Technology they developed a product prototype of a system called Intelligent Flood Information System via SMS. Waterlevel sensors are the only one they used. When there is a flood they send a warning SMS to people that are within the area. In the future this could become a competitor if they create a start-up or sell the idea to a company.  
 
 %\Joris can you put references in?
 

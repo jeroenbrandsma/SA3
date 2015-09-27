@@ -1,7 +1,7 @@
 %!TEX root = ../report.tex
 \chapter{Analysis}
 \label{ch:analysis}
-This chapter describes the analysis. It lists the assumptions made about the system and it's environment. Next, an overview of the high-level design decisions is given.
+This chapter describes the analysis of the system. It lists the assumptions that are made about the system and its environment. After this, an overview of the high-level design decisions is given.
 
 \section{Assumptions}
 There are several assumptions made about the system and it's environment:
@@ -10,15 +10,13 @@ There are several assumptions made about the system and it's environment:
 	\begin{enumerate}
 	  \item The safety region / government has means to alert citizens in an area to evacuate.
 	  \item The safety region is informed about our system and will alert citizens if needed when our system alerts the safety region.
-	  \item People who are subscribed for flood warnings/guidance have a mobile phone that can receive text messages and MMS.
+	  \item People who are subscribed for flood warnings/guidance have a mobile phone that can receive text messages.
 	  \item Sensors can be placed in the water ways and dikes in locations where they can provide representative measurements.
 	  \item Information is available to the system with regards to the population density and terrain height in different areas.
-	  \item A flood will not reach further than 50 km. % see SEC-7
 	  \item Supplying information about the areas affected by the flood in a resolution of 5 by 5 km (as described in \ref{fr:10}) is sufficient for the government/safety region to make decisions regarding alerting and evacuating citizens.
 	  \item It is possible to predict the expected water level up to 12 hours in the future.
 	  \item A weather forecasting API is available that provides precipitation and wind data.
 	  \item The sensors are (in some way) connected to the system.
-	  \item The safety region provides an API, which can be used by the system to warn the safety region.
 	\end{enumerate}
 }
 
@@ -72,7 +70,7 @@ A higher score means a more favourable result. For example, a high score for cos
 
 \begin{table}[h]
 \begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
-    \textbf{Name} 			& \textbf{Linux} \\ \toprule
+    \textbf{Name} 			& \textbf{Operating system} \\ \toprule
     \textbf{Decision} 		& \textbf{DEC-}\textbf{\nextNrRef{dn}} \\ \midrule \midrule
     \textbf{Status} 		& \textbf{New} \\ \midrule
     \textbf{Problem/Issue} 	& The warning system software for the natural disasters need a platform to work on.  \\ \midrule
@@ -89,7 +87,7 @@ A higher score means a more favourable result. For example, a high score for cos
 									Weight 				& 1 & 1 & 1 & 1 & 1 & 1 & 1 & \\ \hline
 									Linux 			 	& 4 & 4 & 4 & 4 & 4 & 4 & 5 & 29 \\
 									Windows 			& 3 & 2 & 3 & 2 & 3 & 3 & 1 & 17 \\
-									OpenBSD 		 	& 5 & 5 & 4 & 3 & 5 & 4 & 3 & 29 \\
+									OpenBSD 		 	& 5 & 4 & 4 & 3 & 5 & 4 & 3 & 28 \\
 								\end{tabular} \\
     \\ \bottomrule
 \end{tabular}
@@ -110,6 +108,10 @@ A higher score means a more favourable result. For example, a high score for cos
     \textbf{Decision} 		&  The sensors will send their data to the system using mobile broadband. Using cellphone towers to communicate with the system.\\ \midrule
     \textbf{Alternatives} 	& \textit{Landline}\\ 
     						& Connecting the sensors to the telephone network and use that network to communicate with the server.\\
+    						& \textit{Satellite}\\ 
+    						& Set up a satellite connection between the sensors and the system.\\
+    						& \textit{Direct lines}\\ 
+    						& Connection the sensors to the system by drawing a cable from all sensors to the system.\\
     						\midrule
     \textbf{Arguments} 		& \\
     						& 	\begin{tabular}{l|lllllll|l}
@@ -129,6 +131,7 @@ A higher score means a more favourable result. For example, a high score for cos
 \begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
     \textbf{Name} 			& \textbf{Cassandra Database} \\ \toprule
     \textbf{Decision} 		& \textbf{DEC-}\textbf{\nextNrRef{dn}} \\ \midrule \midrule
+    \textbf{Status} 		& \textbf{New} \\ \midrule
     \textbf{Problem/Issue} 	& A reliable database, which is the best in scalability and availability is needed to store our data for further processing and analysis. \\ \midrule
     \textbf{Decision} 		& Smart Flood Monitoring system will use Cassandra, which will run on top of the Linux platform, to store great amount of data from huge sensor arrays needed to carry out analytics and logging.\\ \midrule
     \textbf{Alternatives} 	& \textit{Redis}\\ 
@@ -157,6 +160,7 @@ A higher score means a more favourable result. For example, a high score for cos
 % http://www.stevenswater.com/water_level_sensors/
  \textbf{Name} 			& \textbf{Type of water level sensor} \\ \toprule
  \textbf{Decision} 		& \textbf{DEC-}\textbf{\nextNrRef{dn}} \\ \midrule \midrule
+ \textbf{Status} 		& \textbf{New} \\ \midrule
  \textbf{Problem/Issue} 	& To measure the water level in the water ways and along the coast, a sensor is needed to measure the water level. \\ \midrule
  \textbf{Decision} 		& The system will use pressure sensors to measure the water level. Pressure sensors are submerged at a fixed level in the water body. By measuring the pressure on the sensor of the water above it, these types of sensors are able to determine the water level. \\ \midrule
  \textbf{Alternatives} 	
@@ -191,28 +195,23 @@ A higher score means a more favourable result. For example, a high score for cos
 
 \begin{table}
 \begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
- \textbf{Name} 			& \textbf{Cloud service provider} \\ \toprule
+ \textbf{Name} 			& \textbf{Server} \\ \toprule
  \textbf{Decision} 		& \textbf{DEC-}\textbf{\nextNrRef{dn}} \\ \midrule \midrule
- \textbf{Problem/Issue} 	& To connect all sensors and to process all the data, we need computing power. \\ \midrule
- \textbf{Decision} 		& The system will use Cloud VPS as the cloud provider. This provider is located in europe and can provide all services we need. This also means the privacy of the data is assured. \\ \midrule
+ \textbf{Status} 		& \textbf{New} \\ \midrule
+ \textbf{Problem/Issue} & To connect all sensors and to process all the data, we need computing power and storage space. \\ \midrule
+ \textbf{Decision} 		& We will use our own server park. When managing our own server park, we have more technical freedom. Especially when our system will scale up, it can be profitable to maintain our own server park instead of a cloud solution.  \\ \midrule
  \textbf{Alternatives} 	
-    					  &\textit{Microsoft Azure}\\ 
-    					    & Microsoft Azure gives a good performance service. However the big disadvantage of this provider is that is not located in europe. This means different laws could apply to the data than in europe. \\
-    					  &\textit{Amazon}\\
-    					    & The pricing and performance of Amazon is good. Unfortunately the same as for Azure also applies to Amazon. We can't be sure where our data is stored.\\
-    					  &\textit{Own server implementation}\\
-    					    & Another option is to maintain our own server park. This will give us more freedom in terms of technical details. However, it will be way more expensive to maintain our own park. \\
+    					&\textit{Cloud computing}\\ 
+    					& There are different cloud computing providers in the world. An advantage of cloud computing is the degree of scalability. However, when storing data at a cloud provider, we can never be sure if we are the only ones with access to our data.\\
 \textbf{Arguments} 		& For this decision we will not take resilience into account. Resilience can also be seen as reliability and interoperability. \\
    						& 	\begin{tabular}{l|lllllll|l}
 							& 		\rot{Reliability} & \rot{Resilience} & \rot{Performance} & \rot{Interopertability} & \rot{Security} & \rot{Scalability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline 
 							% 								rel res perf int sec sca cost
 									Weight 					& 3 & - & 2 & 2 & 3 & 2 & 2 & \\ \hline
-									Cloud VPS 		 		& 4 & - & 4 & 3 & 4 & 5 & 3 & 54\\
-									Azure				 	& 4 & - & 4 & 3 & 3 & 5 & 3 & 51\\
-									Amazon			 	 	& 4 & - & 4 & 3 & 3 & 5 & 3 & 51\\
-									Own server park 		& 4 & - & 4 & 5 & 4 & 3 & 1 & 50\\
+									Cloud computing 		& 4 & - & 4 & 3 & 3 & 5 & 3 & 51\\
+									Own server park 		& 3 & - & 4 & 5 & 4 & 3 & 4 & 53\\
 								\end{tabular} \\ \bottomrule
 \end{tabular}
-\caption{Decision -- Cloud computing provider}
+\caption{Decision -- Server park}
 \label{table:waterlevelsensortype}
 \end{table}
