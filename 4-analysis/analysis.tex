@@ -1,10 +1,10 @@
 %!TEX root = ../report.tex
 \chapter{Analysis}
 \label{ch:analysis}
-This chapter describes the analysis of the system. It lists the assumptions that are made about the system and its environment. After this, an overview of the high-level design decisions is given.
+This chapter describes the analysis of the system. It lists the assumptions that are made about the system and its environment.  Next, an overview of the high-level design decisions is given.
 
 \section{Assumptions}
-There are several assumptions made about the system and it's environment:
+There are several assumptions made about the system and its environment:
 
 \noindent{
 	\begin{enumerate}
@@ -16,7 +16,7 @@ There are several assumptions made about the system and it's environment:
 	  \item Supplying information about the areas affected by the flood in a resolution of 5 by 5 km (as described in \ref{fr:10}) is sufficient for the government/safety region to make decisions regarding alerting and evacuating citizens.
 	  \item It is possible to predict the expected water level up to 12 hours in the future.
 	  \item A weather forecasting API is available that provides precipitation and wind data.
-	  \item The sensors are (in some way) connected to the system.
+	  \item The safety region provides an API, which can be used by the system to warn the safety region.
 	\end{enumerate}
 }
 
