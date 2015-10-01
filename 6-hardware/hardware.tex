@@ -1,36 +1,66 @@
 %!TEX root = ../report.tex
 \chapter{Hardware Architecture}
 \label{ch:hardware}
-This section outlines harware architecture of \ProjectName{}. This section starts with the hardware design decisions. Subsequently is the hardware overview outlined.
+This section outlines hardware architecture of \ProjectName{RUGSA3}. The first part presents an overview of the system and the second part the decisions ...
+
+\section{Hardware Overview}
+
+\includegraphics[scale=0.5]{images/HardwareArchitectureOverview.png}
+
+Here is an overview of the System Architecture. Each number corresponds to a decision which will be detailed in the Hardware Design Decision part.
+
 
 \section{Hardware Design Decisions}
 This section defines decisions made regarding the harware selection.
 
 \begin{table}[h]
 \begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
-    \textbf{Name} 			& \textbf{CentOS - Linux Distribution} \\ \toprule
-    \textbf{Decision} 		& \textbf{DEC-}\textbf{\nextNrRef{dn}} \\ \midrule \midrule
+    \textbf{Name} 			& \textbf{Choice of the computer for data analyze} \\ \toprule
+    \textbf{Decision} 		& \textbf{DEC-4}\\ \midrule
     \textbf{Status} 		& \textbf{Approved} \\ \midrule
-    \textbf{Problem/Issue} 	& The reliable linux distribution is needed to run the \ProjectName{} \\ \midrule
-    \textbf{Decision} 		&  The warning system will use CentOS Linux as a platform. CentOS is widely used as server and has many supports.\\ \midrule
-    \textbf{Alternatives} 	& \textit{Ubuntu}\\
-    						& A Debian based Linux distribution that has high installation counts. This distribution is famous for desktop computers.\\
-    						& \textit{Fedora}\\
-    						& Up-to-date packages, commercial support by third party available, easy to maintain, but lacks on package availability, and hard to do a live upgrade to a newer version.\\
+    \textbf{Problem/Issue} 	& The system needs computer to analyze data from sensors, UAV's ,weather forecast. \\ \midrule
+    \textbf{Decision} 		& IBM Supercomputer ...\\ \midrule
+    \textbf{Alternatives} 	& \textit{BB}\\
+    						& Other brand .\\
+    						& \textit{BB}\\
+    						& BBBB.\\
     						\midrule
     \textbf{Arguments} 		& \\
     						& 	\begin{tabular}{l|lllllll|l}
-							& 		\rot{Reliability} & \rot{Resilience} & \rot{Performance} & \rot{Interopertability} & \rot{Security} & \rot{Scalability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline
+							& 		\rot{Reliability} & \rot{Resilience} & \rot{Performance} & \rot{Security} & \rot{Scalability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline
 							% 					rel res perf int sec sca cost
-									Weight 		& 1 & 1 & 1 & 1 & 1 & 1 & 1 & \\ \hline
-									CentOS 		& 5 & 4 & 5 & 4 & 5 & 4 & 4 & 31 \\
-									Ubuntu 		& 4 & 3 & 4 & 4 & 4 & 5 & 4 & 28 \\
-									Fedora 		& 3 & 3 & 4 & 4 & 4 & 4 & 4 & 26 \\
+									IBM 		& 1 & 1 & 1 & 1 & 1 & 1 & 1 & \\ \hline
+									BB 		& 5 & 4 & 5 & 4 & 5 & 4 & 4 & 31 \\
+									BB 		& 4 & 3 & 4 & 4 & 4 & 5 & 4 & 28 \\
+									BB 		& 3 & 3 & 4 & 4 & 4 & 4 & 4 & 26 \\
 								\end{tabular} \\
     \\ \bottomrule
 \end{tabular}
-\caption{Decision -- Linux Distribution}
+
+IBM supercomputer uses Linux which is the oS we choosed.
+\caption{Decision -- Choice of computer}
 \label{table:linux}
 \end{table}
 
-% \section{Hardware Overview}
+%Performance , Speed of calculation , Core ; lINUX
+
+\begin{table}[h]
+\begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
+    \textbf{Name} 			& \textbf{Data representation - Interface with the third parties} \\ \toprule
+    \textbf{Decision} 		& \textbf{DEC-4}\\ \midrule
+    \textbf{Status} 		& \textbf{Approved} \\ \midrule
+    \textbf{Problem/Issue} 	& The system needs a display to send warnings to the emergency services. \\ \midrule
+    \textbf{Decision} 		& Dashboard for the emergency services\\ \midrule
+    \textbf{Alternatives} 	& \textit{BB}\\
+    						& DRAFT .\\
+    						& \textit{BB}\\
+    						& BBBB.\\
+    						\midrule
+    \textbf{Arguments} 		& \\
+
+    \\ \bottomrule
+\end{tabular}
+\caption{Decision -- Interface with third parties}
+\label{table:linux}
+\end{table}
+
