@@ -105,8 +105,9 @@ LaTeX styled as LATEX, and a shortening of Lamport TeX is a word processor and a
 \newcommand{\frReqRow}[3]{%
 	\midrule
 	\phantomsection
-	\manuallabel{fr:#1}{FR-#1} 	
-	FR-#1 &
+	\getNext{FR}
+	\manuallabel{fr:#1}{FR-\arabic{FR}} 	
+	FR-\arabic{FR} (#1) &
 	\ifcase\pdfstrcmp{#2}{Must}%
 	   \textbf{#2}
 	\else
