@@ -29,7 +29,7 @@ The last part of the hardware architecture is third party data gathering cluster
 \label{sec:hardware-decisions}
 This section defines decisions made regarding the hardware selection. Tables will be used to make our justification in regard to hardware selection more crystal clear.
 
-\begin{table}[h]
+\begin{table}[h!]
 \begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
     \textbf{Name} 			& \textbf{Choice of the computer for data analyze} \\ \toprule
     \textbf{Decision} 		& \textbf{DEC-4}\\ \midrule
@@ -53,14 +53,14 @@ This section defines decisions made regarding the hardware selection. Tables wil
     \\ \bottomrule
 \end{tabular}
 
-IBM supercomputer uses Linux which is the oS we choosed.
+IBM supercomputer uses Linux which is the oS we chose.
 \caption{Decision -- Choice of computer}
 \label{table:linux}
 \end{table}
 
 %Performance , Speed of calculation , Core ; lINUX
 
-\begin{table}[h]
+\begin{table}[h!]
 \begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
     \textbf{Name} 			& \textbf{Data representation - Interface with the third parties} \\ \toprule
     \textbf{Decision} 		& \textbf{DEC-4}\\ \midrule
@@ -80,19 +80,47 @@ IBM supercomputer uses Linux which is the oS we choosed.
 \label{table:linux}
 \end{table}
 
+
+
+\begin{table}[h!]
+\begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
+    \textbf{Name}           & \textbf{GeoBeads MEMS Sensor} \\ \toprule
+    \textbf{Decision}       & \textbf{3}\\ \midrule
+    \textbf{Status}         & \textbf{Approved} \\ \midrule
+    \textbf{Problem/Issue}  & The system needs a reliable sensor system to measure condition of water ways and dykes. \\ \midrule
+    \textbf{Decision}       & The system will implement GeoBeads MEMS Sensor in water ways and dykes.\\ \midrule
+    \textbf{Alternatives}   & \textit{LiDAR}\\
+                            & Remote sensing mechanism to measure condition of water ways.\\
+                            \midrule
+    \textbf{Arguments}      & \\
+                            &   \begin{tabular}{l|lllllll|l}
+                            &       \rot{Reliability} & \rot{Resilience} & \rot{Performance}& \rot{Interoperability} & \rot{Security} & \rot{Scalability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline
+                            %                  rel res perf int sec sca cost
+                                    GeoBeads   & 4 & 3 & 4 & 3 & 3 & 4 & 5 & 26\\ 
+                                    LiDAR      & 2 & 4 & 3 & 3 & 4 & 4 & 2 & 22\\
+                                \end{tabular} \\
+    \\ \bottomrule
+\end{tabular}
+\caption{Decision -- Choice of Sensors}
+\label{table:linux}
+\end{table}
+
 \section{Hardware Description}
 \label{sec:hardware-description}
 This section outlines describes description of the hardware implemented in this system. This section also supports decisions of hardware selection in previous section.
 
 \subsection{Sensing Components}
 \label{subsec:sensing-components}
-Around 17.000 kilometers of dikes protect the Netherlands against flooding \cite{DMC}. 
-The monitoring system consists of MEMS sensor modules (e.g. GeoBeads) with a claimed life time of 10 years, which are installed with conventional CPT push-in techniques. Three sensors are installed per cross-section and a cross-section is installed every 100 m.
-Each CPT push-in costs about \EUR{}200 per sensor (Feitsma,2002)\cite{TUDelftPHD}.%pp126
-The table below shows of this data.
+Roughly 17.000 kilometers of dikes protect the Netherlands against flooding \cite{DMC}. 
+The monitoring system consists of MEMS sensor modules (e.g. GeoBeads) with a claimed life time of 10 years, which are installed with conventional CPT push-in techniques. Three sensors are installed per cross-section and a cross-section is installed every 100 m. Each CPT push-in costs about \EUR{}200 per sensor (Feitsma,2002)\cite{TUDelftPHD}.%pp126
+
+% Adds some picture here
 
 \subsection{Database Cluster and Data Collection}
 \label{subsec:database-data}
+In the previous chapter, we decided to use Cassandra database as the database platform. However, Cassandra requires computers to run its environment. We decided to use clusters of computer to manage database system and to store our data. The cluster will also be accessible by other portions of our hardware, such as main analytics parts, third party data gathering part, and API part.
+
+% Adds some picture here
 
 \subsection{Analytics Components}
 \label{subsec:analytics}
