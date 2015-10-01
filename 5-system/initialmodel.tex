@@ -15,16 +15,16 @@ The system context diagram of the system is outlined in \autoref{fig:system-cont
 \subsection{Users and Roles}
 \begin{description}
 	\item[Safety region] The safety region has the responsibility to protect citizens when a dangerous situation occurs, in this system floods. They receive a warning when there is a imminent flood. When the warning is received, the safety region can warn citizens and emergency services. The safety region needs information about time to evacuate, location , and severity of imminent flood.
-	\item[Citizens] Citizens can subscribe for receiving warnings in case of an imminent flood. Citizen will receive a warning when they are in an area which might get flooded. The warning consists of a message that they are in a dangerous area and should turn on TV or radio or surf to a safety region website in order to receive information how to protect yourself.
+	% \item[Citizens] Citizens can subscribe for receiving warnings in case of an imminent flood. Citizen will receive a warning when they are in an area which might get flooded. The warning consists of a message that they are in a dangerous area and should turn on TV or radio or surf to a safety region website in order to receive information how to protect yourself.
 	\item[Third party application developers] This user will build an application to provide guidance when a flood is imminent. They use the data provided by the API of the SFM. They are allowed to get all relevant data from the system.
 	\item[Hardware suppliers] This user will provide different kind of hardware to the system and repairs when hardware is failing
 \end{description} 
 
 \subsection{External Systems}
 \begin{description}
-	\item[Weather Forecast API] The system will utilize weather forecast services from third party sources. To make this input reliable, the system uses multiple weather forecast providers. To predict floods correctly the system will need: rain data, temperature data, tides data, airpressure data and wind data.
-	\item[Geographic and demographic API] To predict how floods will evolve over time, we need geographical data. This data consists of maps of the area. There are multiple parameters that are needed by the system: ground height, roads and waterways. To calculate the impact of an imminennt flood on society, we also need to know how many people live in the affected area. This data is retrieved through the demographic API.
-	\item[Mobile phone] The mobile phone is a communication device of the citizen. This means a citizen uses the mobile phone to subscribe to the SMS service and to receive warnings in case of an imminent flood. This means the mobile phone should be able to send and receive text messages.
+	\item[Weather Forecast API] The system will utilize weather forecast services from third party sources. To make this input reliable, the system uses multiple weather forecast providers. To predict floods correctly the system will need: rain data, temperature data, tides data, air pressure data and wind data.
+	\item[Geographic and demographic API] To predict how floods will evolve over time, we need geographical data. This data consists of maps of the area. There are multiple parameters that are needed by the system: ground height and waterways. To calculate the impact of an imminent flood on society, we also need to know how many people live in the affected area. This data is retrieved through the demographic API.
+	% \item[Mobile phone] The mobile phone is a communication device of the citizen. This means a citizen uses the mobile phone to subscribe to the SMS service and to receive warnings in case of an imminent flood. This means the mobile phone should be able to send and receive text messages.
 	\item[SMS service] The SMS system will communicate with the system and the mobile phones of the citizens. The SMS service keeps a list with all phone numbers that are subscribed to the service. When a warning is triggered by the central system, the SMS service gets a notification about this and sends the appropriate warning to the mobile phones that are within the area that is affected by the imminent flood.
 	\item[Third party application] To guide citizens to a safe area in case of an imminent flood, we rely on third party applications. These applications get data from our API and deliver an app for citizens that provides guidance to a safe area.
 	\item[Emergency room API] In case of an imminent flood we need to warn the safety region. This is done by invoking the emergency room API. In this way we send a message to the emergency room, which in their turn distributes this warning to the safety region.
@@ -36,10 +36,10 @@ The system context diagram of the system is outlined in \autoref{fig:system-cont
     \begin{tabular}{L{\tw{0.2}} L{\tw{0.4}}}
     \toprule
     \multicolumn{2}{c}{$SFM\: \Leftrightarrow \: Weather \: forecast \: API$} \\ \midrule
-    \textbf{Description} & The \ProjectName{} gets temperature, water pressure, and shifting information from sensors in dykes. \\
-    \textbf{Connection} & Wireless, Internet \\
-    \textbf{Protocol} & 4G \\
-    \textbf{Data Volume} & Real time \\
+    \textbf{Description} & The system gets rain, temperature, tides, airpressure and wind data. \\
+    \textbf{Connection} & Wired, internet \\
+    \textbf{Protocol} & TCP/IP \\
+    \textbf{Transaction occurence} & Real time \\
     \bottomrule
     \end{tabular}
 \end{table}
@@ -49,10 +49,36 @@ The system context diagram of the system is outlined in \autoref{fig:system-cont
     \begin{tabular}{L{\tw{0.2}} L{\tw{0.4}}}
     \toprule
     \multicolumn{2}{c}{$SFM \: \Leftrightarrow \: Geographic \: and \: demographic \: API$} \\ \midrule
-    \textbf{Description} & The \ProjectName{} gets temperature, water pressure, and shifting information from sensors in dykes. \\
-    \textbf{Connection} & Wireless, Internet \\
-    \textbf{Protocol} & 4G \\
-    \textbf{Data Volume} & Real time \\
+    \textbf{Description} & The system gets ground height data, waterway data and the amount of people who live in the affected area.\\
+    \textbf{Connection} & Wired, internet \\
+    \textbf{Protocol} & TCP/IP \\
+    \textbf{Transaction occurence} & Real time \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+% \begin{table}[!htbp]
+% 	\centering
+%     \begin{tabular}{L{\tw{0.2}} L{\tw{0.4}}}
+%     \toprule
+%     \multicolumn{2}{c}{$SFM \: \Leftrightarrow \: Mobile \: Phone$} \\ \midrule
+%     \textbf{Description} & The mobile phone can subscribe to \\
+%     \textbf{Connection} & Wireless, Internet \\
+%     \textbf{Protocol} & 4G \\
+%     \textbf{Transaction occurance} & Real time \\
+%     \bottomrule
+%     \end{tabular}
+% \end{table}
+
+\begin{table}[!htbp]
+	\centering
+    \begin{tabular}{L{\tw{0.2}} L{\tw{0.4}}}
+    \toprule
+    \multicolumn{2}{c}{$SFM \: \Leftrightarrow \: SMS \: Service$} \\ \midrule
+    \textbf{Description} & The SMS service receives subscriptions and sends warning messages to the right phone numbers when it gets warned by the system. \\
+    \textbf{Connection} & Wired, internet \\
+    \textbf{Protocol} & TCP/IP \\
+    \textbf{Transaction occurence} & In case of an imminent flood \\
     \bottomrule
     \end{tabular}
 \end{table}
@@ -61,53 +87,40 @@ The system context diagram of the system is outlined in \autoref{fig:system-cont
 	\centering
     \begin{tabular}{L{\tw{0.2}} L{\tw{0.4}}}
     \toprule
-    \multicolumn{2}{c}{$SFM \: \Leftrightarrow \: Mobile \: Phone$} \\ \midrule
-    \textbf{Description} & The \ProjectName{} gets temperature, water pressure, and shifting information from sensors in dykes. \\
-    \textbf{Connection} & Wireless, Internet \\
-    \textbf{Protocol} & 4G \\
-    \textbf{Data Volume} & Real time \\
+    \multicolumn{2}{c}{$SFM \: \Leftrightarrow \: Third \: party \: applications$} \\ \midrule
+    \textbf{Description} & The system will provide data to the third party applications through the API.\\
+    \textbf{Connection} & Wired, internet \\
+    \textbf{Protocol} & TCP/IP \\
+    \textbf{Transaction occurence} & Real time \\
     \bottomrule
     \end{tabular}
 \end{table}
-\begin{table}[!htbp]
-	\centering
-    \begin{tabular}{L{\tw{0.2}} L{\tw{0.4}}}
-    \toprule
-    \multicolumn{2}{c}{$SFM \: \Leftrightarrow \: SMS \: Service$} \\ \midrule
-    \textbf{Description} & The \ProjectName{} gets temperature, water pressure, and shifting information from sensors in dykes. \\
-    \textbf{Connection} & Wireless, Internet \\
-    \textbf{Protocol} & 4G \\
-    \textbf{Data Volume} & Real time \\
-    \bottomrule
-    \end{tabular}
-\end{table}
-\begin{table}[!htbp]
-	\centering
-    \begin{tabular}{L{\tw{0.2}} L{\tw{0.4}}}
-    \toprule
-    \multicolumn{2}{c}{$SFM \: \Leftrightarrow \: Third \: party \: application$} \\ \midrule
-    \textbf{Description} & The \ProjectName{} gets temperature, water pressure, and shifting information from sensors in dykes. \\
-    \textbf{Connection} & Wireless, Internet \\
-    \textbf{Protocol} & 4G \\
-    \textbf{Data Volume} & Real time \\
-    \bottomrule
-    \end{tabular}
-\end{table}
+
 \begin{table}[!htbp]
 	\centering
     \begin{tabular}{L{\tw{0.2}} L{\tw{0.4}}}
     \toprule
     \multicolumn{2}{c}{$SFM \: \Leftrightarrow \: Emergency \: room \: API$} \\ \midrule
-    \textbf{Description} & The \ProjectName{} gets temperature, water pressure, and shifting information from sensors in dykes. \\
-    \textbf{Connection} & Wireless, Internet \\
-    \textbf{Protocol} & 4G \\
-    \textbf{Data Volume} & Real time \\
+    \textbf{Description} & The system warns the the safety region through the emergency room API. \\
+    \textbf{Connection} & Wired, internet \\
+    \textbf{Protocol} & TCP/IP \\
+    \textbf{Transaction occurence} & In case of an imminent flood \\
     \bottomrule
     \end{tabular}
 \end{table}
 
 
 \subsection{Alternatives}
+\subsubsection*{Geographic and demographic data}
+The system will use an API to get the latest geographic and demographic data. It would also have been possible to download the data and import it just one time. However, the data needs to be up to date. This means the data needs to be updated once in a while, the easiest way to do this is by invoking an API.
 
-\subsubsection*{Wired Connections}
-Sensors will send real time information about the dykes and waterways to the Sensor monitoring block. The system will mostly use wireless connection to push the information gathered by sensors. Wired connection can also be used to send the information. However, this option needs physical connection between sensor monitoring and the sensors itself which will make the production cost way bigger since there will be many sensors installed. Thus, the wireless connection is the most feasible method.
+\subsubsection*{SMS Service}
+To warn the citizens in case of an imminent flood, we use an external SMS service. Citizens can subscribe to this service and receive a warning. Another option is that the system uses its own SMS service. The advantage of this is that we keep control of the process of warning citizens. However, it would be expensive to implement such a service. Besides this, outsourcing is more scalable since we don't have to cope with problems of sending text messages to other countries.
+
+Another way of informing citizens would be to send a whatsapp message. However, all mobile phones are able to receive text messages, while not all mobile phones have internet access to receive whatsapp messages.  
+
+\subsubsection*{Emergency room}
+The emergency room will be warned by invoking their API. This decission was made to make sure all data will be received correctly. By warning the emergency room through telephone it would be possible the employee could accidently forget or change some of the information. If this would be implemented the SFM would need an employee 24/7, which is expensive. 
+
+Another option would have been to send an email in case of an imminent flood. However, in this case it wouldn't be possible to continously update the information in the dashboard of the emergency service. This could also be achieved by continously sending mails, but this would take more time to open and interpret the emails.
+
