@@ -1,0 +1,29 @@
+%!TEX root = ../report.tex
+
+\clearpage
+\section{High-level requirements}
+
+The high-level functionality of the system is described in several high-level requirements in this section.
+
+\begin{longtable}{L{0.1\textwidth} L{0.12\textwidth} L{0.78\textwidth}}
+
+    \textbf{Nr.} & \textbf{Prio}  & \textbf{Description} \\
+    
+    \hlReqRow{flood-detection}{Must}
+    { The system monitors the environment to determine when a flood is developing. }
+    
+    \hlReqRow{flood-warning}{Must}
+    { The system issues a warning to the safety region and subscribed citizens when a flood is imminent. }
+    
+    \hlReqRow{information}{Must}
+    { The system can supply the safety region with relevant information regarding the flood. }
+    
+    \hlReqRow{API}{Must}
+    { To allow third-party developers to develop applications to guide citizens in case of a flood, the system exposes an API which can supply these developers with data related to the flood. }
+    
+    \hlReqRow{controlpanel}{Must}
+    { There is a control panel for maintenance, where warnings etc. can be viewed and the sensor data can be viewed manually. }
+    
+    \bottomrule
+    
+\end{longtable}

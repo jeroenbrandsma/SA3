@@ -107,7 +107,7 @@ LaTeX styled as LATEX, and a shortening of Lamport TeX is a word processor and a
 	\phantomsection
 	\getNext{FR}
 	\manuallabel{fr:#1}{FR-\arabic{FR}} 	
-	FR-\arabic{FR} (#1) &
+	FR-\arabic{FR} #1 &
 	\ifcase\pdfstrcmp{#2}{Must}%
 	   \textbf{#2}
 	\else
@@ -115,6 +115,24 @@ LaTeX styled as LATEX, and a shortening of Lamport TeX is a word processor and a
 	\fi
 	 &
 	#3
+	\\
+}
+
+\newcommand{\hlReqRow}[3]{%
+	\midrule
+	\\
+	\phantomsection
+	\getNext{HL}
+	\manuallabel{hl:#1}{HL-\arabic{HL}} 	
+	HL-\arabic{HL} &
+	\ifcase\pdfstrcmp{#2}{Must}%
+	   \textbf{#2}
+	\else
+	  #2
+	\fi
+	 &
+	#3
+	\\
 	\\
 }
 
