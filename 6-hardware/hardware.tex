@@ -1,9 +1,10 @@
 %!TEX root = ../report.tex
 \chapter{Hardware Architecture}
 \label{ch:hardware}
-This section outlines hardware architecture of \ProjectName{RUGSA3}. The first part presents an overview of the system and the second part the decisions ...
+This section describes the hardware architecture of \ProjectName{}. The description will be more high-level along with explanation about the hardware platform and the application interfaces between each components of the system. The rest of this chapter is organized as follows. The first section presents an overview of the hardware implemented in this system. 
 
 \section{Hardware Overview}
+\label{sec:hardware-overview}
 
 \includegraphics[scale=0.5]{images/HardwareArchitectureOverview.png}
 
@@ -11,7 +12,8 @@ Here is an overview of the System Architecture. Each number corresponds to a dec
 
 
 \section{Hardware Design Decisions}
-This section defines decisions made regarding the harware selection.
+\label{sec:hardware-decisions}
+This section defines decisions made regarding the hardware selection.
 
 \begin{table}[h]
 \begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
@@ -64,3 +66,18 @@ IBM supercomputer uses Linux which is the oS we choosed.
 \label{table:linux}
 \end{table}
 
+\section{Hardware Description}
+\label{sec:hardware-description}
+This section outlines describes description of the hardware implemented in this system. This section also supports decisions of hardware selection in previous section.
+
+\subsection{Sensing Components}
+\label{subsec:sensing-components}
+
+\subsection{Database Cluster and Data Collection}
+\label{subsec:database-data}
+
+\subsection{Analytics Components}
+\label{subsec:analytics}
+
+\subsection{Data Presentation}
+\label{subsec:data-presentation}
