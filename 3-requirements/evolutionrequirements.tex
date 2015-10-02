@@ -2,15 +2,20 @@
 \section{Evolution requirements}
 %Typical change-cases with respect to the environement, the features and the technology of the system
 %http://www.agilemodeling.com/artifacts/changeCase.htm
-When establishing the project, architects of the system listed a certain number of requirements which describe the features of the system. But due to environmental changes and end-users requests for exmaple the requirements may evolve.
+When establishing the project, architects of the system listed a certain number of requirements which describe the features of the system. However, due to environmental changes and changing stakeholder interests, for example, the requirements may evolve.
 
-\textbf{ER-1 Changes in the display of the map } \\
-\textit { Evolution of FR-19 } Citizens who subscribed for flood warnings get a map with specific route information (according to their location) to a safe area through the API (in association with Google Map). \\
+\textbf{ER-1 : Changes in the display of the map } \\
+\textit { Evolution of \ref{fr:construct-map}}. Citizens who subscribed for flood warnings get a map with specific route information (according to their location) to a safe area through the API. \\
 
-\textbf{ER-2 : Adding of external input} Citizens can contribute to the guidance by giving extra information(for example if they identified a safe route near their location) but this information will be checked by an operator (thanks to photograph by the UAV's for example). \\
+\textbf{ER-2 : Adding of external input}\\
+ Citizens can contribute to the guidance by giving extra information (for example if they identified a safe route near their location) but this information will be checked by an operator (thanks to photograph by the UAVs for example). \\
+ 
+\textbf{ER-3 : New sensors } The system is able to work with new sensors technologies, which are coming on the market over the years. \\
 
-\textbf{ER-3 : New OS } The system is able to work with other operating systems than Linux, for example Windows and MacOS. %Portability
+\textbf{ER-4 : Improved algorithms for detecting a flood} \\
+New algorithms may become available, which have a better accuracy for the flood prediction described in \ref{fr:detect-flood}. The part of the system with the flood prediction algorithm has to be modular, so that it can be replaced with an improved algorithm, once such an algorithm becomes available.
+
+%\textbf{ER-3 : New OS } \\
+%The system is able to work with other operating systems than Linux, for example Windows and MacOS. %Portability
 
 %\textbf{ER-3} The system is able to work on several mobile devices platforms : Android, iOs, Windows Phone. \\ IN CASE OF AN APP
-
-\textbf{ER-4 : New sensors } The system is able to work with new sensors technologies, which are coming on the market over the years.

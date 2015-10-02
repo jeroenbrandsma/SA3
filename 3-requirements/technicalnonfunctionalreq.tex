@@ -15,21 +15,27 @@ Reliability is an important non-functional requirement for the system, and a key
 	\textbf{Nr.} & \textbf{Prio}  & \textbf{Description} \\
 	%\reqRow{rel}{1}{Must}{Sensor sites are equipped with at least two sensors} ( why two ? )
 	\reqRow{rel}{1}{Must}{Data from the sensors is sent via a TCP connection} % Already mention REST here?
-	
-	\reqRow{rel}{2}{Must}{The system must have an uptime of $99.7\%$. This effectively means, that the system should not be down for more than 2 hours per month. $AV = \frac{\text{MTTF}}{\text{MTTF} + \text{MTTR}} = \frac{\text{6 months}}{\text{6 months }+\text{ 12 hours}} = \frac{4380 \text{ hours}}{4380 + 12 \text{ hours}} = 99.7 \%$}
-	
-	\reqRow{rel}{3}{Must}{The system must not experience a period of downtime, spanning more than 12 hours. Within twelve hours of the system going offline, it should be back up again. }
 	 
-	\reqRow{rel}{4}{Must}{The system must detect if a sensor supplies wrong measurements, which can be caused, e.g. by improper calibration or defects in the sensor.} 
+	\reqRow{rel}{2}{Must}{The system must detect if a sensor supplies wrong measurements, which can be caused, e.g. by improper calibration or defects in the sensor.} 
 	
-	\reqRow{rel}{5}{Must}{The system must at no time fail to detect a flood when this flood becomes imminent (\textit{false negative}).}
+	\reqRow{rel}{3}{Must}{The system must at no time fail to detect a flood when this flood becomes imminent (\textit{false negative}).}
 	
-	\reqRow{rel}{6}{Must}{The system must not detect a flood, when this flood is not there in reality (\textit{false positive}), on average more than once per 5 years.}
+	\reqRow{rel}{4}{Must}{The system must not detect a flood, when this flood is not there in reality (\textit{false positive}), on average more than once per 5 years.}
 	 
 	%\reqRow{rel}{3}{Must}{Redundancy} % GK: if redundancy is required, which it should be, in what way?
 	%This means adding redundancy to the system so that failure of a component does not mean failure of the entire system
 	\bottomrule
 \end{longtable}
+
+\subsection{Availability}
+\begin{longtable}{L{0.1\textwidth} L{0.12\textwidth} L{0.7\textwidth}}
+	\textbf{Nr.} & \textbf{Prio}  & \textbf{Description} \\
+	\reqRow{ava}{1}{Must}{The system must have an uptime of $99.7\%$. This effectively means, that the system should not be down for more than 2 hours per month. $AV = \frac{\text{MTTF}}{\text{MTTF} + \text{MTTR}} = \frac{\text{6 months}}{\text{6 months }+\text{ 12 hours}} = \frac{4380 \text{ hours}}{4380 + 12 \text{ hours}} = 99.7 \%$}
+
+	\reqRow{ava}{2}{Must}{The system must not experience a period of downtime, spanning more than 12 hours. Within twelve hours of the system going offline, it should be back up again. }
+	\bottomrule
+\end{longtable}
+
 
 \subsection{Resilience}
 The system needs to be resilient to recover from errors and mistakes without impacting the systems functionality.
