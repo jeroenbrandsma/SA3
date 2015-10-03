@@ -17,7 +17,7 @@ The \ProjectName{} hardware components can be categorized into four main compone
 
 Here is an overview of the Hardware Architecture. Each number corresponds to a decision which will be detailed in the Hardware Design Decision part.
 
-The \ProjectName{} will utilize wired and wireless sensor for monitoring water ways and dykes. Wired sensor will be placed in congested dykes and waterways where wired connection is possible. Wireless sensor will be planted in remote areas where wired connections are impossible or too costly. UAVs will fly to check reported faulty sensors. UAVs will also be used to take required pictures for further analytics or to examine some portion of the system which is hard or impossible for a personnel to access. Then all measurement will be forwarded to sensor monitoring part to be normalized before getting in to the analytics part.
+The \ProjectName{} will utilize wired and wireless sensor for monitoring water ways and dikes. Wired sensor will be placed in congested dikes and waterways where wired connection is possible. Wireless sensor will be planted in remote areas where wired connections are impossible or too costly. UAVs will fly to check reported faulty sensors. UAVs will also be used to take required pictures for further analytics or to examine some portion of the system which is hard or impossible for a personnel to access. Then all measurement will be forwarded to sensor monitoring part to be normalized before getting in to the analytics part.
 
 The next part of the hardware is the cluster for carrying out analysis. This will be a collection of servers that is coordinated using clusters. This part also handles the logic for detecting faulty sensors, as the sensor monitoring parts contain no logic behind it.
 
@@ -110,6 +110,32 @@ IBM supercomputer uses Linux which is the oS we chose.
 \end{table}
 
 
+% ng180levee
+\begin{table}[h!]
+\begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
+    \textbf{Name}           & \textbf{Connectivity of the dike sensor} \\ \toprule
+    \textbf{Decision}       & \textbf{3}\\ \midrule
+    \textbf{Status}         & \textbf{New} \\ \midrule
+    \textbf{Problem/Issue}  & The dike sensors have to be connected to the internet in some way, so they can send their data to the central server. \\ \midrule
+    \textbf{Decision}       & The sensors will be connected by a wire.\\ \midrule
+    \textbf{Alternatives}   & \textit{Wired}\\
+                            & A wired cable connects the dike sensor. This cable can also be used to supply the sensor with electricity. \\
+                            & \textit{ZigBee}\\
+                            & ZigBee is an open protocol for personal area networks. It uses little power and is therefore a good choice for devices equipped with a battery. \\
+                            & \textit{ISM radio band} \\
+                            & The ISM radio bands can be used for industrial, scientific and medical purposes.  \\
+                            \midrule
+    \textbf{Arguments}      & ZigBee is not an option, since the sensors are embedded in the soil of the dikes, and the frequency it uses, decreases too much in strength when traveling through the dike\cite{van2009draadloos}. \\
+                            & Research has been done by van der Gees and Kok \cite{van2009draadloos} to determine if it is feasible to use the ISM radio band to communicate from within the dike. They concluded that, while it is possible to communicate through the dike using this band, the distance is limited and the rate of error is relatively high.
+                            \\
+                            & While a wire is not ideal in the sense that it will have to connect all the sensors, it seems to be the best option for the sensor in the dikes. It has the additional benefit that it can also supply the sensors with electricity.
+    \\ \bottomrule
+\end{tabular}
+\caption{Decision -- Connectivity of the dike sensor}
+\label{table:linux}
+\end{table}
+
+
 \clearpage
 \section{Hardware Description}
 \label{sec:hardware-description}
@@ -123,10 +149,11 @@ The hardware architecture of the system is composed of two sensing components. T
 The second sensing component consists of water level sensors, which are spread along water ways in the country, to measure the water level. 
 
 \subsubsection{Dike sensors}
-The measure the stability of the dikes
+To measure the stability of the dikes, GeoBeads dike monitoring sensor will be installed in the dikes. When these sensors are placed in the dike with a spacing of 3 meters, they will provide optimal measurements\cite{ng180levee}.
 
- 
-The monitoring system consists of MEMS sensor modules (e.g. GeoBeads) with a claimed life time of 10 years, which are installed with conventional CPT push-in techniques. Three sensors are installed per cross-section and a cross-section is installed every 100 m. Each CPT push-in costs about \EUR200 per sensor (Feitsma,2002)\cite{TUDelftPHD}.%pp126
+The GeoBeads is embedded in the dike and is installed using conventional CPT push-in techniques. %Three sensors are installed per cross-section and a cross-section is installed every 100 m. Each CPT push-in costs about \EUR200 per sensor\cite{TUDelftPHD}.%pp126
+
+The GeoBeads are connected by communication cable, which also functions as a power supply. 
 
 \subsubsection{Water level sensors}
 
