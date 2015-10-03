@@ -49,6 +49,9 @@ This section defines decisions made regarding the hardware selection. Tables wil
     \\ \bottomrule
 \end{tabular}
 
+
+IBM supercomputer uses Linux which is the oS we chose.
+
 \caption{Decision -- Choice of computer}
 \label{table:linux}
 \end{table}
@@ -77,22 +80,28 @@ This section defines decisions made regarding the hardware selection. Tables wil
 
 
 
+% ng180levee
 \begin{table}[h!]
 \begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
-    \textbf{Name}           & \textbf{GeoBeads MEMS Sensor} \\ \toprule
+    \textbf{Name}           & \textbf{Choice of dike sensor} \\ \toprule
     \textbf{Decision}       & \textbf{3}\\ \midrule
     \textbf{Status}         & \textbf{Approved} \\ \midrule
-    \textbf{Problem/Issue}  & The system needs a reliable sensor system to measure condition of water ways and dykes. \\ \midrule
-    \textbf{Decision}       & The system will implement GeoBeads MEMS Sensor in water ways and dykes.\\ \midrule
-    \textbf{Alternatives}   & \textit{LiDAR}\\
-                            & Remote sensing mechanism to measure condition of water ways.\\
+    \textbf{Problem/Issue}  & The system needs a reliable sensor system to measure condition of dikes. \\ \midrule
+    \textbf{Decision}       & The system will implement GeoBeads MEMS Sensor in water ways and dikes.\\ \midrule
+    \textbf{Alternatives}   & \textit{GeoBeads}\\
+                            & The GeoBead is a compact sensor, which can measure the pore pressure, temperature and local tilt in dikes. A unit costs about 350 dollar\cite{ng180levee}. \\
+                            & \textit{Piezometers}\\
+                            & Piezometers measure the pore water pressure in the dikes. This information can be used to measure the stability of the dike. A piezometer costs about 200 dollar\cite{ng180levee}. \\
+                            & \textit{Volt meters} \\
+                            & Volt meters can be used to measure the streaming potential in the dike, which are an indicator of its stability\cite{selfpotential}. These sensors are approximately 50 dollars per unit. Materials in the dike can decrease the accuracy of this measurement technique. \\
                             \midrule
     \textbf{Arguments}      & \\
                             &   \begin{tabular}{l|lllllll|l}
                             &       \rot{Reliability} & \rot{Resilience} & \rot{Performance}& \rot{Interoperability} & \rot{Security} & \rot{Scalability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline
                             %                  rel res perf int sec sca cost
-                                    GeoBeads   & 4 & 3 & 4 & 3 & 3 & 4 & 5 & 26\\ 
-                                    LiDAR      & 2 & 4 & 3 & 3 & 4 & 4 & 2 & 22\\
+                                    GeoBeads   & 5 & 4 &  & 3 &    &   & 2 & 14\\ 
+                                    Piezometer & 4 & 2 &  & 2 &    &   & 3 & 11\\
+                                    Volt meters& 1 & 5 &  & 2 &    &   & 5 & 13\\
                                 \end{tabular} \\
     \\ \bottomrule
 \end{tabular}
@@ -100,14 +109,26 @@ This section defines decisions made regarding the hardware selection. Tables wil
 \label{table:linux}
 \end{table}
 
+
+\clearpage
 \section{Hardware Description}
 \label{sec:hardware-description}
 This section outlines describes description of the hardware implemented in this system. This section also supports decisions of hardware selection in previous section.
 
 \subsection{Sensing Components}
 \label{subsec:sensing-components}
-Roughly 17.000 kilometers of dikes protect the Netherlands against flooding \cite{DMC}. 
-The monitoring system consists of MEMS sensor modules (e.g. GeoBeads) with a claimed life time of 10 years, which are installed with conventional CPT push-in techniques. Three sensors are installed per cross-section and a cross-section is installed every 100 m. Each CPT push-in costs about \EUR{}200 per sensor (Feitsma,2002)\cite{TUDelftPHD}.%pp126
+Roughly 17.000 kilometers of dikes protect the Netherlands against flooding\cite{DMC}. Of this, about 3.500 kilometers are primary dikes\cite{waterwijzer}. These are dikes protecting against the water of the sea, the big rivers (Rijn, Maas, IJssel), the IJsselmeer and the Markermeer. 
+
+The hardware architecture of the system is composed of two sensing components. The first sensing component are sensors installed in the dikes to measure and detect potential instability of the dikes.
+The second sensing component consists of water level sensors, which are spread along water ways in the country, to measure the water level. 
+
+\subsubsection{Dike sensors}
+The measure the stability of the dikes
+
+ 
+The monitoring system consists of MEMS sensor modules (e.g. GeoBeads) with a claimed life time of 10 years, which are installed with conventional CPT push-in techniques. Three sensors are installed per cross-section and a cross-section is installed every 100 m. Each CPT push-in costs about \EUR200 per sensor (Feitsma,2002)\cite{TUDelftPHD}.%pp126
+
+\subsubsection{Water level sensors}
 
 % Adds some picture here
 
