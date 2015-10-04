@@ -9,8 +9,18 @@ MTTR: Mean Time To Repair \\
 The reliability of the complete system is given as $x$\\
 $x = {MTBF \over{MTBF + MTTR}}$
 
-\subsection{Time to Market}
-All external services already excist. 
+\begin{figure}[h]
+\centering
+\begin{tabular}{l l l l}
+\textbf{Component} & \textbf{MTBF} & \textbf{MTTR} & \textbf{Availability} \\ 
+\hline Internet connection & 3 years & 1 day & 0.99908 \\ 
+\hline Storage & 5 years & 1 day & 0.99945 \\ 
+\hline API & 3 years & 1 day & 0.99908 \\
+\end{tabular} 
+\label{table:risk-severity}
+\end{figure}
+The system availability can be calculated based on the table above. This is done by multiplying all seperate availabilities. The result of this is 0.9976. This meets the requirement of the system to be available 99.7\% of the time.
 
 \subsection{Cost}
-Cost of API's we use for our system.
+The external services are not all free. This means this is another expense. To use the openweathermap the system needs the service of \$470 a month. The back-up for the openweathermap is forecast.io, this gives 1000 calls per day free, after that each call costs \$0.0001. 
+The geographic and demographic data is free in the Netherlands. In case of an expansion to other countries, other third party services may be looked into.
