@@ -1,0 +1,10 @@
+#!/bin/sh
+ig="\\\huge"
+ig="${ig}\|\\\title"
+ig="${ig}\|\\\chapter"
+ig="${ig}\|\\\section"
+ig="${ig}\|\\\subsection"
+echo $ig
+#ig="$ig\|\\"
+#$ig="$ig\|\\"
+find . -name "*.tex" | xargs sed -i "/$ig/! s/$1/$2/gI"
