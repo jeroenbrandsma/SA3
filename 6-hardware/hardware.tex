@@ -8,9 +8,15 @@ This section describes the hardware architecture of SFM. The description will be
 The SFM hardware components can be categorized into four main components: sensing part, data storing part, analytics part, and data presentation part. The data flow starts from wired and wireless sensors located across the Netherlands that collects information for monitoring. The process will end at data presentation and warning dispatch in the users' side. The overview of the hardware and its application interfaces are depicted in \autoref{fig:hardware-archi-schema} below.
 
 % btw is it suppose to be the other way around? sensor monitoring -> analytics-> database ?
+%\begin{figure}[hb!]
+%\centering
+%\includegraphics[scale=0.5]{images/HardwareArchitectureOverview.png}
+%\caption{Schematic overview of the hardware architecture of \ProjectName{}}
+%\label{fig:hardware-archi-schema}
+%\end{figure}
 \begin{figure}[hb!]
 \centering
-\includegraphics[scale=0.5]{images/HardwareArchitectureOverview.png}
+\includegraphics[scale=0.4]{6-hardware/images/hardwareoverview.png}
 \caption{Schematic overview of the hardware architecture of \ProjectName{}}
 \label{fig:hardware-archi-schema}
 \end{figure}
@@ -118,7 +124,7 @@ This section defines decisions made regarding the hardware selection. Tables wil
 \begin{table}[h!]
 \begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
     \textbf{Name}           & \textbf{Database cluster selection} \\ \toprule
-    \textbf{Decision}       & \textbf{\textbf{\nextNrRef{hw}}}\\ \midrule
+    \textbf{Decision}       & \textbf{HW-\textbf{\nextNrRef{hw}}}\\ \midrule
     \textbf{Status}         & \textbf{Approved} \\ \midrule
     \textbf{Problem/Issue}  & The system needs reliable computers to store the data. \\ \midrule
     \textbf{Decision}       & SFM will utilize Synology RackStation RS814RP to store the data.\\ \midrule
@@ -176,19 +182,19 @@ This section defines decisions made regarding the hardware selection. Tables wil
 \section{Hardware Description}
 \label{sec:hardware-description}
 % Mention the difference between previous chapter
-This section describes description of the hardware implemented in this system. This section also supports decisions of hardware selection in previous section.
+This section gives an outline of the hardware implemented in this system. This section also elaborates on hardware decisions.
 
-\subsection{Sensing Components}
+\subsection{Sensor Components}
 \label{subsec:sensing-components}
 Roughly 17.000 kilometers of dikes protect the Netherlands against flooding\cite{DMC}. Of this, about 3.500 kilometers are primary dikes\cite{waterwijzer}. These are dikes protecting against the water of the sea, the big rivers (Rijn, Maas, IJssel), the IJsselmeer and the Markermeer. 
 
-The hardware architecture of the system is composed of two sensing components. The first sensing component are sensors installed in the dikes to measure and detect potential instability of the dikes.
+The hardware architecture of the system is composed of two sensor components. The first sensor component are sensors installed in the dikes to measure and detect potential instability of the dikes.
 The second sensing component consists of water level sensors, which are spread along water ways in the country, to measure the water level. 
 
 \subsubsection{Dike sensors}
-To measure the stability of the dikes, GeoBeads dike monitoring sensor will be installed in the dikes. When these sensors are placed in the dike with a spacing of 3 meters, they will provide optimal measurements\cite{ng180levee}.
+To measure the stability of the dikes, the GeoBeads dike monitoring sensor will be installed in the dikes. When these sensors are placed in the dike with a spacing of 3 meters, they will provide optimal measurements\cite{ng180levee}. The GeoBead will measure the water pressure, temperature, inclination and acceleration.
 
-The GeoBeads is embedded in the dike and is installed using conventional CPT push-in techniques. %Three sensors are installed per cross-section and a cross-section is installed every 100 m. Each CPT push-in costs about \EUR200 per sensor\cite{TUDelftPHD}.%pp126
+A GeoBead sensor consists of several modules, loosely connected by cable, which form a chain of sensors. The GeoBeads will be installed in a pre-drilled vertical hole, or where this is not possible, horizontally. Three sensors are installed per cross-section and a cross-section is installed every 100 m. The costs of installation of a single cross-section are estimated to be \EUR200 per cross-section\cite{TUDelftPHD}.%pp126
 
 The GeoBeads are connected by communication cable, which also functions as a power supply. 
 
@@ -202,7 +208,7 @@ The water levels sensors are accommodated with a connectivity chip, which allows
 
 \subsection{Database Cluster and Data Collection}
 \label{subsec:database-data}
-In the previous chapter, SFM will use Cassandra database as the database platform. However, Cassandra requires computers to run its environment. SFM will use clusters of computer to manage database system and to store our data. The cluster will also be accessible by other portions of our hardware, such as main analytics parts and API part. The logical schematic of the database cluster is depicted in \autoref{fig:database-cluster}
+In the previous chapter, SFM will use Cassandra database as the database platform. However, Cassandra requires computers to run its environment. SFM will use clusters of computer to manage database system and to store our data. The cluster will also be accessible by other portions of our hardware, such as main analytics parts and AAnPI part. The logical schematic of the database cluster is depicted in \autoref{fig:database-cluster}
 
 \begin{figure}[hb!]
 \centering
