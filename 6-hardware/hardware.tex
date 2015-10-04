@@ -92,24 +92,27 @@ This section defines decisions made regarding the hardware selection. Tables wil
     \textbf{Problem/Issue}  & SFM needs a reliable computers to do the analytical processing. \\ \midrule
     \textbf{Decision}       & SFM will use clustered Dell PowerEdge R530 to act as the main analytic cluster and to provide API to the actors.\\ \midrule
     \textbf{Alternatives}   & \textit{HP ProLiant DL360 Gen9 Base}\\
-                            & . \\
+                            % https://www.google.nl/shopping/product/12299869794181781707?biw=1346&bih=669&q=servers&bav=on.2,or.r_cp.&bvm=bv.104317490,d.d2s&ion=1&espv=2&tch=1&ech=1&psi=1FIQVpOAEoPlaK7Zn4AN.1443910356406.15#sgro=om
+                            & This server rack has 16GB of memory and 2.4GHz of processor speed. As other server computer, this machine utilizes Intel Xeon E5 2600v3. This server is suitable for high dense computing, however the price is not so suitable for this kind of specification. It does not have LCD screen that will help technician to look the current status of the server.\\
                             & \textit{Lenovo System x3550 M4 7914}\\
-                            & . \\
+                            % https://www.google.nl/shopping/product/8704926690761174474?q=servers&biw=1346&bih=669&bav=on.2,or.r_cp.&bvm=bv.104317490,d.d2s&ion=1&espv=2&tch=1&ech=1&psi=1FIQVpOAEoPlaK7Zn4AN.1443910356406.17
+                            & This server rack has only 8GB of memory. However, the processor is a bit faster, it runs on 2.6GHz. As other server computer, this machine also utilizes Intel XEON E5-2600. The price is a little bit lower than the others but the memory limitation makes it not so valuable. It has LCD screen that will help technician to look the current status of the server. \\
                             & \textit{Dell PowerEdge R530} \\
-                            & . \\
+                            % https://azerty.nl/0-3031-817940/dell-poweredge-r530-server-rack-uitvoering-2u-2-weg-1-x-xeon-e5-2620v3-2-4-ghz-ram-16-gb-sas-hot-swap-verwiss.html?channel_code=544&s2m_campaign=1CENT&s2m_product_id=817940
+                            & This 2U server rack has 16GB of memory and 2.4GHz of processor speed. This machine utilizes Intel Xeon E5-2620V3 with 15MB of cache. This server is suitable for high dense computing. It has LCD screen that will help technician to look the current status of the server. \\
                             \midrule
     \textbf{Arguments}      & \\
                             &   \begin{tabular}{l|lllllll|l}
-                            &       \rot{Reliability} & \rot{Resilience} & \rot{Performance}& \rot{Interoperability} & \rot{Security} & \rot{Scalability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline
-                            %                                       rel res perf int sec sca cost
-                                    Dell PowerEdge R530             & 5 & 4 &  & 3 &    &   & 2 & 14\\ 
-                                    Lenovo System x3550 M4 7914     & 4 & 2 &  & 2 &    &   & 3 & 11\\
-                                    HP ProLiant DL360 Gen9 Base     & 1 & 5 &  & 2 &    &   & 5 & 13\\
+                            &       \rot{Reliability} & \rot{Performance}& \rot{Interoperability} & \rot{Security} & \rot{Scalability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline
+                            %                                       rel perf int sec sca cost
+                                    Dell PowerEdge R530             & 5 & 5 & 4 & 4 & 4 & 5 & 27 \\ 
+                                    Lenovo System x3550 M4 7914     & 4 & 4 & 4 & 3 & 4 & 4 & 23 \\
+                                    HP ProLiant DL360 Gen9 Base     & 5 & 5 & 4 & 3 & 4 & 3 & 24 \\
                                 \end{tabular} \\
     \\ \bottomrule
 \end{tabular}
 \caption{Decision -- Analytic cluster selection}
-\label{table:linux}
+\label{table:server-selection}
 \end{table}
 
 \begin{table}[h!]
@@ -117,27 +120,27 @@ This section defines decisions made regarding the hardware selection. Tables wil
     \textbf{Name}           & \textbf{Database cluster selection} \\ \toprule
     \textbf{Decision}       & \textbf{\textbf{\nextNrRef{hw}}}\\ \midrule
     \textbf{Status}         & \textbf{Approved} \\ \midrule
-    \textbf{Problem/Issue}  & The system needs a reliable sensor system to measure condition of dikes. \\ \midrule
-    \textbf{Decision}       & The system will implement GeoBeads MEMS Sensor in water ways and dikes.\\ \midrule
-    \textbf{Alternatives}   & \textit{GeoBeads}\\
-                            & The GeoBead is a compact sensor, which can measure the pore pressure, temperature and local tilt in dikes. A unit costs about 350 dollar\cite{ng180levee}. \\
-                            & \textit{Piezometers}\\
-                            & Piezometers measure the pore water pressure in the dikes. This information can be used to measure the stability of the dike. A piezometer costs about 200 dollar\cite{ng180levee}. \\
-                            & \textit{Volt meters} \\
-                            & Volt meters can be used to measure the streaming potential in the dike, which are an indicator of its stability\cite{selfpotential}. These sensors are approximately 50 dollars per unit. Materials in the dike can decrease the accuracy of this measurement technique. \\
+    \textbf{Problem/Issue}  & The system needs reliable computers to store the data. \\ \midrule
+    \textbf{Decision}       & SFM will utilize Synology RackStation RS814RP to store the data.\\ \midrule
+    \textbf{Alternatives}   & \textit{Synology RackStation RS814RP}\\
+                            & This storage machine has the fastest connection among the others. This machine will run at SATA with 6 Gbps connection.\\
+                            & \textit{70BJ NAS-server}\\
+                            & This machine form factor is 1U which is suitable for saving space. However, the connection speed is limited to 3 Gbps.\\
+                            & \textit{Thecus N8810U-G NAS-server} \\
+                            & This machine also runs in 3Gbps connection. However, the form factor is 2U which makes this machine takes more space in the rack.\\
                             \midrule
     \textbf{Arguments}      & \\
                             &   \begin{tabular}{l|lllllll|l}
-                            &       \rot{Reliability} & \rot{Resilience} & \rot{Performance}& \rot{Interoperability} & \rot{Security} & \rot{Scalability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline
-                            %                  rel res perf int sec sca cost
-                                    GeoBeads   & 5 & 4 &  & 3 &    &   & 2 & 14\\ 
-                                    Piezometer & 4 & 2 &  & 2 &    &   & 3 & 11\\
-                                    Volt meters& 1 & 5 &  & 2 &    &   & 5 & 13\\
+                            &       \rot{Reliability} & \rot{Performance}& \rot{Interoperability} & \rot{Security} & \rot{Scalability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline
+                            %                                       rel perf int sec sca cost
+                            Synology RackStation RS814RP    & 5 & 4 & 4 & 4 & 4 & 4 & 25 \\ 
+                            70BJ NAS-server                 & 4 & 3 & 4 & 4 & 4 & 3 & 22 \\
+                            Thecus N8810U-G NAS-server      & 4 & 3 & 4 & 4 & 4 & 3 & 22 \\
                                 \end{tabular} \\
     \\ \bottomrule
 \end{tabular}
-\caption{Decision -- Choice of Sensors}
-\label{table:linux}
+\caption{Decision -- Choice of storage machine.}
+\label{table:database-selection}
 \end{table}
 
 \begin{table}[h!]
@@ -145,27 +148,27 @@ This section defines decisions made regarding the hardware selection. Tables wil
     \textbf{Name}           & \textbf{High Performance Switch selection} \\ \toprule
     \textbf{Decision}       & \textbf{HW-\textbf{\nextNrRef{hw}}}\\ \midrule
     \textbf{Status}         & \textbf{Approved} \\ \midrule
-    \textbf{Problem/Issue}  & The system needs a reliable sensor system to measure condition of dikes. \\ \midrule
-    \textbf{Decision}       & The system will implement GeoBeads MEMS Sensor in water ways and dikes.\\ \midrule
-    \textbf{Alternatives}   & \textit{GeoBeads}\\
-                            & The GeoBead is a compact sensor, which can measure the pore pressure, temperature and local tilt in dikes. A unit costs about 350 dollar\cite{ng180levee}. \\
-                            & \textit{Piezometers}\\
-                            & Piezometers measure the pore water pressure in the dikes. This information can be used to measure the stability of the dike. A piezometer costs about 200 dollar\cite{ng180levee}. \\
-                            & \textit{Volt meters} \\
-                            & Volt meters can be used to measure the streaming potential in the dike, which are an indicator of its stability\cite{selfpotential}. These sensors are approximately 50 dollars per unit. Materials in the dike can decrease the accuracy of this measurement technique. \\
+    \textbf{Problem/Issue}  & SFM cluster needs a powerful high performance switch to connect each cluster. \\ \midrule
+    \textbf{Decision}       & SFM will use Cisco Catalyst 2960S-24TS-L Switch.\\ \midrule
+    \textbf{Alternatives}   & \textit{Linksys LGS552P Switch}\\
+                            & This switch has 52 ports available for connection, which is very good for scalability. However the performance is not as good as Cisco catalyst switch series.\\
+                            & \textit{HP 1820-48G Switch}\\
+                            & This switch has lesser available ports than Linksys switch. It has 48 ports available. This switch is not very configurable which makes this not so suitable for high performance switching. \\
+                            & \textit{Cisco Catalyst 2960S-24TS-L Switch} \\
+                            & This switch has the lowest number of port available, 24 ports. However, Cisco Catalyst is very configurable and has a very good security. \\
                             \midrule
     \textbf{Arguments}      & \\
                             &   \begin{tabular}{l|lllllll|l}
-                            &       \rot{Reliability} & \rot{Resilience} & \rot{Performance}& \rot{Interoperability} & \rot{Security} & \rot{Scalability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline
-                            %                  rel res perf int sec sca cost
-                                    GeoBeads   & 5 & 4 &  & 3 &    &   & 2 & 14\\ 
-                                    Piezometer & 4 & 2 &  & 2 &    &   & 3 & 11\\
-                                    Volt meters& 1 & 5 &  & 2 &    &   & 5 & 13\\
+                            &       \rot{Reliability} & \rot{Performance}& \rot{Interoperability} & \rot{Security} & \rot{Scalability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline
+                            %                                   rel perf int sec sca cost
+                            Cisco Catalyst 2960S-24TS-L Switch  & 5 & 5 & 4 & 5 & 3 & 4 & 26 \\ 
+                            Linksys LGS552P Switch              & 4 & 4 & 4 & 3 & 4 & 5 & 24 \\
+                            HP 1820-48G Switch                  & 3 & 4 & 4 & 3 & 4 & 5 & 23 \\
                                 \end{tabular} \\
     \\ \bottomrule
 \end{tabular}
-\caption{Decision -- Choice of Sensors}
-\label{table:linux}
+\caption{Decision -- Choice of high performance switch}
+\label{table:switch-selection}
 \end{table}
 
 
@@ -199,10 +202,7 @@ The water levels sensors are accommodated with a connectivity chip, which allows
 
 \subsection{Database Cluster and Data Collection}
 \label{subsec:database-data}
-In the previous chapter, SFM will use Cassandra database as the database platform. However, Cassandra requires computers to run its environment. SFM will use clusters of computer to manage database system and to store our data. The cluster will also be accessible by other portions of our hardware, such as main analytics parts, third party data gathering part, and API part.
-
-There are four servers and each server costs AC 1.500. To enhance the availability, the servers will be redundantly set up four times. Resulting in a hardware cost for the servers of
-Server cost= 4 x 1500 x 4 = 24.000. The total hardware costs is shown in the table below.
+In the previous chapter, SFM will use Cassandra database as the database platform. However, Cassandra requires computers to run its environment. SFM will use clusters of computer to manage database system and to store our data. The cluster will also be accessible by other portions of our hardware, such as main analytics parts and API part. The logical schematic of the database cluster is depicted in \autoref{fig:database-cluster}
 
 \begin{figure}[hb!]
 \centering
@@ -211,17 +211,20 @@ Server cost= 4 x 1500 x 4 = 24.000. The total hardware costs is shown in the tab
 \label{fig:database-cluster}
 \end{figure}
 
-Clustering, in the context of databases, refers to the ability of several servers or instances to connect to a single database. An instance is the collection of memory and processes that interacts with a database, which is the set of physical files that actually store data.
+As can be seen in \autoref{fig:database-cluster}, SFM will use four database racks to increase the reliability of the system. Using this kind of architecture, SFM will be more fault tolerant. There will also be two physical connection to the main analytic cluster to make this system more fault tolerant in terms of connection. SFM database cluster will use the same server, Dell PowerEdge R530, for controlling the SATA storage machine.
 
-Clustering offers two major advantages, especially in high-volume database environments:
+% Clustering, in the context of databases, refers to the ability of several servers or instances to connect to a single database. An instance is the collection of memory and processes that interacts with a database, which is the set of physical files that actually store data.
 
-Fault tolerance: Because there is more than one server or instance for users to connect to, clustering offers an alternative, in the event of individual server failure.
-Load balancing: The clustering feature is usually set up to allow users to be automatically allocated to the server with the least load.
+% Clustering offers two major advantages, especially in high-volume database environments:
+
+% Fault tolerance: Because there is more than one server or instance for users to connect to, clustering offers an alternative, in the event of individual server failure.
+% Load balancing: The clustering feature is usually set up to allow users to be automatically allocated to the server with the least load.
 
 % Adds some picture here
 
 \subsection{Analytics Components}
 \label{subsec:analytics}
+Analytics component will be the main brain of SFM. The intelligent algorithm will run on this machine. This components are also responsible for checking faulty sensors by analyzing incoming sensor data. Thus, there is a big dependency to this components. To increase availability and reliability, SFM will have six server racks to do the processing as depicted in \autoref{fig:analytic-cluster}.
 
 \begin{figure}[hb!]
 \centering
@@ -229,6 +232,36 @@ Load balancing: The clustering feature is usually set up to allow users to be au
 \caption{Logical schematic of analytic cluster of SFM}
 \label{fig:analytic-cluster}
 \end{figure}
+
+The analytics components will also be the hub for the main connection of SFM. Thus, this system also need a high performance switch to accomplish this purpose. As have been mentioned before, this system will use Cisco Catalyst 2960S-24TS-L Switch.
+
+The analytics components will use Dell PowerEdge R530 as server and it will be mounted on a server rack. The detailed hardware specifications of Dell PowerEdge R530 is listed in \autoref{table:server-specs}.
+
+\begin{table}[!htbp]
+    \centering
+    \begin{tabular}{L{\tw{0.2}} L{\tw{0.4}}}
+    \toprule
+    \multicolumn{2}{c}{Dell PowerEdge R530 Specification} \\ \midrule
+    \textbf{Item Description} & Dell PowerEdge R530 - E5-2620V3 Xeon 2.4 GHz - 16 GB - 1 TB \\
+    \textbf{Type} & Server - rack-mountable \\
+    \textbf{Height (Rack Units)} & 2U \\
+    \textbf{Processor} & 1 x Intel Xeon E5-2620V3 / 2.4 GHz (3.2 GHz) (6-core) \\
+    \textbf{Processor Main Features} & Intel Turbo Boost Technology 2 \\
+    \textbf{Cache Memory} & 15 MB \\
+    \textbf{Cache per processor} & 15 MB \\
+    \textbf{RAM} & 16 GB (installed) / 384 GB (max.) - DDR4 SDRAM - 2133 MHz \\
+    \textbf{Storage Controller} & RAID (SATA 6Gb / s) (Dell PERC H330) \\
+    \textbf{Optical Storage} & DVD burner \\
+    \textbf{Graphics Controller} & Matrox G200 \\
+    \textbf{Video Memory} & 16 MB \\
+    \textbf{Network} & GigE \\
+    \textbf{Dimensions} &  (WxDxH)48.24 cm x 64.6 cm x 8.68 cm \\
+    \textbf{Weight} & 2.14 kg \\
+    \bottomrule
+    \end{tabular}
+\caption{Hardware specification of Dell PowerEdge R530}
+\label{table:server-specs}
+\end{table}
 
 
 % Server specs
