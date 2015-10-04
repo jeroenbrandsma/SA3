@@ -13,7 +13,7 @@
 %	VARIABLES
 %----------------------------------------------------------------------------------------
 
-\newcommand{\VersionNumber}{0.2.3}
+\newcommand{\VersionNumber}{0.5}
 \newcommand{\CompanyName}{RugSAG3\xspace}
 \newcommand{\ProjectName}{Smart Monitoring\xspace}
 
@@ -22,8 +22,9 @@
 %	PRE-DOCUMENT PAGES
 %----------------------------------------------------------------------------------------
 
+\makeglossaries
+
 \begin{document}
-\bibliographystyle{unsrt}
 
 \input{0-predocument/titlepage.tex}
 
@@ -31,19 +32,29 @@
 \setcounter{page}{1}
 \pagenumbering{roman}
 
+\addcontentsline{toc}{section}{Revisions}
 \input{0-predocument/authorRevisionpage.tex}
 
+\addcontentsline{toc}{section}{Table of Contents}
 \tableofcontents
 
 \clearpage
 
+\addcontentsline{toc}{section}{List of Figures}
 \listoffigures
 
 \clearpage
 
+\addcontentsline{toc}{section}{List of Tables}
 \listoftables
 
 \clearpage
+
+\newpage
+\addcontentsline{toc}{section}{Glossary}
+\glsaddall
+\printglossaries
+\newpage
 
 \thispagestyle{empty}
 
@@ -75,7 +86,6 @@
 
 \input{appendices/appendices.tex}
 
-%note = {Accessed: 2015-09-30} in bibtex misc?
 \bibliography{library}
 
 \end{document}
