@@ -38,8 +38,6 @@ UCTable
 %	http://stackoverflow.com/questions/1284083/choosing-a-stand-alone-full-text-search-server-sphinx-or-solr
 	Alternatives & PostGreSQL, SQL Server, Oracle, MySQL, SOIR, Sphynx, MongoDB\\
 	Arguments & 	\compactCell{%
-		\textbf{PostGreSQL} is Opensource and has very good geodata support. However is has no cluster or scalability options, so it has to be hosted on one machine. \\%
-		\\%
 		\textbf{SQL Server} Has the ability to cluster, but only failover clusters \cite{sqlserverdo}, so no workload balancing. \\
 		\\%
 		\textbf{Oracle} Has failover clustering options and load balancing options \cite{oracleworkload}, however but costs money.\\
@@ -50,7 +48,9 @@ UCTable
 	\textbf{SOIR and Sphynx} Are both good choices. Both are able to cluster and distribute and both support geospacial data. However, Elasticsearch scales and distributes better then both \cite{elasticsearchcreator}.\\
 	\\
 	%http://docs.mongodb.org/manual/applications/geospatial-indexes/
-	\textbf{MongoDB} Has every feature the SFM system needs. It provides allot of support for geodata storing and querying. It is also very good in clustering and distributed querying. However, the performance of Elasticsearch is allot better \cite{mongovselastic}.
+	\textbf{MongoDB} Has every feature the SFM system needs. It provides allot of support for geodata storing and querying. It is also very good in clustering and distributed querying. However, the performance of Elasticsearch is allot better \cite{mongovselastic}.\\
+	\\%
+	\textbf{PostGreSQL} is Opensource and has very good geodata support. It supports master-slave clustering, which is not good enough for SFM. However, by using third party applications like pg shard, it is possible to create a cluster of "shards" which is the same technique Elasticsearch uses. This makes PostGreSQL also a good option for SFM. Elasticsearch, however, has a better performance and flexibility.
 %	%http://docs.mongodb.org/v2.4/core/sharded-cluster-architectures-production/)
 	%However, the performance of elasticsearch is allot better \cite{mongovselastic}.
 	}\\
