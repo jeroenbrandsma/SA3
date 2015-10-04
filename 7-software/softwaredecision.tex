@@ -1,3 +1,57 @@
 %!TEX root = ../report.tex
 \section{Software design decision}
 This section highlights some of the design decisions that have been made, especially those that are not covered in the previous views.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DECISIONS TO MAKE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	%Data Mapper for the data layer.
+	%alternatives: table data gateway, active record, ...
+	
+	%Push/pull from sensors: 	Push model reduces the server load. No requests so no high load. No data management, no security management. No DOS. 
+	%							Downside: Data will be received that was not requested, even if not interested. 
+	%
+	%Update monitor system firmware? Is this needed? Do we do this? And how do we do this?
+	%Do sensors have firmware and how do we update that?
+	%
+	%How to controll the uav? Manually or auto pilot? (see Auto flight: (105.pdf p110): 4.3 Manual versus autonomous flight)
+	%
+	%How to process the uav data. Maybe: Pix4D software automatically processes terrestrial and aerial imagery acquired by light-weight drones or aircraft using its innovative technology based purely on image 	content. This desktop software converts your images into highly precise, timely and customizable results for a wide range of GIS and CAD applications.
+	%\url{https://pix4d.com/}
+	
+	
+
+\pgfplotstabletypeset[%
+UCTable
+]{%
+	value & description \\
+	Name & Database \\
+	Decision & \req{dec}\\
+	Problem/Issue & The system needs a database that \compactList{itemize}{%
+			\item Is highly scalable
+			\item Has a very good performance
+			\item Has a high availability
+			\item Has allot of features for storing and querying geospacial data}\\
+	Decision & 	\compactCell{The Elasticsearch database is the best database for the SMF system. Elasticsearch is open source, so it will not increase the SMF system costs.  It has native geospacial data / querying support \cite{elasticgeo} and very good geospacial query capabilities \cite{elasticgeoquery}.
+				Elasticsearch is extremely distributed and scalable\cite{elasticdistributed}. And Elasticsearch has a very good performance}\\ %\citep{mongovselastic}} \\
+%	https://www.elastic.co/products/elasticsearch
+%	http://stackoverflow.com/questions/1284083/choosing-a-stand-alone-full-text-search-server-sphinx-or-solr
+	Alternatives & PostGreSQL, SQL Server, Oracle, MySQL, SOIR, Sphynx, MongoDB\\
+	Arguments & 	\compactCell{%
+		\textbf{PostGreSQL} is Opensource and has very good geodata support. However is has no cluster or scalability options, so it has to be hosted on one machine. \\%
+		\\%
+		\textbf{SQL Server} Has the ability to cluster, but only failover clusters \cite{sqlserverdo}, so no workload balancing. \\
+		\\%
+		\textbf{Oracle} Has failover clustering options and load balancing options \cite{oracleworkload}, however but costs money.\\
+		\\%
+		\textbf{MySQL} In previous versions only had support for bounding box capabilities, it had no polygon support \cite{mysqlspacial}. The latest version (Version 5.6.1) does have support for polygons \cite{mysqlspacial}. However, MySQL has not yet proven itself to be very good with spacial data. 
+	MySQL can be clustered and load balanced by using other tools \cite{mysqlcluster}.This, however, is a solution that does not provide the scalability the SMF system is looking for. \\
+	\\%
+	\textbf{SOIR and Sphynx} Are both good choices. Both are able to cluster and distribute and both support geospacial data. However, Elasticsearch scales and distributes better then both \cite{elasticsearchcreator}.\\
+	\\
+	%http://docs.mongodb.org/manual/applications/geospatial-indexes/
+	\textbf{MongoDB} Has every feature the SFM system needs. It provides allot of support for geodata storing and querying. It is also very good in clustering and distributed querying. However, the performance of Elasticsearch is allot better \cite{mongovselastic}.
+%	%http://docs.mongodb.org/v2.4/core/sharded-cluster-architectures-production/)
+	%However, the performance of elasticsearch is allot better \cite{mongovselastic}.
+	}\\
+}

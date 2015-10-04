@@ -1,0 +1,90 @@
+\ifglsentryexists{SFM}{}%
+{%
+\gls@defglossaryentry{SFM}%
+{%
+name={SFM},%
+sort={SFM},%
+type={main},%
+first={SFM},%
+firstplural={SFMs},%
+text={SFM},%
+plural={SFMs},%
+description={Smart Flood Monitoring},%
+descriptionplural={Smart Flood Monitoring},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{API}{}%
+{%
+\gls@defglossaryentry{API}%
+{%
+name={API},%
+sort={API},%
+type={main},%
+first={API},%
+firstplural={APIs},%
+text={API},%
+plural={APIs},%
+description={Application Programming Interface},%
+descriptionplural={Application Programming Interface},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{UAV}{}%
+{%
+\gls@defglossaryentry{UAV}%
+{%
+name={UAV},%
+sort={UAV},%
+type={main},%
+first={UAV},%
+firstplural={UAVs},%
+text={UAV},%
+plural={UAVs},%
+description={Unmanned Aerial Vehicle},%
+descriptionplural={Unmanned Aerial Vehicle},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
