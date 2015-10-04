@@ -111,11 +111,14 @@ The system context diagram of the system is outlined in \autoref{fig:system-cont
 
 
 \subsection{Alternatives}
+\subsubsection*{Weather forecast data}
+The system will use the openweathermap API. This is an API which can deliver both historical and forecast data. There are other options to get the current and forecast weather data, one of these options is forecast.io. We use this weather API if the openweathermap is unavailable. 
+
 \subsubsection*{Geographic and demographic data}
-The system will use an API to get the latest geographic and demographic data. It would also have been possible to download the data and import it just one time. However, the data needs to be up to date. This means the data needs to be updated once in a while, the easiest way to do this is by invoking an API.
+The system will use the Nationaal Georegister (NGR) API to get the latest geographic data. To get the latest demographic data the system will use the open data from the Centraal Bureau van de Statistiek (CBS). This provider delivers both actual and historical data. It would also have been possible to download the data and import it just one time. However, the data needs to be up to date. This means the data needs to be updated once in a while, the easiest way to do this is by invoking the API.
 
 \subsubsection*{SMS Service}
-To warn the citizens in case of an imminent flood, we use an external SMS service. Citizens can subscribe to this service and receive a warning. Another option is that the system uses its own SMS service. The advantage of this is that we keep control of the process of warning citizens. However, it would be expensive to implement such a service. Besides this, outsourcing is more scalable since we don't have to cope with problems of sending text messages to other countries.
+To warn the citizens in case of an imminent flood, we use the external CM Telecom SMS service. Citizens can subscribe to this service and receive a warning. Another option is that the system uses its own SMS service. The advantage of this is that we keep control of the process of warning citizens. However, it would be expensive to implement such a service. Besides this, outsourcing is more scalable since we don't have to cope with problems of sending text messages to other countries.
 
 Another way of informing citizens would be to send a whatsapp message. However, all mobile phones are able to receive text messages, while not all mobile phones have internet access to receive whatsapp messages.  
 
