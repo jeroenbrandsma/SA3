@@ -1,11 +1,11 @@
 %!TEX root = ../report.tex
 \chapter{Hardware Architecture}
 \label{ch:hardware}
-This section describes the hardware architecture of \ProjectName{}. The description will be more high-level along with explanation about the hardware platform and the application interfaces between each components of the system. The rest of this chapter is organized as follows. First section, \autoref{sec:hardware-overview}, presents an overview of the hardware implemented in this system depicted in big schema. Decisions made in this system are detailed in \autoref{sec:hardware-decisions} with tables. Lastly, hardware description is described in \autoref{sec:hardware-description}.
+This section describes the hardware architecture of SFM. The description will be more high-level along with explanations about the hardware platform and the application interfaces between each components of the system. The rest of this chapter is organized as follows; First section, \autoref{sec:hardware-overview}, presents an overview of the hardware implemented in this system depicted in big schema. Decisions made in this system are detailed in \autoref{sec:hardware-decisions} with tables. Lastly, hardware description is described in \autoref{sec:hardware-description}.
 
 \section{Hardware Overview}
 \label{sec:hardware-overview}
-The \ProjectName{} hardware components can be categorized into four main components: sensing part, data storing part, analytics part, and data presentation part. The data flow starts from wired and wireless sensors located across the Netherlands that collects information for monitoring. The process will end at data presentation and warning dispatch in the users' side. The overview of the hardware and its application interfaces are depicted in \autoref{fig:hardware-archi-schema} below.
+The SFM hardware components can be categorized into four main components: sensing part, data storing part, analytics part, and data presentation part. The data flow starts from wired and wireless sensors located across the Netherlands that collects information for monitoring. The process will end at data presentation and warning dispatch in the users' side. The overview of the hardware and its application interfaces are depicted in \autoref{fig:hardware-archi-schema} below.
 
 % btw is it suppose to be the other way around? sensor monitoring -> analytics-> database ?
 \begin{figure}[hb!]
@@ -17,7 +17,7 @@ The \ProjectName{} hardware components can be categorized into four main compone
 
 Here is an overview of the Hardware Architecture. Each number corresponds to a decision which will be detailed in the Hardware Design Decision part.
 
-The \ProjectName{} will utilize wired and wireless sensor for monitoring water ways and dikes. Wired sensor will be placed in congested dikes and waterways where wired connection is possible. Wireless sensor will be planted in remote areas where wired connections are impossible or too costly. UAVs will fly to check reported faulty sensors. UAVs will also be used to take required pictures for further analytics or to examine some portion of the system which is hard or impossible for a personnel to access. Then all measurement will be forwarded to sensor monitoring part to be normalized before getting in to the analytics part.
+The SFM will utilize wired and wireless sensor for monitoring water ways and dikes. Wired sensor will be placed in congested dikes and waterways where wired connection is possible. Wireless sensor will be planted in remote areas where wired connections are impossible or too costly. UAVs will fly to check reported faulty sensors. UAVs will also be used to take required pictures for further analytics or to examine some portion of the system which is hard or impossible for a personnel to access. Then all measurement will be forwarded to sensor monitoring part to be normalized before getting in to the analytics part.
 
 The next part of the hardware is the cluster for carrying out analysis. This will be a collection of servers that is coordinated using clusters. This part also handles the logic for detecting faulty sensors, as the sensor monitoring parts contain no logic behind it.
 
@@ -176,7 +176,7 @@ This section defines decisions made regarding the hardware selection. Tables wil
 \section{Hardware Description}
 \label{sec:hardware-description}
 % Mention the difference between previous chapter
-This section outlines describes description of the hardware implemented in this system. This section also supports decisions of hardware selection in previous section.
+This section describes description of the hardware implemented in this system. This section also supports decisions of hardware selection in previous section.
 
 \subsection{Sensing Components}
 \label{subsec:sensing-components}
