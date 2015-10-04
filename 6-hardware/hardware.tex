@@ -29,62 +29,11 @@ The last part of the hardware architecture is third party data gathering cluster
 \label{sec:hardware-decisions}
 This section defines decisions made regarding the hardware selection. Tables will be used to make our justification in regard to hardware selection more crystal clear.
 
-\begin{table}[h!]
-\begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
-    \textbf{Name} 			& \textbf{Choice of the computer for data analyze} \\ \toprule
-    \textbf{Decision} 		& \textbf{DEC-4}\\ \midrule
-    \textbf{Status} 		& \textbf{Approved} \\ \midrule
-    \textbf{Problem/Issue} 	& The system needs computer to analyze data from sensors, UAV's ,weather forecast. \\ \midrule
-    \textbf{Decision} 		& IBM Supercomputer ...\\ \midrule
-    \textbf{Alternatives} 	& \textit{BB}\\
-    						& Other brand .\\
-    						& \textit{BB}\\
-    						& BBBB.\\
-    						\midrule
-    \textbf{Arguments} 		& IBM supercomputer uses Linux which is the oS we choosed. \\
-    						& 	\begin{tabular}{l|lllllll|l}
-							& 		\rot{Reliability} & \rot{Resilience} & \rot{Performance} & \rot{Security} & \rot{Scalability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline
-							% 					
-								\end{tabular} \\
-    \\ \bottomrule
-\end{tabular}
-
-
-IBM supercomputer uses Linux which is the oS we chose.
-
-\caption{Decision -- Choice of computer}
-\label{table:linux}
-\end{table}
-
-%Performance , Speed of calculation , Core ; lINUX
-
-\begin{table}[h!]
-\begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
-    \textbf{Name} 			& \textbf{Data representation - Interface with the third parties} \\ \toprule
-    \textbf{Decision} 		& \textbf{DEC-4}\\ \midrule
-    \textbf{Status} 		& \textbf{Approved} \\ \midrule
-    \textbf{Problem/Issue} 	& The system needs to interact with the third parties. \\ \midrule
-    \textbf{Decision} 		& Dashboard for the emergency services\\ Rack server \\ \midrule
-    \textbf{Alternatives} 	& \textit{BB}\\
-    						& DRAFT .\\
-    						& \textit{BB}\\
-    						& BBBB.\\
-    						\midrule
-    \textbf{Arguments} 		& \\
-
-    \\ \bottomrule
-\end{tabular}
-\caption{Decision -- Interface with third parties}
-\label{table:linux}
-\end{table}
-
-
-
 % ng180levee
 \begin{table}[h!]
 \begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
     \textbf{Name}           & \textbf{Choice of dike sensor} \\ \toprule
-    \textbf{Decision}       & \textbf{3}\\ \midrule
+    \textbf{Decision}       & \textbf{HW-\textbf{\nextNrRef{hw}}}\\ \midrule
     \textbf{Status}         & \textbf{Approved} \\ \midrule
     \textbf{Problem/Issue}  & The system needs a reliable sensor system to measure condition of dikes. \\ \midrule
     \textbf{Decision}       & The system will implement GeoBeads MEMS Sensor in water ways and dikes.\\ \midrule
@@ -114,7 +63,7 @@ IBM supercomputer uses Linux which is the oS we chose.
 \begin{table}[h!]
 \begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
     \textbf{Name}           & \textbf{Connectivity of the dike sensor} \\ \toprule
-    \textbf{Decision}       & \textbf{3}\\ \midrule
+    \textbf{Decision}       & \textbf{HW-\textbf{\nextNrRef{hw}}}\\ \midrule
     \textbf{Status}         & \textbf{New} \\ \midrule
     \textbf{Problem/Issue}  & The dike sensors have to be connected to the internet in some way, so they can send their data to the central server. \\ \midrule
     \textbf{Decision}       & The sensors will be connected by a wire.\\ \midrule
@@ -132,6 +81,90 @@ IBM supercomputer uses Linux which is the oS we chose.
     \\ \bottomrule
 \end{tabular}
 \caption{Decision -- Connectivity of the dike sensor}
+\label{table:linux}
+\end{table}
+
+\begin{table}[h!]
+\begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
+    \textbf{Name}           & \textbf{Analytic cluster selection} \\ \toprule
+    \textbf{Decision}       & \textbf{HW-\textbf{\nextNrRef{hw}}}\\ \midrule
+    \textbf{Status}         & \textbf{Approved} \\ \midrule
+    \textbf{Problem/Issue}  & SFM needs a reliable computers to do the analytical processing. \\ \midrule
+    \textbf{Decision}       & SFM will use clustered Dell PowerEdge R530 to act as the main analytic cluster and to provide API to the actors.\\ \midrule
+    \textbf{Alternatives}   & \textit{HP ProLiant DL360 Gen9 Base}\\
+                            & . \\
+                            & \textit{Lenovo System x3550 M4 7914}\\
+                            & . \\
+                            & \textit{Dell PowerEdge R530} \\
+                            & . \\
+                            \midrule
+    \textbf{Arguments}      & \\
+                            &   \begin{tabular}{l|lllllll|l}
+                            &       \rot{Reliability} & \rot{Resilience} & \rot{Performance}& \rot{Interoperability} & \rot{Security} & \rot{Scalability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline
+                            %                                       rel res perf int sec sca cost
+                                    Dell PowerEdge R530             & 5 & 4 &  & 3 &    &   & 2 & 14\\ 
+                                    Lenovo System x3550 M4 7914     & 4 & 2 &  & 2 &    &   & 3 & 11\\
+                                    HP ProLiant DL360 Gen9 Base     & 1 & 5 &  & 2 &    &   & 5 & 13\\
+                                \end{tabular} \\
+    \\ \bottomrule
+\end{tabular}
+\caption{Decision -- Analytic cluster selection}
+\label{table:linux}
+\end{table}
+
+\begin{table}[h!]
+\begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
+    \textbf{Name}           & \textbf{Database cluster selection} \\ \toprule
+    \textbf{Decision}       & \textbf{\textbf{\nextNrRef{hw}}}\\ \midrule
+    \textbf{Status}         & \textbf{Approved} \\ \midrule
+    \textbf{Problem/Issue}  & The system needs a reliable sensor system to measure condition of dikes. \\ \midrule
+    \textbf{Decision}       & The system will implement GeoBeads MEMS Sensor in water ways and dikes.\\ \midrule
+    \textbf{Alternatives}   & \textit{GeoBeads}\\
+                            & The GeoBead is a compact sensor, which can measure the pore pressure, temperature and local tilt in dikes. A unit costs about 350 dollar\cite{ng180levee}. \\
+                            & \textit{Piezometers}\\
+                            & Piezometers measure the pore water pressure in the dikes. This information can be used to measure the stability of the dike. A piezometer costs about 200 dollar\cite{ng180levee}. \\
+                            & \textit{Volt meters} \\
+                            & Volt meters can be used to measure the streaming potential in the dike, which are an indicator of its stability\cite{selfpotential}. These sensors are approximately 50 dollars per unit. Materials in the dike can decrease the accuracy of this measurement technique. \\
+                            \midrule
+    \textbf{Arguments}      & \\
+                            &   \begin{tabular}{l|lllllll|l}
+                            &       \rot{Reliability} & \rot{Resilience} & \rot{Performance}& \rot{Interoperability} & \rot{Security} & \rot{Scalability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline
+                            %                  rel res perf int sec sca cost
+                                    GeoBeads   & 5 & 4 &  & 3 &    &   & 2 & 14\\ 
+                                    Piezometer & 4 & 2 &  & 2 &    &   & 3 & 11\\
+                                    Volt meters& 1 & 5 &  & 2 &    &   & 5 & 13\\
+                                \end{tabular} \\
+    \\ \bottomrule
+\end{tabular}
+\caption{Decision -- Choice of Sensors}
+\label{table:linux}
+\end{table}
+
+\begin{table}[h!]
+\begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
+    \textbf{Name}           & \textbf{High Performance Switch selection} \\ \toprule
+    \textbf{Decision}       & \textbf{HW-\textbf{\nextNrRef{hw}}}\\ \midrule
+    \textbf{Status}         & \textbf{Approved} \\ \midrule
+    \textbf{Problem/Issue}  & The system needs a reliable sensor system to measure condition of dikes. \\ \midrule
+    \textbf{Decision}       & The system will implement GeoBeads MEMS Sensor in water ways and dikes.\\ \midrule
+    \textbf{Alternatives}   & \textit{GeoBeads}\\
+                            & The GeoBead is a compact sensor, which can measure the pore pressure, temperature and local tilt in dikes. A unit costs about 350 dollar\cite{ng180levee}. \\
+                            & \textit{Piezometers}\\
+                            & Piezometers measure the pore water pressure in the dikes. This information can be used to measure the stability of the dike. A piezometer costs about 200 dollar\cite{ng180levee}. \\
+                            & \textit{Volt meters} \\
+                            & Volt meters can be used to measure the streaming potential in the dike, which are an indicator of its stability\cite{selfpotential}. These sensors are approximately 50 dollars per unit. Materials in the dike can decrease the accuracy of this measurement technique. \\
+                            \midrule
+    \textbf{Arguments}      & \\
+                            &   \begin{tabular}{l|lllllll|l}
+                            &       \rot{Reliability} & \rot{Resilience} & \rot{Performance}& \rot{Interoperability} & \rot{Security} & \rot{Scalability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline
+                            %                  rel res perf int sec sca cost
+                                    GeoBeads   & 5 & 4 &  & 3 &    &   & 2 & 14\\ 
+                                    Piezometer & 4 & 2 &  & 2 &    &   & 3 & 11\\
+                                    Volt meters& 1 & 5 &  & 2 &    &   & 5 & 13\\
+                                \end{tabular} \\
+    \\ \bottomrule
+\end{tabular}
+\caption{Decision -- Choice of Sensors}
 \label{table:linux}
 \end{table}
 
@@ -169,7 +202,14 @@ The water levels sensors are accommodated with a connectivity chip, which allows
 In the previous chapter, SFM will use Cassandra database as the database platform. However, Cassandra requires computers to run its environment. SFM will use clusters of computer to manage database system and to store our data. The cluster will also be accessible by other portions of our hardware, such as main analytics parts, third party data gathering part, and API part.
 
 There are four servers and each server costs AC 1.500. To enhance the availability, the servers will be redundantly set up four times. Resulting in a hardware cost for the servers of
-Server cost= 4 ∗ 1500 ∗ 4 = 24.000. The total hardware costs is shown in the table below.
+Server cost= 4 x 1500 x 4 = 24.000. The total hardware costs is shown in the table below.
+
+\begin{figure}[hb!]
+\centering
+\includegraphics[]{6-hardware/images/db-cluster.png}
+\caption{Logical schematic of database cluster of SFM}
+\label{fig:database-cluster}
+\end{figure}
 
 Clustering, in the context of databases, refers to the ability of several servers or instances to connect to a single database. An instance is the collection of memory and processes that interacts with a database, which is the set of physical files that actually store data.
 
@@ -182,6 +222,14 @@ Load balancing: The clustering feature is usually set up to allow users to be au
 
 \subsection{Analytics Components}
 \label{subsec:analytics}
+
+\begin{figure}[hb!]
+\centering
+\includegraphics[]{6-hardware/images/analytic-cluster.png}
+\caption{Logical schematic of analytic cluster of SFM}
+\label{fig:analytic-cluster}
+\end{figure}
+
 
 % Server specs
 % - Server
