@@ -108,7 +108,7 @@ This section defines decisions made regarding the hardware selection. Tables wil
                             & This 2U server rack has 16GB of memory and 2.4GHz of processor speed. This machine utilizes Intel Xeon E5-2620V3 with 15MB of cache. This server is suitable for high dense computing. It has LCD screen that will help technician to look the current status of the server. \\
                             \midrule
     \textbf{Arguments}      & \\
-                            &   \begin{tabular}{l|lllllll|l}
+                            &   \begin{tabular}{l|llllll|l}
                             &       \rot{Reliability} & \rot{Performance}& \rot{Interoperability} & \rot{Security} & \rot{Scalability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline
                             %                                       rel perf int sec sca cost
                                     Dell PowerEdge R530             & 5 & 5 & 4 & 4 & 4 & 5 & 27 \\ 
@@ -129,14 +129,17 @@ This section defines decisions made regarding the hardware selection. Tables wil
     \textbf{Problem/Issue}  & The system needs reliable computers to store the data. \\ \midrule
     \textbf{Decision}       & SFM will utilize Synology RackStation RS814RP to store the data.\\ \midrule
     \textbf{Alternatives}   & \textit{Synology RackStation RS814RP}\\
+                            % https://www.google.nl/shopping/product/9793555443596138172?biw=1346&bih=669&q=storage+servers&bav=on.2,or.r_cp.&bvm=bv.104317490,d.d2s&ion=1&espv=2&tch=1&ech=1&psi=1FIQVpOAEoPlaK7Zn4AN.1443910356406.23&prds=paur:ClkAsKraX8aViW9QBHq_YeLbadvaW6lnMVQDuwzotG6gRVknHILZ_EDzrO8nQNS6N477UjRspRo17BmUoyZnQjMDnOrhflRLM5VXFQCOPDxn9wCZnGJxrWXfWxIZAFPVH73DWMclCanKIzQ68mJVd6ADLpvTfg&sa=X&ved=0CMkDEM1KMBJqFQoTCLid3qaqp8gCFYrZGgodX70Kow
                             & This storage machine has the fastest connection among the others. This machine will run at SATA with 6 Gbps connection.\\
                             & \textit{70BJ NAS-server}\\
+                            % https://www.google.nl/shopping/product/15463250681911940369?q=storage+servers&biw=1346&bih=669&bav=on.2,or.r_cp.&bvm=bv.104317490,d.d2s&ion=1&espv=2&tch=1&ech=1&psi=1FIQVpOAEoPlaK7Zn4AN.1443910356406.25&prds=paur:ClkAsKraXy1_BVqi5aD5CGi7OmupTi3OwyL-j7nW7Ss2Qwo-W_81sjaidQU8J0Q3uu7RrSCCth3c9YuMEMNA3zO6TM9tfutSn6ksUeo1EGFdUDKUIlB4gt8wBBIZAFPVH70byN_Dqe5qhSCABb7sxVXYXAvfaw&sa=X&ved=0CIEDEM1KMAo4FGoVChMIpJb_tKqnyAIVQUwaCh0d6wGT
                             & This machine form factor is 1U which is suitable for saving space. However, the connection speed is limited to 3 Gbps.\\
                             & \textit{Thecus N8810U-G NAS-server} \\
+                            % https://www.google.nl/shopping/product/464537487289413504?q=storage+servers&biw=1346&bih=669&bav=on.2,or.r_cp.&bvm=bv.104317490,d.d2s&ion=1&espv=2&tch=1&ech=1&psi=1FIQVpOAEoPlaK7Zn4AN.1443910356406.25&prds=paur:ClkAsKraXylXtQJRG2pDp_XW-OBbRHsXe6nrmcB3olgeJQi1FhG4T8bXQABWVbkevi6hzBMwfTk7qioWd88Cq3GWIt3hQlEi5oJEmR7vZvXtvtEinYYlhn3_bBIZAFPVH71qflxmS1BuYghV4B5tpcohhFU7vQ&sa=X&ved=0CNQCEM1KMAU4FGoVChMIpJb_tKqnyAIVQUwaCh0d6wGT
                             & This machine also runs in 3Gbps connection. However, the form factor is 2U which makes this machine takes more space in the rack.\\
                             \midrule
     \textbf{Arguments}      & \\
-                            &   \begin{tabular}{l|lllllll|l}
+                            &   \begin{tabular}{l|llllll|l}
                             &       \rot{Reliability} & \rot{Performance}& \rot{Interoperability} & \rot{Security} & \rot{Scalability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline
                             %                                       rel perf int sec sca cost
                             Synology RackStation RS814RP    & 5 & 4 & 4 & 4 & 4 & 4 & 25 \\ 
@@ -157,14 +160,17 @@ This section defines decisions made regarding the hardware selection. Tables wil
     \textbf{Problem/Issue}  & SFM cluster needs a powerful high performance switch to connect each cluster. \\ \midrule
     \textbf{Decision}       & SFM will use Cisco Catalyst 2960S-24TS-L Switch.\\ \midrule
     \textbf{Alternatives}   & \textit{Linksys LGS552P Switch}\\
+                            % https://www.google.nl/shopping/product/15955701749855379542?biw=1346&bih=669&q=network+switch&sqi=2&bav=on.2,or.r_cp.&bvm=bv.104317490,d.d2s&ion=1&espv=2&tch=1&ech=1&psi=1FIQVpOAEoPlaK7Zn4AN.1443910356406.33&prds=paur:ClkAsKraX5ryPFpohZJ3cHRR5Y04pVrqqvR-5nXru2N7X2-97H3V7DAZtCjwWh2BPthulxNJ2ahSWe7PR9qBPpG4AcckL_q3UHXeyd1fqIcsRCo9aEhM_4ihYhIZAFPVH7186CU9loBEx5Tx9iwfjvLu2xB6eg&sa=X&ved=0CM4CEM1KMAJqFQoTCJaXr-ahqMgCFUh-Ggodym4G5w
                             & This switch has 52 ports available for connection, which is very good for scalability. However the performance is not as good as Cisco catalyst switch series.\\
                             & \textit{HP 1820-48G Switch}\\
+                            % https://www.google.nl/shopping/product/7539423950361123669?biw=1346&bih=669&q=network+switch&sqi=2&bav=on.2,or.r_cp.&bvm=bv.104317490,d.d2s&ion=1&espv=2&tch=1&ech=1&psi=1FIQVpOAEoPlaK7Zn4AN.1443910356406.33&prds=paur:ClkAsKraX2rp4gF8ATRwWJuY5iaZuchaa1sdhIz6lvepgxugqRb5mZxy8yAXts_70QyVg33fwd3C8WiFm3ThxDkZDi6gz2-ogcVLZ1Frs8QHH9IhEd-rj9s-CBIZAFPVH71WuYA_yyIRCl_FpDi93AJr9DX5QQ&sa=X&ved=0CNgCEM1KMANqFQoTCJaXr-ahqMgCFUh-Ggodym4G5w
                             & This switch has lesser available ports than Linksys switch. It has 48 ports available. This switch is not very configurable which makes this not so suitable for high performance switching. \\
                             & \textit{Cisco Catalyst 2960S-24TS-L Switch} \\
+                            % https://www.google.nl/shopping/product/3278668597556943908?biw=1346&bih=669&q=network+switch&sqi=2&bav=on.2,or.r_cp.&bvm=bv.104317490,d.d2s&ion=1&espv=2&tch=1&ech=1&psi=1FIQVpOAEoPlaK7Zn4AN.1443910356406.33&prds=paur:ClkAsKraXw_7YyEqvAKzRJjfEM3yN-4kzC4NaE-smcis8WFMegcToXlCuBmXRPb647qqqZU34GfFxp8EYHh7FC1AVCwaCRNTWcvFYI4Ppe8B8xT_2AMPJ7r3XBIZAFPVH72nlGbb8LwIOpZWGX8ZHfTvUUmDSw&sa=X&ved=0CPUCEM1KMAZqFQoTCJaXr-ahqMgCFUh-Ggodym4G5w
                             & This switch has the lowest number of port available, 24 ports. However, Cisco Catalyst is very configurable and has a very good security. \\
                             \midrule
     \textbf{Arguments}      & \\
-                            &   \begin{tabular}{l|lllllll|l}
+                            &   \begin{tabular}{l|llllll|l}
                             &       \rot{Reliability} & \rot{Performance}& \rot{Interoperability} & \rot{Security} & \rot{Scalability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline
                             %                                   rel perf int sec sca cost
                             Cisco Catalyst 2960S-24TS-L Switch  & 5 & 5 & 4 & 5 & 3 & 4 & 26 \\ 
