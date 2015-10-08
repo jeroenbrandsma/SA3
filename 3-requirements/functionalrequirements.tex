@@ -1,6 +1,7 @@
 %!TEX root = ../report.tex
 \newpage
 \section{Functional requirements}
+\label{sec:functional-requirements}
 This section lists the functional requirements of the system.
 \begin{longtable}{L{0.1\textwidth} L{0.12\textwidth} L{0.78\textwidth}}
 
@@ -15,10 +16,10 @@ This section lists the functional requirements of the system.
     { The system is able to perform an analysis for the water level in the waterways based on the input from the water level sensors. }
     
 	\frReqRow{receive-pressure}{Must}
-	{The system is able to receive input from pressure sensors of the dikes.}
+	{The system is able to receive input from the dike sensors.}
 	
 	\frReqRow{analyze-pressure}{Must}
-	{The system is able to perform an analysis for the pressure on the dikes based on the input from the pressure sensors.}
+	{The system is able to perform an analysis for the parameters of the dike sensors based on the input from the dike sensors.}
 	
 	\frReqRow{store-sensordata}{Must}
 	{ The system can store the sensor data. }
@@ -38,8 +39,8 @@ This section lists the functional requirements of the system.
     \frReqRow{compute-area}{Must}
     { The system computes the area affected by a flood, in zones of 5 by 5 km, by using the location data of the sensors and geographic information. }
     
-    \frReqRow{construct-map}{Must}
-    { The system can construct a map, showing which areas are affected by the flood. }
+    %\frReqRow{construct-map}{Must}
+    %{ The system can construct a map, showing which areas are affected by the flood. }
     
     \frReqRow{analyze-waterlevel}{Must}
     { The system is able to perform an analysis, resulting in an estimated expected water level for  areas which are affected by a flood, based on the water level sensor data, geographic data and weather forecast information. }

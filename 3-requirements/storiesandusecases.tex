@@ -53,7 +53,7 @@ UCTable
 			\item The database stores the data
 	}\\
 	Postcondition & The database received and stored the sensor data \\
-	Extensions & \compactList{itemize}{%
+	Alternatives & \compactList{itemize}{%
 			\item[2a.] 
 			  \begin{enumerate}
 				\item The data cannot be sent
@@ -65,7 +65,7 @@ UCTable
 }
 
 \clearpage
-\subsection{Receive weather data}
+\subsection{Receive weather/GEO data}
 \pgfplotstabletypeset[%
 UCTable
 ]{%
@@ -84,7 +84,7 @@ UCTable
 			\item The weather forecast service returns the requested data
 	}\\
 	Postcondition & The system received the forecast data \\
-	Extensions & \compactList{itemize}{%
+	Alternatives & \compactList{itemize}{%
 			\item[3a.] 
 			  \begin{enumerate}
 			  	\item The data cannot be returned.
@@ -97,7 +97,7 @@ UCTable
 }
 
 \clearpage
-\subsection{Citizens subscribe to the SMS service}
+\subsection{Subscribing to SMS Service}
 \pgfplotstabletypeset[%
 UCTable
 ]{%
@@ -112,13 +112,13 @@ UCTable
 	Level & User goal \\
 	Precondition & Citizen has a mobile phone and is not subscribed to the SMS service \\
 	Main success scenario & \compactList{enumerate}{
-			\item Citizen sends a text message to our service
+			\item Citizen sends a text message to our SMS service
 			\item The SMS service receives the text message
 			\item The SMS service stores the phone number in the database
 			\item A text message is sent back to the citizen with confirmation
 	}\\
 	Postcondition & Citizen is subscribed to the SMS service \\
-	Extensions & \compactList{itemize}{%
+	Alternatives & \compactList{itemize}{%
 			\item[2a.] The text message is not received \\
 				The use-case ends
 	}\\
@@ -151,7 +151,7 @@ UCTable
 			\item A warning is send to the citizens
 	}\\
 	Postcondition & The flood probability is calculated and stored. If the probability exceeds a certain threshold, a warning is sent to the authorities and citizens \\
-	Extensions & \compactList{itemize}{
+	Alternatives & \compactList{itemize}{
 			\item[5a.] The probability is not above the threshold \\
 			The use-case ends
 	}\\
@@ -214,7 +214,7 @@ UCTable
 			\item The processing unit sends the map to the government and emergency services
 	}\\
 	Postcondition & A map with current and predicted data is sent to the government and emergency authorities \\
-	Related requirements & \ref{fr:compute-area}, \ref{fr:construct-map}, \ref{fr:analyze-waterlevel}, \ref{fr:estimate-waterlevel}, \ref{fr:compute-nrcivilians}, \ref{fr:warn-safetyregion} \\
+	Related requirements & \ref{fr:compute-area}, \ref{fr:analyze-waterlevel}, \ref{fr:estimate-waterlevel}, \ref{fr:compute-nrcivilians}, \ref{fr:warn-safetyregion} \\
 }
 
 \clearpage
@@ -244,7 +244,7 @@ UCTable
 }
 
 \clearpage
-\subsection{System detects a faulty sensor}
+\subsection{Detecting a faulty sensor}
 \pgfplotstabletypeset[%
 UCTable
 ]{%

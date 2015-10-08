@@ -4,15 +4,18 @@
 %http://www.agilemodeling.com/artifacts/changeCase.htm
 When establishing the project, architects of the system listed a certain number of requirements which describe the features of the system. However, due to environmental changes and changing stakeholder interests, for example, the requirements may evolve.
 
-\textbf{ER-1 : Changes in the display of the map } \\
-\textit { Evolution of \ref{fr:construct-map}}. Citizens who subscribed for flood warnings get a map with specific route information (according to their location) to a safe area through the API. \\
+%\textbf{ER-1 : Changes in the display of the map } \\
+%\textit { Evolution of \ref{fr:construct-map}}. Citizens who subscribed for flood warnings get a map with specific route information (according to their location) to a safe area through the API. \\
 
-\textbf{ER-2 : Adding of external input}\\
- Citizens can contribute to the guidance by giving extra information (for example if they identified a safe route near their location) but this information will be checked by an operator (thanks to photograph by the UAVs for example). \\
+\textbf{ER-1 : Adding of external input}\\
+ Citizens can contribute to the guidance by giving extra information (for example if they identified a safe route near their location). This information can be checked by an operator (thanks to photograph by the UAVs for example). 
  
-\textbf{ER-3 : New sensors } The system is able to work with new sensors technologies, which are coming on the market over the years. \\
+ Functionality can be added to the system in the future, that can take citizen feedback into account for the flood prediction.
+ \\
+ 
+\textbf{ER-2 : New sensors } The system is able to work with new sensors technologies, which are coming on the market over the years. \\
 
-\textbf{ER-4 : Improved algorithms for detecting a flood} \\
+\textbf{ER-3 : Improved algorithms for detecting a flood} \\
 New algorithms may become available, which have a better accuracy for the flood prediction described in \ref{fr:detect-flood}. The part of the system with the flood prediction algorithm has to be modular, so that it can be replaced with an improved algorithm, once such an algorithm becomes available.
 
 %\textbf{ER-3 : New OS } \\
