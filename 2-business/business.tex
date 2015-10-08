@@ -253,35 +253,39 @@ The development is done by \CompanyName self. Each member of the project team as
 \end{table}
 
 \subsection{Hardware costs}
-Around 17.000 kilometres of dikes protect the Netherlands against flooding \cite{DMC}. 
-The monitoring system consists of MEMS sensor modules (e.g. GeoBeads) with a claimed life time of 10 years, which are installed with conventional CPT push-in techniques. Three sensors are installed per cross-section and a cross-section is installed every 100 m.
-Each CPT push-in costs about \EUR{}200 per sensor (Feitsma,2002)\cite{TUDelftPHD}.%pp126
-The table below shows of this data.
+Around 17.000 kilometers of dikes protect the Netherlands against flooding \cite{DMC}. 
+The monitoring system consists of GeoBeads sensors with a claimed life time of 10 years, which are installed with conventional push-in techniques. 
+
+The GeoBeads sensor costs about 350\EUR per unit. For every 3 meter of dike, one such sensor is needed. In the Netherlands, there are about 17.000 kilometers of dike. However, it is estimated that only about 2500km of the dikes have to be monitored by dike sensors (because the water board considers these dikes potentially unstable).
+
+Each push-in costs about \EUR{}200 and three sensors can be installed per push-in\cite{TUDelftPHD}. %pp126
+
+The following table gives an overview of the costs related to the dike sensors:
+
 \begin{table}[H]
 	\pgfplotstabletypeset[
 		KeyValue
 	]{%
-		Description & Value &UoM\\
-		Total length of all dikes to be monitored & 250 & km \\
-		Sensor cost & 350 & \EUR{}\\
-		Installment cost per sensor & 200 &\EUR{}\\
-		Distance between cross-sections  & 100 & m \\
+		Description & Value & UoM\\
+		Total length of all dikes to be monitored & $2.500$ & km \\
+		Number of GeoBeads per kilometer & 330 & \\
+		Sensor cost & 350 & \EUR{} \\
+		Installment cost per cross-section & 200 &\EUR{} \\
 		Sensors per cross-section & 3 & \\
 		Base installation cost factor like labor and wiring & 0.2 & \\
-		Period of investment & 10 & years \\
+		Life expectancy of GeoBeads & 10 & years \\
 	}
-\label{table:total-dev-costs2}
+\label{table:total-dev-costs2} 
 \caption{Total costs of development. UoM=Unit of measurement}
 \end{table}
 
-This results in an installation cost of:
-Installation cost per km$=(350+200)\cdot10\cdot3\cdot(1+0.2)=\EUR{}16.830$\\
-Installation cost$=100*16.830=1.683.000$
+This makes the costs for the dike monitoring as follows: \\
+Initial cost per km: $ 330 * 350  +  (330 / 3) * 200 = 137.500 \EUR * 1.2 = 165.000 \EUR$\\
+Total initial cost: $ 137.500 * 2.500 = 412.500.000 \EUR $
 
-\newcommand{\installationCosts}{1.683.000}
+\newcommand{\installationCosts}{412.500.000}
 
-The yearly maintenance and operation cost will be calculated as being a fraction of the installment cost.\\ 
-Maintenance cost$=0.2\cdot1.683.000=336.600$ per year %
+The yearly maintenance costs for the dike sensors is estimated to be around $4.500.000$\EUR per year. If the depreciation of the GeoBead sensor is added, this becomes $4.500.000 + 33*825.000 = 31.725.000 \EUR$. 
 
 The system then needs several servers:
 \begin{itemize}
@@ -333,7 +337,7 @@ So the total costs of the system is \euro{}3.089.600\\
 \section{Competitors}
 Siemens is a competitor that already has developed a flood-warning system in Belgium in 2006. When the system detects an imminent flood it sends a SMS to people that live near the rivers in order to warn them. The system is implemented in a small region, which consists of only 3 rivers. The total costs for this system were \euro{}230.000. Later on they continued engineering the system. The system uses sensor which measures: temperature, water pressure, and shifting. They participated with this system in the Urban Flood project from the EU. The strong point of this competitor is that they already have funding and also experience with building such a system. Siemens is the main competitor for \CompanyName{}. Their strength is that they already have a proven system in Belgium and have a lot of experience through participating in flood monitoring research projects. The opportunity for \CompanyName{} is to engineer a flexible system that can be used in the future for other kind of disasters. Further on by selling the product at a low selling price and profit on the maintenance work and upgrades the Netherlands will be interesting in using the product.
 
-Further there are Universities that do research on flood warning systems. At the Malaysian Institute Information Technology they developed a product prototype of a system called Intelligent Flood Information System via SMS. Waterlevel sensors are the only one they used. When there is a flood they send a warning SMS to people that are within the area. In the future this could become a competitor if they create a start-up or sell the idea to a company.  
+Further there are Universities that do research on flood warning systems. At the Malaysian Institute Information Technology they developed a product prototype of a system called Intelligent Flood Information System via SMS. Water level sensors are the only one they used. When there is a flood they send a warning SMS to people that are within the area. In the future this could become a competitor if they create a start-up or sell the idea to a company.  
 
 %\Joris can you put references in?
 

@@ -42,7 +42,7 @@ This section defines decisions made regarding the hardware selection. Tables wil
     \textbf{Decision}       & \textbf{HW-\textbf{\nextNrRef{hw}}}\\ \midrule
     \textbf{Status}         & \textbf{Approved} \\ \midrule
     \textbf{Problem/Issue}  & The system needs a reliable sensor system to measure condition of dikes. \\ \midrule
-    \textbf{Decision}       & The system will implement GeoBeads MEMS Sensor in water ways and dikes.\\ \midrule
+    \textbf{Decision}       & The system will implement GeoBeads MEMS Sensor in dikes.\\ \midrule
     \textbf{Alternatives}   & \textit{GeoBeads}\\
                             & The GeoBead is a compact sensor, which can measure the pore pressure, temperature and local tilt in dikes. A unit costs about 350 dollar\cite{ng180levee}. \\
                             & \textit{Piezometers}\\
@@ -197,10 +197,11 @@ Roughly 17.000 kilometers of dikes protect the Netherlands against flooding\cite
 The hardware architecture of the system is composed of two sensor components. The first sensor component are sensors installed in the dikes to measure and detect potential instability of the dikes.
 The second sensing component consists of water level sensors, which are spread along water ways in the country, to measure the water level. 
 
+\label{dikesensors}
 \subsubsection{Dike sensors}
 To measure the stability of the dikes, the GeoBeads dike monitoring sensor will be installed in the dikes. When these sensors are placed in the dike with a spacing of 3 meters, they will provide optimal measurements\cite{ng180levee}. The GeoBead will measure the water pressure, temperature, inclination and acceleration.
 
-A GeoBead sensor consists of several modules, loosely connected by cable, which form a chain of sensors. The GeoBeads will be installed in a pre-drilled vertical hole, or where this is not possible, horizontally. Three sensors are installed per cross-section and a cross-section is installed every 100 m. The costs of installation of a single cross-section are estimated to be \EUR200 per cross-section\cite{TUDelftPHD}.%pp126
+A GeoBead sensor consists of several modules, loosely connected by cable, which form a chain of sensors. The GeoBeads will be installed in a pre-drilled vertical hole, or where this is not possible, horizontally. Three sensors are installed per cross-section and a cross-section is installed every 100 m. 
 
 The GeoBeads are connected by communication cable, which also functions as a power supply. 
 
