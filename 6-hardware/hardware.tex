@@ -1,7 +1,7 @@
 %!TEX root = ../report.tex
 \chapter{Hardware Architecture}
 \label{ch:hardware}
-This section describes the hardware architecture of SFM. The description will be more high-level along with explanations about the hardware platform and the application interfaces between each components of the system. The rest of this chapter is organized as follows; First section, \autoref{sec:hardware-overview}, presents an overview of the hardware implemented in this system depicted in big schema. Decisions made in this system are detailed in \autoref{sec:hardware-decisions} with tables. Lastly, hardware description is described in \autoref{sec:hardware-description}.
+This section describes the hardware architecture of SFM. The description will be more high-level along with explanations about the hardware platform and the application interfaces between each components of the system. The rest of this chapter is organized as follows; First section, \autoref{sec:hardware-overview}, presents an overview of the hardware implemented in this system depicted in big schema. Decisions made in this system are detailed in \autoref{sec:hardware-decisions} with tables. Lastly, the hardware is described in \autoref{sec:hardware-description}.
 
 \section{Hardware Overview}
 \label{sec:hardware-overview}
@@ -21,15 +21,13 @@ The SFM hardware components can be categorized into four main components: sensin
 \label{fig:hardware-archi-schema}
 \end{figure}
 
-Here is an overview of the Hardware Architecture. Each number corresponds to a decision which will be detailed in the Hardware Design Decision part.
-
-The SFM will utilize wired and wireless sensor for monitoring water ways and dikes. Wired sensor will be placed in congested dikes and waterways where wired connection is possible. Wireless sensor will be planted in remote areas where wired connections are impossible or too costly. UAVs will fly to check reported faulty sensors. UAVs will also be used to take required pictures for further analytics or to examine some portion of the system which is hard or impossible for a personnel to access. Then all measurement will be forwarded to sensor monitoring part to be normalized before getting in to the analytics part.
+The SFM will utilize wired and wireless sensors for monitoring water ways and dikes. Wired sensor will be placed in congested dikes and waterways where wired connection is possible. Wireless sensor will be planted in remote areas where wired connections are impossible or too costly. UAVs will fly to check reported faulty sensors. UAVs will also be used to take required pictures for further analytics or to examine some portion of the system which is hard or impossible for a personnel to access. Then all measurements will be forwarded to the sensor monitoring part to be normalized before getting in to the analytics part.
 
 The next part of the hardware is the cluster for carrying out analysis. This will be a collection of servers that is coordinated using clusters. This part also handles the logic for detecting faulty sensors, as the sensor monitoring parts contain no logic behind it.
 
-SFM will use other cluster to store our important data. This cluster will run Cassandra database on top if it. This cluster will also have several interfaces to communicate with other instances, such as main analytics part, third party data gathering cluster, and API cluster.
+SFM will use another cluster to store our important data. This cluster will run Cassandra database on top if it. This cluster will also have several interfaces to communicate with other instances, such as main analytics part, third party data gathering cluster, and API cluster.
 
-The last part of the hardware architecture is third party data gathering cluster and API cluster. Third party data gathering cluster is responsible for collecting weather forecast and demographic information of the Netherlands. Meanwhile, API cluster is responsible for handling request from actors that will consume our practical information and for notifying safety region in case of imminent flood. Both of this cluster are merely collections of server computer that works together.
+The last part of the hardware architecture is third party data gathering cluster and API cluster. Third party data gathering cluster is responsible for collecting weather forecast and demographic information of the Netherlands. Meanwhile, the API cluster is responsible for handling requests from actors that will consume our practical information and for notifying the safety region in case of imminent flood. Both of these clusters are merely collections of server computers that work together.
 
 \section{Hardware Design Decisions}
 \label{sec:hardware-decisions}
