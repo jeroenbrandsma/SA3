@@ -213,7 +213,7 @@ The water levels sensors are accommodated with a connectivity chip, which allows
 
 \subsection{Database Cluster and Data Collection}
 \label{subsec:database-data}
-In the previous chapter, SFM will use Cassandra database as the database platform. However, Cassandra requires computers to run its environment. SFM will use clusters of computer to manage database system and to store our data. The cluster will also be accessible by other portions of our hardware, such as main analytics parts and AAnPI part. The logical schematic of the database cluster is depicted in \autoref{fig:database-cluster}
+In the previous chapter, SFM will use Cassandra database as the database platform. However, Cassandra requires computers to run its environment. SFM will use clusters of computer to manage database system and to store our data. The cluster will also be accessible by the main analytics part as the data will come and go through the main analytics part. The logical schematic of the database cluster is depicted in \autoref{fig:database-cluster}
 
 \begin{figure}[hb!]
 \centering
@@ -222,7 +222,7 @@ In the previous chapter, SFM will use Cassandra database as the database platfor
 \label{fig:database-cluster}
 \end{figure}
 
-As can be seen in \autoref{fig:database-cluster}, SFM will use four database racks to increase the reliability of the system. Using this kind of architecture, SFM will be more fault tolerant. There will also be two physical connection to the main analytic cluster to make this system more fault tolerant in terms of connection. SFM database cluster will use the same server, Dell PowerEdge R530, for controlling the SATA storage machine.
+As can be seen in \autoref{fig:database-cluster}, SFM will use four database racks to have redundancy in the system. The database cluster By using this form of architecture, SFM will be more reliable and fault tolerant. There will also be two physical connection to the main analytic cluster to make this system more fault tolerant in terms of connection. SFM database cluster will use the same server, Dell PowerEdge R530, for controlling the SATA storage machine.
 
 % Clustering, in the context of databases, refers to the ability of several servers or instances to connect to a single database. An instance is the collection of memory and processes that interacts with a database, which is the set of physical files that actually store data.
 

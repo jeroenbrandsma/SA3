@@ -1,6 +1,18 @@
+%!TEX root = ../../report.tex
+\clearpage
 \subsection{Deployment View}
+This subsection outlinesshow the physical arrangement of the nodes in a distributed system, the artifacts that are stored on each node, and the components and other elements that the artifacts implement \cite{ibmdeployment}. Communication paths and deploy relationships model the connections in the system.
 
-\copied{Physical view : The physical view depicts the system from a system engineer's point of view. It is concerned with the topology of software components on the physical layer, as well as the physical connections between these components. This view is also known as the deployment view. UML Diagrams used to represent physical view include the Deployment diagram.[2]}
-{from wikipedia\\\url{https://en.wikipedia.org/wiki/4\%2B1_architectural_view_model}}
+\subsubsection{Deployment Diagram}
+Figure \ref{fig:deployment-diagram} shows the deployment diagram of the SFM. The diagram contains several components such as, sensors, analytics cluster, and database clusters. Main communication between components are done using TCP/IP. All hardware decision are based on chapter 6.
 
-This subsection outlines physical distribution of hardware and software, typically the topology of the system.
+\begin{figure}[hb!]
+\centering
+\includegraphics[keepaspectratio=true,width=1.0\textwidth]{{\viewimages/deployment-view}.pdf}
+\caption{Deployment diagram}
+\label{fig:deployment-diagram}
+\end{figure}
+
+
+% To-Do:
+% Artifacts
