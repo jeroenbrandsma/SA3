@@ -18,6 +18,18 @@ The system consists of a set of components tat all interact with each other. In 
 
 The layering is done according to the layering Martin Fowler proposes for enterprise applications \cite{Fowler:2002:PEA:579257,Fowler:web:servicelayer}.
 The data mapper \cite{Fowler:2002:PEA:579257} is used to completely separate and ignore the database in the domain model. This provides a more flexible architecture that allows modifications of either the database or the domain model independently without having to alter the other layer.
+
+\subsection{Database}
+The figure \ref{fig:database} below shows how the database is structured. 
+
+\clearpage
+\begin{figure}[hb!]
+%\centering
+\includegraphics[height=14cm, width=0.9\textwidth]{{\viewimages/database}.jpg}
+\caption{Database diagram}
+\label{fig:database}
+\end{figure}
+
 \subsubsection{Packages}
 The software of the system is divided into several packages. These packages and their relations can be seen in figure~\ref{fig:package-diagram}. 
 In this diagram, «use» depicts the use of an interface exposed by a software package, «access» depicts a private import of (parts of) another package, while «import» means a public import of (parts of) another package. 
