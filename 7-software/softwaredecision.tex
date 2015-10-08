@@ -55,3 +55,30 @@ UCTable
 	%However, the performance of elasticsearch is allot better \cite{mongovselastic}.
 	}\\
 }
+
+\begin{table}[h]
+\begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
+    \textbf{Name} 			& \textbf{CentOS - Linux Distribution} \\ \toprule
+    \textbf{Decision} 		& \textbf{DEC-}\textbf{\nextNrRef{dn}} \\ \midrule \midrule
+    \textbf{Status} 		& \textbf{Approved} \\ \midrule
+    \textbf{Problem/Issue} 	& The reliable linux distribution is needed to run the \ProjectName{} \\ \midrule
+    \textbf{Decision} 		&  The warning system will use CentOS Linux as a platform. CentOS is widely used as server and has many supports.\\ \midrule
+    \textbf{Alternatives} 	& \textit{Ubuntu}\\
+    						& A Debian based Linux distribution that has high installation counts. This distribution is famous for desktop computers.\\
+    						& \textit{Fedora}\\
+    						& Up-to-date packages, commercial support by third party available, easy to maintain, but lacks on package availability, and hard to do a live upgrade to a newer version.\\
+    						\midrule
+    \textbf{Arguments} 		& \\
+    						& 	\begin{tabular}{l|lllllll|l}
+							& 		\rot{Reliability} & \rot{Resilience} & \rot{Performance} & \rot{Interopertability} & \rot{Security} & \rot{Scalability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline
+							% 					rel res perf int sec sca cost
+									Weight 		& 1 & 1 & 1 & 1 & 1 & 1 & 1 & \\ \hline
+									CentOS 		& 5 & 4 & 5 & 4 & 5 & 4 & 4 & 31 \\
+									Ubuntu 		& 4 & 3 & 4 & 4 & 4 & 5 & 4 & 28 \\
+									Fedora 		& 3 & 3 & 4 & 4 & 4 & 4 & 4 & 26 \\
+								\end{tabular} \\
+    \\ \bottomrule
+\end{tabular}
+\caption{Decision -- Linux Distribution}
+\label{table:linux}
+\end{table}
