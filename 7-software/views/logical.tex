@@ -1,9 +1,15 @@
+%!TEX root = ../../report.tex
 \subsection{Logical View}
 
 \copied{Logical view : The logical view is concerned with the functionality that the system provides to end-users. UML Diagrams used to represent the logical view include Class diagram, Communication diagram, Sequence diagram.[2]}
 {from wikipedia\\\url{https://en.wikipedia.org/wiki/4\%2B1_architectural_view_model}}
 
-This view shows the structural elements, key abstractions and mechanisms that are used within SFM to realize the systemics functionality. At first an overview of the components is provided. After that the main components are decomposed and desired in term of responsibilities and interfaces. In the end, the variability guide mentions parts of the software, which clarification is deferred until development/design phase.
+The logical view shows the structural elements, key abstractions and mechanisms that are needed to realize the SFM. First an overview of the different components is provided. After that the components are decomposed and more details of the different layers are provided.
+
+
+% This view shows the structural elements, key abstractions and mechanisms that are used within SFM to realize the systemics functionality. At first an overview of the components is provided. After that the main components are decomposed and desired in term of responsibilities and interfaces. In the end, the variability guide mentions parts of the software, which clarification is deferred until development/design phase.
+
+
 
 %Used algorithms?:
 %	hidden markov model with k means (unsupervised learning)
@@ -19,6 +25,16 @@ This view shows the structural elements, key abstractions and mechanisms that ar
 %Diagnosis of Rolling Element Bearing – II. Selection of Experimental Parameters,
 %Mechanical Systems and Signal Processing, Vol. 10, No. 3, pp. 251-264, (1996)
 
+\subsubsection*{Layer pattern}
+The system architecture of the SFM is structured according to the layer pattern. The layer pattern is a pattern which improves the maintainability of the system. The following layers have been identified in figure \ref{fig:layers}:
+
+\begin{description}
+	\item \textbf{Monitoring layer} This layer ensures that the sensor data that is pushed by the sensors will be recieved and processed.
+	\item \textbf{Communication layer} The comunication layer provides communication with the external entities of the system. 
+	\item \textbf{Domain layer} The domain layer holds the core components for processing data and warning users.
+	\item \textbf{Data source layer} This layer stores all relevant data that is needed or produced by the system. 
+\end{description} 
+
 \clearpage
 \begin{figure}[hb!]
 %\centering
@@ -27,28 +43,36 @@ This view shows the structural elements, key abstractions and mechanisms that ar
 \label{fig:layers}
 \end{figure}
 
-\clearpage
+The figure above gives an abstract view of the layers of the SFM. The layers are specified into more detail in figure \ref{fig:logical}.
 \begin{figure}[h]
 %\centering
-\includegraphics[keepaspectratio=true,width=0.9\textwidth]{{\viewimages/component}.jpg}
-\caption{Component diagram}
-\label{fig:component}
+\includegraphics[keepaspectratio=true,width=0.9\textwidth]{{\viewimages/LogicalView_Packaged}.jpg}
+\caption{Logical view}
+\label{fig:logical}
 \end{figure}
 
-\begin{figure}[hb!]
-%\centering
-\includegraphics[keepaspectratio=true,width=0.9\textwidth]{{\viewimages/sequence1}.jpg}
-\caption{Sequence diagram of the client pushing the sensor data}
-\label{fig:component}
-\end{figure}
 
-\clearpage
-\begin{figure}[hb!]
-%\centering
-\includegraphics[keepaspectratio=true,width=0.9\textwidth]{{\viewimages/database}.jpg}
-\caption{Database diagram}
-\label{fig:component}
-\end{figure}
+% \begin{figure}[h]
+% %\centering
+% \includegraphics[keepaspectratio=true,width=0.9\textwidth]{{\viewimages/component}.jpg}
+% \caption{Component diagram}
+% \label{fig:component}
+% \end{figure}
+
+% \begin{figure}[hb!]
+% %\centering
+% \includegraphics[keepaspectratio=true,width=0.9\textwidth]{{\viewimages/sequence1}.jpg}
+% \caption{Sequence diagram of the client pushing the sensor data}
+% \label{fig:component}
+% \end{figure}
+
+% \clearpage
+% \begin{figure}[hb!]
+% %\centering
+% \includegraphics[keepaspectratio=true,width=0.9\textwidth]{{\viewimages/database}.jpg}
+% \caption{Database diagram}
+% \label{fig:component}
+% \end{figure}
 
 %\begin{framed}
 %
