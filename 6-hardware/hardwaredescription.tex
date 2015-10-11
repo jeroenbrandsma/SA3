@@ -41,15 +41,10 @@ The UAV's won't fly everytime , they will be released during the risky periods o
 
 %The UAV will be equiped with camera ....
 
-% Server specs
-% - Server
-% - Networking device
-% - UPS
-
 \clearpage
 \subsection{Database Cluster and Data Collection}
 \label{subsec:database-data}
-In the previous chapter, SFM will use Cassandra database as the database platform. However, Cassandra requires computers to run its environment. SFM will use clusters of computer to manage database system and to store our data. The cluster will also be accessible by the main analytics part as the data will come and go through the main analytics part. The logical schematic of the database cluster is depicted in \autoref{fig:database-cluster}
+In the previous chapter, SFM will use Elasticsearch database as the database platform. However, Elasticsearch requires computers to run its environment. SFM will use clusters of computer to manage database system and to store our data. The cluster will also be accessible by the main analytics part as the data will come and go through the main analytics part. The logical schematic of the database cluster is depicted in \autoref{fig:database-cluster}
 
 \begin{figure}[hb!]
 \centering
@@ -58,7 +53,7 @@ In the previous chapter, SFM will use Cassandra database as the database platfor
 \label{fig:database-cluster}
 \end{figure}
 
-As can be seen in \autoref{fig:database-cluster}, SFM will use four database racks to have redundancy in the system. The database cluster By using this form of architecture, SFM will be more reliable and fault tolerant. There will also be two physical connection to the main analytic cluster to make this system more fault tolerant in terms of connection. SFM database cluster will use the same server, Dell PowerEdge R530, for controlling the SATA storage machine.
+As can be seen in \autoref{fig:database-cluster}, SFM will use four database racks to have redundancy in the system. The server is connected as a ring, which is the common way to setup database server. The database cluster By using this form of architecture, SFM will be more reliable and fault tolerant. There will also be two physical connection to the main analytic cluster to make this system more fault tolerant in terms of connection. SFM database cluster will use the same server, Dell PowerEdge R530, for controlling the SATA storage machine.
 
 % Clustering, in the context of databases, refers to the ability of several servers or instances to connect to a single database. An instance is the collection of memory and processes that interacts with a database, which is the set of physical files that actually store data.
 
@@ -84,6 +79,7 @@ The analytics components will also be the hub for the main connection of SFM. Th
 
 The analytics components will use Dell PowerEdge R530 as server and it will be mounted on a server rack. The detailed hardware specifications of Dell PowerEdge R530 is listed in \autoref{table:server-specs}.
 
+% Probably move this into appendix
 \begin{table}[!htbp]
     \centering
     \begin{tabular}{L{\tw{0.2}} L{\tw{0.4}}}
