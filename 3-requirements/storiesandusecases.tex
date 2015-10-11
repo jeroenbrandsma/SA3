@@ -46,10 +46,10 @@ UCTable
 	Level & Sub process\\
 	Precondition & The sensor is connected to a processing unit \\
 	Main success scenario & \compactList{enumerate}{%
-			\item The sensor does a measurement
-			\item The sensor sends the data to a monitoring unit
-			\item The monitoring unit normalizes the received data
-			\item The monitoring unit sends the normalized data to the database
+			\item The sensor does a measurement every 10 seconds
+			\item The sensor sends the data to the central server every minute
+			\item The central server normalizes the received data
+			\item The central server stores the normalized data to the database
 			\item The database stores the data
 	}\\
 	Postcondition & The database received and stored the sensor data \\
@@ -174,9 +174,10 @@ UCTable
 	Level & User goal \\
 	Precondition & There is an imminent flood and the citizen is subscribed to the SMS service\\
 	Main success scenario & \compactList{enumerate}{%
-			\item The processing unit sends a warning about an imminent flood to the SMS service 
-			\item The SMS service composes a list with phone numbers to warn
-			\item The SMS service sends a warning to all phone numbers on the list
+			\item The flood monitoring \& detection unit sends a warning about an imminent flood to the warning unit
+			\item The warning unit queries the database for a list of phone numbers of subscribed citizens in the area
+			\item The monitoring unit sends the collected phone numbers to the SMS service
+			\item The SMS service sends a warning to all the collected phone numbers
 	}\\
 	Postcondition & The citizens who are subscribed received a warning\\
 	Alternatives & \compactList{itemize}{%
