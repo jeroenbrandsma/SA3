@@ -21,13 +21,13 @@ The SFM hardware components can be categorized into four main components: sensin
 \label{fig:hardware-archi-schema}
 \end{figure}
 
-The SFM will utilize wired and wireless sensors for monitoring water ways and dikes. Wired sensor will be placed in congested dikes and waterways where wired connection is possible. Wireless sensor will be planted in remote areas where wired connections are impossible or too costly. UAVs will fly to check reported faulty sensors. UAVs will also be used to take required pictures for further analytics or to examine some portion of the system which is hard or impossible for a personnel to access. Then all measurements will be forwarded to the sensor monitoring part to be normalized before getting in to the analytics part.
+The SFM will utilize wired and wireless sensors for monitoring water ways and dikes. Wired sensors will be placed in congested dikes and waterways, where wired connections are possible. Wireless sensor will be planted in remote areas where wired connections are impossible or too costly. UAVs will fly to check reported faulty sensors. UAVs will also be used to take required pictures for further analytics or to examine some portion of the system which is hard or impossible for personnel to access. Then all measurements will be forwarded to the sensor monitoring part to be normalized before getting in to the analytics part.
 
 The next part of the hardware is the cluster for carrying out analysis. This will be a collection of servers that is coordinated using clusters. This part also handles the logic for detecting faulty sensors, as the sensor monitoring parts contain no logic behind it.
 
 SFM will use another cluster to store our important data. This cluster will run Cassandra database on top if it. This cluster will also have several interfaces to communicate with other instances, such as main analytics part, third party data gathering cluster, and API cluster.
 
-The last part of the hardware architecture is third party data gathering cluster and API cluster. Third party data gathering cluster is responsible for collecting weather forecast and demographic information of the Netherlands. Meanwhile, the API cluster is responsible for handling requests from actors that will consume our practical information and for notifying the safety region in case of imminent flood. Both of these clusters are merely collections of server computers that work together.
+The last part of the hardware architecture is third party data gathering cluster and API cluster. Third party data gathering cluster is responsible for collecting weather forecast and demographic information of the Netherlands. Meanwhile, the API cluster is responsible for handling requests from actors that will consume our practical information and for notifying the safety region in case of an imminent flood. Both of these clusters are merely collections of server computers that work together.
 
 \section{Hardware Design Decisions}
 \label{sec:hardware-decisions}
@@ -50,11 +50,11 @@ This section defines decisions made regarding the hardware selection. Tables wil
                             \midrule
     \textbf{Arguments}      & \\
                             &   \begin{tabular}{l|lllllll|l}
-                            &       \rot{Reliability} & \rot{Resilience} & \rot{Performance}& \rot{Interoperability} & \rot{Security} & \rot{Scalability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline
-                            %                  rel res perf int sec sca cost
-                                    GeoBeads   & 5 & 4 &  & 3 &    &   & 2 & 14\\ 
-                                    Piezometer & 4 & 2 &  & 2 &    &   & 3 & 11\\
-                                    Volt meters& 1 & 5 &  & 2 &    &   & 5 & 13\\
+                            &       \rot{Reliability} & \rot{Resilience} & \rot{Interoperability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline
+                            %                  rel res int cost
+                                    GeoBeads   & 5 & 4 & 3 & 2 & 14\\ 
+                                    Piezometer & 4 & 2 & 2 & 3 & 11\\
+                                    Volt meters& 1 & 5 & 2 & 5 & 13\\
                                 \end{tabular} \\
     \\ \bottomrule
 \end{tabular}
@@ -201,14 +201,15 @@ To measure the stability of the dikes, the GeoBeads dike monitoring sensor will 
 
 A GeoBead sensor consists of several modules, loosely connected by cable, which form a chain of sensors. The GeoBeads will be installed in a pre-drilled vertical hole, or where this is not possible, horizontally. Three sensors are installed per cross-section and a cross-section is installed every 100 m. 
 
-The GeoBeads are connected by communication cable, which also functions as a power supply. 
+The GeoBeads cannot send their data directly to the central server. Therefore, at each cross-section, there will be a module (consisting of an Arduino in a water-proof casing), which is responsible for processing and sending the data to the central server using cable internet.
+
+The GeoBeads are connected by communication cable, and a cable for the power supply. 
 
 \subsubsection{Water level sensors}
-The water level sensors are placed next to the dikes and in the water ways. A water level sensor is placed every 300 meters. % WM: why 300 meters, elaborate.
+The water level sensors are placed next to the dikes and in the water ways. The water level sensors are placed more scattered than the dike sensors. The water level sensors are also connected to an Arduino for processing and sending the data. The water level sensor are also connected to a solar cell and a battery for power supply.
 
-The water levels sensors are accommodated with a connectivity chip, which allows it to use the mobile broadband to connect to the central server.
+The water level sensors are accommodated with a connectivity chip, which allows it to use the mobile broadband to connect to the central server.
 % TODO: decide on exact water level sensor
-% is it feasible to use a battery for water pressure sensor?
 
 \clearpage
 \subsection{Database Cluster and Data Collection}

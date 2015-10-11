@@ -65,6 +65,10 @@ The system needs to be resilient to recover from errors and mistakes without imp
 	\reqRow{perf}{2}{Must}{	The data transmission between the sensors and the system is on average at least 10 megabits per second for each sensor.}
 	% How many data the system can receive in one second ?
 	\reqRow{perf}{3}{Must}{	The time for the system to compute if there is a flood or not according to a critical level and the data received from the sensors is at most 5 minutes. }
+	
+	\reqRow{perf}{4}{Must}{ If an imminent flood is detected, the warning text message to citizens arrives in 5 minutes. }
+	
+	\reqRow{perf}{5}{Must}{ If an imminent flood is detected, the warning to the emergency room arrives within 1 minute. }
 
 	\bottomrule
 \end{longtable}
