@@ -5,7 +5,7 @@ This section describes the hardware architecture of SFM. The description will be
 
 \section{Hardware Overview}
 \label{sec:hardware-overview}
-The SFM hardware components can be categorized into four main components: sensing part, data storing part, analytics part, and data presentation part. The data flow starts from wired and wireless sensors located across the Netherlands that collects information for monitoring. The process will end at data presentation and warning dispatch in the users' side. The overview of the hardware and its application interfaces are depicted in \autoref{fig:hardware-archi-schema} below.
+The SFM hardware components can be categorized into three main components: sensing part, data storing part, and analytics part. The data flow starts from wired and wireless sensors located across the Netherlands that collect information for monitoring. UAV will also fly to gather additional information if needed. The overview of the hardware and its application interfaces are depicted in \autoref{fig:hardware-archi-schema} below.
 
 % btw is it suppose to be the other way around? sensor monitoring -> analytics-> database ?
 %\begin{figure}[hb!]
@@ -21,13 +21,15 @@ The SFM hardware components can be categorized into four main components: sensin
 \label{fig:hardware-archi-schema}
 \end{figure}
 
-The SFM will utilize wired and wireless sensors for monitoring water ways and dikes. Wired sensors will be placed in congested dikes and waterways, where wired connections are possible. Wireless sensor will be planted in remote areas where wired connections are impossible or too costly. UAVs will fly to check reported faulty sensors. UAVs will also be used to take required pictures for further analytics or to examine some portion of the system which is hard or impossible for personnel to access. Then all measurements will be forwarded to the sensor monitoring part to be normalized before getting in to the analytics part.
+The SFM will utilize wired and wireless sensors to monitor water ways and dikes. Wired sensors will be used for dikes monitoring and wireless sensor will be used to monitor water level. Sensors are not directly connected to the main clusters, instead, it will be connected to Arduino and then will be sent periodically using wired Internet connection through telecoms provider's line. An Arduino will be handling several sensors at once.
 
-The next part of the hardware is the cluster for carrying out analysis. This will be a collection of servers that is coordinated using clusters. This part also handles the logic for detecting faulty sensors, as the sensor monitoring parts contain no logic behind it.
+UAVs will also fly to check reported faulty sensors if needed. UAVs will also be used to take required pictures for further analytics or to examine some portion of the system which is hard or impossible for a personnel to access.
 
-SFM will use another cluster to store our important data. This cluster will run Cassandra database on top if it. This cluster will also have several interfaces to communicate with other instances, such as main analytics part, third party data gathering cluster, and API cluster.
+All incoming data will be handled by Data Collecting System in the data centers. This system is also responsible to check any incorrect data input or any faulty sensors. The next part of the hardware is the cluster for carrying out analysis. This will be a collection of servers that are coordinated using clusters. SFM will use another cluster to store important data. This cluster will run Elasticsearch database on top if it..
 
-The last part of the hardware architecture is third party data gathering cluster and API cluster. Third party data gathering cluster is responsible for collecting weather forecast and demographic information of the Netherlands. Meanwhile, the API cluster is responsible for handling requests from actors that will consume our practical information and for notifying the safety region in case of an imminent flood. Both of these clusters are merely collections of server computers that work together.
+The last part of the hardware architecture is third party data gathering cluster. Third party data gathering cluster is responsible for collecting weather forecast and demographic information of the Netherlands. This cluster is also part of main analytics clusters.
+
+The SFM will have several data centers to keep the system reliable running as reliability and availability is SFM's key drivers. Two of them will be inside the Netherlands and the other one will be located abroad. In this way, the system will be running correctly in case both national data centers go down.
 
 \section{Hardware Design Decisions}
 \label{sec:hardware-decisions}
@@ -218,7 +220,7 @@ In the previous chapter, SFM will use Cassandra database as the database platfor
 
 \begin{figure}[hb!]
 \centering
-\includegraphics[]{6-hardware/images/db-cluster.png}
+\includegraphics[width=0.7\textwidth]{6-hardware/images/db-cluster.png}
 \caption{Logical schematic of database cluster of SFM}
 \label{fig:database-cluster}
 \end{figure}
@@ -240,7 +242,7 @@ Analytics component will be the main brain of SFM. The intelligent algorithm wil
 
 \begin{figure}[hb!]
 \centering
-\includegraphics[]{6-hardware/images/analytic-cluster.png}
+\includegraphics[width=0.7\textwidth]{6-hardware/images/analytic-cluster.png}
 \caption{Logical schematic of analytic cluster of SFM}
 \label{fig:analytic-cluster}
 \end{figure}
