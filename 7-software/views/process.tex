@@ -1,10 +1,11 @@
+\clearpage
 \subsection{Process View}
 
 \copied{Process view : The process view deals with the dynamic aspects of the system, explains the system processes and how they communicate, and focuses on the runtime behavior of the system. The process view addresses concurrency, distribution, integrators, performance, and scalability, etc. UML Diagrams to represent process view include the Activity diagram.}
 {from wikipedia}
 This view mainly discuss about runtime, concurrency, communication, and synchronization of the process running in the system. \\
 
-The program flow and business logic of the system are captured in this section with the aid of several activity diagrams.
+The program flow and business logic of the system are captured in this section with the aid of activity and sequence diagrams.
 
 \subsubsection*{Flood monitoring}
 
@@ -32,7 +33,7 @@ In figure~\ref{fig:warning} a sequence diagram of sending warnings to the emerge
 
 
 \subsubsection*{Sending the sensor data}
-In figure~\ref{fig:sequence-sensordata} a sequence diagram of sending the sensor data can be seen. The sensor has two running threads: one reading the measurements and the other for sending the data every 60 seconds.
+In figure~\ref{fig:sequence-sensordata} a sequence diagram of sending the sensor data can be seen. As elaborated in decision~\ref{dec:5}, the sensors will push their data to the server. The sensor has two running threads: one reading the measurements and the other for sending the data every 60 seconds.
 
 \begin{figure}[h]
 \centering

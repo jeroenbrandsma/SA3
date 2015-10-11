@@ -1,6 +1,7 @@
 %!TEX root = ../report.tex
+\clearpage
 \section{Software design decision}
-This section highlights some of the design decisions that have been made, especially those that are not covered in the previous views.
+This section highlights some of the software design decisions that have been made, especially those that are not covered in the previous views.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % DECISIONS TO MAKE
@@ -19,7 +20,23 @@ This section highlights some of the design decisions that have been made, especi
 	%How to process the uav data. Maybe: Pix4D software automatically processes terrestrial and aerial imagery acquired by light-weight drones or aircraft using its innovative technology based purely on image 	content. This desktop software converts your images into highly precise, timely and customizable results for a wide range of GIS and CAD applications.
 	%\url{https://pix4d.com/}
 	
-	
+\pgfplotstabletypeset[%
+UCTable
+]{%
+	value & description \\
+	Name & Data source architectural pattern \\
+	Decision & \req{dec}\\
+	Problem/Issue & The system components need to be abstract and individually replaceable without having to alter the entire system\\
+	Decision & 	\compactCell{The data mapper \cite{Fowler:2002:PEA:579257} is used to completely separate and ignore the database in the domain model. This provides a more flexible architecture that allows modifications of either the database or the domain model independently without having to alter the other layer.}.\\
+	Alternatives & Table data gateway, row gateway, active record \\
+	Arguments & 	\compactCell{%
+		\textbf{Table data gateway} The table data gateway is a pattern that, for each domain class, provides a gateway class. This gateway class provides methods to that do all the database interaction. This way all the SQL statements will be stored in the gateway class and thus is separated from the domain layer.%
+		\\
+		\textbf{Row gateway} Same idea as the table data gateway, but now for individual rows, instead of a table.
+		\\%
+		\textbf{Active record} This is the most basic approach. In this pattern, the domain object also contains the logic of storing that object to the database.
+	}\\
+}
 
 \pgfplotstabletypeset[%
 UCTable
@@ -59,9 +76,9 @@ UCTable
 \begin{table}[h]
 \begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
     \textbf{Name} 			& \textbf{CentOS - Linux Distribution} \\ \toprule
-    \textbf{Decision} 		& \textbf{DEC-}\textbf{\nextNrRef{dn}} \\ \midrule \midrule
+    \textbf{Decision} 		& \req{dec} \\ \midrule \midrule
     \textbf{Status} 		& \textbf{Approved} \\ \midrule
-    \textbf{Problem/Issue} 	& The reliable linux distribution is needed to run the \ProjectName{} \\ \midrule
+    \textbf{Problem/Issue} 	& The reliable Linux distribution is needed to run the \ProjectName{} \\ \midrule
     \textbf{Decision} 		&  The warning system will use CentOS Linux as a platform. CentOS is widely used as server and has many supports.\\ \midrule
     \textbf{Alternatives} 	& \textit{Ubuntu}\\
     						& A Debian based Linux distribution that has high installation counts. This distribution is famous for desktop computers.\\
@@ -81,4 +98,29 @@ UCTable
 \end{tabular}
 \caption{Decision -- Linux Distribution}
 \label{table:linux}
+\end{table}
+
+\begin{table}[h]
+\begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
+    \textbf{Name} 			& \textbf{Push / Pull for sensor data} \\ \toprule
+    \textbf{Decision} 		& \req{dec} \\ \midrule \midrule
+    \textbf{Status} 		& \textbf{Approved} \\ \midrule
+    \textbf{Problem/Issue} 	& The sensor data has to be sent to the central server \\ \midrule
+    \textbf{Decision} 		& The sensor will push the sensor data to the central server. \\ \midrule
+    \textbf{Alternatives} 	& \textit{Push}\\
+    						& The sensors send their data using push-technology. \\
+    						& \textit{Pull}\\
+    						& The server pulls the data from the sensor. \\
+    						\midrule
+    \textbf{Arguments} 		& \compactCell{
+    						 \textbf{Pull} \\
+    						 If the server pulls the data from the sensor an extra request has to be sent to all the sensors, which adds extra overhead.
+    						 Additionally, the sensor will continuously have to be listening for the servers request. \\
+    						 \textbf{Push} \\
+    						 If the sensors push the data to the server, there is no need for the server to send the extra request, nor do the sensors have to be listening for server request.
+    						 }
+    \\ \bottomrule
+\end{tabular}
+\caption{Decision -- Push / Pull for sensor data}
+\label{table:pushpull}
 \end{table}

@@ -9,7 +9,7 @@ The implementation view, also known as the development view, describes the syste
 The system consists of a set of components tat all interact with each other. In figure~\ref{fig:component} below, these different components are shown. Each component can provide interfaces and uses sockets to connect to interfaces of other components. This way, the implementation of each component can independently be replaced and deployed. 
 
 \clearpage
-\begin{figure}[hb!]
+\begin{figure}[h]
 %\centering
 \includegraphics[keepaspectratio=true,height=13cm,width=0.9\textwidth]{{\viewimages/component}.jpg}
 \caption{Component diagram}
@@ -36,28 +36,12 @@ In this diagram, «use» depicts the use of an interface exposed by a software p
 
 The diagram contains software packages of the system itself, as well as software packages provided by third parties. The software packages provided by third parties are drawn outside of the `Smart Flood Monitoring System'-box.
 
-\begin{figure}[hb!]
+The `Third Party API' is the software package which exposes a REST-API, which can be used by third parties to query data from the system.
+The `External Data' is the software package which uses APIs from other systems to query data, like weather and geographic data.
+
+\begin{figure}[h]
 %\centering
 \includegraphics[keepaspectratio=true,width=1.0\textwidth]{{\viewimages/packages}.png}
 \caption{Package diagram}
 \label{fig:package-diagram}
 \end{figure}
-
-\subsubsection{Decisions}
-\pgfplotstabletypeset[%
-UCTable
-]{%
-	value & description \\
-	Name & Data source architectural pattern \\
-	Decision & \req{dec}\\
-	Problem/Issue & The system components need to be abstract and individually replaceable without having to alter the entire system\\
-	Decision & 	\compactCell{The data mapper \cite{Fowler:2002:PEA:579257} is used to completely separate and ignore the database in the domain model. This provides a more flexible architecture that allows modifications of either the database or the domain model independently without having to alter the other layer.}.\\
-	Alternatives & Table data gateway, row gateway, active record \\
-	Arguments & 	\compactCell{%
-		\textbf{Table data gateway} The table data gateway is a pattern that, for each domain class, provides a gateway class. This gateway class proviedes methods to that do all the database interaction. This way all the SQL statements will be stored in the gateway class and thus is seperated from the domain layer.%
-		\\
-		\textbf{Row gateway} Same idea as the table data gateway, but now for individial rows, instead of a table.
-		\\%
-		\textbf{Active record} This is the most basic approach. In this pattern, the domain object also contains the logic of storing that object to the database.
-	}\\
-}
