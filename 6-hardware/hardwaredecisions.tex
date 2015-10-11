@@ -58,6 +58,27 @@ This section defines decisions made regarding the hardware selection. Tables wil
 \label{table:linux}
 \end{table}
 
+\begin{table}[h!]
+\begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
+    \textbf{Name}           & \textbf{Data Gathering from Sensors (using Arduino)} \\ \toprule
+    \textbf{Decision}       & \textbf{HW-\textbf{\nextNrRef{hw}}}\\ \midrule
+    \textbf{Status}         & \textbf{New} \\ \midrule
+    \textbf{Problem/Issue}  & There must be single board computer that handles connection from sensors to Data Collecting System. \\ \midrule
+    \textbf{Decision}       & Arduino Uno Ethernet will bridge between sensors and Data Collecting System.\\ \midrule
+    \textbf{Alternatives}   & \textit{Arduino Uno}\\
+                            & A low cost but powerful single board computer that can be programmed as needed. Arduino Uno has high extendability because it can be equipped with Arduino shield that will expand its capabilities. The minus point of this type is it does not have built in Ethernet jack. \\
+                            & \textit{Arduino Uno Ethernet}\\
+                            & This is basically the same as Arduino Uno. However, it has built in Ethernet jack.\\
+                            & \textit{Arduino Mega}\\
+                            & This type of Arduino has more flash storage and SRAM. However, the physical size of this device is also significantly bigger.\\
+                            \midrule
+    \textbf{Arguments}      & The most suitable Arduino for the SMF is the Arduino Uni Ehternet because it has built-in Ethernet jack. Thus, the remaining expansion port will remain free for future evolution purpose. This way, the energy consumption of Arduino will also be low because it does not have any extension shield. We assume that Arduino will be powered by power landline connection of telecom provider.
+    \\ \bottomrule
+\end{tabular}
+\caption{Decision -- Arduino selection}
+\label{table:linux}
+\end{table}
+
 \includegraphics[scale=0.5]{6-hardware/images/uavflood.jpg}
 \begin{table}[h!]
 \begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
