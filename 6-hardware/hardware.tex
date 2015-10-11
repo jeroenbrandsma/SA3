@@ -90,6 +90,35 @@ This section defines decisions made regarding the hardware selection. Tables wil
 \label{table:linux}
 \end{table}
 
+\includegraphics[scale=0.5]{6-hardware/images/uavflood.jpg}
+\begin{table}[h!]
+\begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
+
+    \textbf{Name}           & \textbf{UAVs} \\ \toprule
+    \textbf{Decision}       & \textbf{DEC-2}\\ \midrule
+    \textbf{Status}         & \textbf{Approved} \\ \midrule
+    \textbf{Problem/Issue}  & The system uses UAV's in order to get more data during a flood and to create a map of the flooded area. \\ \midrule
+    \textbf{Alternatives}   & \textit{Skyjib 8 Titanium}\\
+                            &  Flight mode : GPS, computer based, Time of flight :  12-25 min  , Speed : 12m/s.\\
+                            & \textit {DJI Phantom 3}\\
+                            & Flight mode : GPS, comupter based, Time of flight : 15 minutes , Speed : 10 m/s .\\
+                            & \textit {Skyjib Super 6 Ti-QR}\\
+                            & Flight mode : GPS, comupter based, Time of flight : 10 minutes , Speed : 10 m/s . Can only support GroPro.\\ 
+                            \midrule
+    \textbf{Arguments}     & Getting high quality data quickly : photograph and 306 deg videos . Produce accurate and high resolution surveys .\\
+                           & Cost effective. \\ 
+                           & View to hard-to-reach and dangerous(where the man cannot go) areas which ensures safety because it does not require personnel to enter potentially hazardous environments. \\                          
+                           & Establishment of Elevation Models to assess water flow direction and accumulation,. \\ 
+                           
+                               
+
+    \\ \bottomrule
+\end{tabular}
+\caption{Decision -- UAVs}
+\label{table:linux}
+\end{table}
+
+
 \begin{table}[h!]
 \begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
     \textbf{Name}           & \textbf{Analytic cluster selection} \\ \toprule
@@ -212,6 +241,24 @@ The water level sensors are placed next to the dikes and in the water ways. The 
 
 The water level sensors are accommodated with a connectivity chip, which allows it to use the mobile broadband to connect to the central server.
 % TODO: decide on exact water level sensor
+
+\subsection{UAV's }
+Goals : Flood monitoring and flood damage assessment
+UAVs provide a way for us to assess more accurately the impacts of climate change and flooding,
+The system will use UAV's in order to get more accurate data , and high resolution photographs and videos in order to map the flooded area.
+ 
+High resolution elevation models for accurate predictions of flood extent thresholds and flow accumulation analysis. Elevation models can also be used to accurately measure changes to the physical land, such as landslides.
+
+GPS, which allows te system to input coordinates in advance to map out the perfect flight plan.
+% Operator , commander to pilot 
+The UAV's won't fly everytime , they will be released during the risky periods of flood.
+
+%The UAV will be equiped with camera ....
+
+% Server specs
+% - Server
+% - Networking device
+% - UPS
 
 \clearpage
 \subsection{Database Cluster and Data Collection}
