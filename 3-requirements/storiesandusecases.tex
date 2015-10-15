@@ -114,8 +114,9 @@ UCTable
 	Main success scenario & \compactList{enumerate}{
 			\item Citizen sends a text message to our SMS service
 			\item The SMS service receives the text message
-			\item The SMS service stores the phone number in the database
-			\item A text message is sent back to the citizen with confirmation
+			\item The SMS service sends the phone number to the SFM system
+			\item The SFM system stores the phone number in the database
+			\item A text message is sent back to the citizen with confirmation by the SMS service
 	}\\
 	Postcondition & Citizen is subscribed to the SMS service \\
 	Alternatives & \compactList{itemize}{%
