@@ -21,10 +21,11 @@ This section defines decisions made regarding the hardware selection. Tables wil
     \textbf{Arguments}      & \\
                             &   \begin{tabular}{l|lllllll|l}
                             &       \rot{Reliability} & \rot{Resilience} & \rot{Interoperability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline
-                            %                  rel res int cost
-                                    GeoBeads   & 5 & 4 & 3 & 2 & 14\\ 
-                                    Piezometer & 4 & 2 & 2 & 3 & 11\\
-                                    Volt meters& 1 & 5 & 2 & 5 & 13\\
+                            %                    rel res per int cost
+                                    Weights     & 3 & 2 & 3 & 2 & 2 & \\ \hline
+                                    GeoBeads    & 5 & 4 & 4 & 3 & 2 & 45 \\ 
+                                    Piezometer  & 4 & 2 & 3 & 2 & 3 & 35 \\
+                                    Volt meters & 1 & 5 & 3 & 2 & 5 & 36 \\
                                 \end{tabular} \\
     \\ \bottomrule
 \end{tabular}
@@ -52,6 +53,15 @@ This section defines decisions made regarding the hardware selection. Tables wil
                             & Research has been done by van der Gees and Kok \cite{van2009draadloos} to determine if it is feasible to use the ISM radio band to communicate from within the dike. They concluded that, while it is possible to communicate through the dike using this band, the distance is limited and the rate of error is relatively high.
                             \\
                             & While a wire is not ideal in the sense that it will have to connect all the sensors, it seems to be the best option for the sensor in the dikes. It has the additional benefit that it can also supply the sensors with electricity.
+                            
+                            \begin{tabular}{l|lllllll|l}
+                            &       \rot{Reliability} & \rot{Resilience} & \rot{Performance} & \rot{Interoperability} & \rot{Security} & \rot{Scalability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline
+                            %                       rel res per int sec sca cost
+                                    Weights        & 3 & 2 & 3 & 2 & 2 & 2 & 2 \\ \hline
+                                    Wired          & 5 & 4 & 3 & 3 & 2 & 2 & 2 & 50 \\ 
+                                    ZigBee         & 4 & 2 & 2 & 2 & 2 & 4 & 3 & 42 \\
+                                    ISM Radio band & 1 & 5 & 2 & 2 & 2 & 3 & 5 & 43 \\
+                                \end{tabular} \\
     \\ \bottomrule
 \end{tabular}
 \caption{Decision -- Connectivity of the dike sensor}
@@ -72,7 +82,17 @@ This section defines decisions made regarding the hardware selection. Tables wil
                             & \textit{Arduino Mega}\\
                             & This type of Arduino has more flash storage and SRAM. However, the physical size of this device is also significantly bigger.\\
                             \midrule
-    \textbf{Arguments}      & The most suitable Arduino for the SMF is the Arduino Uni Ehternet because it has built-in Ethernet jack. Thus, the remaining expansion port will remain free for future evolution purpose. This way, the energy consumption of Arduino will also be low because it does not have any extension shield. We assume that Arduino will be powered by power landline connection of telecom provider.
+    \textbf{Arguments}      & The most suitable Arduino for the SMF is the Arduino Uno Ehternet because it has built-in Ethernet jack. Thus, the remaining expansion port will remain free for future evolution purpose. This way, the energy consumption of Arduino will also be low because it does not have any extension shield. We assume that Arduino will be powered by power landline connection of telecom provider.
+
+\begin{tabular}{l|lllllll|l}
+                            &       \rot{Reliability} & \rot{Resilience} & \rot{Performance} & \rot{Interoperability} & \rot{Security} & \rot{Scalability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline
+                            %                             rel res per int sec sca cost
+                                    Weights              & 3 & 2 & 3 & 2 & 2 & 2 & 2 \\ \hline
+                                    Arduino Uno          & 4 & 3 & 3 & 3 & 2 & 3 & 5 & 53 \\ 
+                                    Arduino Uno Ethernet & 4 & 3 & 3 & 5 & 2 & 3 & 4 & 55 \\
+                                    Arduino Mega         & 4 & 3 & 3 & 3 & 2 & 3 & 3 & 49 \\
+                                \end{tabular} \\                 
+
     \\ \bottomrule
 \end{tabular}
 \caption{Decision -- Arduino selection}
@@ -128,10 +148,11 @@ This section defines decisions made regarding the hardware selection. Tables wil
     \textbf{Arguments}      & \\
                             &   \begin{tabular}{l|llllll|l}
                             &       \rot{Reliability} & \rot{Performance}& \rot{Interoperability} & \rot{Security} & \rot{Scalability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline
-                            %                                       rel perf int sec sca cost
-                                    Dell PowerEdge R530             & 5 & 5 & 4 & 4 & 4 & 5 & 27 \\ 
-                                    Lenovo System x3550 M4 7914     & 4 & 4 & 4 & 3 & 4 & 4 & 23 \\
-                                    HP ProLiant DL360 Gen9 Base     & 5 & 5 & 4 & 3 & 4 & 3 & 24 \\
+                            %                                        rel res per int sec sca cost
+                                    Weights                         3 & 2 & 3 & 2 & 2 & 2 & 2 \\ \hline
+                                    Dell PowerEdge R530             5 & 3 & 5 & 4 & 4 & 4 & 5 & 70 \\ 
+                                    Lenovo System x3550 M4 7914     4 & 3 & 4 & 4 & 3 & 4 & 4 & 60 \\
+                                    HP ProLiant DL360 Gen9 Base     5 & 3 & 5 & 4 & 3 & 4 & 3 & 64 \\
                                 \end{tabular} \\
     \\ \bottomrule
 \end{tabular}
@@ -159,10 +180,11 @@ This section defines decisions made regarding the hardware selection. Tables wil
     \textbf{Arguments}      & \\
                             &   \begin{tabular}{l|llllll|l}
                             &       \rot{Reliability} & \rot{Performance}& \rot{Interoperability} & \rot{Security} & \rot{Scalability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline
-                            %                                       rel perf int sec sca cost
-                            Synology RackStation RS814RP    & 5 & 4 & 4 & 4 & 4 & 4 & 25 \\ 
-                            70BJ NAS-server                 & 4 & 3 & 4 & 4 & 4 & 3 & 22 \\
-                            Thecus N8810U-G NAS-server      & 4 & 3 & 4 & 4 & 4 & 3 & 22 \\
+                            %                                rel res per int sec sca cost
+                            Weights                         3 & 2 & 3 & 2 & 2 & 2 & 2 \\ \hline
+                            Synology RackStation RS814RP    5 & 2 & 4 & 4 & 4 & 4 & 4 & 63 \\ 
+                            70BJ NAS-server                 4 & 2 & 3 & 4 & 4 & 4 & 3 & 55 \\
+                            Thecus N8810U-G NAS-server      4 & 2 & 3 & 4 & 4 & 4 & 3 & 55 \\
                                 \end{tabular} \\
     \\ \bottomrule
 \end{tabular}
@@ -190,10 +212,11 @@ This section defines decisions made regarding the hardware selection. Tables wil
     \textbf{Arguments}      & \\
                             &   \begin{tabular}{l|llllll|l}
                             &       \rot{Reliability} & \rot{Performance}& \rot{Interoperability} & \rot{Security} & \rot{Scalability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline
-                            %                                   rel perf int sec sca cost
-                            Cisco Catalyst 2960S-24TS-L Switch  & 5 & 5 & 4 & 5 & 3 & 4 & 26 \\ 
-                            Linksys LGS552P Switch              & 4 & 4 & 4 & 3 & 4 & 5 & 24 \\
-                            HP 1820-48G Switch                  & 3 & 4 & 4 & 3 & 4 & 5 & 23 \\
+                            %                                    rel res per int sec sca cost
+                            Weights                             3 & 2 & 3 & 2 & 2 & 2 & 2 \\ \hline
+                            Cisco Catalyst 2960S-24TS-L Switch  5 & 2 & 5 & 4 & 5 & 3 & 4 & 66 \\ 
+                            Linksys LGS552P Switch              4 & 2 & 4 & 4 & 3 & 4 & 5 & 60 \\
+                            HP 1820-48G Switch                  3 & 2 & 4 & 4 & 3 & 4 & 5 & 57 \\
                                 \end{tabular} \\
     \\ \bottomrule
 \end{tabular}
