@@ -1,6 +1,6 @@
 %!TEX root = ../report.tex
 \clearpage
-\section{Software design decision}
+\section{Software design decisions}
 This section highlights some of the software design decisions that have been made, especially those that are not covered in the previous views.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -20,9 +20,9 @@ This section highlights some of the software design decisions that have been mad
 	%How to process the uav data. Maybe: Pix4D software automatically processes terrestrial and aerial imagery acquired by light-weight drones or aircraft using its innovative technology based purely on image 	content. This desktop software converts your images into highly precise, timely and customizable results for a wide range of GIS and CAD applications.
 	%\url{https://pix4d.com/}
 	
-%TODO (should push/pull be a decision?)
 %TODO (HMAC should be a decision, could also use other hashes and verification)	
-\subsubsection{Decisions}
+
+\begin{table}[h]
 \pgfplotstabletypeset[%
 UCTable
 ]{%
@@ -40,7 +40,11 @@ UCTable
 		\textbf{Active record} This is the most basic approach. In this pattern, the domain object also contains the logic of storing that object to the database.
 	}\\
 }
+\caption{Decision -- Data source architectural pattern}
+\label{table:architectural-pattern}
+\end{table}
 
+\begin{table}[h]
 \pgfplotstabletypeset[%
 UCTable
 ]{%
@@ -75,6 +79,9 @@ UCTable
 	%However, the performance of elasticsearch is allot better \cite{mongovselastic}.
 	}\\
 }
+\caption{Decision -- Database}
+\label{table:database}
+\end{table}
 
 \begin{table}[h]
 \begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
@@ -126,4 +133,32 @@ UCTable
 \end{tabular}
 \caption{Decision -- Push / Pull for sensor data}
 \label{table:pushpull}
+\end{table}
+
+\begin{table}[h]
+\begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
+    \textbf{Name} 			& \textbf{Securing sensor data communication} \\ \toprule
+    \textbf{Decision} 		& \req{dec} \\ \midrule \midrule
+    \textbf{Status} 		& \textbf{New} \\ \midrule
+    \textbf{Problem/Issue} 	& The communication pathway between the sensors and the central server has to be secured to prevent unauthorized modification of the sensor data.\\ \midrule
+    \textbf{Decision} 		& The sensor will use a unique token per sensor, to compute a hash which is send with the sensor data, allowing the central server to confirm the authenticity of the sent data.\\ \midrule
+    \textbf{Alternatives} 	& \textit{Using unique token}\\
+    						& A hash-function is used, taking as input the sensor data and a unique token, producing an output hash, which can be used to verify the data is from the sensor.  \\
+    						& \textit{Using per-sensor token}\\
+    						& Instead of a single token, all the sensors will have their own unique token. This allows revoking the token of an individual sensor. \\
+							& \textit{Using VPN}\\
+    						& A VPN (Virtual Private Network) allows all the sensors and the central server to be in the same virtual network. Access to the VPN requires authentication.\\
+    						\midrule
+    \textbf{Arguments} 		& \compactCell{
+    						 \textbf{Using unique token} \\
+    							The downside of using a unique token is that, when compromised, it requires updating the token on all the sensors. \\
+    						 \textbf{Using per-sensor token} \\
+    						    This requires the central server to have a list of all the tokens. It however, allows the server to revoke one of the tokens if a sensor gets compromised. \\
+    						 \textbf{Using VPN} \\
+    						    A VPN allows communicating over the secure private network. However, the Arduinos which are responsible for sending the sensor data will most likely have problems using a VPN because of their limited CPU and memory.
+    						 }
+    \\ \bottomrule
+\end{tabular}
+\caption{Decision -- Securing sensor data communication}
+\label{table:sensorcommunication}
 \end{table}
