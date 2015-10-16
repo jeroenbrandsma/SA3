@@ -6,10 +6,10 @@ The system context is a fundamental artifact in the software architecture of a s
 The system context diagram is outlined in \autoref{fig:system-context-diagram}. This diagram represents the different users and external parties that are involved in the SFM. In this diagram, the system is represented as a black box. In section 5.3 a more detailed view of the system is given. 
 
 \begin{figure}[H]
-\centering
-\includegraphics[keepaspectratio=true,width=0.7\textwidth]{images/system_context.png}
-\caption{System context diagram}
-\label{fig:system-context-diagram}
+	\centering
+	\includegraphics[keepaspectratio=true,width=0.7\textwidth]{images/system_context.png}
+	\caption{System context diagram}
+	\label{fig:system-context-diagram}
 \end{figure}
 
 \subsection{Users and Roles}
@@ -33,28 +33,28 @@ The system context diagram is outlined in \autoref{fig:system-context-diagram}. 
 \subsection{Channels and Information Flows}
 \begin{table}[!htbp]
 	\centering
-    \begin{tabular}{L{\tw{0.2}} L{\tw{0.4}}}
-    \toprule
-    \multicolumn{2}{c}{$SFM\: \Leftrightarrow \: Weather \: forecast \: API$} \\ \midrule
-    \textbf{Description} & The system gets rain, temperature, tides, airpressure and wind data. \\
-    \textbf{Connection} & Wired, internet \\
-    \textbf{Protocol} & TCP/IP \\
-    \textbf{Transaction occurence} & Real time \\
-    \bottomrule
-    \end{tabular}
+	\begin{tabular}{L{\tw{0.2}} L{\tw{0.4}}}
+		\toprule
+		\multicolumn{2}{c}{$SFM\: \Leftrightarrow \: Weather \: forecast \: API$} \\ \midrule
+		\textbf{Description}           & The system gets rain, temperature, tides, airpressure and wind data. \\
+		\textbf{Connection}            & Wired, internet                                                      \\
+		\textbf{Protocol}              & TCP/IP                                                               \\
+		\textbf{Transaction occurence} & Real time                                                            \\
+		\bottomrule
+	\end{tabular}
 \end{table}
 
 \begin{table}[!htbp]
 	\centering
-    \begin{tabular}{L{\tw{0.2}} L{\tw{0.4}}}
-    \toprule
-    \multicolumn{2}{c}{$SFM \: \Leftrightarrow \: Geographic \: and \: demographic \: API$} \\ \midrule
-    \textbf{Description} & The system gets ground height data, waterway data and the amount of people who live in the affected area.\\
-    \textbf{Connection} & Wired, internet \\
-    \textbf{Protocol} & TCP/IP \\
-    \textbf{Transaction occurence} & Real time \\
-    \bottomrule
-    \end{tabular}
+	\begin{tabular}{L{\tw{0.2}} L{\tw{0.4}}}
+		\toprule
+		\multicolumn{2}{c}{$SFM \: \Leftrightarrow \: Geographic \: and \: demographic \: API$} \\ \midrule
+		\textbf{Description}           & The system gets ground height data, waterway data and the amount of people who live in the affected area. \\
+		\textbf{Connection}            & Wired, internet                                                                                           \\
+		\textbf{Protocol}              & TCP/IP                                                                                                    \\
+		\textbf{Transaction occurence} & Real time                                                                                                 \\
+		\bottomrule
+	\end{tabular}
 \end{table}
 
 % \begin{table}[!htbp]
@@ -72,41 +72,41 @@ The system context diagram is outlined in \autoref{fig:system-context-diagram}. 
 
 \begin{table}[!htbp]
 	\centering
-    \begin{tabular}{L{\tw{0.2}} L{\tw{0.4}}}
-    \toprule
-    \multicolumn{2}{c}{$SFM \: \Leftrightarrow \: SMS \: Service$} \\ \midrule
-    \textbf{Description} & The SMS service receives subscriptions and sends warning messages to the right phone numbers when it gets warned by the system. \\
-    \textbf{Connection} & Wired, internet \\
-    \textbf{Protocol} & TCP/IP \\
-    \textbf{Transaction occurence} & In case of an imminent flood \\
-    \bottomrule
-    \end{tabular}
+	\begin{tabular}{L{\tw{0.2}} L{\tw{0.4}}}
+		\toprule
+		\multicolumn{2}{c}{$SFM \: \Leftrightarrow \: SMS \: Service$} \\ \midrule
+		\textbf{Description}           & The SMS service receives subscriptions and sends warning messages to the right phone numbers when it gets warned by the system. \\
+		\textbf{Connection}            & Wired, internet                                                                                                                 \\
+		\textbf{Protocol}              & TCP/IP                                                                                                                          \\
+		\textbf{Transaction occurence} & In case of an imminent flood                                                                                                    \\
+		\bottomrule
+	\end{tabular}
 \end{table}
 
 \begin{table}[!htbp]
 	\centering
-    \begin{tabular}{L{\tw{0.2}} L{\tw{0.4}}}
-    \toprule
-    \multicolumn{2}{c}{$SFM \: \Leftrightarrow \: Third \: party \: applications$} \\ \midrule
-    \textbf{Description} & The system will provide data to the third party applications through the API.\\
-    \textbf{Connection} & Wired, internet \\
-    \textbf{Protocol} & TCP/IP \\
-    \textbf{Transaction occurence} & Real time \\
-    \bottomrule
-    \end{tabular}
+	\begin{tabular}{L{\tw{0.2}} L{\tw{0.4}}}
+		\toprule
+		\multicolumn{2}{c}{$SFM \: \Leftrightarrow \: Third \: party \: applications$} \\ \midrule
+		\textbf{Description}           & The system will provide data to the third party applications through the API. \\
+		\textbf{Connection}            & Wired, internet                                                               \\
+		\textbf{Protocol}              & TCP/IP                                                                        \\
+		\textbf{Transaction occurence} & Real time                                                                     \\
+		\bottomrule
+	\end{tabular}
 \end{table}
 
 \begin{table}[!htbp]
 	\centering
-    \begin{tabular}{L{\tw{0.2}} L{\tw{0.4}}}
-    \toprule
-    \multicolumn{2}{c}{$SFM \: \Leftrightarrow \: Emergency \: room \: API$} \\ \midrule
-    \textbf{Description} & The system warns the the safety region through the emergency room API. \\
-    \textbf{Connection} & Wired, internet \\
-    \textbf{Protocol} & TCP/IP \\
-    \textbf{Transaction occurence} & In case of an imminent flood \\
-    \bottomrule
-    \end{tabular}
+	\begin{tabular}{L{\tw{0.2}} L{\tw{0.4}}}
+		\toprule
+		\multicolumn{2}{c}{$SFM \: \Leftrightarrow \: Emergency \: room \: API$} \\ \midrule
+		\textbf{Description}           & The system warns the the safety region through the emergency room API. \\
+		\textbf{Connection}            & Wired, internet                                                        \\
+		\textbf{Protocol}              & TCP/IP                                                                 \\
+		\textbf{Transaction occurence} & In case of an imminent flood                                           \\
+		\bottomrule
+	\end{tabular}
 \end{table}
 
 

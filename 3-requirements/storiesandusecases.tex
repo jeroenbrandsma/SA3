@@ -14,11 +14,11 @@
 \section{Stories and use-cases}
 This section will give an overview of the different use-cases. Figure \ref{fig:usecase-diagram} displays the use-case diagram. This provides an overview of the use-cases with their actors. In the subsections below, the architectural important use-cases are explained in more detail.
 
-\begin{figure}[h]
-\centering
-\includegraphics[scale=0.35]{images/usecaseDiagramNew.png}
-\caption{Use-case diagram}
-\label{fig:usecase-diagram}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.35]{images/usecaseDiagramNew.png}
+	\caption{Use-case diagram}
+	\label{fig:usecase-diagram}
 \end{figure}
 
 
@@ -34,187 +34,187 @@ This section will give an overview of the different use-cases. Figure \ref{fig:u
 
 \subsection{Receive sensor data}
 \pgfplotstabletypeset[%
-UCTable
+	UCTable
 ]{%
 	value & description \\
 	Number & \req{uc}\\
 	Description & The system receives data from the different sensors deployed \\
 	Stakeholders and interests & 
-			 \textbf{Developers}: Developers need to work with the sensor data \\
+	\textbf{Developers}: Developers need to work with the sensor data \\
 	Primary actor & System\\
 	Scope & Monitoring part of the system \\
 	Level & Sub process\\
 	Precondition & The sensor is connected to a processing unit \\
 	Main success scenario & \compactList{enumerate}{%
-			\item The sensor does a measurement every 10 seconds
-			\item The sensor sends the data to the central server every minute
-			\item The central server normalizes the received data
-			\item The central server stores the normalized data to the database
-			\item The database stores the data
-	}\\
+		\item The sensor does a measurement every 10 seconds
+		\item The sensor sends the data to the central server every minute
+		\item The central server normalizes the received data
+		\item The central server stores the normalized data to the database
+		\item The database stores the data
+		}\\
 	Postcondition & The database received and stored the sensor data \\
 	Alternatives & \compactList{itemize}{%
-			\item[2a.] 
-			  \begin{enumerate}
-				\item The data cannot be sent
-				\item Data will be lost
-				\item The use-case ends 
-			  \end{enumerate}
-	} \\
+		\item[2a.] 
+		\begin{enumerate}
+			\item The data cannot be sent
+			\item Data will be lost
+			\item The use-case ends 
+		\end{enumerate}
+		} \\
 	Related requirements & \ref{fr:receive-waterlevel}, \ref{fr:receive-pressure}, \ref{fr:store-sensordata}, \ref{fr:retrieve-sensordata}\\
 }
 
 \clearpage
 \subsection{Receive weather/GEO data}
 \pgfplotstabletypeset[%
-UCTable
+	UCTable
 ]{%
 	value & description \\
 	Number & \req{uc}\\
 	Description & The system receives data from the weather forecast service \\
 	Stakeholders and interests & 
-			\textbf{Developers}: Developers would like to have a simple to use API \\
+	\textbf{Developers}: Developers would like to have a simple to use API \\
 	Primary actor & System\\
 	Scope & Monitoring part of the system \\
 	Level & Sub process\\
 	Precondition & The system needs external weather data to predict floods \\
 	Main success scenario & \compactList{enumerate}{%
-			\item The processing unit determines it needs forecast weather data%
-			\item A call is made to the weather forecast service%
-			\item The weather forecast service returns the requested data
-	}\\
+		\item The processing unit determines it needs forecast weather data%
+		\item A call is made to the weather forecast service%
+		\item The weather forecast service returns the requested data
+		}\\
 	Postcondition & The system received the forecast data \\
 	Alternatives & \compactList{itemize}{%
-			\item[3a.] 
-			  \begin{enumerate}
-			  	\item The data cannot be returned.
-				\item Repeat this process with another weather forecast service.
-				\item If none are available, proceed monitoring without weather forecast data.
-				\item After 5 minutes try to reconnect.
-			  \end{enumerate}
-	}\\
+		\item[3a.] 
+		\begin{enumerate}
+			\item The data cannot be returned.
+			\item Repeat this process with another weather forecast service.
+			\item If none are available, proceed monitoring without weather forecast data.
+			\item After 5 minutes try to reconnect.
+		\end{enumerate}
+		}\\
 	Related requirements & \ref{fr:receive-weather}\\
 }
 
 \clearpage
 \subsection{Subscribing to SMS Service}
 \pgfplotstabletypeset[%
-UCTable
+	UCTable
 ]{%
 	value & description \\
 	Number & \req{uc}\\
 	Description & Citizens can subscribe to the SMS service, so when a flood happens they will get a direct text message\\	
 	Stakeholders and interests & 
-		\textbf{Citizens}: Citizens want to be warned as soon as possible.
+	\textbf{Citizens}: Citizens want to be warned as soon as possible.
 	\\
 	Primary actor & Citizen\\
 	Scope & Warning part of the system \\
 	Level & User goal \\
 	Precondition & Citizen has a mobile phone and is not subscribed to the SMS service \\
 	Main success scenario & \compactList{enumerate}{
-			\item Citizen sends a text message to our SMS service
-			\item The SMS service receives the text message
-			\item The SMS service sends the phone number to the SFM system
-			\item The SFM system stores the phone number in the database
-			\item A text message is sent back to the citizen with confirmation by the SMS service
-	}\\
+		\item Citizen sends a text message to our SMS service
+		\item The SMS service receives the text message
+		\item The SMS service sends the phone number to the SFM system
+		\item The SFM system stores the phone number in the database
+		\item A text message is sent back to the citizen with confirmation by the SMS service
+		}\\
 	Postcondition & Citizen is subscribed to the SMS service \\
 	Alternatives & \compactList{itemize}{%
-			\item[2a.] The text message is not received \\
-				The use-case ends
-	}\\
+		\item[2a.] The text message is not received \\
+		The use-case ends
+		}\\
 	Related requirements & \ref{fr:citizens-subscribe} \\
 }
 
 \clearpage
 \subsection{Determining flood probability}
 \pgfplotstabletypeset[%
-UCTable
+	UCTable
 ]{%
 	value & description \\
 	Number & \req{uc}\\
 	Description & The central processing unit calculates the probability of a flood \\
 	Stakeholders and interests & \compactList{itemize}{%
-			\item \textbf{Safety region}: The safety region wants to know when a flood warning is triggered
-			\item \textbf{Government}: The government would also like to know when a flood warning is triggered
-	}\\
+		\item \textbf{Safety region}: The safety region wants to know when a flood warning is triggered
+		\item \textbf{Government}: The government would also like to know when a flood warning is triggered
+		}\\
 	Primary actor & System\\
 	Scope & Monitoring and warning part of the system\\
 	Level & Sub process\\
 	Precondition & The sensor data is available \\
 	Main success scenario & \compactList{enumerate}{%
-			\item The central processing unit gets the latest sensor data from the database
-			\item The central processing unit gets the latest weather forecast data
-			\item The central processing unit calculates the probability of a flood
-			\item The central processing unit stores the probability value in the database
-			\item The central processing unit determines that a flood is imminent based on the probability value
-			\item A warning is send to the emergency services (they will warn the government)
-			\item A warning is send to the citizens
-	}\\
+		\item The central processing unit gets the latest sensor data from the database
+		\item The central processing unit gets the latest weather forecast data
+		\item The central processing unit calculates the probability of a flood
+		\item The central processing unit stores the probability value in the database
+		\item The central processing unit determines that a flood is imminent based on the probability value
+		\item A warning is send to the emergency services (they will warn the government)
+		\item A warning is send to the citizens
+		}\\
 	Postcondition & The flood probability is calculated and stored. If the probability exceeds a certain threshold, a warning is sent to the authorities and citizens \\
 	Alternatives & \compactList{itemize}{
-			\item[5a.] The probability is not above the threshold \\
-			The use-case ends
-	}\\
+		\item[5a.] The probability is not above the threshold \\
+		The use-case ends
+		}\\
 	Related requirements & \ref{fr:detect-flood} \\
 }
 
 \clearpage
 \subsection{Warn citizens in case of an imminent flood}
 \pgfplotstabletypeset[%
-UCTable
+	UCTable
 ]{%
 	value & description \\
 	Number & \req{uc}\\
 	Description & Citizens who are subscribed to the SMS service will be warned through text messages in case of an imminent flood\\	
 	Stakeholders and interests & \compactList{itemize}{
-			\item \textbf{Citizens}: When they are subscribed, they want to be warned in case of an imminent flood
-	}\\
+		\item \textbf{Citizens}: When they are subscribed, they want to be warned in case of an imminent flood
+		}\\
 	Primary actor & Citizen\\
 	Scope & Warning part of the system \\
 	Level & User goal \\
 	Precondition & There is an imminent flood and the citizen is subscribed to the SMS service\\
 	Main success scenario & \compactList{enumerate}{%
-			\item The flood monitoring \& detection unit sends a warning about an imminent flood to the warning unit
-			\item The warning unit queries the database for a list of phone numbers of subscribed citizens in the area
-			\item The monitoring unit sends the collected phone numbers to the SMS service
-			\item The SMS service sends a warning to all the collected phone numbers
-	}\\
+		\item The flood monitoring \& detection unit sends a warning about an imminent flood to the warning unit
+		\item The warning unit queries the database for a list of phone numbers of subscribed citizens in the area
+		\item The monitoring unit sends the collected phone numbers to the SMS service
+		\item The SMS service sends a warning to all the collected phone numbers
+		}\\
 	Postcondition & The citizens who are subscribed received a warning\\
 	Alternatives & \compactList{itemize}{%
-			\item[3a.] 
-			  \begin{enumerate}
-			  	\item A message cannot be sent to the citizen
-			  	\item Wait a minute and resend
-			  	\item The use-case ends
-			  \end{enumerate}
-	}\\
+		\item[3a.] 
+		\begin{enumerate}
+			\item A message cannot be sent to the citizen
+			\item Wait a minute and resend
+			\item The use-case ends
+		\end{enumerate}
+		}\\
 	Related requirements & \ref{fr:warn-citizens} \\
 }
 
 \clearpage
 \subsection{Warn safety region in case of an imminent flood}
 \pgfplotstabletypeset[%
-UCTable
+	UCTable
 ]{%
 	value & description \\
 	Number & \req{uc}\\
 	Description & The safety region needs to receive a warning about an imminent flood\\
 	Stakeholders and interests & \compactList{itemize}{%
-			\item \textbf{Government}: The government wants to warn the citizens in case of a flood
-			\item \textbf{Safety regions}: The emergency services want to help the citizens in case of a flood
-	}\\
+		\item \textbf{Government}: The government wants to warn the citizens in case of a flood
+		\item \textbf{Safety regions}: The emergency services want to help the citizens in case of a flood
+		}\\
 	Primary actor & Safety region \\
 	Scope & Warning part of the system \\
 	Level & User goal \\
 	Precondition & There is an imminent flood\\
 	Main success scenario & \compactList{enumerate}{
-			\item The processing unit determines what area will be under water in case of a flood
-			\item The processing unit determines how many people will be affected by the imminent flood
-			\item The processing unit predicts how the flood will develop in the following period 
-			\item The processing unit will create a map based on the current state and predictions
-			\item The processing unit sends the map to the government and emergency services
-	}\\
+		\item The processing unit determines what area will be under water in case of a flood
+		\item The processing unit determines how many people will be affected by the imminent flood
+		\item The processing unit predicts how the flood will develop in the following period 
+		\item The processing unit will create a map based on the current state and predictions
+		\item The processing unit sends the map to the government and emergency services
+		}\\
 	Postcondition & A map with current and predicted data is sent to the government and emergency authorities \\
 	Related requirements & \ref{fr:compute-area}, \ref{fr:analyze-waterlevel}, \ref{fr:estimate-waterlevel}, \ref{fr:compute-nrcivilians}, \ref{fr:warn-safetyregion} \\
 }
@@ -222,25 +222,25 @@ UCTable
 \clearpage
 \subsection{Third party accessing data through the systems API}
 \pgfplotstabletypeset[%
-UCTable
+	UCTable
 ]{%
 	value & description \\
 	Number & \req{uc}\\
 	Description & Third parties can use the API exposed by the flood monitoring system in third party applications (providing guidance to citizens) \\
 	Stakeholders and interests & \compactList{itemize}{%
-			\item \textbf{Third parties}: Third parties want to access the data of the flood monitoring system to use in their applications
-			\item \textbf{Citizens}: Citizens want to receive guidance in case of a flood.
-	}\\
+		\item \textbf{Third parties}: Third parties want to access the data of the flood monitoring system to use in their applications
+		\item \textbf{Citizens}: Citizens want to receive guidance in case of a flood.
+		}\\
 	Primary actor & Third party \\
 	Scope & The API part of the system \\
 	Level & User goal \\
 	Precondition & The third party has access to the flood monitoring systems API \\
 	Main success scenario & \compactList{enumerate}{
-			\item The third party application connects to the API
-			\item The third party application sends a request for certain data to the API
-			\item The system retrieves the requested data from the database
-			\item The system sends the retrieved data to the third party application
-	}\\
+		\item The third party application connects to the API
+		\item The third party application sends a request for certain data to the API
+		\item The system retrieves the requested data from the database
+		\item The system sends the retrieved data to the third party application
+		}\\
 	Postcondition & The third party application has received the requested data \\
 	Related requirements & \ref{fr:expose-api} \\
 }
@@ -248,31 +248,31 @@ UCTable
 \clearpage
 \subsection{Detecting a faulty sensor}
 \pgfplotstabletypeset[%
-UCTable
+	UCTable
 ]{%
 	value & description \\
 	Number & \req{uc}\\
 	Description & The system is able to detect when a sensor is not functioning properly \\
 	Stakeholders and interests & \compactList{itemize}{%
-			\item \textbf{Product owner}: The product owner wants the system to be reliable and errors/broken sensors to be fixed
-	}\\
+		\item \textbf{Product owner}: The product owner wants the system to be reliable and errors/broken sensors to be fixed
+		}\\
 	Primary actor & The system \\
 	Scope & The monitoring part of the system \\
 	Level & Sub process \\
 	Precondition & The sensor is not functioning properly \\
 	Main success scenario & \compactList{enumerate}{
-			\item The system receives the sensor data
-			\item The system compares the sensor data with other information, including data of nearby sensors and previous data of this sensor 
-			\item The system detects that this reading is abnormal, but determines it cannot be caused by an (imminent) flood
-			\item The system ignores further readings from this sensor and reports the faulty sensor in the control panel
-	}\\
+		\item The system receives the sensor data
+		\item The system compares the sensor data with other information, including data of nearby sensors and previous data of this sensor 
+		\item The system detects that this reading is abnormal, but determines it cannot be caused by an (imminent) flood
+		\item The system ignores further readings from this sensor and reports the faulty sensor in the control panel
+		}\\
 	Postcondition & The faulty sensor is not used in future measurements and is reported in the control panel \\
 	Alternatives & \compactList{itemize}{%
-				\item[3a.] 
-				  \begin{enumerate}
-				  	\item The system cannot determine the abnormal reading is not caused by a flood
-				  	\item The system keeps using this sensors data, until it can determine that the readings are not caused by a flood, or it determines that it is caused by a flood (in which case it will issue warnings, see \hyperref[uc:4]{UC-4})
-				  \end{enumerate}
+		\item[3a.] 
+		\begin{enumerate}
+			\item The system cannot determine the abnormal reading is not caused by a flood
+			\item The system keeps using this sensors data, until it can determine that the readings are not caused by a flood, or it determines that it is caused by a flood (in which case it will issue warnings, see \hyperref[uc:4]{UC-4})
+		\end{enumerate}
 		}\\
 	Related requirements & \ref{fr:detect-faultysensor}, \ref{fr:report-faultysensors}, \ref{fr:controlpanel-warnings}, \ref{fr:controlpanel-errors}, \ref{fr:controlpanel-sensors}
 	\\
@@ -281,24 +281,24 @@ UCTable
 \clearpage
 \subsection{Maintenance employee checks system state}
 \pgfplotstabletypeset[%
-UCTable
+	UCTable
 ]{%
 	value & description \\
 	Number & \req{uc}\\
 	Description & A maintainer of the system regularly checks the state of the system in the control panel to see if there are errors or sensors that need maintenance. \\
 	Stakeholders and interests & \compactList{itemize}{%
-			\item \textbf{Product owner}: The product owner wants the system to be reliable and errors/broken sensors to be fixed
-	}\\
+		\item \textbf{Product owner}: The product owner wants the system to be reliable and errors/broken sensors to be fixed
+		}\\
 	Primary actor & Maintainer \\
 	Scope & The maintenance part of the system \\
 	Level & User goal \\
 	Precondition &  \\
 	Main success scenario & \compactList{enumerate}{
-			\item The maintainer uses his login credentials to get access to the control panel
-			\item The maintainer navigates to the errors/warning page
-			\item The maintainer checks on this page if there are problems with the system (errors/warning)
-			\item The maintainer takes necessary action to resolve any issues
-	}\\
+		\item The maintainer uses his login credentials to get access to the control panel
+		\item The maintainer navigates to the errors/warning page
+		\item The maintainer checks on this page if there are problems with the system (errors/warning)
+		\item The maintainer takes necessary action to resolve any issues
+		}\\
 	Postcondition & The maintainer is aware of reported problems with the system \\
 	Related requirements & \ref{fr:controlpanel}, \ref{fr:report-faultysensors}, \ref{fr:controlpanel-warnings}, \ref{fr:controlpanel-errors}, \ref{fr:controlpanel-sensors} \\
 }

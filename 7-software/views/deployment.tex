@@ -9,11 +9,11 @@ Figure \ref{fig:deployment-diagram} shows the deployment diagram of the \gls{SFM
 % \clearpage
 
 \begin{landscape}
-	\begin{figure}[hb!]
-	\centering
-	\includegraphics[keepaspectratio=true,width=1.0\textwidth]{{\viewimages/deployment-view}.png}
-	\caption{Deployment diagram}
-	\label{fig:deployment-diagram}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[keepaspectratio=true,width=1.0\textwidth]{{\viewimages/deployment-view}.png}
+		\caption{Deployment diagram}
+		\label{fig:deployment-diagram}
 	\end{figure}
 \end{landscape}
 
@@ -38,32 +38,32 @@ This component will store the data coming from sensors and \gls{UAV}. The \gls{S
 Figure \ref{fig:deployment-diagram} contains several artifacts that are derived from \autoref{fig:elaborated-model}, \autoref{fig:layers}, \autoref{fig:logical}, \autoref{fig:component}, and \autoref{fig:package-diagram}. Elaboration of the artifacts will also be categorized into two main components: sensing components and main analytics cluster.
 
 \subsubsection*{Sensing Components}
-\begin{table}[h!]
-\begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
-    \textbf{Artifact} 		& \textbf{Description} \\ \toprule
-    Sensor Reader	 		& Sensor reader is responsible for packing the data gathered from sensor to be ready to be sent.\\ \bottomrule
-\end{tabular}
-\caption{Artifact for sensing component}
-\label{table:sensing-artifacts}
+\begin{table}[H]
+	\begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
+		\textbf{Artifact} & \textbf{Description}                                                                           \\ \toprule
+		Sensor Reader     & Sensor reader is responsible for packing the data gathered from sensor to be ready to be sent. \\ \bottomrule
+	\end{tabular}
+	\caption{Artifact for sensing component}
+	\label{table:sensing-artifacts}
 \end{table}
 
 \subsubsection*{Main Analytics Clusters}
-% \begin{longtable}[h!]
+% \begin{longtabletable}[H]
 \begin{longtable}{L{0.2\textwidth} L{0.6\textwidth}}
 	\centering
-    \textbf{Artifact} 			& \textbf{Description} \\ \toprule
-    Sensor Manager				& Sensor manager is responsible for managing input 									coming from multiple sensors (Arduino).\\ \midrule
-    \gls{UAV} Manager 			& \gls{UAV} manager is responsible for handling incoming 							 data from \gls{UAV}s.\\ \midrule
-    Demographic Data Gatherer	& This is responsible for getting data from demographic 							data provider.\\ \midrule
-    Geographic Data Gatherer	& This is responsible for getting data from geographic 								data provider.\\ \midrule
-    Weather Data Gatherer		& This is responsible for getting data from weather data 							 provider.\\ \midrule
-    Abnormality Algorithm		& Abnormality algorithm is responsible for detecting 								faulty sensors.\\ \midrule
-    Flood Prediction Algorithm  & This is the main part of algorithm, which will detect 							imminent flood. \\ \midrule
-    SMS manager 				& SMS manager is responsible for handling outgoing SMS 								to certain users.\\ \midrule
-    Subscription Manager 		& Subscription manager is responsible for managing 									subscription of citizens/users.\\ \midrule
-    Warning Sender				& Warning sender is responsible for sending warnings to 							Safety region.\\ \midrule
-    API Manager 				& This is responsible for managing outgoing API to third 							 party developers.\\ \bottomrule
-    \caption{Artifact for main analytics cluster}
+	\textbf{Artifact}          & \textbf{Description}                                                                              \\ \toprule
+	Sensor Manager             & Sensor manager is responsible for managing input 									coming from multiple sensors (Arduino). \\ \midrule
+	\gls{UAV} Manager          & \gls{UAV} manager is responsible for handling incoming 							 data from \gls{UAV}s.              \\ \midrule
+	Demographic Data Gatherer  & This is responsible for getting data from demographic 							data provider.                       \\ \midrule
+	Geographic Data Gatherer   & This is responsible for getting data from geographic 								data provider.                       \\ \midrule
+	Weather Data Gatherer      & This is responsible for getting data from weather data 							 provider.                          \\ \midrule
+	Abnormality Algorithm      & Abnormality algorithm is responsible for detecting 								faulty sensors.                        \\ \midrule
+	Flood Prediction Algorithm & This is the main part of algorithm, which will detect 							imminent flood.                      \\ \midrule
+	SMS manager                & SMS manager is responsible for handling outgoing SMS 								to certain users.                    \\ \midrule
+	Subscription Manager       & Subscription manager is responsible for managing 									subscription of citizens/users.         \\ \midrule
+	Warning Sender             & Warning sender is responsible for sending warnings to 							Safety region.                       \\ \midrule
+	API Manager                & This is responsible for managing outgoing API to third 							 party developers.                  \\ \bottomrule
+	\caption{Artifact for main analytics cluster}
 	\label{table:main-analytics-artifacts}
 \end{longtable}
 

@@ -35,11 +35,11 @@ The system architecture of the SFM is structured according to the layer pattern.
 \end{description} 
 
 \clearpage
-\begin{figure}[hb!]
-%\centering
-\includegraphics[keepaspectratio=true,width=0.9\textwidth]{{\viewimages/layers}.jpg}
-\caption{Layers of the software}
-\label{fig:layers}
+\begin{figure}[H]
+	%\centering
+	\includegraphics[keepaspectratio=true,width=0.9\textwidth]{{\viewimages/layers}.jpg}
+	\caption{Layers of the software}
+	\label{fig:layers}
 \end{figure}
 
 The figure above gives an abstract view of the layers of the SFM. 
@@ -48,10 +48,10 @@ The data mapper \cite{Fowler:2002:PEA:579257} is used to completely separate and
 
 The layers are specified into more detail in figure \ref{fig:logical}.
 \begin{figure}[H]
-%\centering
-\includegraphics[keepaspectratio=true,width=0.9\textwidth]{{\viewimages/LogicalView_Packaged}.jpg}
-\caption{Logical view}
-\label{fig:logical}
+	%\centering
+	\includegraphics[keepaspectratio=true,width=0.9\textwidth]{{\viewimages/LogicalView_Packaged}.jpg}
+	\caption{Logical view}
+	\label{fig:logical}
 \end{figure}
 
 \subsubsection*{Service layer}
@@ -64,12 +64,12 @@ The main functionality of this layer consists of:
 \end{itemize}
 
 The sensors periodically send their sensor data to the central server. This is illustrated in figure \ref{fig:sensorseq}
- \begin{figure}[H]
- %\centering
- \includegraphics[keepaspectratio=true,width=0.9\textwidth]{{\viewimages/sensorssequence}.jpg}
- \caption{Sequence diagram of the client pushing the sensor data}
- \label{fig:sensorseq}
- \end{figure}
+\begin{figure}[H]
+	%\centering
+	\includegraphics[keepaspectratio=true,width=0.9\textwidth]{{\viewimages/sensorssequence}.jpg}
+	\caption{Sequence diagram of the client pushing the sensor data}
+	\label{fig:sensorseq}
+\end{figure}
 
 \textbf{\textsc{URL}}
 \begin{lstlisting}
@@ -108,12 +108,12 @@ The server does however need to verify that the messages it receives from the ar
  
 The message security is done by using a hash based message authentication code (HMAC) using SHA-256 as the hashing algorithm. Upon receiving the messages, the service layer verifies the message before further processing the message.\\
 The sequence of actions for obtaining information from SFM is shown below in figure \ref{thirdpartyseq}.
- \begin{figure}[H]
- %\centering
- \includegraphics[keepaspectratio=true,width=0.9\textwidth]{{\viewimages/sequencethirdparty}.jpg}
- \caption{Sequence diagram of the client pushing the sensor data}
- \label{fig:thirdpartyseq}
- \end{figure}
+\begin{figure}[H]
+	%\centering
+	\includegraphics[keepaspectratio=true,width=0.9\textwidth]{{\viewimages/sequencethirdparty}.jpg}
+	\caption{Sequence diagram of the client pushing the sensor data}
+	\label{fig:thirdpartyseq}
+\end{figure}
 
 The API calls the service layer receives that request information, don't need to be authenticated. These calls, however, do need to be limited by the service layer to not be able to delete or modify information. The information the API provides is defined in the server layer and the API does not return any information other then that.
 
@@ -121,13 +121,13 @@ The API calls the service layer receives that request information, don't need to
 In figure~\ref{fig:warning} a sequence diagram of sending warnings to the emergency room and citizens can be seen. The sequence diagram contains a time constraint of 10 seconds and 5 minutes, for warning the emergency room and all citizens respectively.
 
 \begin{figure}[H]
-\centering
-\includegraphics[keepaspectratio=true,width=1.0\textwidth]{{\viewimages/sequence_warning}.png}
-\caption{A sequence diagram of sending warnings to citizens and emergency room}
-\label{fig:warning}
+	\centering
+	\includegraphics[keepaspectratio=true,width=1.0\textwidth]{{\viewimages/sequence_warning}.png}
+	\caption{A sequence diagram of sending warnings to citizens and emergency room}
+	\label{fig:warning}
 \end{figure}
 
-	%							Downside: Data will be received that was not requested, even if not interested. 
+%							Downside: Data will be received that was not requested, even if not interested. 
 %Three principal layers (p20 poeaa)
 
 \subsubsection*{Domain layer}
@@ -164,7 +164,7 @@ How strongly correlated two types of data are will be calculated using Longitudi
 \subsubsection*{Data source layer}
 The data source layer uses the data mapper pattern to provide the domain layer with data from the Elasticsearch database. How the database is structured will be discussed in the implementation view section.
 
-% \begin{figure}[h]
+% \begin{figure}[H]
 % %\centering
 % \includegraphics[keepaspectratio=true,width=0.9\textwidth]{{\viewimages/component}.jpg}
 % \caption{Component diagram}
@@ -174,14 +174,14 @@ The data source layer uses the data mapper pattern to provide the domain layer w
 
 
 % \clearpage
-% \begin{figure}[hb!]
+% \begin{figure}[H]
 % %\centering
 % \includegraphics[keepaspectratio=true,width=0.9\textwidth]{{\viewimages/database}.jpg}
 % \caption{Database diagram}
 % \label{fig:component}
 % \end{figure}
 
-% \begin{figure}[hb!]
+% \begin{figure}[H]
 % %\centering
 % \includegraphics[keepaspectratio=true,width=0.9\textwidth]{{\viewimages/sequence1}.jpg}
 % \caption{Sequence diagram of the client pushing the sensor data}

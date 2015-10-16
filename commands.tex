@@ -11,7 +11,7 @@
 \newcommand{\compactCell}[1]{%
 	\adjustbox{valign=t}{%
 		\begin{minipage}{\linewidth}%
-		#1%
+			#1%
 		\end{minipage}%
 	}%
 }
@@ -21,174 +21,173 @@
 	%\begin{minipage}{\linewidth}%
 	\adjustbox{valign=t}{%
 		\begin{minipage}{\linewidth}
-		\begin{#1}[%
-			nosep,
-			nolistsep,
-			topsep=1pt,
-			partopsep=0pt,
-			parsep=0pt,
-			%itemsep=0pt,
-			itemindent=0pt,
-			%labelsep=*,
-			%align=margin,
-			align=left,
-			%leftmargin=\linewidth,
-			leftmargin=*,
-			labelwidth=*,
-			after=\strut,
-			]#2\end{#1}%
-			\end{minipage}%
-	}%\end{adjustbox}
-}%
-\newcommand{\allotOfText}{%
-LaTeX styled as LATEX, and a shortening of Lamport TeX is a word processor and a document markup language. It is distinguished from typical word processors such as Microsoft Word and Apple Pages in that the writer uses plain text as opposed to formatted text, relying on markup tagging conventions to define the general structure of a document (such as article, book, and letter), to stylise text throughout a document (such as bold and italic), and to add citations and cross-referencing. A TeX distribution such as TeXlive or MikTeX is used to produce an output file (such as PDF or DVI) suitable for printing or digital distribution.
-}
-%
-%\newcolumntype{R}[2]{%
-%    >{\adjustbox{angle=#1,lap=\width-(#2)}\bgroup}%
-%    l%
-%    <{\egroup}%
-%}
-%\newcommand*\rotmc{\multicolumn{1}{R{90}{1em}}}% no optional argument here, please!
-%
-
-%\newcolumntype{R}[2]{%
-%    >{\adjustbox{angle=#1,lap=\width-(#2)}\bgroup}%
-%    l%
-%    <{\egroup}%
-%}
-%\newcommand*\rot{\multicolumn{1}{R{90}{1em}}}% no optional argument here, please!
-
-
-%command to decrease the size it takes to write
-%L{0.5\textwidth}. This will now be:
-%L{\tw{0.5}}. A small difference, but it adds up
-\newcommand{\tw}[1]{#1\textwidth}
-
-\newcommand{\ign}[1]{}
-
-\newcommand\crule[3][black]{\textcolor{#1}{\rule{#2}{#3}}}
-
-\makeatletter
-
-%manually lable something
-%like \manuallabel{fr:01}{The first req}
-% \ref{fr:01} will then hold "The first req"
-\newcommand{\manuallabel}[2]{\def\@currentlabel{#2}\label{#1}}
-
-\newcommand{\getNext}[1]{%
-%check if counter with that name excists
-  \@ifundefined{c@#1}
-    {% the counter doesn't exist
-     \newcounter{#1}\setcounter{#1}{1}%
-    }
-    {% the counter exists
-     \stepcounter{#1}%
-    }%
-}
-
-\newcommand{\getNr}[1]{%
-	\getNext{#1}
-	\arabic{#1}
-}
-
-\newcommand{\nextNrRef}[1]{%
-\getNext{#1}\manuallabel{#1:\arabic{#1}}{\arabic{#1}}\arabic{#1}
-}
-
-\newcommand{\nextNrRefl}[2]{%
-	\nextNrRef{#1}
-	\manuallabel{#1:#2}{\arabic{#1}}
-}
-
-\newcommand{\req}[1]{%
-	\uppercase{#1}-\nextNrRef{#1}
-}
-
-\newcommand{\reql}[2]{%
-	\req{#1}
-	\manuallabel{#1:#2}{\arabic{#1}}
-}
-
-\newcommand{\frReqRow}[3]{%
-	\midrule
-	\phantomsection
-	\getNext{FR}
-	\manuallabel{fr:#1}{FR-\arabic{FR}} 	
-	FR-\arabic{FR} &
-	\ifcase\pdfstrcmp{#2}{Must}%
-	   \textbf{#2}
-	\else
-	  #2
-	\fi
-	 &
-	#3
-	\\
-}
-
-\newcommand{\hlReqRow}[3]{%
-	\midrule
-	\\
-	\phantomsection
-	\getNext{HL}
-	\manuallabel{hl:#1}{HL-\arabic{HL}} 	
-	HL-\arabic{HL} &
-	\ifcase\pdfstrcmp{#2}{Must}%
-	   \textbf{#2}
-	\else
-	  #2
-	\fi
-	 &
-	#3
-	\\
-	\\
-}
-
-\newcommand{\reqRow}[4]{%
-	\midrule
-	\phantomsection
-	\manuallabel{#1:#2}{#2} 	
-	\uppercase{#1}-#2 &
-	\ifcase\pdfstrcmp{#3}{Must}%
-	   \textbf{#3}
-	\else
-	  #3
-	\fi
-	 &
-	#4
-	\\
-}
-
-\newcommand{\risk}[6]{%
-\begin{tabular}{L{0.3\textwidth} L{0.7\textwidth}}\toprule\phantomsection\getNext{#1-RISK}\manuallabel{#1-RISK\arabic{#1-RISK}}{#1-RISK\arabic{#1-RISK}}\textbf{#1-RISK\arabic{#1-RISK}} & \textbf{#2} \\*
-\midrule
-\textbf{Probability of occurrence} & #3 \\*
-\midrule
-\textbf{Consequences} & #4 \\*
-	\midrule
-	\textbf{Prevention} & #5 \\*
-	\midrule
-	\textbf{Reaction} & #6 \\*
-	\bottomrule
-\end{tabular}
-\\[0.8cm]
-}
-
-
-
-\makeatother
-
-\renewcommand{\todonote}[1]{\textcolor{red}{#1}}
-
-%\makeatletter
-%\newcommand{\req}[1]{%
-%	\newcommand{\curCountVal}{\arabic{\getNr{#1}}}
-%	\label{\curCountVal}
-%}
-%\makeatother
-
-%	\label{#1:\arabic{#1}}
-%	\arabic{#1}
-
-% Glossary macros
-\newcommand{\qos}{Quality of Service\xspace}
+			\begin{#1}[%
+					nosep,
+					nolistsep,
+					topsep=1pt,
+					partopsep=0pt,
+					parsep=0pt,
+					%itemsep=0pt,
+					itemindent=0pt,
+					%labelsep=*,
+					%align=margin,
+					align=left,
+					%leftmargin=\linewidth,
+					leftmargin=*,
+					labelwidth=*,
+					after=\strut,
+				]#2\end{#1}%
+				\end{minipage}%
+			}%\end{adjustbox}
+		}%
+		\newcommand{\allotOfText}{%
+			LaTeX styled as LATEX, and a shortening of Lamport TeX is a word processor and a document markup language. It is distinguished from typical word processors such as Microsoft Word and Apple Pages in that the writer uses plain text as opposed to formatted text, relying on markup tagging conventions to define the general structure of a document (such as article, book, and letter), to stylise text throughout a document (such as bold and italic), and to add citations and cross-referencing. A TeX distribution such as TeXlive or MikTeX is used to produce an output file (such as PDF or DVI) suitable for printing or digital distribution.
+		}
+		%
+		%\newcolumntype{R}[2]{%
+		%    >{\adjustbox{angle=#1,lap=\width-(#2)}\bgroup}%
+		%    l%
+		%    <{\egroup}%
+		%}
+		%\newcommand*\rotmc{\multicolumn{1}{R{90}{1em}}}% no optional argument here, please!
+		%
+						
+		%\newcolumntype{R}[2]{%
+		%    >{\adjustbox{angle=#1,lap=\width-(#2)}\bgroup}%
+		%    l%
+		%    <{\egroup}%
+		%}
+		%\newcommand*\rot{\multicolumn{1}{R{90}{1em}}}% no optional argument here, please!
+						
+						
+		%command to decrease the size it takes to write
+		%L{0.5\textwidth}. This will now be:
+		%L{\tw{0.5}}. A small difference, but it adds up
+		\newcommand{\tw}[1]{#1\textwidth}
+						
+		\newcommand{\ign}[1]{}
+						
+		\newcommand\crule[3][black]{\textcolor{#1}{\rule{#2}{#3}}}
+						
+		\makeatletter
+						
+		%manually lable something
+		%like \manuallabel{fr:01}{The first req}
+		% \ref{fr:01} will then hold "The first req"
+		\newcommand{\manuallabel}[2]{\def\@currentlabel{#2}\label{#1}}
+						
+		\newcommand{\getNext}[1]{%
+			%check if counter with that name excists
+			\@ifundefined{c@#1}
+			{% the counter doesn't exist
+				\newcounter{#1}\setcounter{#1}{1}%
+			}
+			{% the counter exists
+				\stepcounter{#1}%
+			}%
+		}
+						
+		\newcommand{\getNr}[1]{%
+			\getNext{#1}
+			\arabic{#1}
+		}
+						
+		\newcommand{\nextNrRef}[1]{%
+			\getNext{#1}\manuallabel{#1:\arabic{#1}}{\arabic{#1}}\arabic{#1}
+		}
+						
+						
+		\newcommand{\req}[1]{%
+			\uppercase{#1}-\nextNrRef{#1}
+		}
+		
+		\newcommand{\frReqRow}[3]{%
+			\midrule
+			\phantomsection
+			\req{FR} &
+			\ifcase\pdfstrcmp{#2}{Must}%
+				\textbf{#2}
+			\else
+				#2
+			\fi
+			&
+			#3
+			\\
+		}
+						
+		\newcommand{\hlReqRow}[3]{%
+			\midrule
+			\\
+			\phantomsection
+			\req{HL} &
+			\ifcase\pdfstrcmp{#2}{Must}%
+				\textbf{#2}
+			\else
+				#2
+			\fi
+			&
+			#3
+			\\
+			\\
+		}
+		
+		\newcommand{\reqRow}[3]{%
+			\midrule
+			\phantomsection
+			\req{#1} &
+			\ifcase\pdfstrcmp{#2}{Must}%
+				\textbf{#2}
+			\else
+				#2
+			\fi
+			&
+			#3
+			\\
+		}		
+						
+%		\newcommand{\reqRow}[4]{%
+%			\midrule
+%			\phantomsection
+%			\manuallabel{#1:#2}{#2} 	
+%			\uppercase{#1}-#2 &
+%			\ifcase\pdfstrcmp{#3}{Must}%
+%				\textbf{#3}
+%			\else
+%				#3
+%			\fi
+%			&
+%			#4
+%			\\
+%		}
+						
+		\newcommand{\risk}[6]{%
+			\begin{tabular}{L{0.3\textwidth} L{0.7\textwidth}}\toprule\phantomsection\getNext{#1-RISK}\manuallabel{#1-RISK\arabic{#1-RISK}}{#1-RISK\arabic{#1-RISK}}\textbf{#1-RISK\arabic{#1-RISK}} & \textbf{#2} \\*
+				\midrule
+				\textbf{Probability of occurrence} & #3 \\*
+				\midrule
+				\textbf{Consequences}              & #4 \\*
+				\midrule
+				\textbf{Prevention}                & #5 \\*
+				\midrule
+				\textbf{Reaction}                  & #6 \\*
+				\bottomrule
+			\end{tabular}
+			\\[0.8cm]
+		}
+		
+		\makeatother
+						
+		\renewcommand{\todonote}[1]{\textcolor{red}{#1}}
+						
+		%\makeatletter
+		%\newcommand{\req}[1]{%
+		%	\newcommand{\curCountVal}{\arabic{\getNr{#1}}}
+		%	\label{\curCountVal}
+		%}
+		%\makeatother
+						
+		%	\label{#1:\arabic{#1}}
+		%	\arabic{#1}
+						
+		% Glossary macros
+		\newcommand{\qos}{Quality of Service\xspace}

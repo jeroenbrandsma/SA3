@@ -49,48 +49,48 @@ It is important to evaluate the strengths and weaknesses of \CompanyName{}. Usin
 	\compactList{itemize}{#1}
 }
 \newcommand{\Strengths}{
-\SwotItems{%
-	\item Adjustable system that is future proof
-	\item Having a low selling price. Lower then the competitors
-	\item Diverse team with several skills in IT and management
-	\item Having a good management team
-	\item Frequent discussion with technical and business experts in the field.
-	\item Experience with working with sensors%
-	\item Diverseness of cultures in the development team
-%	\item Main features don't focus on user-interaction.
-%	\item Having a relatively big project team
-%	\item Financial stability
-}
+	\SwotItems{%
+		\item Adjustable system that is future proof
+		\item Having a low selling price. Lower then the competitors
+		\item Diverse team with several skills in IT and management
+		\item Having a good management team
+		\item Frequent discussion with technical and business experts in the field.
+		\item Experience with working with sensors%
+		\item Diverseness of cultures in the development team
+		%	\item Main features don't focus on user-interaction.
+		%	\item Having a relatively big project team
+		%	\item Financial stability
+	}
 }
 \newcommand{\Weaknesses}{
-\SwotItems{%
-	\item Complexity of decision making
-	\item New project team
-	\item No experience with creating environmental monitoring systems
-	\item No domain knowledge of floods
-	%\item The product is a complex system
-	%\item Some main features rely on country-specific systems%
-}
+	\SwotItems{%
+		\item Complexity of decision making
+		\item New project team
+		\item No experience with creating environmental monitoring systems
+		\item No domain knowledge of floods
+		%\item The product is a complex system
+		%\item Some main features rely on country-specific systems%
+	}
 }
 \newcommand{\Opportunities}{
-\SwotItems{%
-	\item Due to climate change, the market will grow and such a system becomes more urgent
-	%\item Few competitors in the market
-	\item Other kinds of natural disasters are threatening, which could be monitored
-%	\item Adding more ways the system can message the people in dangerous areas
-%	\item Though the team doesn't have direct experience in this field, the team does have experience with specific parts of the system
-	\item Smart sensors are a hot topic, new sensors will be developed. Making the system support and use the newest sensors allows it to obtain more, and a wider variety of valuable information
-}
+	\SwotItems{%
+		\item Due to climate change, the market will grow and such a system becomes more urgent
+		%\item Few competitors in the market
+		\item Other kinds of natural disasters are threatening, which could be monitored
+		%	\item Adding more ways the system can message the people in dangerous areas
+		%	\item Though the team doesn't have direct experience in this field, the team does have experience with specific parts of the system
+		\item Smart sensors are a hot topic, new sensors will be developed. Making the system support and use the newest sensors allows it to obtain more, and a wider variety of valuable information
+	}
 }
 \newcommand{\Threats}{
-\SwotItems{
-	\item High hardware costs
-	\item New competitors will enter the market because of a growing market
-	%\item New competitors will enter the market
-	\item Climate change will force the system to be improved over time
-	\item External parties that affect our system could change or stop
-	%\item The sizes of certain area{'}s to monitor can be too big to get a good and reliable view of them
-}
+	\SwotItems{
+		\item High hardware costs
+		\item New competitors will enter the market because of a growing market
+		%\item New competitors will enter the market
+		\item Climate change will force the system to be improved over time
+		\item External parties that affect our system could change or stop
+		%\item The sizes of certain area{'}s to monitor can be too big to get a good and reliable view of them
+	}
 }
 
 \colorlet{helpful}{lime!70}
@@ -103,21 +103,21 @@ It is important to evaluate the strengths and weaknesses of \CompanyName{}. Usin
 \colorlet{T}{harmful!50!external}
 
 \begin{table}[H]
-\centering
-\begin{tabular}{L{\tw{0.4}} | L{\tw{0.4}}}
-	\toprule
-%	\makebox[\linewidth][s]{\crule[S]{1cm}{1cm} = \crule[W]{1cm}{1cm} = }
-%	 &
-%	 \makebox[\linewidth][s]{\crule[O]{1cm}{1cm} = \crule[T]{1cm}{1cm} = } \\
-%	\midrule
-	\textsc{\Large Strengths} & \textsc{\Large Weaknesses} \\
-	\cellcolor{S} \Strengths &  \cellcolor{W} \Weaknesses \\
-	\midrule
-	\textsc{\Large Opportunities} & \textsc{\Large Threats} \\
-	\cellcolor{O} \Opportunities & \cellcolor{T} \Threats \\
-\end{tabular}
-\caption{SWOT analysis of SFM}
-\label{table:swot}
+	\centering
+	\begin{tabular}{L{\tw{0.4}} | L{\tw{0.4}}}
+		\toprule
+		%	\makebox[\linewidth][s]{\crule[S]{1cm}{1cm} = \crule[W]{1cm}{1cm} = }
+		%	 &
+		%	 \makebox[\linewidth][s]{\crule[O]{1cm}{1cm} = \crule[T]{1cm}{1cm} = } \\
+		%	\midrule
+		\textsc{\Large Strengths}     & \textsc{\Large Weaknesses} \\
+		\cellcolor{S} \Strengths      & \cellcolor{W} \Weaknesses  \\
+		\midrule
+		\textsc{\Large Opportunities} & \textsc{\Large Threats}    \\
+		\cellcolor{O} \Opportunities  & \cellcolor{T} \Threats     \\
+	\end{tabular}
+	\caption{SWOT analysis of SFM}
+	\label{table:swot}
 \end{table}
 
 The initial product price will be low in order to get a market share and prove the product in a real-time environment. By providing maintenance and updates in the future \CompanyName{} will earn money to improve the product further and sell it to other potential customers. This in combination with the increasing need of a reliable warning system for imminent floods will result in a viable business. To extend the capability and the reliability, the system is also extendable with numerous additional and optional features.
@@ -199,29 +199,29 @@ The costs of developing the system is approximated in table \ref{table:develop-c
 \newline
 
 \begin{table}[H]
-\pgfplotstabletypeset[%
-KeyValue,
-display columns/0/.append style={
-    column name={\textbf{Description}},
-  },
-display columns/1/.append style={
-    column name={\textbf{Man hours}},
-  },
-]{%
-	Description & Man hours \\
-	Get values from various sensors & 160 \\ 
-	Get weather forecasts & 160 \\ 
-	Flood prediction algorithm & 3100 \\ 
-	Warning messaging system  & 2000 \\ 
-	Guidance information system & 1500 \\ 
-	Redundancy and fail over systems & 1000 \\ 
-	Testing \& debugging & 600 \\ 
-	Release build & 250 \\
-	Overhead & 1000 \\ 
-	Total hours & 9770 \\
-}
-\caption{Approximation of development costs}
-\label{table:develop-costs}
+	\pgfplotstabletypeset[%
+		KeyValue,
+		display columns/0/.append style={
+			column name={\textbf{Description}},
+		},
+		display columns/1/.append style={
+			column name={\textbf{Man hours}},
+		},
+	]{%
+		Description & Man hours \\
+		Get values from various sensors & 160 \\ 
+		Get weather forecasts & 160 \\ 
+		Flood prediction algorithm & 3100 \\ 
+		Warning messaging system  & 2000 \\ 
+		Guidance information system & 1500 \\ 
+		Redundancy and fail over systems & 1000 \\ 
+		Testing \& debugging & 600 \\ 
+		Release build & 250 \\
+		Overhead & 1000 \\ 
+		Total hours & 9770 \\
+	}
+	\caption{Approximation of development costs}
+	\label{table:develop-costs}
 \end{table}
 %\Joris
 Development of the system comprises the development of several different aspects. For each of these aspects, table \ref{table:develop-costs} shows an approximation of the hours needed for the development. Resulting in a total amount of $9770$ hours needed to create the system.\\
@@ -233,23 +233,23 @@ The development is done by \CompanyName self. Each member of the project team as
 
 \pgfplotstableread%
 [%
-		row sep=\\,
-		col sep=&,
-		format=inline
+	row sep=\\,
+	col sep=&,
+	format=inline
 ]%
 {\\%
 	Description & Costs \\
 	Hours & 9770 \\
 	Cost per hour & \EUR{}50 \\
 	Total cost & \EUR{}488.500 \\
-}\tdevcost
+	}\tdevcost
 
 \begin{table}[H]
 	\pgfplotstabletypeset[
 		Costs
 	]\tdevcost
-\caption{Total costs of development}
-\label{table:total-dev-costs1}
+	\caption{Total costs of development}
+	\label{table:total-dev-costs1}
 \end{table}
 
 \subsection{Hardware costs}
@@ -275,8 +275,8 @@ The following table gives an overview of the costs related to the dike sensors:
 		Base installation cost factor like labor and wiring & 0.2 & \\
 		Life expectancy of GeoBeads & 10 & years \\
 	}
-\label{table:total-dev-costs2} 
-\caption{Total costs of development. UoM=Unit of measurement}
+	\label{table:total-dev-costs2} 
+	\caption{Total costs of development. UoM=Unit of measurement}
 \end{table}
 
 This makes the costs for the dike monitoring as follows: \\
@@ -303,31 +303,31 @@ The total hardware costs is shown in the table below.
 	\pgfplotstabletypeset[
 		Costs
 	]{
-	Description & Cost\\
-	Installation costs & $\EUR{}$1.683.000\\
-	Maintenance costs & $\euro{}$336.600\\
-	Server costs & $\euro{}$24.000\\
-	Total cost & $\euro{}$2.443.600\\
-}
-\caption{Total hardware cost}
-\label{table:total-hardw-cost}
+		Description & Cost\\
+		Installation costs & $\EUR{}$1.683.000\\
+		Maintenance costs & $\euro{}$336.600\\
+		Server costs & $\euro{}$24.000\\
+		Total cost & $\euro{}$2.443.600\\
+	}
+	\caption{Total hardware cost}
+	\label{table:total-hardw-cost}
 \end{table}
 
 \subsection{Total costs}
 The total costs for the system is calculated in the table below.\\
 \newline
 \begin{table}[H]
-\pgfplotstabletypeset[%
-Costs
-]{%
-	Description & Cost\\
-	Software Architecture costs & \EUR{}157.500\\
-	Development costs & $\euro{}$488.500\\
-	Hardware costs & $\euro{}$2.443.600\\
-	Total cost & $\euro{}$3.089.600\\
-}
-\caption{Total cost of the system}
-\label{table:totalcosts}
+	\pgfplotstabletypeset[%
+		Costs
+	]{%
+		Description & Cost\\
+		Software Architecture costs & \EUR{}157.500\\
+		Development costs & $\euro{}$488.500\\
+		Hardware costs & $\euro{}$2.443.600\\
+		Total cost & $\euro{}$3.089.600\\
+	}
+	\caption{Total cost of the system}
+	\label{table:totalcosts}
 \end{table}
 So the total costs of the system is \euro{}3.089.600\\
 % Guntur: Doubled financial model sections?

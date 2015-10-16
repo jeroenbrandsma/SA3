@@ -9,11 +9,11 @@ The implementation view, also known as the development view, describes the syste
 The system consists of a set of components tat all interact with each other. In figure~\ref{fig:component} below, these different components are shown. Each component can provide interfaces and uses sockets to connect to interfaces of other components. This way, the implementation of each component can independently be replaced and deployed. 
 
 \clearpage
-\begin{figure}[h]
-%\centering
-\includegraphics[keepaspectratio=true,height=13cm,width=0.9\textwidth]{{\viewimages/component}.jpg}
-\caption{Component diagram}
-\label{fig:component}
+\begin{figure}[H]
+	%\centering
+	\includegraphics[keepaspectratio=true,height=13cm,width=0.9\textwidth]{{\viewimages/component}.jpg}
+	\caption{Component diagram}
+	\label{fig:component}
 \end{figure}
 
 \todo{explain the components}
@@ -22,11 +22,11 @@ The system consists of a set of components tat all interact with each other. In 
 The figure \ref{fig:database} below shows how the database is structured. 
 
 \clearpage
-\begin{figure}[hb!]
-%\centering
-\includegraphics[height=14cm, width=0.9\textwidth]{{\viewimages/database}.jpg}
-\caption{Database diagram}
-\label{fig:database}
+\begin{figure}[H]
+	%\centering
+	\includegraphics[height=14cm, width=0.9\textwidth]{{\viewimages/database}.jpg}
+	\caption{Database diagram}
+	\label{fig:database}
 \end{figure}
 
 The database diagram shows all the information the API can provide to the users. \\
@@ -37,7 +37,7 @@ In grey the primarykey. \\
 In the second column of each table are the types of the data. \\
 
 The first table \textbf{aeracitizen} concerns the area where live the citizens : citizengeold (?) , area : the name of the area and citizencount gives the number of citizen in this area.\\
- The table \textbf{aeraaltitude} gives information about the are such as its altitude.
+The table \textbf{aeraaltitude} gives information about the are such as its altitude.
 The table \textbf{UAVdata} provides information sent by the UAVs which will give more information about the flood such as : uavid which identifies a specific uav, datetime, altitude , latlong ,gpssatelite,mpegimage, \\
 The table \textbf{registereduser} concerns information to identify a specific user to provide him the warning, provide guidance and help the safety region : his id, phonenumer and if he is registered or not. \\
 
@@ -58,9 +58,9 @@ The diagram contains software packages of the system itself, as well as software
 The `Third Party API' is the software package which exposes a REST-API, which can be used by third parties to query data from the system.
 The `External Data' is the software package which uses APIs from other systems to query data, like weather and geographic data.
 
-\begin{figure}[h]
-%\centering
-\includegraphics[keepaspectratio=true,width=1.0\textwidth]{{\viewimages/packages}.png}
-\caption{Package diagram}
-\label{fig:package-diagram}
+\begin{figure}[H]
+	%\centering
+	\includegraphics[keepaspectratio=true,width=1.0\textwidth]{{\viewimages/packages}.png}
+	\caption{Package diagram}
+	\label{fig:package-diagram}
 \end{figure}

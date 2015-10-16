@@ -46,7 +46,7 @@ The UAV's won't fly everytime , they will be released during the risky periods o
 \label{subsec:database-data}
 In the previous chapter, SFM will use Elasticsearch database as the database platform. However, Elasticsearch requires computers to run its environment. SFM will use clusters of computer to manage database system and to store our data. The cluster will also be accessible by the main analytics part as the data will come and go through the main analytics part. The logical schematic of the database cluster is depicted in \autoref{fig:database-cluster}
 
-\begin{figure}[hb!]
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.7\textwidth]{6-hardware/images/db-cluster.png}
 \caption{Logical schematic of database cluster of SFM}
@@ -68,7 +68,7 @@ As can be seen in \autoref{fig:database-cluster}, SFM will use four database rac
 \label{subsec:analytics}
 Analytics component will be the main brain of SFM. The intelligent algorithm will run on this machine. This components are also responsible for checking faulty sensors by analyzing incoming sensor data. Thus, there is a big dependency to this components. To increase availability and reliability, SFM will have six server racks to do the processing as depicted in \autoref{fig:analytic-cluster}.
 
-\begin{figure}[hb!]
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.7\textwidth]{6-hardware/images/analytic-cluster.png}
 \caption{Logical schematic of analytic cluster of SFM}

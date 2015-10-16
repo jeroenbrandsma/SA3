@@ -12,11 +12,11 @@ The program flow and business logic of the system are captured in this section w
 The activity diagram in figure~\ref{fig:activity-monitoring} shows the flow of the flood monitoring process.
 
 
-\begin{figure}[h]
-\centering
-\includegraphics[keepaspectratio=true,width=1.0\textwidth]{{\viewimages/activity_monitoring}.png}
-\caption{An activity diagram of the flood monitoring process}
-\label{fig:activity-monitoring}
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true,width=1.0\textwidth]{{\viewimages/activity_monitoring}.png}
+	\caption{An activity diagram of the flood monitoring process}
+	\label{fig:activity-monitoring}
 \end{figure}
 
 
@@ -26,9 +26,9 @@ The activity diagram in figure~\ref{fig:activity-monitoring} shows the flow of t
 \subsubsection*{Sending the sensor data}
 In figure~\ref{fig:sequence-sensordata} a sequence diagram of sending the sensor data can be seen. As elaborated in decision~\ref{dec:5}, the sensors will push their data to the server. The sensor has two running threads: one reading the measurements and the other for sending the data every 60 seconds.
 
-\begin{figure}[h]
-\centering
-\includegraphics[keepaspectratio=true,width=0.7\textwidth]{{\viewimages/sequence_sensor}.png}
-\caption{A sequence diagram of sending the sensor data}
-\label{fig:sequence-sensordata}
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true,width=0.7\textwidth]{{\viewimages/sequence_sensor}.png}
+	\caption{A sequence diagram of sending the sensor data}
+	\label{fig:sequence-sensordata}
 \end{figure}

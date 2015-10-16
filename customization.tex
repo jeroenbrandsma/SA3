@@ -33,77 +33,77 @@
 	\pgfplotstablegetelem{#1}{#2}\of{#3}\pgfplotsretval%
 }
 \pgfplotstableset{%
-		bold/.append style={
-	        postproc cell content/.append code={
-	                \pgfkeysalso{@cell content=\textbf{##1}}%
-	        },
-    	},
-    highlight last row/.style={
-        postproc cell content/.append code={
-            \count0=\pgfplotstablerow
-            \advance\count0 by1
-            \ifnum\count0=\pgfplotstablerows
-                \pgfkeysalso{@cell content=\textbf{##1}}%
-            \fi
-        },
-    },
-%    bold header/.append style={
-%		column type={>{\fontseries{bx}\selectfont}l},
-%		postproc cell content/.append code={
-%			\pgfkeysalso{@cell content={\fontseries{\seriesdefault}\selectfont}{}}}
-%    },
-		bold header/.append style={
-			column type={>{\fontseries{bx}\selectfont\centering\arraybackslash}c},
-			postproc cell content/.append style={
-				/pgfplots/table/@cell content/.add={\fontseries{\seriesdefault}\selectfont}{}}
+	bold/.append style={
+		postproc cell content/.append code={
+			\pgfkeysalso{@cell content=\textbf{##1}}%
+		},
+	},
+	highlight last row/.style={
+		postproc cell content/.append code={
+			\count0=\pgfplotstablerow
+			\advance\count0 by1
+			\ifnum\count0=\pgfplotstablerows
+				\pgfkeysalso{@cell content=\textbf{##1}}%
+			\fi
+		},
+	},
+	%    bold header/.append style={
+	%		column type={>{\fontseries{bx}\selectfont}l},
+	%		postproc cell content/.append code={
+	%			\pgfkeysalso{@cell content={\fontseries{\seriesdefault}\selectfont}{}}}
+	%    },
+	bold header/.append style={
+		column type={>{\fontseries{bx}\selectfont\centering\arraybackslash}c},
+		postproc cell content/.append style={
+			/pgfplots/table/@cell content/.add={\fontseries{\seriesdefault}\selectfont}{}}
+	},		
+	UCTable/.append style={
+		begin table=\begin{longtable},
+		end table=\end{longtable},
+		every head row/.style={
+			output empty row,
+			before row={},
+			after row={},			
+		},
+		every last row/.style={%
+			after row=\bottomrule,
+		},
+		columns/value/.style={
+			bold,
+			column type=L{\tw{0.2}},
+		},
+		columns/description/.style={
+			column type=L{\tw{0.6}},
+		},
+		before row=\midrule,
+	},
+	KeyValue/.append style={
+		begin table=\begin{longtable},
+		end table=\end{longtable},
+		column type=l,
+		every last row/.style={%
+			after row=\bottomrule,
+		},
+		every head row/.style={
+			before row={\toprule},
+			after row={\midrule},			
+		},
+		every last row/.style={%
+			after row=\bottomrule,
+		},
+		%			To add borders:
+		%			column type/.add={|}{},
+		%			every last column/.style={column type/.add={}{|}}
+		%			Set width of specific column:
+		%			display columns/0/.style={column type={L{\tw{0.6}}}},
+	},
+	Costs/.append style={
+		KeyValue,
+		display columns/0/.style={
+			column name={\textbf{Description}},column type = {l},string type
+		},
+		display columns/1/.style={
+			column name={\textbf{Cost}},fixed,column type = {r}
 		},		
-		UCTable/.append style={
-			begin table=\begin{longtable},
-			end table=\end{longtable},
-			every head row/.style={
-				output empty row,
-				before row={},
-				after row={},			
-			},
-			every last row/.style={%
-				after row=\bottomrule,
-			},
-			columns/value/.style={
-				bold,
-				column type=L{\tw{0.2}},
-			},
-			columns/description/.style={
-				column type=L{\tw{0.6}},
-			},
-			before row=\midrule,
-		},
-		KeyValue/.append style={
-			begin table=\begin{longtable},
-			end table=\end{longtable},
-			column type=l,
-			every last row/.style={%
-				after row=\bottomrule,
-			},
-			every head row/.style={
-				before row={\toprule},
-				after row={\midrule},			
-			},
-			every last row/.style={%
-				after row=\bottomrule,
-			},
-%			To add borders:
-%			column type/.add={|}{},
-%			every last column/.style={column type/.add={}{|}}
-%			Set width of specific column:
-%			display columns/0/.style={column type={L{\tw{0.6}}}},
-		},
-		Costs/.append style={
-			KeyValue,
-			display columns/0/.style={
-    			column name={\textbf{Description}},column type = {l},string type
-  			},
-			display columns/1/.style={
-    			column name={\textbf{Cost}},fixed,column type = {r}
-  			},		
-		}		
-	}
+	}		
+}

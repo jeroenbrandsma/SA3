@@ -4,101 +4,101 @@
 \label{sec:functional-requirements}
 This section lists the functional requirements of the system.
 \begin{longtable}{L{0.1\textwidth} L{0.12\textwidth} L{0.78\textwidth}}
-
-    \textbf{Nr.} & \textbf{Prio}  & \textbf{Description} \\
-    
-    \frReqRow{receive-waterlevel}{Must}
-    {The system is able to receive input from water level sensors. This information will be used to determine if there is an imminent flood.}
-    % GK: In what way is the information delivered from the sensors?
-    %   WM: Is that not for analysis?
-    
-    \frReqRow{analyze-waterlevel}{Must}
-    { The system is able to perform an analysis for the water level in the waterways based on the input from the water level sensors. }
-    
+			
+	\textbf{Nr.} & \textbf{Prio} & \textbf{Description} \\
+			    
+	\frReqRow{receive-waterlevel}{Must}
+	{The system is able to receive input from water level sensors. This information will be used to determine if there is an imminent flood.}
+	% GK: In what way is the information delivered from the sensors?
+	%   WM: Is that not for analysis?
+			    
+	\frReqRow{analyze-waterlevel}{Must}
+	{ The system is able to perform an analysis for the water level in the waterways based on the input from the water level sensors. }
+			    
 	\frReqRow{receive-pressure}{Must}
 	{The system is able to receive input from the dike sensors.}
-	
+				
 	\frReqRow{analyze-pressure}{Must}
 	{The system is able to perform an analysis for the parameters of the dike sensors based on the input from the dike sensors.}
-	
+				
 	\frReqRow{store-sensordata}{Must}
 	{ The system can store the sensor data. }
-	
+				
 	\frReqRow{retrieve-sensordata}{Must}
 	{ Sensor data, which has been previously stored, can be retrieved at a later moment. }
-
-    \frReqRow{receive-weather}{Must}
-    {The system retrieves weather forecasting data from weather forecasting services, which consists of predictions about the precipitation, wind data and tide information. This is used by the system to help in determining when a flood becomes imminent.}
-     
-    \frReqRow{detect-flood}{Must}
-    { The system is able to detect when a flood is imminent by combining the retrieved sensor data and weather forecasting data. }
-    
-    \frReqRow{receive-geographic}{Must}
-    { The system retrieves geographic information, consisting of road data, terrain height data and demographic data (number of civilians living in affected area) from an external API.}
-        
-    \frReqRow{compute-area}{Must}
-    { The system computes the area affected by a flood, in zones of 5 by 5 km, by using the location data of the sensors and geographic information. }
-    
-    %\frReqRow{construct-map}{Must}
-    %{ The system can construct a map, showing which areas are affected by the flood. }
-    
-    \frReqRow{analyze-waterlevel}{Must}
-    { The system is able to perform an analysis, resulting in an estimated expected water level for  areas which are affected by a flood, based on the water level sensor data, geographic data and weather forecast information. }
-    
-    \frReqRow{estimate-waterlevel}{Should}
-    { The system estimates how the water level in the areas affected by the flood will develop for every hour, up to 12 hours in the future. } % WM: i am not sure if it is possible to predict 12h into the future, we might have to lower this is in a later stage
-    
-    \frReqRow{compute-nrcivilians}{Should}
-    { The system can compute the number of civilians living in the areas affected by the flood. }
-    
+			
+	\frReqRow{receive-weather}{Must}
+	{The system retrieves weather forecasting data from weather forecasting services, which consists of predictions about the precipitation, wind data and tide information. This is used by the system to help in determining when a flood becomes imminent.}
+			     
+	\frReqRow{detect-flood}{Must}
+	{ The system is able to detect when a flood is imminent by combining the retrieved sensor data and weather forecasting data. }
+			    
+	\frReqRow{receive-geographic}{Must}
+	{ The system retrieves geographic information, consisting of road data, terrain height data and demographic data (number of civilians living in affected area) from an external API.}
+			        
+	\frReqRow{compute-area}{Must}
+	{ The system computes the area affected by a flood, in zones of 5 by 5 km, by using the location data of the sensors and geographic information. }
+			    
+	%\frReqRow{construct-map}{Must}
+	%{ The system can construct a map, showing which areas are affected by the flood. }
+			    
+	\frReqRow{analyze-waterlevel}{Must}
+	{ The system is able to perform an analysis, resulting in an estimated expected water level for  areas which are affected by a flood, based on the water level sensor data, geographic data and weather forecast information. }
+			    
+	\frReqRow{estimate-waterlevel}{Should}
+	{ The system estimates how the water level in the areas affected by the flood will develop for every hour, up to 12 hours in the future. } % WM: i am not sure if it is possible to predict 12h into the future, we might have to lower this is in a later stage
+			    
+	\frReqRow{compute-nrcivilians}{Should}
+	{ The system can compute the number of civilians living in the areas affected by the flood. }
+			    
 	\frReqRow{warn-safetyregion}{Must}
 	{ When a flood is imminent, the system sends a warning to the safety region, containing information about the flood: the area affected by the flood, the expected water level in those areas, how the water level will develop in the coming hours and the number of civilians living in the affected area. }
-    
-    \frReqRow{compute-safearea}{Must}
-    { The system can compute a safe area, not affected by the flood, where citizens can be evacuated to in case of an (imminent) flood. }
-    
-    \frReqRow{citizens-subscribe}{Must}
-    { Citizens are able to subscribe to flood warnings about imminent floods. }
-    % WM: how will they subscribe?? is this through a website or do they install an app...
-    
-    \frReqRow{warn-citizens}{Must}
-    { Citizens who are subscribed for flood warnings are warned about imminent floods by text message. }
-	
-    \frReqRow{detect-faultysensor}{Must}
-    { The system can detect a faulty sensor, either when the sensor raises an error or when the data from the sensor is inconsistent with other sensor data. }
-    
-    \frReqRow{controlpanel}{Must}
-    { There is a control panel, where maintainers of the system have access to. }  % WM: should this be like a website or is this a program or a phone app...
-    
-    \frReqRow{report-faultysensors}{Must}
-    { The system reports faulty sensors, so they can be viewed in the control panel. }
-    
-    \frReqRow{controlpanel-warnings}{Must}
-    { Warnings of the system can be viewed in the control panel. }
-
+			    
+	\frReqRow{compute-safearea}{Must}
+	{ The system can compute a safe area, not affected by the flood, where citizens can be evacuated to in case of an (imminent) flood. }
+			    
+	\frReqRow{citizens-subscribe}{Must}
+	{ Citizens are able to subscribe to flood warnings about imminent floods. }
+	% WM: how will they subscribe?? is this through a website or do they install an app...
+			    
+	\frReqRow{warn-citizens}{Must}
+	{ Citizens who are subscribed for flood warnings are warned about imminent floods by text message. }
+				
+	\frReqRow{detect-faultysensor}{Must}
+	{ The system can detect a faulty sensor, either when the sensor raises an error or when the data from the sensor is inconsistent with other sensor data. }
+			    
+	\frReqRow{controlpanel}{Must}
+	{ There is a control panel, where maintainers of the system have access to. }  % WM: should this be like a website or is this a program or a phone app...
+			    
+	\frReqRow{report-faultysensors}{Must}
+	{ The system reports faulty sensors, so they can be viewed in the control panel. }
+			    
+	\frReqRow{controlpanel-warnings}{Must}
+	{ Warnings of the system can be viewed in the control panel. }
+			
 	\frReqRow{controlpanel-errors}{Must}
 	{ Errors of the system can be viewed in the control panel. }
-	
+				
 	\frReqRow{controlpanel-sensors}{Must}
 	{ The readings of the sensors can be viewed in the control panel. }
-    
-    \frReqRow{make-backups}{Must}
-    { The system can make backups of its data (configuration data etc.). }
-    
-    \frReqRow{store-backups}{Must}
-    { The system can store created backups on a remote location. }
-      
-    \frReqRow{retrieve-backups}{Must}
-    { The system can retrieve the backups it previously created. }
-    
-    \frReqRow{restore-backups}{Must}
-    { The system can restore the backups it previously created after retrieving them. }
-    
-    \frReqRow{expose-api}{Must}
-    { The system exposes an API, allowing third parties to develop applications for guidance of the citizens during a flood. }
-
-    \frReqRow{detect-extremephenomena}{Could}
-    { The system is able to detect extreme weather phenomena, like storms etc. }
-    
-    \bottomrule
+			    
+	\frReqRow{make-backups}{Must}
+	{ The system can make backups of its data (configuration data etc.). }
+			    
+	\frReqRow{store-backups}{Must}
+	{ The system can store created backups on a remote location. }
+			      
+	\frReqRow{retrieve-backups}{Must}
+	{ The system can retrieve the backups it previously created. }
+			    
+	\frReqRow{restore-backups}{Must}
+	{ The system can restore the backups it previously created after retrieving them. }
+			    
+	\frReqRow{expose-api}{Must}
+	{ The system exposes an API, allowing third parties to develop applications for guidance of the citizens during a flood. }
+			
+	\frReqRow{detect-extremephenomena}{Could}
+	{ The system is able to detect extreme weather phenomena, like storms etc. }
+			    
+	\bottomrule
 \end{longtable}

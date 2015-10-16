@@ -6,24 +6,24 @@
 The high-level requirements describe the high-level functionality of the system. The high-level requirements are used to derive the functional requirements in section~\ref{sec:functional-requirements}. The high-level requirements are also used to classify the severity of the risks in section~\ref{sec:risk-assesment}.
 
 \begin{longtable}{L{0.1\textwidth} L{0.12\textwidth} L{0.78\textwidth}}
-
-    \textbf{Nr.} & \textbf{Prio}  & \textbf{Description} \\
-    
-    \hlReqRow{flood-detection}{Must}
-    { The system monitors the environment to determine when a flood is developing. This is the most important high-level requirement and the main feature of the system. }
-    
-    \hlReqRow{flood-warning}{Must}
-    { The system issues a warning to the safety region and subscribed citizens when a flood is imminent. The warning to the safety region contains relevant information about the flood, which can be used by the safety region to determine if evacuation of certain areas is needed. }
-    
-    \hlReqRow{information}{Must}
-    { The system can collect and supply the safety region with relevant information regarding the flood. The collected information should at least contain the location and severity of the flood. }
-    
-    \hlReqRow{API}{Must}
-    { To allow third-party developers to develop applications to guide citizens in case of a flood, the system exposes an API which can supply these developers with data related to the flood. This API is also used by the safety board to get relevant information about the flood. }
-    
-    \hlReqRow{controlpanel}{Must}
-    { There is a control panel for maintenance, where warnings etc. can be viewed and the sensor data can be viewed manually. This control panel will be used by maintainers of the system, who will be responsible for repairing/replacing sensors and system faults. }
-    
-    \bottomrule
-    
+			
+	\textbf{Nr.} & \textbf{Prio} & \textbf{Description} \\
+			    
+	\hlReqRow{flood-detection}{Must}
+	{ The system monitors the environment to determine when a flood is developing. This is the most important high-level requirement and the main feature of the system. }
+			    
+	\hlReqRow{flood-warning}{Must}
+	{ The system issues a warning to the safety region and subscribed citizens when a flood is imminent. The warning to the safety region contains relevant information about the flood, which can be used by the safety region to determine if evacuation of certain areas is needed. }
+			    
+	\hlReqRow{information}{Must}
+	{ The system can collect and supply the safety region with relevant information regarding the flood. The collected information should at least contain the location and severity of the flood. }
+			    
+	\hlReqRow{API}{Must}
+	{ To allow third-party developers to develop applications to guide citizens in case of a flood, the system exposes an API which can supply these developers with data related to the flood. This API is also used by the safety board to get relevant information about the flood. }
+			    
+	\hlReqRow{controlpanel}{Must}
+	{ There is a control panel for maintenance, where warnings etc. can be viewed and the sensor data can be viewed manually. This control panel will be used by maintainers of the system, who will be responsible for repairing/replacing sensors and system faults. }
+			    
+	\bottomrule
+			    
 \end{longtable}
