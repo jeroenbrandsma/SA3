@@ -99,11 +99,11 @@ The requirements from chapter 3 are evaluated in this section. The section is sp
 	\begin{tabular}{lllll}
 						    
 		Nr.    & Priority & Fulfilled & Location & Remarks \\ \hline
-		PERF-1 & Must     & ~        & ~         & ~       \\ 
-		PERF-2 & Must     & ~        & ~         & ~       \\ 
-		PERF-3 & Must     & ~        & ~         & ~       \\
-		PERF-4 & Must     & ~        & ~         & ~       \\
-		PERF-5 & Must     & ~        & ~         & ~       \\
+		PERF-1 & Must     & Unknown  & -         & Expected, not yet tested. \\
+		PERF-2 & Must     & Unknown  & -         & Expected, not yet tested. \\
+		PERF-3 & Must     & Unknown  & -         & Expected, not yet tested. \\
+		PERF-4 & Must     & Unknown  & -         & Expected, not yet tested. \\
+		PERF-5 & Must     & Unknown  & -         & Expected, not yet tested. \\
 						
 	\end{tabular}
 \end{table}
@@ -113,13 +113,12 @@ The requirements from chapter 3 are evaluated in this section. The section is sp
 	\begin{tabular}{lllll}
 						    
 		Nr.    & Priority & Fulfilled & Location & Remarks \\ \hline
-		INTR-1 & Must     & ~        & ~         & ~       \\ 
-		INTR-2 & Must     & ~        & ~         & ~       \\ 
-		INTR-3 & Must     & ~        & ~         & ~       \\ 
-		INTR-4 & Must     & ~        & ~         & ~       \\ 
-		INTR-5 & Must     & ~        & ~         & ~       \\ 
-		INTR-6 & Must     & ~        & ~         & ~       \\ 
-		INTR-7 & Must     & ~        & ~         & ~       \\
+		INTR-1 & Must     & Yes      &\ref{subsec:external-system} & Fulfilled by using several weather forecast API providers.       \\ 
+		INTR-2 & Must     & Yes      &\ref{subsec:users-roles}, \ref{subsec:external-system}, \ref{subsec:channels-information-flows}& Fulfilled by notifying Safety Region using API.\\ 
+		INTR-3 & Must     & Yes      &\ref{subsec:external-system} & Fulfilled by sending SMS to subscribed citizens. \\ 
+		INTR-4 & Must     & Yes      & \ref{sec:hardware-overview} & Fulfilled by using GeoBeads and Water level sensor. \\ 
+		INTR-5 & Must     & Yes      & \ref{subsec:external-system} & Fulfilled by gathering ground height and waterways data. \\ 
+		INTR-6 & Must     & Yes      & \ref{subsec:users-roles} & Fulfilled by exposing API to third party developers.       \\ 
 						
 	\end{tabular}
 \end{table}
@@ -129,11 +128,11 @@ The requirements from chapter 3 are evaluated in this section. The section is sp
 	\begin{tabular}{lllll}
 						    
 		Nr.   & Priority & Fulfilled & Location & Remarks \\ \hline
-		SEC-1 & Must     & ~        & ~         & ~       \\ 
-		SEC-2 & Must     & ~        & ~         & ~       \\ 
-		SEC-3 & Must     & ~        & ~         & ~       \\ 
-		SEC-4 & Must     & ~        & ~         & ~       \\ 
-		SEC-5 & Must     & ~        & ~         & ~       \\
+		SEC-1 & Must     & Yes      & \ref{subsec:system-diagram} & Fulfilled. \\ 
+		SEC-2 & Must     & Yes      & \ref{subsec:channels-information-flows} & Fulfilled. \\ 
+		SEC-3 & Must     & Yes      & \ref{subsec:database-data} & Fulfilled, applied in Elasticsearch DB. \\ 
+		SEC-4 & Must     & Yes      & \ref{sec:hardware-overview} & Fulfilled, in the data center level. \\ 
+		SEC-5 & Must     & Yes      & \ref{sec:hardware-overview} & Fulfilled, by using Arduino to send data.\\
 						
 	\end{tabular}
 \end{table}
@@ -143,9 +142,9 @@ The requirements from chapter 3 are evaluated in this section. The section is sp
 	\begin{tabular}{lllll}
 						    
 		Nr.     & Priority & Fulfilled & Location & Remarks \\ \hline
-		SCALE-1 & Must     & ~        & ~         & ~       \\ 
-		SCALE-2 & Must     & ~        & ~         & ~       \\ 
-		SCALE-3 & Must     & ~        & ~         & ~       \\
+		SCALE-1 & Must     & Yes      & \ref{subsec:database-data} & Fulfilled by adapting Elasticsearch. \\ 
+		SCALE-2 & Must     & Yes      & \ref{sec:hardware-overview} & Fulfilled by adapting multiple data centers and multiple sensor type. \\ 
+		SCALE-3 & Must     & Unknown  & -         & Expected, not yet tested. \\
 						
 	\end{tabular}
 \end{table}
