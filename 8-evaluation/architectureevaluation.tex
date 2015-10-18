@@ -1,0 +1,104 @@
+% !TEX root = ../report.tex
+
+\begin{table}[H]
+	\begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
+		\textbf{Scenario}		& \textbf{Handling faulty sensors} \\ \toprule
+		\textbf{Q-Attribute(s)} & Availability, reliability \\ \midrule
+		\textbf{Environment} 	& Normal operation \\ \midrule
+		\textbf{Stimulus} 		& A sensor sends wrong data or stops sending data \\ \midrule
+		\textbf{Response} 		& The system ignores the sensor until is has been repaired/replaced \\ \midrule
+		\textbf{Design decisions} 	& \\
+			\multicolumn{2}{c}{
+			\begin{tabular}{l|lllll}
+				\textbf{Decision} & Req. & Sensitiv. & Tradeoff & Risk & Non-Risk \\ \hline
+				
+				Detection algorithm & \ref{fr:detect-faultysensor}, \ref{rel:2} & \nsl{s}{faultysensor} & \nsl{to}{faultysensor} &  &   \\
+				Reporting & \ref{fr:report-faultysensors} &  &  & \nsl{r}{reportfaultysensor} &  \\
+				UAV & \ref{fr:uav} & \nsl{s}{uav} & \nsl{to}{uav} & \nsl{r}{uav-weather} & \\
+				
+			\end{tabular} 
+			} \\
+			\midrule
+			\multicolumn{2}{c}{\compactCell{
+				\textbf{Sensitivities:} 
+				\begin{itemize} \setlength{\itemsep}{-15pt}
+				\item \ref{s:faultysensor}: Some of the time, it will be difficult for the detection algorithm to distinguish between extreme data from a sensor caused by a fault and extreme data caused by a flood.\\
+				\item \ref{s:uav}: It takes time for the UAV to be dispatched to the potential flood location.
+				\end{itemize} ~\\[-0.5cm]
+				\textbf{Tradeoffs:} 
+				\begin{itemize} \setlength{\itemsep}{-15pt}
+				\item \ref{to:faultysensor}: Reliability (+) vs. Performance (-) -- Using an algorithm on the sensor data to detect faulty sensors adds more overhead, but increases the reliability of the system.\\
+				\item \ref{to:uav}: Reliability (+) vs. Performance (-) -- The UAV checks if a flood is present/developing when the sensor data is not conclusive. It has a large dispatch time, which means (if there is a flood), it will be detected with a larger delay. 
+				\end{itemize} ~\\[-0.5cm]
+				\textbf{Risks:} 
+				\begin{itemize} \setlength{\itemsep}{-15pt}
+				\item \ref{r:reportfaultysensor}: There is a risk that the config panel where the faulty sensors are reported, is not checked often enough, leading to broken sensors not being replaced.
+				\end{itemize}
+			}} \\
+
+		\midrule
+		\textbf{Reasoning} 		& Temporarily ignoring faulty sensors allows the system to continue functioning. Reporting the sensors using the control panel allows maintenance personnel to repair those sensors. It is important that maintenance personnel checks the control panel regularly. 
+		
+		In case it cannot be determined by the system if a sensor is faulty, or whether there is a flood, a UAV can be dispatched to check. \\
+		%\midrule
+		%\textbf{Arch. model} 	&  \\
+								 
+	 \bottomrule
+	\end{tabular}
+	\label{ATAM:faulty-sensors}
+	\caption{ATAM -- Handling faulty sensors}
+\end{table}
+
+\begin{table}[H]
+	\begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
+		\textbf{Scenario}		& \textbf{Handling hardware failures} \\ \toprule
+		\textbf{Q-Attribute(s)} & Availability \\ \midrule
+		\textbf{Environment} 	& Normal operation \\ \midrule
+		\textbf{Stimulus} 		& A hardware component stops operating \\ \midrule
+		\textbf{Response} 		& The system uses a backup of the hardware component \\ \midrule
+		\textbf{Design decisions} 	& \\
+			\multicolumn{2}{c}{
+			\begin{tabular}{l|lllll}
+				\textbf{Decision} & Req. & Sensitiv. & Tradeoff & Risk & Non-Risk \\ \hline
+				
+				Database cluster & \ref{ava:1}, \ref{ava:2} &  & \nsl{to}{cluster} &  &   \\
+				Analytic cluster & \ref{ava:1}, \ref{ava:2} &  & \ref{to:cluster} &  &  \\
+				Multiple data centers & \ref{ava:1}, \ref{ava:2} &  & \nsl{to}{datacentre} &  & \nsl{nr}{datacenters} \\
+				Arduino               & \ref{ava:1}, \ref{ava:2} & \nsl{s}{arduinofail} &  &  &  \\
+				
+			\end{tabular} 
+			} \\
+			\midrule
+			\multicolumn{2}{c}{\compactCell{
+				\textbf{Sensitivities:} 
+				\begin{itemize} \setlength{\itemsep}{-15pt}
+				\item \ref{s:arduinofail}: The Arduino are hardware components which can fail as well. Several sensors are connected to a single Arduino. Since a failing Arduino does not have a backup, those sensors connected to it will become unavailable to the system until the Arduino is repaired. \\
+				\end{itemize} ~\\[-1.0cm]
+				\textbf{Tradeoffs:} 
+				\begin{itemize} \setlength{\itemsep}{-15pt}
+				\item \ref{to:cluster}: Availability (+) vs. Affordability (-) -- Using a cluster is more expensive, but provides a fallback in case of failures, increasing the availability. \\
+				\item \ref{to:datacentre}: Also Availability (+) vs Affordability (-) -- The costs of the system increase significantly by having a second data center. However, this guarantees the availability of the system in case of problems with one of the data centers.
+				\end{itemize} ~\\[-0.5cm]
+				\textbf{Nonrisks:} 
+				\begin{itemize} \setlength{\itemsep}{-15pt}
+				\item \ref{nr:datacenters}: Multiple data centers aid with increasing the availability only when they are not placed in close proximity to each other.
+				\end{itemize}
+			}} \\
+
+		\midrule
+		\textbf{Reasoning} 		& The hardware in the data centers and the data center itself are prepared for failures of components. It is important to note that the data centers should not be placed in close proximity to each other. 
+		
+		A failure of an Arduino will lead to several sensors going offline, but these sensor are located in a relatively small area and therefore only have a limited impact on the systems monitoring capabilities. \\
+		\midrule
+		\textbf{Arch. model} 	& See figure~\ref{fig:database-cluster} and figure~\ref{fig:analytic-cluster} for the logical schematic of the database and analytic cluster respectively.
+		
+		Also see figure~\ref{fig:hardware-archi-schema} for an overview of the multiple data centers. \\
+								 
+	 \bottomrule
+	\end{tabular}
+	\caption{ATAM -- Handling hardware failures}
+	\label{ATAM:hardware-failure}
+\end{table}
+
+% TODO: guarnteeing uptime of 99.xxxx %
+% TODO: hardware failure

@@ -93,7 +93,7 @@
 		}
 						
 		\newcommand{\nextNrRef}[1]{%
-			\getNext{#1}\manuallabel{#1:\arabic{#1}}{\arabic{#1}}\arabic{#1}
+			\getNext{#1}\manuallabel{#1:\arabic{#1}}{\uppercase{#1}-\arabic{#1}}\arabic{#1}
 		}
 						
 						
@@ -101,20 +101,27 @@
 			\uppercase{#1}-\nextNrRef{#1}
 		}
 		
-		\newcommand{\frReqRow}[3]{%
-			\midrule
-			\phantomsection
-			\req{FR} &
-			\ifcase\pdfstrcmp{#2}{Must}%
-				\textbf{#2}
-			\else
-				#2
-			\fi
-			&
-			#3
-			\\
-		}
-						
+\newcommand{\frReqRow}[3]{%
+	\midrule
+	\phantomsection
+	\getNext{FR}
+	\manuallabel{fr:#1}{FR-\arabic{FR}} 	
+	FR-\arabic{FR} &
+	\ifcase\pdfstrcmp{#2}{Must}%
+	   \textbf{#2}
+	\else
+	  #2
+	\fi
+	 &
+	#3
+	\\
+}	
+
+\newcommand{\newshortlabel}[2]{\phantomsection\getNext{#1}\manuallabel{#1:#2}{\uppercase{#1}-\arabic{#1}}\uppercase{#1}-\arabic{#1}}
+
+\newcommand{\nsl}[2]{\newshortlabel{#1}{#2}}
+
+				
 		\newcommand{\hlReqRow}[3]{%
 			\midrule
 			\\
