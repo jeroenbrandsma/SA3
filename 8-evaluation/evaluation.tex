@@ -3,14 +3,14 @@
 \label{ch:evaluation}
 In this chapter the software architecture will be evaluated. This document started with a requirement analysis. The requirements which are defined in chapter 3 are checked if they are fulfilled in the software architecture. Another part in this chapter is the architecture evaluation using Architecture Tradeoff Analysis Method (ATAM). The architectural risks can be exposed that can harm the organization's business goals.
 
-%\input{8-evalutation/requirementsverification.tex}
-The requirements from chapter 3 are evaluated in this section. The section is split according to chapter 3. First  the functional requirements, following the commercial requirements, and at the end the technical non-functional requirements.
 \section{Requirements validation}
+The requirements from chapter 3 are evaluated in this section. The section is split according to chapter 3. First  the functional requirements, following the commercial requirements, and at the end the technical non-functional requirements.
+
 \subsection{Functional requirements}
 \begin{table}[H]
 	\begin{tabular}{lllll}
 						    
-		Nr.   & Priority & Location & Fulfilled & Remarks \\ \hline
+		Nr.   & Priority & Fulfilled & Location & Remarks \\ \hline
 		FR-1  & Must     & ~        & ~         & ~       \\ 
 		FR-2  & Must     & ~        & ~         & ~       \\ 
 		FR-3  & Must     & ~        & ~         & ~       \\ 
@@ -48,7 +48,7 @@ The requirements from chapter 3 are evaluated in this section. The section is sp
 \begin{table}[H]
 	\begin{tabular}{lllll}
 						    
-		Nr.    & Priority & Location & Fulfilled & Remarks \\ \hline
+		Nr.    & Priority & Fulfilled & Location & Remarks \\ \hline
 		CNFR-1 & Must     & ~        & ~         & ~       \\ 
 		CNFR-2 & Must     & ~        & ~         & ~       \\
 						
@@ -60,7 +60,7 @@ The requirements from chapter 3 are evaluated in this section. The section is sp
 \begin{table}[H]
 	\begin{tabular}{lllll}
 						    
-		Nr.   & Priority & Location & Fulfilled & Remarks \\ \hline
+		Nr.   & Priority & Fulfilled & Location & Remarks \\ \hline
 		REL-1 & Must     & ~        & ~         & ~       \\ 
 		REL-2 & Must     & ~        & ~         & ~       \\ 
 		REL-3 & Must     & ~        & ~         & ~       \\ 
@@ -73,7 +73,7 @@ The requirements from chapter 3 are evaluated in this section. The section is sp
 \begin{table}[H]
 	\begin{tabular}{lllll}
 						    
-		Nr.   & Priority & Location & Fulfilled & Remarks \\ \hline
+		Nr.   & Priority & Fulfilled & Location & Remarks \\ \hline
 		AVA-1 & Must     & ~        & ~         & ~       \\ 
 		AVA-2 & Must     & ~        & ~         & ~       \\
 						
@@ -84,7 +84,7 @@ The requirements from chapter 3 are evaluated in this section. The section is sp
 \begin{table}[H]
 	\begin{tabular}{lllll}
 						    
-		Nr.   & Priority & Location & Fulfilled & Remarks \\ \hline
+		Nr.   & Priority & Fulfilled & Location & Remarks \\ \hline
 		RES-1 & Must     & ~        & ~         & ~       \\ 
 		RES-2 & Must     & ~        & ~         & ~       \\ 
 		RES-3 & Must     & ~        & ~         & ~       \\ 
@@ -98,10 +98,12 @@ The requirements from chapter 3 are evaluated in this section. The section is sp
 \begin{table}[H]
 	\begin{tabular}{lllll}
 						    
-		Nr.    & Priority & Location & Fulfilled & Remarks \\ \hline
+		Nr.    & Priority & Fulfilled & Location & Remarks \\ \hline
 		PERF-1 & Must     & ~        & ~         & ~       \\ 
 		PERF-2 & Must     & ~        & ~         & ~       \\ 
 		PERF-3 & Must     & ~        & ~         & ~       \\
+		PERF-4 & Must     & ~        & ~         & ~       \\
+		PERF-5 & Must     & ~        & ~         & ~       \\
 						
 	\end{tabular}
 \end{table}
@@ -110,7 +112,7 @@ The requirements from chapter 3 are evaluated in this section. The section is sp
 \begin{table}[H]
 	\begin{tabular}{lllll}
 						    
-		Nr.    & Priority & Location & Fulfilled & Remarks \\ \hline
+		Nr.    & Priority & Fulfilled & Location & Remarks \\ \hline
 		INTR-1 & Must     & ~        & ~         & ~       \\ 
 		INTR-2 & Must     & ~        & ~         & ~       \\ 
 		INTR-3 & Must     & ~        & ~         & ~       \\ 
@@ -126,7 +128,7 @@ The requirements from chapter 3 are evaluated in this section. The section is sp
 \begin{table}[H]
 	\begin{tabular}{lllll}
 						    
-		Nr.   & Priority & Location & Fulfilled & Remarks \\ \hline
+		Nr.   & Priority & Fulfilled & Location & Remarks \\ \hline
 		SEC-1 & Must     & ~        & ~         & ~       \\ 
 		SEC-2 & Must     & ~        & ~         & ~       \\ 
 		SEC-3 & Must     & ~        & ~         & ~       \\ 
@@ -140,7 +142,7 @@ The requirements from chapter 3 are evaluated in this section. The section is sp
 \begin{table}[H]
 	\begin{tabular}{lllll}
 						    
-		Nr.     & Priority & Location & Fulfilled & Remarks \\ \hline
+		Nr.     & Priority & Fulfilled & Location & Remarks \\ \hline
 		SCALE-1 & Must     & ~        & ~         & ~       \\ 
 		SCALE-2 & Must     & ~        & ~         & ~       \\ 
 		SCALE-3 & Must     & ~        & ~         & ~       \\
@@ -148,43 +150,6 @@ The requirements from chapter 3 are evaluated in this section. The section is sp
 	\end{tabular}
 \end{table}
 
-%\input{8-evalutation/architectureevaluation.tex}
-The ATAM method is used to evaluate the software architecture. The purpose of ATAM is elicit and refine a precise statement of the architecture’s driving quality attribute requirements
-• elicit and refine a precise statement of the architectural design decisions
-• evaluate the architectural design decisions to determine if they satisfactorily address the
-quality requirements [add source]
-%/ source: Using the Architecture Tradeoff Analysis Method to Evaluate a Wargame Simulation System: A Case Study Lawrence G. Jones Anthony J. Lattanze December 2001 Architecture Tradeoff Analysis Initiative 
-
-The method consists of the following steps:[add source]
-1. Present the ATAM: The evaluation team presents a quick overview of the ATAM steps,
-techniques used, and outputs from the process.
-2. Present the business drivers: The system manager briefly presents the business drivers
-and context for the architecture. 
-3. Present the architecture: The architect presents an overview of the architecture.
-4. Identify architectural approaches: Itemize the architectural decisions discovered in the
-previous step.
-5. Generate the quality attribute utility tree: Identify, prioritize, and refine the most
-important quality attribute goals in a utility tree format.
-6. Analyze architectural approaches: Probe the architectural approaches in light of the
-quality attributes in order to identify risks, sensitivity points, and tradeoffs.
-7. Brainstorm and prioritize scenarios: Create and analyze scenarios that represent the
-various stakeholders’ interests to understand quality attribute requirements and their
-relative importance.
-8. Analyze architectural approaches: Continue to identify risks, sensitivity points, and
-tradeoffs while noting the impact of each scenario on the architectural approaches.
-9. Present results: Recapitulate the ATAM steps, outputs, and recommendations. 
-%/ source: Using the Architecture Tradeoff Analysis Method to Evaluate a Wargame Simulation System: A Case Study Lawrence G. Jones Anthony J. Lattanze December 2001 Architecture Tradeoff Analysis Initiative 
-
-The first three steps are presented in the previous chapters. In this sub-chapter the focus will be on step 4 and further. 
-
-\subsection{Architectural approaches}
-
-\subsection{Quality attribute utility tree approaches}
-
-\subsection{Scenarios}
-
-
 \clearpage
-\section{Architecture evaluation}
 \input{8-evaluation/architectureevaluation.tex}
 
