@@ -27,4 +27,4 @@ All incoming data will be handled by Data Collecting System in the data centers.
 
 The last part of the hardware architecture is the third party data gathering cluster. The third party data gathering cluster is responsible for collecting weather forecast and demographic information of the Netherlands. This cluster is also part of the main analytics clusters.
 
-The SFM will have several data centers to keep the system reliable running as reliability and availability is SFM's key drivers. Two of them will be inside the Netherlands and the other one will be located abroad. In this way, the system will be running correctly in case both national data centers go down.
+The SFM will have several data centers to keep the system reliable running as reliability and availability is SFM's key drivers. Two of them will be inside the Netherlands and the other one will be located abroad. In this way, the system will be running correctly in case both national data centers go down. The data centers are also protected by a firewall that at least scans at the application layer, while also scanning for and mitigating DDoS attacks.
