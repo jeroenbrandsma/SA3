@@ -25,14 +25,15 @@ The logical view shows the structural elements, key abstractions and mechanisms 
 %Mechanical Systems and Signal Processing, Vol. 10, No. 3, pp. 251-264, (1996)
 
 \subsubsection*{Layer pattern}
-The system architecture of the SFM is structured according to the layer pattern. The layer pattern is a pattern which improves the maintainability of the system. The following layers have been identified in figure \ref{fig:layers}:
+The software architecture of SMF is separated into three different layers. This layering is done according to the layering Martin Fowler proposes for enterprise applications \cite{Fowler:2002:PEA:579257,Fowler:web:servicelayer}.
+Layering the software provides a more flexible architecture that allows modifications of layers having to alter the other layers.\\
+The different software layers of SMF are listed below. Each of these layers will be discussed in more detail after the figure.
 
 \begin{description}
-	\item \textbf{Monitoring layer} This layer ensures that the sensor data that is pushed by the sensors will be recieved and processed.
-	\item \textbf{Communication layer} The comunication layer provides communication with the external entities of the system. 
+	\item \textbf{Service layer} This layer provides services to external systems and coordinates the incomming calls to the domain layer.
 	\item \textbf{Domain layer} The domain layer holds the core components for processing data and warning users.
 	\item \textbf{Data source layer} This layer stores all relevant data that is needed or produced by the system. 
-\end{description} 
+\end{description}
 
 \clearpage
 \begin{figure}[H]
@@ -42,20 +43,8 @@ The system architecture of the SFM is structured according to the layer pattern.
 	\label{fig:layers}
 \end{figure}
 
-The figure above gives an abstract view of the layers of the SFM. 
-he layering is done according to the layering Martin Fowler proposes for enterprise applications \cite{Fowler:2002:PEA:579257,Fowler:web:servicelayer}.
-The data mapper \cite{Fowler:2002:PEA:579257} is used to completely separate and ignore the database in the domain model. This provides a more flexible architecture that allows modifications of either the database or the domain model independently without having to alter the other layer.
-
-The layers are specified into more detail in figure \ref{fig:logical}.
-\begin{figure}[H]
-	%\centering
-	\includegraphics[keepaspectratio=true,width=0.9\textwidth]{{\viewimages/LogicalView_Packaged}.jpg}
-	\caption{Logical view}
-	\label{fig:logical}
-\end{figure}
-
 \subsubsection*{Service layer}
-The Service layer pattern \cite{Fowler:2002:PEA:579257} is used as domain logic pattern. In this pattern, the service layer provides a set of operations    that can be executed in the application. The service layer serves and coordinates the calls to these provides operation. The application logic in the domain layer is then separated from how it is called and how it should respond.\\
+The Service layer pattern \cite{Fowler:2002:PEA:579257} is used as domain logic pattern. In this pattern, the service layer provides a set of operations that can be executed in the application. The service layer serves and coordinates the calls to these provides operation. The application logic in the domain layer is then separated from how it is called and how it should respond.\\
 The main functionality of this layer consists of:
 \begin{itemize}
 	\item Providing a REST server the arduino monitoring units can send their raw sensor data to
@@ -63,10 +52,19 @@ The main functionality of this layer consists of:
 	\item Distribute warning messages
 \end{itemize}
 
+The class diagram for this layer is shown in figure \ref{fig:service1}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true,width=1.0\textwidth]{{\viewimages/service1}.jpg}
+	\caption{Class diagram of service layer}
+	\label{fig:service1}
+\end{figure}
+
 The sensors periodically send their sensor data to the central server. This is illustrated in figure \ref{fig:sensorseq}
 \begin{figure}[H]
 	%\centering
-	\includegraphics[keepaspectratio=true,width=0.9\textwidth]{{\viewimages/sensorssequence}.jpg}
+	\includegraphics[keepaspectratio=true,width=0.9\textwidth]{{\viewimages/sequence_sensor}.png}
 	\caption{Sequence diagram of the client pushing the sensor data}
 	\label{fig:sensorseq}
 \end{figure}
@@ -115,7 +113,8 @@ The sequence of actions for obtaining information from SFM is shown below in fig
 	\label{fig:thirdpartyseq}
 \end{figure}
 
-The API calls the service layer receives that request information, don't need to be authenticated. These calls, however, do need to be limited by the service layer to not be able to delete or modify information. The information the API provides is defined in the server layer and the API does not return any information other then that.
+The API calls the service layer receives that request information, don't need to be authenticated. These calls, however, do need to be limited by the service layer to not be able to delete or modify information. The information the API provides is defined in the server layer and the API does not return any information other then that.\\
+The third party sends a http GET request to the REST server of SMF. Upon receiving this request, the REST server checks if the request is secure. This logic is located in the service layer. When the request is secure, the REST server calls the mapper object in order to get the requested data. The mapper object first checks the identity map if the data is already loaded. This will reduce the amount of queries executed on the database. If this identity map doesn't hold the data, the mapper sends a query to the database. The data returned from the database is then returned to the REST server, who sends the data to the third party.
 
 \paragraph{Distribute warnings}
 In figure~\ref{fig:warning} a sequence diagram of sending warnings to the emergency room and citizens can be seen. The sequence diagram contains a time constraint of 10 seconds and 5 minutes, for warning the emergency room and all citizens respectively.
@@ -133,15 +132,31 @@ In figure~\ref{fig:warning} a sequence diagram of sending warnings to the emerge
 \subsubsection*{Domain layer}
 The domain layer contains all the logic of the system. This includes the logic for the algorithms used to decide if a warning should be issued. And it includes the logic for managing the sensor data.\\
 The sensor manager checks if the sensor is still working correctly.%todo
-If the sensor is working correctly, the sensor data gets stored and processed.\\ 
-First the sensor data get's pre processed. 
+If the sensor is working correctly, the sensor data gets stored and processed.\\
+The class diagram for handling incoming REST server calls is shown in figure \ref{fig:domain1}.
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true,width=1.0\textwidth]{{\viewimages/domain1}.jpg}
+	\caption{Class diagram of the domain layer concerning REST calls}
+	\label{fig:domain1}
+\end{figure}
+
+The classdiagramm of the algorithm processing the data is shown below in figure \ref{fig:domain2}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[keepaspectratio=true,width=1.0\textwidth]{{\viewimages/domain2}.jpg}
+	\caption{Class diagram of flood prediction in the domain layer}
+	\label{fig:domain2}
+\end{figure}
+First the incoming sensor data is getting pre processed. 
 This is done by using:
 \begin{itemize}
 	\item Smoothing the L1 norm using the Huber function 
 	\item Hodrick–Prescott filter
 \end{itemize}
 
-The the L1 norm smoothening fluctuates more than the Hodrick-Prescott function. This way, the long term and short term differences can be analyzed better.\\
+The the L1 norm smoothing fluctuates more than the Hodrick-Prescott function. This way, the long term and short term differences can be analyzed better.\\
 
 %https://en.wikipedia.org/wiki/Hodrick%E2%80%93Prescott_filter
 %http://mathoverflow.net/questions/118333/smoothing-l1-norm-huber-vs-conjugate
@@ -162,7 +177,8 @@ The k-means clustering algorithm is used to detect abnormalities in the sensor d
 How strongly correlated two types of data are will be calculated using Longitudinal Data Analysis.
 
 \subsubsection*{Data source layer}
-The data source layer uses the data mapper pattern to provide the domain layer with data from the Elasticsearch database. How the database is structured will be discussed in the implementation view section.
+The data mapper \cite{Fowler:2002:PEA:579257} is used to completely separate and ignore the database in the domain model. The domain object only uses an interface to a "find" function that returns the requested object. This could be either from the database or from the internal memory.\\
+How the database is structured will be discussed in the implementation view section.
 
 % \begin{figure}[H]
 % %\centering
