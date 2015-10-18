@@ -16,7 +16,30 @@ The system consists of a set of components tat all interact with each other. In 
 	\label{fig:component}
 \end{figure}
 
-\todo{explain the components}
+There components are placed in three layers. The data source  layer, domain layer and service source layer.
+
+In the data source layer the data is stored and the data mapper. It consist of two components. 
+	Database: This is the database that holds all the stored data of the system.
+	DataMapper: This component is responsible for reading from the database and adding new data.
+
+In the domain layer the business rules and logic is placed. The following components are placed:
+	UserData: Responsible for gathering the user data and normalizing
+	SensorData: Responsible for gathering sensor data and normalizing
+	FloodData: Responsible for gathering flood data and normalizing
+	UAVData: Responsible for gathering UAV data and normalizing
+	UserManager: Responsible for maintaining the phone numbers and other information of the registered users.
+	DataProvider: Responsible for obtaining the data the REST server requests. 
+	SensorManager: Component that is used for installing, update and delete sensors and retrieving data from the sensors.
+	Algorithms: Component used for algorithms that calculated the flood probability.
+	RESTController: Component to enable RESTful support.
+	
+In the Service layer the services are included used by external actors. The following components are included:
+	RESTServer: Server which communicates with external software
+	MessageDistribution: Component responsible for distributing warning messages to external parties.
+	
+Outside the layer are external software components:
+	SMSService: Component to let citizen subscribe for warning texts and receive warning texts.
+	SafetyRegion: Component to which the system communicates to in order to warn the Safety region.
 
 \subsection{Database}
 The figure \ref{fig:database} below shows how the database is structured. 
@@ -64,3 +87,20 @@ The `External Data' is the software package which uses APIs from other systems t
 	\caption{Package diagram}
 	\label{fig:package-diagram}
 \end{figure}
+
+The following packages are in the system.
+	\begin{itemize}
+	 \item Sensor Software: This software package is used for retrieving data from the sensors. It uses the sensor manager.
+	 \item Sensor Manager: Responsible for installing sensors and configure the sensors.
+	 \item Data Abstraction: Holds all data that is stored in the system.
+	 \item Third Party API: Package that enables third party software too access data from the system database.
+	 \item External Data: This package retrieves data from the GEO API, Weather API and Demographic API.
+	 \item Monitoring \& Flood detection: Access the data from database and calculates if a flood is imminent. 
+	 \item Warning: When a flood is imminent the warning package is used to send out a warning.
+	\end{itemize}
+
+The following external packages are used:
+\begin{itemize}
+	\item SMS Service: This package is used to let citizen subscribe to the warning services and send out warnings.
+	\item Safety region API: When a flood is imminent a warning is send by the system to the safety region API package.
+\end{itemize}
