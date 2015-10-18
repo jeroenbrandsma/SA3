@@ -135,5 +135,53 @@ The first three steps are presented in the previous chapters. In this sub-chapte
 	\label{ATAM:hardware-failure}
 \end{table}
 
-% TODO: guarnteeing uptime of 99.xxxx %
-% TODO: hardware failure
+\begin{table}[H]
+	\begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
+		\textbf{Scenario}		& \textbf{Ensuring availability of third party data / services} \\ \toprule
+		\textbf{Q-Attribute(s)} & Availability, reliability, interoperability \\ \midrule
+		\textbf{Environment} 	& Normal operation \\ \midrule
+		\textbf{Stimulus} 		& A third party service or data API becomes unavailable \\ \midrule
+		\textbf{Response} 		& The system still has access to (a backup of) the data or service \\ \midrule
+		\textbf{Design decisions} 	& \\
+			\multicolumn{2}{c}{
+			\begin{tabular}{l|lllll}
+				\textbf{Decision} & Req. & Sensitiv. & Tradeoff & Risk & Non-Risk \\ \hline
+				
+				Using multiple API providers offering same service/data & \ref{fr:receive-weather}, \ref{fr:receive-geographic} &  & \nsl{to}{apis} &  &   \\
+				SMS service & \ref{fr:warn-citizens}, \ref{fr:citizens-subscribe} & \nsl{s}{onesmsservice} &  &  & \nsl{nr}{storingphonenrs}  \\
+				Emergency room API & \ref{fr:warn-safetyregion} &  &  &  &  \nsl{nr}{emergencyroomapi} \\
+				
+				
+			\end{tabular} 
+			} \\
+			\midrule
+			\multicolumn{2}{c}{\compactCell{
+				\textbf{Sensitivities:} 
+				\begin{itemize} \setlength{\itemsep}{-15pt}
+				\item \ref{s:onesmsservice}: The system relies on a single SMS Service provider (CM Telecom). If this provider is not available, the system cannot warn citizens by text message. \\
+				\end{itemize} ~\\[-1.0cm]
+				\textbf{Tradeoffs:} 
+				\begin{itemize} \setlength{\itemsep}{-15pt}
+				\item \ref{to:apis}: Reliability (+) vs. Affordability (-) -- Most APIs charge a usage fee, which means that using multiple APIs increases the costs. \\
+				\end{itemize} ~\\[-1.0cm]
+				\textbf{Nonrisks:} 
+				\begin{itemize} \setlength{\itemsep}{-15pt}
+				\item \ref{nr:storingphonenrs}: The phone numbers of citizens who subscribed are stored in the database of the system instead of the SMS Service provider's database. \\
+				\item \ref{nr:emergencyroomapi}: It is assumed that the emergency room API is always available, which is the responsibility of the safety region.
+				\end{itemize}
+			}} \\
+
+		\midrule
+		\textbf{Reasoning} 		& \compactCell{
+			By using multiple APIs for weather / geographic / demographic data, it is ensured that this data is available if one of the APIs goes offline. 
+			
+			The SMS service is a single point of failure: if it goes offline, there is no backup SMS service provider.
+		} \\
+		%\midrule
+		%\textbf{Arch. model} 	& \\
+								 
+	 \bottomrule
+	\end{tabular}
+	\caption{ATAM -- Ensuring availability of third party data / services}
+	\label{ATAM:3rdpartydata}
+\end{table}
