@@ -1,5 +1,7 @@
 \clearpage
 \subsection{Implementation view}
+\label{subsec:implementview}
+
 \copied{The development view illustrates a system from a programmer's perspective and is concerned with software management. This view is also known as the implementation view. It uses the UML Component diagram to describe system components. UML Diagrams used to represent the development view include the Package diagram.}
 {from wikipedia\\\url{https://en.wikipedia.org/wiki/4\%2B1_architectural_view_model}}
 
@@ -19,58 +21,36 @@ The system consists of a set of components tat all interact with each other. In 
 There components are placed in three layers. The data source  layer, domain layer and service source layer.
 
 In the data source layer the data is stored and the data mapper. It consist of two components. 
-	Database: This is the database that holds all the stored data of the system.
-	DataMapper: This component is responsible for reading from the database and adding new data.
+\begin{itemize}
+	\item Database: This is the database that holds all the stored data of the system.
+	\item DataMapper: This component is responsible for reading from the database and adding new data.
+\end{itemize}
 
 In the domain layer the business rules and logic is placed. The following components are placed:
-	UserData: Responsible for gathering the user data and normalizing
-	SensorData: Responsible for gathering sensor data and normalizing
-	FloodData: Responsible for gathering flood data and normalizing
-	UAVData: Responsible for gathering UAV data and normalizing
-	UserManager: Responsible for maintaining the phone numbers and other information of the registered users.
-	DataProvider: Responsible for obtaining the data the REST server requests. 
-	SensorManager: Component that is used for installing, update and delete sensors and retrieving data from the sensors.
-	Algorithms: Component used for algorithms that calculated the flood probability.
-	RESTController: Component to enable RESTful support.
-	
+\begin{itemize}
+	\item UserData: Responsible for gathering the user data and normalizing
+	\item SensorData: Responsible for gathering sensor data and normalizing
+	\item FloodData: Responsible for gathering flood data and normalizing
+	\item UAVData: Responsible for gathering UAV data and normalizing
+	\item UserManager: Responsible for maintaining the phone numbers and other information of the registered users.
+	\item DataProvider: Responsible for obtaining the data the REST server requests. 
+	\item SensorManager: Component that is used for installing, update and delete sensors and retrieving data from the sensors.
+	\item Algorithms: Component used for algorithms that calculated the flood probability.
+	\item RESTController: Component to enable RESTful support.
+\end{itemize}
+
 In the Service layer the services are included used by external actors. The following components are included:
-	RESTServer: Server which communicates with external software
-	MessageDistribution: Component responsible for distributing warning messages to external parties.
+\begin{itemize}
+	\item RESTServer: Server which communicates with external software
+	\item MessageDistribution: Component responsible for distributing warning messages to external parties.
+	\end{itemize}
 	
 Outside the layer are external software components:
-	SMSService: Component to let citizen subscribe for warning texts and receive warning texts.
-	SafetyRegion: Component to which the system communicates to in order to warn the Safety region.
+\begin{itemize}
+	\item SMSService: Component to let citizen subscribe for warning texts and receive warning texts.
+	\item SafetyRegion: Component to which the system communicates to in order to warn the Safety region.
+	\end{itemize}
 
-\subsection{Database}
-The figure \ref{fig:database} below shows how the database is structured. 
-
-\clearpage
-\begin{figure}[H]
-	%\centering
-	\includegraphics[height=14cm, width=0.9\textwidth]{{\viewimages/database}.jpg}
-	\caption{Database diagram}
-	\label{fig:database}
-\end{figure}
-
-The database diagram shows all the information the API can provide to the users. \\
-The database is made of ten tables. \\
-
-In green is the name of the table. \\
-In grey the primarykey. \\
-In the second column of each table are the types of the data. \\
-
-The first table \textbf{aeracitizen} concerns the area where live the citizens : citizengeold (?) , area : the name of the area and citizencount gives the number of citizen in this area.\\
-The table \textbf{aeraaltitude} gives information about the are such as its altitude.
-The table \textbf{UAVdata} provides information sent by the UAVs which will give more information about the flood such as : uavid which identifies a specific uav, datetime, altitude , latlong ,gpssatelite,mpegimage, \\
-The table \textbf{registereduser} concerns information to identify a specific user to provide him the warning, provide guidance and help the safety region : his id, phonenumer and if he is registered or not. \\
-
-Six table are related and provide information about the sensors : \\
-verification (?) \\
-The table \textbf{Floodsensorverification} (?) \\
-The table \textbf{flood}gives information about the flood : its id by floodid , starttime , endtimide , area. \\
-The table \textbf{monitor} : monitorid , its location, attributename. \\
-The table \textbf{sensor} : sensorid identifies each sensor, its location , which monitor it depends on,and its type \\
-The table \textbf{sensordata} : sensordataid which identifies each data of the sensor, sensorid, datetime which gives the exact time of when the data has been sent ,value,  rawvalue(?). 
 
 \subsubsection{Packages}
 The software of the system is divided into several packages. These packages and their relations can be seen in figure~\ref{fig:package-diagram}. 
