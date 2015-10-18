@@ -24,11 +24,3 @@ The activity diagram in figure~\ref{fig:activity-monitoring} shows the flow of t
 
 
 \subsubsection*{Sending the sensor data}
-In figure~\ref{fig:sequence-sensordata} a sequence diagram of sending the sensor data can be seen. As elaborated in decision~\ref{dec:5}, the sensors will push their data to the server. The sensor has two running threads: one reading the measurements and the other for sending the data every 60 seconds.
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[keepaspectratio=true,width=0.7\textwidth]{{\viewimages/sequence_sensor}.png}
-	\caption{A sequence diagram of sending the sensor data}
-	\label{fig:sequence-sensordata}
-\end{figure}

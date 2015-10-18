@@ -11,17 +11,48 @@ The requirements from chapter 3 are evaluated in this section. The section is sp
 	\begin{tabular}{lllll}
 						    
 		Nr.   & Priority & Fulfilled & Location & Remarks \\ \hline
-		FR-1  & Must     & ~        & ~         & ~       \\ 
-		FR-2  & Must     & ~        & ~         & ~       \\ 
-		FR-3  & Must     & ~        & ~         & ~       \\ 
-		FR-4  & Must     & ~        & ~         & ~       \\ 
-		FR-5  & Must     & ~        & ~         & ~       \\ 
-		FR-6  & Must     & ~        & ~         & ~       \\ 
-		FR-7  & Must     & ~        & ~         & ~       \\ 
-		FR-8  & Must     & ~        & ~         & ~       \\ 
-		FR-9  & Must     & ~        & ~         & ~       \\ 
-		FR-10 & Must     & ~        & ~         & ~       \\ 
-		FR-11 & Must     & ~        & ~         & ~       \\ 
+		
+		%		INTR-1 & Must     & Yes      &\ref{subsec:external-system} & Fulfilled by using several weather forecast API providers.       \\
+		%The system is able to receive input from water level sensors.
+		FR-1  & Must     & Yes        & \ref{subsec:logicalview} \ref{sec:hardware-decisions} & Fulfilled by the system providing a REST server the arduino sensor systems can use to post the sensor data to. \\ 
+		
+		%The system is able to perform an analysis for the water level in the waterways based on the input from the water level sensors. 
+		FR-2  & Must     & Yes       & \ref{subsec:logicalview}       & Fulfilled by having the system use several algorithms to analyze the sensor input for abnormalities \\ 
+		%The system is able to receive input from the dike sensors.
+		FR-3  & Must     & Yes        & \ref{sec:hardware-decisions} \ref{hw:2}         & Fulfilled by having arduino systems sent the dike sensor values over a cabled network to the central system's REST server \\ 
+		
+		%The system is able to perform an analysis for the parameters of the dike sensors based on the input from the dike sensors.
+		%TODO This has to be explained better i guess.
+		FR-4  & Must     & Yes        &          & ~       \\ 
+		
+		%FR-5 Must The system can store the sensor data.
+		FR-5  & Must     & Yes        & \ref{subsec:implementview} \ref{DEC:6} & Fulfilled by using an ElasticSearch database that is capable of storing all the data needed.       \\ 
+		
+		%Sensor data, which has been previously stored, can be retrieved at a later moment.
+		FR-6  & Must     & Yes & \ref{DEC:6} & Fulfilled by using an Elasticsearch database that is very robust, high available and scalable. Thereby enhancing the ability to store and receive data at all times. \\
+		
+%		%The system retrieves weather forecasting data from weather forecasting services,
+%which consists of predictions about the precipitation, wind data and tide information.
+%This is used by the system to help in determining when a flood becomes imminent
+		FR-7  & Must     & Yes        & \ref{subsec:external-system}         & Fulfilled by the system contacting several API's to base the decisions on. \\ 
+		
+		%The system is able to detect when a flood is imminent by combining the retrieved
+%sensor data and weather forecasting data.
+		FR-8  & Must     & Yes        & \ref{subsec:logicalview}         & Fulfilled by the system using Longitudinal Data Analysis to correlate the sensor data with the forecast data \\ 
+		
+%		%The system retrieves geographic information, consisting of road data, terrain height
+%data and demographic data (number of civilians living in affected area) from an
+%external API.
+		FR-9  & Must     & Yes        & \ref{subsec:external-system} & Fulfilled by the system contacting an external GEO API over TCP/IP\\
+		
+%		%The system computes the area affected by a flood, in zones of 5 by 5 km, by using the
+%location data of the sensors and geographic information.
+		FR-10 & Must     & Yes        & \ref{sec:softdecisions}         & Fulfilled by the system storing the geographical data and using Elasticsearch queries to get the specified area \\ 
+		
+%		%The system is able to perform an analysis, resulting in an estimated expected water
+%level for areas which are affected by a flood, based on the water level sensor data,
+%geographic data and weather forecast information.
+		FR-11 & Must     & Yes & \ref{sec:elaboratedmodel} \ref{subsec:logicalview}  & Fulfilled by using several different external API's for additional information together with a correlation algorithm and other analysis algorithms \\ 
 		FR-12 & Should   & ~        & ~         & ~       \\ 
 		FR-13 & Should   & ~        & ~         & ~       \\ 
 		FR-14 & Must     & ~        & ~         & ~       \\ 

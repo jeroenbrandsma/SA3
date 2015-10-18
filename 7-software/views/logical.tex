@@ -1,5 +1,6 @@
 %!TEX root = ../../report.tex
 \subsection{Logical View}
+\label{subsec:logicalview}
 
 \copied{Logical view : The logical view is concerned with the functionality that the system provides to end-users. UML Diagrams used to represent the logical view include Class diagram, Communication diagram, Sequence diagram.[2]}
 {from wikipedia\\\url{https://en.wikipedia.org/wiki/4\%2B1_architectural_view_model}}
@@ -61,12 +62,13 @@ The class diagram for this layer is shown in figure \ref{fig:service1}
 	\label{fig:service1}
 \end{figure}
 
-The sensors periodically send their sensor data to the central server. This is illustrated in figure \ref{fig:sensorseq}
+In figure~\ref{fig:sequence-sensordata} a sequence diagram of sending the sensor data can be seen. As elaborated in decision~\ref{dec:5}, the sensors will push their data to the server. The sensor has two running threads: one reading the measurements and the other for sending the data every 60 seconds.
+
 \begin{figure}[H]
-	%\centering
-	\includegraphics[keepaspectratio=true,width=0.9\textwidth]{{\viewimages/sequence_sensor}.png}
-	\caption{Sequence diagram of the client pushing the sensor data}
-	\label{fig:sensorseq}
+	\centering
+	\includegraphics[keepaspectratio=true,width=0.7\textwidth]{{\viewimages/sequence_sensor}.png}
+	\caption{A sequence diagram of sending the sensor data}
+	\label{fig:sequence-sensordata}
 \end{figure}
 
 \textbf{\textsc{URL}}
