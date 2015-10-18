@@ -1,5 +1,6 @@
 ###LaTeX###
-
+#meld
+*.orig
 # For Mac
 .DS_Store
 
