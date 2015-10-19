@@ -12,8 +12,8 @@
 *.fls
 *.out
 *.toc
-report.pdf
-report*.pdf
+/report.pdf
+/report_*-*.pdf
 
 ## Intermediate documents:
 *.dvi
