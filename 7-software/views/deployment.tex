@@ -19,7 +19,7 @@ Figure \ref{fig:deployment-diagram} shows the deployment diagram of the \gls{SFM
 
 % \clearpage
 
-The deployment diagram, depicted in figure \ref{fig:deployment-diagram}, is developed based on \cite{ibmdeployment}. The block with blue color represents hardware components. The red and yellow represent operating system and the SFM developed software. Some artifacts are put inside the software block. Deployment view can be categorized into three main components, such as sensing components, main analytics cluster, and database cluster.
+The deployment diagram, depicted in figure \ref{fig:deployment-diagram}, is developed based on \cite{ibmdeployment}. The block with blue color represents hardware components. The red and yellow represent operating system and the SFM developed software. Some artifacts are put inside the software block. Deployment view can be categorized into three main components, which are sensing components, main analytics cluster, and database cluster.
 
 \subsubsection*{Sensing Components}
 This portion of the \gls{SFM} is responsible for gathering required data and sending the data to Data Collection System. The \gls{SFM} will utilize two kind of sensor, water level sensor and GeoBeads sensor. Water level sensor is required to measure the water condition of dykes or water ways, while GeoBeads sensor is used to measure the dykes condition. Both kind of the sensor does not have any software part in it as it is merely electronic component that senses the condition of the surroundings. Both of the sensor will be directly connected to Arduino Uno Ethernet. Arduino will pack the data gathered from sensors and periodically send it to the Data Collecting System.
