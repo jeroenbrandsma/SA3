@@ -48,7 +48,7 @@ The different software layers of SMF are listed below. Each of these layers will
 The Service layer pattern \cite{Fowler:2002:PEA:579257} is used as domain logic pattern. In this pattern, the service layer provides a set of operations that can be executed in the application. The service layer serves and coordinates the calls to these provides operation. The application logic in the domain layer is then separated from how it is called and how it should respond.\\
 The main functionality of this layer consists of:
 \begin{itemize}
-	\item Providing a REST server the arduino monitoring units can send their raw sensor data to
+	\item Providing a REST server the Arduino monitoring units can send their raw sensor data to
 	\item Providing a REST server the third parties can use to receive flood data
 	\item Distribute warning messages
 \end{itemize}
@@ -107,16 +107,16 @@ The server does however need to verify that the messages it receives from the ar
 % HMAC suggested by microsoft: https://msdn.microsoft.com/en-us/library/dd203052.aspx
  
 The message security is done by using a hash based message authentication code (HMAC) using SHA-256 as the hashing algorithm. Upon receiving the messages, the service layer verifies the message before further processing the message.\\
-The sequence of actions for obtaining information from SFM is shown below in figure \ref{thirdpartyseq}.
+The sequence of actions for obtaining information from SFM is shown below in figure \ref{fig:getinfosfm}.
 \begin{figure}[H]
 	%\centering
 	\includegraphics[keepaspectratio=true,width=0.9\textwidth]{{\viewimages/sequencethirdparty}.jpg}
-	\caption{Sequence diagram of the client pushing the sensor data}
-	\label{fig:thirdpartyseq}
+	\caption{Sequence diagram of 3rd party obtaining data from SFM}
+	\label{fig:getinfosfm}
 \end{figure}
 
 The API calls the service layer receives that request information, don't need to be authenticated. These calls, however, do need to be limited by the service layer to not be able to delete or modify information. The information the API provides is defined in the server layer and the API does not return any information other then that.\\
-The third party sends a http GET request to the REST server of SMF. Upon receiving this request, the REST server checks if the request is secure. This logic is located in the service layer. When the request is secure, the REST server calls the mapper object in order to get the requested data. The mapper object first checks the identity map if the data is already loaded. This will reduce the amount of queries executed on the database. If this identity map doesn't hold the data, the mapper sends a query to the database. The data returned from the database is then returned to the REST server, who sends the data to the third party.
+The third party sends a HTTP GET request to the REST server of SMF. Upon receiving this request, the REST server checks if the request is secure. This logic is located in the service layer. When the request is secure, the REST server calls the mapper object in order to get the requested data. The mapper object first checks the identity map if the data is already loaded. This will reduce the amount of queries executed on the database. If this identity map doesn't hold the data, the mapper sends a query to the database. The data returned from the database is then returned to the REST server, who sends the data to the third party.
 
 \paragraph{Distribute warnings}
 In figure~\ref{fig:warning} a sequence diagram of sending warnings to the emergency room and citizens can be seen. The sequence diagram contains a time constraint of 10 seconds and 5 minutes, for warning the emergency room and all citizens respectively.
@@ -143,7 +143,7 @@ The class diagram for handling incoming REST server calls is shown in figure \re
 	\label{fig:domain1}
 \end{figure}
 
-The classdiagramm of the algorithm processing the data is shown below in figure \ref{fig:domain2}
+The class diagram of the algorithm processing the data is shown below in figure \ref{fig:domain2}
 
 \begin{figure}[H]
 	\centering
