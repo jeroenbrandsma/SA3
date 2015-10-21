@@ -1,29 +1,29 @@
 % !TEX root = ../report.tex
 \section{Architecture evaluation}
-The ATAM method is used to evaluate the software architecture. The purpose of ATAM is elicit and refine a precise statement of the architecture’s driving quality attribute requirements
-• elicit and refine a precise statement of the architectural design decisions
+The ATAM method is used to evaluate the software architecture. The purpose of ATAM is elicit and refine a precise statement of the architecture’s driving quality attribute requirements\\
+• elicit and refine a precise statement of the architectural design decisions \\
 • evaluate the architectural design decisions to determine if they satisfactorily address the
 quality requirements [add source]
 %/ source: Using the Architecture Tradeoff Analysis Method to Evaluate a Wargame Simulation System: A Case Study Lawrence G. Jones Anthony J. Lattanze December 2001 Architecture Tradeoff Analysis Initiative 
 
-The method consists of the following steps:[add source]
+The method consists of the following steps:[add source] \\
 1. Present the ATAM: The evaluation team presents a quick overview of the ATAM steps,
-techniques used, and outputs from the process.
+techniques used, and outputs from the process. \\
 2. Present the business drivers: The system manager briefly presents the business drivers
-and context for the architecture. 
+and context for the architecture. \\
 3. Present the architecture: The architect presents an overview of the architecture.
 4. Identify architectural approaches: Itemize the architectural decisions discovered in the
-previous step.
+previous step.\\
 5. Generate the quality attribute utility tree: Identify, prioritize, and refine the most
-important quality attribute goals in a utility tree format.
+important quality attribute goals in a utility tree format.\\
 6. Analyze architectural approaches: Probe the architectural approaches in light of the
-quality attributes in order to identify risks, sensitivity points, and tradeoffs.
+quality attributes in order to identify risks, sensitivity points, and tradeoffs.\\
 7. Brainstorm and prioritize scenarios: Create and analyze scenarios that represent the
 various stakeholders’ interests to understand quality attribute requirements and their
-relative importance.
+relative importance.\\
 8. Analyze architectural approaches: Continue to identify risks, sensitivity points, and
-tradeoffs while noting the impact of each scenario on the architectural approaches.
-9. Present results: Recapitulate the ATAM steps, outputs, and recommendations. 
+tradeoffs while noting the impact of each scenario on the architectural approaches. \\
+9. Present results: Recapitulate the ATAM steps, outputs, and recommendations. \\
 %/ source: Using the Architecture Tradeoff Analysis Method to Evaluate a Wargame Simulation System: A Case Study Lawrence G. Jones Anthony J. Lattanze December 2001 Architecture Tradeoff Analysis Initiative 
 
 The first three steps are presented in the previous chapters. In this sub-chapter the focus will be on step 4 and further. 
@@ -31,20 +31,25 @@ The first three steps are presented in the previous chapters. In this sub-chapte
 \subsection{Architectural approaches}
 
 \subsection{Quality attribute utility tree approaches}
-In this section the utility tree is built according to the key drivers of our system : reliability, performance and availability.
+The utility tree is one of the ATAM techniques it represents the overall usefulness of the system. 
+In this section the utility tree is built according to the key drivers of our system : reliability, performance and availability ( view part 3.3 ). The purpose of the utility tree is to elect high priority scenarios which will be analysed precisely in the next section.
+The scenarios serve as the leafs of the utility tree and the architecture is evaluated by considering how it makes the scenarios possible. \\
 
 
-	The prioritization is as follow : \\
-	
-	Importance  to system overall success :
-	High, Medium, Low \\
-    Risk/difficulty in achieving : 
-    High, Medium, Low \\
+There are four levels in the three . The first node is the root : " Utility " , then follow the Quality factors wich are our key drivers , then the tree goes deeper in precison with refined the key drivers in subfactors which are demonstrated by the leaves with the scenarios we expect our system to manifest. \\
 
+In order to prioritize the scenarios two criterias are used and classified as follow: \\
+\textit{Importance  to system success}: High (Very important feature for the system : essential), Medium, Low (Not mandatory)\\
+\textit{ Risk/difficulty in achieving}: High, Medium, Low\\
+To get the meaning of High , Medium and Low we can use a scale from 10 to 0 as reference: High : 10-7, Medium 6-4, Low 4-0.
 
-\includegraphics[scale=0.5]{images/utilitytree.png}
+\includegraphics[scale=0.5]{images/utilitytree1.png}
+
+The interesting scenarios are the ones with high priority (H,H),(H,M) and (M,H), focus will be put on them in the next section.
 
 \subsection{Scenarios}
+
+In this part high priority scenarios derived from the utility tree will be analysed and as a result will come the identification of sensitivity points, tradeoffs, risks and non risks.
 
 
 \begin{table}[H]
