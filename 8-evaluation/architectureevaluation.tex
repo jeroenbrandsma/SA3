@@ -1,34 +1,57 @@
 % !TEX root = ../report.tex
 \section{Architecture evaluation}
-The ATAM method is used to evaluate the software architecture. The purpose of ATAM is elicit and refine a precise statement of the architecture’s driving quality attribute requirements\\
-• elicit and refine a precise statement of the architectural design decisions \\
-• evaluate the architectural design decisions to determine if they satisfactorily address the
-quality requirements [add source]
-%/ source: Using the Architecture Tradeoff Analysis Method to Evaluate a Wargame Simulation System: A Case Study Lawrence G. Jones Anthony J. Lattanze December 2001 Architecture Tradeoff Analysis Initiative 
+The architecture that is shown in the previous chapters needs to be evaluated. This is done with the ATAM method. ATAM stands for Architecture Trade-off Analysis Method. This evaluation method is used to determine if the system meets the requirements that are composed in chapter 3. ATAM identifies critical design decisions and verifies them againts our key drivers. If the design decisions do not fulfill the key drivers, risks for the system will be inevitable. In order to terminate these risks, solutions are provided to deal with the risks. In the remainder of this chapter the architectural approaches, utility tree and the scenarios are provided. 
 
-The method consists of the following steps:[add source] \\
-1. Present the ATAM: The evaluation team presents a quick overview of the ATAM steps,
-techniques used, and outputs from the process. \\
-2. Present the business drivers: The system manager briefly presents the business drivers
-and context for the architecture. \\
-3. Present the architecture: The architect presents an overview of the architecture.
-4. Identify architectural approaches: Itemize the architectural decisions discovered in the
-previous step.\\
-5. Generate the quality attribute utility tree: Identify, prioritize, and refine the most
-important quality attribute goals in a utility tree format.\\
-6. Analyze architectural approaches: Probe the architectural approaches in light of the
-quality attributes in order to identify risks, sensitivity points, and tradeoffs.\\
-7. Brainstorm and prioritize scenarios: Create and analyze scenarios that represent the
-various stakeholders’ interests to understand quality attribute requirements and their
-relative importance.\\
-8. Analyze architectural approaches: Continue to identify risks, sensitivity points, and
-tradeoffs while noting the impact of each scenario on the architectural approaches. \\
-9. Present results: Recapitulate the ATAM steps, outputs, and recommendations. \\
-%/ source: Using the Architecture Tradeoff Analysis Method to Evaluate a Wargame Simulation System: A Case Study Lawrence G. Jones Anthony J. Lattanze December 2001 Architecture Tradeoff Analysis Initiative 
 
-The first three steps are presented in the previous chapters. In this sub-chapter the focus will be on step 4 and further. 
+% The ATAM method is used to evaluate the software architecture. The purpose of ATAM is elicit and refine a precise statement of the architecture’s driving quality attribute requirements\\
+% • elicit and refine a precise statement of the architectural design decisions \\
+% • evaluate the architectural design decisions to determine if they satisfactorily address the
+% quality requirements [add source]
+% %/ source: Using the Architecture Tradeoff Analysis Method to Evaluate a Wargame Simulation System: A Case Study Lawrence G. Jones Anthony J. Lattanze December 2001 Architecture Tradeoff Analysis Initiative 
+
+% The method consists of the following steps:[add source] \\
+% 1. Present the ATAM: The evaluation team presents a quick overview of the ATAM steps,
+% techniques used, and outputs from the process. \\
+% 2. Present the business drivers: The system manager briefly presents the business drivers
+% and context for the architecture. \\
+% 3. Present the architecture: The architect presents an overview of the architecture.
+% 4. Identify architectural approaches: Itemize the architectural decisions discovered in the
+% previous step.\\
+% 5. Generate the quality attribute utility tree: Identify, prioritize, and refine the most
+% important quality attribute goals in a utility tree format.\\
+% 6. Analyze architectural approaches: Probe the architectural approaches in light of the
+% quality attributes in order to identify risks, sensitivity points, and tradeoffs.\\
+% 7. Brainstorm and prioritize scenarios: Create and analyze scenarios that represent the
+% various stakeholders’ interests to understand quality attribute requirements and their
+% relative importance.\\
+% 8. Analyze architectural approaches: Continue to identify risks, sensitivity points, and
+% tradeoffs while noting the impact of each scenario on the architectural approaches. \\
+% 9. Present results: Recapitulate the ATAM steps, outputs, and recommendations. \\
+% %/ source: Using the Architecture Tradeoff Analysis Method to Evaluate a Wargame Simulation System: A Case Study Lawrence G. Jones Anthony J. Lattanze December 2001 Architecture Tradeoff Analysis Initiative 
+
+% The first three steps are presented in the previous chapters. In this sub-chapter the focus will be on step 4 and further. 
 
 \subsection{Architectural approaches}
+This section lists the architectural approaches used in the document.
+
+The most important part of our system is to warn people in case of a flood. The decision was made to warn citizens through SMS. This solution is available for all mobile phones and can used without the use of internet. It is the most reliable solution to warn citizens. To warn the safety region, the decision was made to use the emergency room API. This API is able to receive warnings and updates from our system. 
+
+Another major design decision was how to connect the different sensors to the system. The decision was made to use a wired connection between the sensors and the hubs. A wireless protocol wouldn't suffice, since the signal isn't strong enough to go through dikes. Connecting sensors to the hubs in this way, makes it also easier to power the sensors. A power wire can simply be added, instead of using batteries or solar panels. The decision to use hubs was made to make the system more structured and organised. Hubs can send data to the central system, this means the system doesn't get to much connections. 
+
+Citizens want to get proper guidance in case of a flood. Third party developers will develop this feature. In order to make this happen the system provides data to the third party developers. The decision to let third party developers develop this application was chosen over developing such a feature ourselves. This was done to keep the focus fully at designing a good architecture for the most important part, the flood detecting and warning system. This decision also gives the possibility for other developers to use our data and create creative applications. 
+
+In the software architecture, the layer pattern is used to seperate the functionality of the system. This is implemented to make the system more reliable, maintainable and extendable.
+
+Short summary of the most important decisions:
+\begin{itemize}
+	\item Send warnings by SMS to citizens
+	\item Use the emergency room API to warn the safety region
+	\item Use hubs to connect the sensors to the system
+	\item Connect sensors through wires to the hubs
+	\item Allow third party developers to create a guidance application
+	\item Use the layer pattern in the software architecture
+\end{itemize}
+
 
 \subsection{Quality attribute utility tree approaches}
 The utility tree is one of the ATAM techniques it represents the overall usefulness of the system. 
