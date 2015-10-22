@@ -167,7 +167,7 @@ The requirements from chapter 3 are evaluated in this section. The section is sp
 	REL-1 & Must     & ~        & ~         & ~       \\ 
 	
 %	\reqRow{rel}{Must}{The system must detect if a sensor supplies wrong measurements, which can be caused, e.g. by improper calibration or defects in the sensor.} 
-	REL-2 & Must     & ~        & ~         & ~       \\ 
+	REL-2 & Must     & Yes      & ~    \ref{subsec:detecting-faulty-sensor}     & Fulfilled, faulty sensor will be detected and later be repaired.       \\ 
 	
 %	\reqRow{rel}{Must}{The system must at no time fail to detect a flood when this flood becomes imminent (\textit{false negative}).}
 	REL-3 & Must     & ~        & ~         & ~       \\ 
@@ -185,7 +185,7 @@ The requirements from chapter 3 are evaluated in this section. The section is sp
 	Nr.   & Priority & Fulfilled & Location & Remarks \\ \hline
 	
 %	\reqRow{ava}{Must}{The system must have an uptime of $99.7\%$. This effectively means, that the system should not be down for more than 2 hours per month.
-	AVA-1 & Must     & ~        & ~         & ~       \\ 
+	AVA-1 & Must     & Yes        & \ref{subsec:availability}         & Fulfilled.       \\ 
 	
 %	\reqRow{ava}{Must}{The system must not experience a period of downtime, spanning more than 12 hours. Within twelve hours of the system going offline, it should be back up again. }
 	AVA-2 & Must     & ~        & ~         & ~       \\
@@ -208,13 +208,13 @@ The requirements from chapter 3 are evaluated in this section. The section is sp
 	RES-2 & Must     & ~        & ~         & ~       \\ 
 	
 %	\reqRow{res}{Must}{All system data must be backed up every 24 hours, so that in case of data loss, this data can be restored.}
-	RES-3 & Must     & ~        & ~         & ~       \\ 
+	RES-3 & Must     & Yes        & \ref{subsec:database-data}         & Fulfilled, the data is also duplicated in database.       \\ 
 	
 %	\reqRow{res}{Must}{In case of a data loss, the data should be retrieved and restored from a backup within 2 hours.}
 	RES-4 & Must     & ~        & ~         & ~       \\ 
 	
 %	\reqRow{res}{Must}{Backup copies are stored in a secure location which is not in the same area as the system (50 km).}		
-	RES-5 & Must     & ~        & ~         & ~       \\
+	RES-5 & Must     & Yes        & \ref{sec:hardware-overview}         & Fulfilled, the data centers will be located in three different places.       \\
 	
 	\end{tabular}
 	\end{table}
