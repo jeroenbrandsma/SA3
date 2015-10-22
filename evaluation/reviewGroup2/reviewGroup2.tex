@@ -20,7 +20,7 @@ Generally we found the document to be logical and well written. However, we made
 The most important thing we noticed is that there is no consistency in the SMS service to residents. You never mention how this is done, but you do assume it is possible. We don't have a different section for chapter 4 since there are just some typo's and rephrasing things. 
 
 \section{Chapter 1}
-When talking about a flood monitoring system, the first thing that came to our mind was, dikes. If dikes are not in your scope, thats oke, but maybe you can mention it in your context. In the system context you could also mention which autorities you like to warn. You say appropriate, but which autorities are appropriate?
+When talking about a flood monitoring system, the first thing that came to our mind was, dikes. If dikes are not in your scope, thats oke, but maybe you can mention it in your context. In the system context you could also mention which authorities you like to warn. You say appropriate, but which authorities are appropriate?
 
 \section{Chapter 2}
 You could make your vision more specific. You want to be the next generation of flood monitoring software instead of hoping to be it. And why is it next generation. In section 2.9 you mention there are no known competitors. If there is no current system that does this, how can yours be the next generation? 
@@ -29,8 +29,84 @@ In section 2.4 it is not really clear if and how you send warnings to residents,
 
 We don't fully agree with your business model. We don't think UAV's should be in there, since they are part of you actual system. This model should contain the third parties you need to complete your product, for example hardware suppliers.
 
+The costs relating to the servers are very optimistic and only mention the storage servers. Try to get a more complete estimation of the server costs and explain how you get to the total costs number. Right now, it says a 1000 euro without an explanation of how that number was computed.
+
 \section{Chapter 3}
 According to your definition of a high priority stakeholder, we still think citizens should be a high priority stakeholder. We already had a discussion about during the presentation, but we think citizens fall under `or it is critical to them that the system is operational'.
 In your presentation you mentioned that UAV's will have different kind of sensors to monitor dikes. In the report you only mention photographs.
+
+In the requirements, it is stated that the system will send SMS to citizens, but in the document it remains quite unclear if there will be third parties registering for your system's flood alert and then warning citizens by text, or if your system itself will send the SMS. The technical requirement suggests it will be your system.
+
+
+\section{System Architecture}
+\begin{itemize}
+\item In 5.2.1, it is not motivated why a hub network is chosen over a mesh network.
+
+\item In 5.2.3, about the alternatives for sensor power supply, the text reads like it was decided to use mains power supply, but you decided to use a hybrid, right?
+
+\item What are the alternatives to the Alert Media component?
+
+\item There is a cell tower in your elaborated model. Do you have access to those, is there a telecom provider as a third party? From the entire document, is unclear how the system will send warnings via cell phone towers as mentioned in use case 6.1.
+
+\item In the elaborated model, you mention that you broadcast the warning to emergency services by mail. Is that a reliable medium and will they be read on time? Did you consider alternative ways to alert emergency services?
+
+\item In 5.4.1 the availability is verified and estimated to be 99.56733\%. In TNR-2.7 it is stated the system is online 99.99\% for 90\% of sensors. You do not verify if 90\% of the sensors will be online all the time, i.e. if no more than 10\% of the sensors will be offline at any given moment.
+
+\item Time to market: how about installing the hardware components, the sensors, hubs etc. It seems like this was not taken into account for the time to market.
+
+\item Figure 10 does not make clear which connections can be both wired and wireless.
+
+
+\end{itemize}
+
+\section{Hardware Architecture}
+\begin{itemize}
+\item How did you get to the server specifications in 6.5?
+
+\item Why is the processing instance 104GB (it's a very specific number) and is it not better/more affordable to have numerous smaller (in memory/cpu) instances working together?
+
+\item In 6.6 it is stated that you need at least three instances for the databases to have optimal performance, but this is not explained.
+
+\item Some of the decisions have the `\textit{To be reviewed}' status, but in the appendix they are approved.
+
+\end{itemize}
+
+\section{Software Architecture}
+\begin{itemize}
+\item The hubs are not in the activity diagram, but we assume the hubs do have running processes.
+
+\item In the activity diagram, the data process does not enter a loop after the system launch (like the flood prediction process does), but instead immediately checks the source ID.
+
+\item In the activity diagram, it looks like when the ID or data is not valid, there is no error reported.
+
+\item Section 7.4.4 states that user can view flood info as well without logging in, but this is not reflected in the activity diagram.
+
+\item In figure~36, the web portal calls registerUser on mongoDb. The facade-pattern mentioned before is not reflected in this figure. Figure~38 also call MongoDB directly.
+
+\item The sequence diagram from figure~38 can use some more explanation. For example, how does the AlertProducer know the difference between the high risk and low risk users?
+
+\item In the deployment diagram, it appears there is no software on the sensor hubs. Are there no software artifacts there for packaging and sending the data from the sensors?
+
+\item In the decision SW5, there is a statement about Cassandra: `Cassandra is considered to have the best in-class scalability of NoSQL platforms'. Please add citations to the document for claims like these.
+
+\end{itemize}
+
+\section{Architecture evaluation}
+\begin{itemize}
+\item Some of the requirements are missing in the requirements verification, for example FR-6.2. This seems to be based on table 13, but it is unclear why some of these, like "determine the telephone stations to use for broadcasting warnings" are not architecturally relevant.
+
+\item There are some requirements in the evaluation, where they are listed as fulfilled, but there is no remark or entry in the `traced in' column. Try to have either a remark or traced in for every requirement, so you know where it is fulfilled in the architecture.
+
+\item In the ATAM tables, the requirements in the design decision tables are not filled in.
+
+\item The ATAM tables uncover several risks about the architecture. Think of ways to mitigate those risks.
+\end{itemize}
+
+\section{System Evolution}
+\begin{itemize}
+\item It is good to see that dike sensors are in the system's evolution, since we think it is crucial to have dike sensors to predict floods. We wonder why the dike sensor are not introduced in the initial version, but did not read this in the document. Maybe a decision about this can be added.
+
+
+\end{itemize}
 
 \end{document}
