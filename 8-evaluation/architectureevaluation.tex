@@ -33,7 +33,6 @@ The architecture that is shown in the previous chapters needs to be evaluated. T
 
 \subsection{Architectural approaches}
 This section lists the architectural approaches used in the document.
-
 The most important part of our system is to warn people in case of a flood. The decision was made to warn citizens through SMS. This solution is available for all mobile phones and can used without the use of internet. It is the most reliable solution to warn citizens. To warn the safety region, the decision was made to use the emergency room API. This API is able to receive warnings and updates from our system. 
 
 Another major design decision was how to connect the different sensors to the system. The decision was made to use a wired connection between the sensors and the hubs. A wireless protocol wouldn't suffice, since the signal isn't strong enough to go through dikes. Connecting sensors to the hubs in this way, makes it also easier to power the sensors. A power wire can simply be added, instead of using batteries or solar panels. The decision to use hubs was made to make the system more structured and organised. Hubs can send data to the central system, this means the system doesn't get to much connections. 

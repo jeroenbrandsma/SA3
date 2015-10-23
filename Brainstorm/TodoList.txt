@@ -1,0 +1,91 @@
+To do list:
+
+Never use we
+Let maintainer add location of sensors
+Maintainer can see the faulthy sensors, add Authentication in the API
+
+Predocument
+
+Chapter 1:
+- Add explanation of safety region (or in the glossary)
+
+Chapter 2:
+- Create roadmap from the notes
+- Fix the table numbering 
+- Center the tables
+- Update financial model (incl. UAV)
+- Include the mail from Waterschap
+
+Chapter 3:
+- Change 3.1 figure (add citizen and SR description)
+- Add maintainer as stakeholder
+- Keydriver table (add maintainer, make performance higher)
+- 3.3 List and explain the keydrivers
+- 3.4 Add titles to high-level requirements, add table description
+- 3.4 Explanation about the prio of the table
+- 3.5 Add DEMO data in de overview, add UAV
+- 3.5 Use <<after>> to connect different boxes, add legend
+- Add captions for use-case tables and requirements tables
+- Citizen sends text message with address use-case 3
+- 3.5.4/3.5.6 remove government as stakeholder
+- Remove map from 3.5.6, include alternatives
+- Maybe add safety region in 3.5.7, add alternative
+- Make maintainer stakeholder 3.5.8
+- Add numbering to all use-case alternatives
+- 3.6 Explain what is must, could and should
+- Change REL-1 to a SMART requirement
+- Non-functional requirements should be SMARTer
+- 3.8.5 Rewrite these to non-functional reqs instead of functional reqs
+- 3.8.7 Rewrite these, number of API calls, how fast we should scale up
+- 3.10.3 Delay the deadline or remove some minor features
+- Put the evolution requirements in a table
+
+Chapter 4:
+- Change 5 by 5 to a radius, also change the requirement in chapter 3
+- Change status to approved
+- Change operation system to CentOS
+- Explain the arguments table
+- Change weights of the diagrams and consistent
+- Change the sensor connectivity decision decision
+
+Chapter 5:
+- Text of the context diagram needs to be bigger
+- 5.1.4 fix table width do transaction occurence fits on 1 line
+- Include the new elaborated model with bigger text
+
+Chapter 6:
+- Just use wired connection, also in the figures
+- 6.2 HW-1 Fix the table
+- Change status to approved
+- Remove (using arduino) from HW-3
+- Remove random picture
+- Fix the UAV decision
+- Improve writing of 6.3.2
+- 6.3: From sensors = sensors, same for databases
+- Put table 6.8 in the appendix
+
+Chapter 7:
+- Maybe improve 7.1
+- Scenarios: Update according to feedback Sofia
+- Logical view: itemize different layers
+- 7.2.2 Improve service layer text
+- 7.2.2 make parameters of the class diagrams consistent
+- 7.2.2 remove URL and REQUEST stuff
+- 7.2.3 Rewrite the text explaining the diagram
+- Text for database needs to be rewritten
+- Improve DEC-5,6,8 and 9. Put in tables and arguments to alternatives
+- Look into the decision tables
+- Put the activity diagram on a single page
+- Make decision tables consistent
+
+Chapter 8:
+- Finish 8.1, make all tables consistent, put lines between requirements
+- Update the utility tree, box around failure, general improvement
+- Add risks and non-risks to all the tables
+- Create a table with all the risks and the actions we take to fix them
+- Make non-risk consistent
+
+Questions for Sofia:
+- What to do with the receive sensor data use-case?
+- What about the sensor use-cases? Add UAV use-case or remove sensors?
+
