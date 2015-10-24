@@ -180,7 +180,7 @@ Third party application developers have the opportunity to build application tha
 
 Safety regions are responsible when disasters are happening in the region. They consist of local governments, emergency services, the army, and water boards. Safety regions and the organizations that are part of the safety regions should be informed about the system. When they know about the system they can inform the government and put pressure to buy this system.
 
-When a flood is happening and things go wrong inhabitants will ask governments what went wrong and state that they want to be better protected. They will pressure governments that they have the best flood warning system.
+When a flood is happening and things go wrong, inhabitants will ask governments what went wrong and state that they want to be better protected. They will pressure governments that they have the best flood warning system.
 
 %\section{Business model}
 %\ Insert a business model diagram
@@ -192,13 +192,13 @@ When a flood is happening and things go wrong inhabitants will ask governments w
 The financial model will be a low product price. This in order to price the product low in the market. A service description for maintenance will be offered. Also updates will be sold to the customer\\
 %\Joris
 \subsection{Software Architecture costs}
-The software architecture team of \CompanyName consists of six members. Creating the architecture of the project is estimated to take ten weeks. All team members will spend 15 hours a week on the project. This totals $6*10*15=1050$ working hours. Each working hour costs \euro{}150,-. Total spend on the software architecture is \euro{}157.500
+The software architecture team of \CompanyName consists of six members. Creating the architecture of the project is estimated to take ten weeks. All team members will spend 15 hours a week on the project. This totals $6*10*15=1050$ working hours. Each working hour costs \euro{}150,-. Total spend on the software architecture is \euro{}157.500.
 %\Joris
 \subsection{Development costs}
 The costs of developing the system is approximated in table \ref{table:develop-costs}, shown below.
-\newline
 
 \begin{table}[H]
+
 	\pgfplotstabletypeset[%
 		KeyValue,
 		display columns/0/.append style={
@@ -222,6 +222,7 @@ The costs of developing the system is approximated in table \ref{table:develop-c
 	}
 	\caption{Approximation of development costs}
 	\label{table:develop-costs}
+
 \end{table}
 %\Joris
 Development of the system comprises the development of several different aspects. For each of these aspects, table \ref{table:develop-costs} shows an approximation of the hours needed for the development. Resulting in a total amount of $9770$ hours needed to create the system.\\
@@ -253,10 +254,11 @@ The development is done by \CompanyName self. Each member of the project team as
 \end{table}
 
 \subsection{Hardware costs}
+\subsubsection{Dike sensors}
 Around 17.000 kilometers of dikes protect the Netherlands against flooding \cite{DMC}. 
 The monitoring system consists of GeoBeads sensors with a claimed life time of 10 years, which are installed with conventional push-in techniques. 
 
-The GeoBeads sensor costs about 350\EUR per unit. For every 3 meter of dike, one such sensor is needed. In the Netherlands, there are about 17.000 kilometers of dike. However, it is estimated that only about 2500km of the dikes have to be monitored by dike sensors (because the water board considers these dikes potentially unstable).
+The GeoBeads sensor costs about \EUR350 per unit. For every 3 meter of dike, one such sensor is needed. In the Netherlands, there are about 17.000 kilometers of dike. However, it is estimated that only about 2500km of the dikes have to be monitored by dike sensors (because the water board considers these dikes potentially unstable).
 
 Each push-in costs about \EUR{}200 and three sensors can be installed per push-in\cite{TUDelftPHD}. %pp126
 
@@ -269,7 +271,7 @@ The following table gives an overview of the costs related to the dike sensors:
 		Description & Value & UoM\\
 		Total length of all dikes to be monitored & $2.500$ & km \\
 		Number of GeoBeads per kilometer & 330 & \\
-		Sensor cost & 350 & \EUR{} \\
+		Sensor cost & 320 & \EUR{} \\
 		Installment cost per cross-section & 200 &\EUR{} \\
 		Sensors per cross-section & 3 & \\
 		Base installation cost factor like labor and wiring & 0.2 & \\
@@ -280,13 +282,41 @@ The following table gives an overview of the costs related to the dike sensors:
 \end{table}
 
 This makes the costs for the dike monitoring as follows: \\
-Initial cost per km: $ 330 * 350  +  (330 / 3) * 200 = 137.500 \EUR * 1.2 = 165.000 \EUR$\\
-Total initial cost: $ 137.500 * 2.500 = 412.500.000 \EUR $
+Initial cost per km: $ 330 * 320  +  (330 / 3) * 200 = \EUR127.600 * 1.2 = \EUR153.120$\\
+Total initial cost: $ 153.120 * 2.500 = \EUR 382.800.000$
+
+\subsubsection{Water level sensors}
+
+The estimated price of the water level sensors is around 200 euro and the assumed number of required water level sensor is about one for every kilometer. In the Netherlands, the total length of the waterways is about $6000$ kilometers\cite{cbs-waterways}.
+
+The following table gives an overview of the costs related to the dike sensors:
+
+\begin{table}[H]
+	\pgfplotstabletypeset[
+		KeyValue
+	]{%
+		Description & Value & UoM\\
+		Total length of waterways to be monitored & $6.000$ & km \\
+		Number of water level sensors per kilometer & 1 & \\
+		Sensor cost & 100 & \EUR{} \\
+		Installment cost & 100 &\EUR{} \\
+		Base installation cost factor like labor and wiring & 0.2 & \\
+	}
+	\label{table:total-dev-costs3} 
+	\caption{Total costs of water level sensors. UoM=Unit of measurement}
+\end{table}
+
+This makes the costs for the dike monitoring as follows: \\
+$ 6.000 * 200 = \EUR1.200.000 * 1.2 = \EUR1.440.000$\\
+
+\subsubsection{Maintenance}
+
 
 \newcommand{\installationCosts}{412.500.000}
 
-The yearly maintenance costs for the dike sensors is estimated to be around $4.500.000$\EUR per year. If the depreciation of the GeoBead sensor is added, this becomes $4.500.000 + 33*825.000 = 31.725.000 \EUR$. 
+The yearly maintenance costs for the dike sensors is estimated to be around \EUR$4.500.000$ per year. If the depreciation of the GeoBead sensor is added, this becomes $4.500.000 + 33*825.000 = \EUR31.725.000$. 
 
+\subsubsection{Servers}
 The system then needs several servers:
 \begin{itemize}
 	\item Sensors
@@ -298,16 +328,18 @@ The system then needs several servers:
 
 There are four servers and each server costs $\EUR{}1.500$. To enhance the availability, the servers will be redundantly set up four times. Resulting in a hardware cost for the servers of\\
 Server cost$=4*1500*4=24.000$. 
+
+\subsubsection{Total hardware costs}
 The total hardware costs is shown in the table below.
 \begin{table}[H]
 	\pgfplotstabletypeset[
 		Costs
 	]{
 		Description & Cost\\
-		Installation costs & $\EUR{}$1.683.000\\
-		Maintenance costs & $\euro{}$336.600\\
+		Installation costs & $\EUR{}$384.240.000\\
+		Maintenance costs per year & $\euro{}$31.725.000\\
 		Server costs & $\euro{}$24.000\\
-		Total cost & $\euro{}$2.443.600\\
+		Total cost & $\euro{}$415.989.000\\
 	}
 	\caption{Total hardware cost}
 	\label{table:total-hardw-cost}
