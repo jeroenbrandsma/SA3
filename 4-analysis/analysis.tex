@@ -13,7 +13,7 @@ There are several assumptions made about the system and its environment:
 		\item People who are subscribed for flood warnings/guidance have a mobile phone that can receive text messages.
 		\item Sensors can be placed in the water ways and dikes in locations where they can provide representative measurements.
 		\item Information is available to the system with regards to the population density and terrain height in different areas.
-		\item Supplying information about the areas affected by the flood in a resolution of 5 by 5 km (as described in \ref{fr:compute-area}) is sufficient for the government/safety region to make decisions regarding alerting and evacuating citizens.
+		\item Supplying information about the areas affected by the flood in with a radius of 5 km (as described in \ref{fr:compute-area}) is sufficient for the government/safety region to make decisions regarding alerting and evacuating citizens.
 		\item It is possible to predict the expected water level up to 12 hours in the future.
 		\item A weather forecasting API is available that provides precipitation and wind data.
 		\item The safety region provides an API, which can be used by the system to warn the safety region.
@@ -105,55 +105,28 @@ A higher score means a more favourable result. For example, a high score for cos
 		\textbf{Name} 			& \textbf{Connectivity of the sensors} \\ \toprule
 		\textbf{Decision} 		& \textbf{\req{dec}} \\ \midrule \midrule
 		\textbf{Status} 		& \textbf{Approved} \\ \midrule
-		\textbf{Problem/Issue} 	& The sensors need to deliver their data to the system and are located outdoors with at least 100m distance between each other.  \\ \midrule
-		\textbf{Decision} 		&  The sensors will send their data to the system using mobile broadband. Using cellphone towers to communicate with the system.\\ \midrule
-		\textbf{Alternatives} 	& \textit{Landline}\\ 
-		& Connecting the sensors to the telephone network and use that network to communicate with the server.\\
+		\textbf{Problem/Issue} 	& The sensors need to deliver their data to the system.   \\ \midrule
+		\textbf{Decision} 		&  The sensors will be connected over landline / internet cable. The large amount of Arduinos that are to be connected, make the cable a more scalable option. \\ \midrule
+		\textbf{Alternatives} 	& \textit{Landline/internet cable}\\ 
+		& Connecting the sensors to the cabled telephone/internet network and use that network to communicate with the server.\\
 		& \textit{Satellite}\\ 
 		& Set up a satellite connection between the sensors and the system.\\
 		& \textit{Direct lines}\\ 
 		& Connection the sensors to the system by drawing a cable from all sensors to the system.\\
 		\midrule
 		\textbf{Arguments} 		& \\
-		& 	\begin{tabular}{l|lllllll|l}
-		                 & \rot{Reliability} & \rot{Resilience} & \rot{Performance} & \rot{Interopertability} & \rot{Security} & \rot{Scalability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline 
-		Weight           & 1                 & 1                & 1                 & 1                       & 1              & 1                 & 1          &                      \\ \hline
-		Mobile broadband & 4                 & 4                & 4                 & 4                       & 2              & 5                 & 4          & 27                   \\
-		Landline         & 2                 & 2                & 3                 & 4                       & 3              & 3                 & 5          & 22                   \\
-		Satellite        & 3                 & 1                & 2                 & 4                       & 4              & 4                 & 3          & 21                   \\
-		Direct lines     & 2                 & 1                & 5                 & 2                       & 5              & 1                 & 1          & 17                   \\
+		& 	\begin{tabular}{l|llllllll|l}
+		                 & \rot{Reliability} & \rot{Resilience} & \rot{Performance} & \rot{Interoperability} & \rot{Security} & \rot{Scalability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline 
+		Weight           & 2                 & 2                & 1                 & 3                       & 1              & 2                 & 1          &                      \\ \hline
+		Mobile broadband & 4                 & 4                & 2                 & 2                       & 3              & 2                & 2          & 33                   \\
+		Landline/internet cable  & 3                 & 3                & 3                 & 4                       & 3              & 4                 & 5          & 43                   \\
+		Satellite        & 3                 & 1                & 2                 & 4                       & 4              & 4                 & 1          & 35                   \\
+		Direct lines     & 2                 & 1                & 5                 & 2                       & 5              & 1                 & 1          & 25                   \\
 	\end{tabular} \\ \bottomrule
 	\end{tabular}
 	\caption{Decision -- Connectivity of the sensors}
 	\label{table:connectivitysensors}
 \end{table}
-
-%\begin{table}
-%	\begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
-%		\textbf{Name} 			& \textbf{Cassandra Database} \\ \toprule
-%		\textbf{Decision} 		& \textbf{\req{dec}} \\ \midrule \midrule
-%		\textbf{Status} 		& \textbf{New} \\ \midrule
-%		\textbf{Problem/Issue} 	& A reliable database, which is the best in scalability and availability is needed to store our data for further processing and analysis. \\ \midrule
-%		\textbf{Decision} 		& SFM system will use Cassandra, which will run on top of the Linux platform, to store great amount of data from huge sensor arrays needed to carry out analytics and logging.\\ \midrule
-%		\textbf{Alternatives} 	& \textit{Redis}\\ 
-%		& Redis is a database that is best for storing data that changes rapidly with foreseeable database size which mostly fits in memory. This database is good to store real-time stock prices.\\
-%		&\textit{MongoDB}\\ 
-%		& MongoDB is suitable for a database that needs dynamic queries. Indexes are mainly needed to runs this database system rather than Map/Reduce functions.\\
-%		&\textit{HBase}\\ 
-%		& HBase is also written in Java. HBase is the database for Hadoop. This database is the best way to run Map/Reduce tasks on huge datasets.\\
-%		\textbf{Arguments} 		& A short discussion of the cons and pro's is described by the table below\\
-%		& 	\begin{tabular}{l|lllllll|l}
-%		          & \rot{Reliability} & \rot{Resilience} & \rot{Performance} & \rot{Interoperability} & \rot{Security} & \rot{Scalability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline 
-%		Weight    & 1                 & 1                & 1                 & 1                      & 1              & 1                 & 4          &                      \\ \hline
-%		Cassandra & 4                 & 3                & 5                 & 3                      & 3              & 5                 & 4          & 27                   \\
-%		Redis     & 2                 & 3                & 3                 & 3                      & 3              & 2                 & 4          & 20                   \\
-%		MongoDB   & 2                 & 3                & 3                 & 3                      & 3              & 3                 & 4          & 21                   \\
-%		HBase     & 3                 & 3                & 4                 & 3                      & 3              & 4                 & 4          & 24                   \\
-%	\end{tabular} \\ \bottomrule
-%	\end{tabular}
-%	\caption{Decision -- Cassandra Database}
-%	\label{table:caption_alias}
-%\end{table}
 
 \newpage
 \begin{table}
