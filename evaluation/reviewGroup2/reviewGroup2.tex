@@ -15,28 +15,37 @@
 \maketitle
 
 \section{General}
-Generally we found the document to be logical and well written. However, we made some comments in the document. We also noticed that some things in the document were different from the presentations. We made the most comments on your document before the presentations, so maybe these issues are already addressed by now. In this document we will give a short summary of things that we noticed in your report. For more details we refer to the document itself, with more extended comments. 
+Generally we found the document to be logical and well written. However, we made some comments in the document. We made the most comments on your document before the presentations, so maybe these issues are already addressed by now. In this document we will give a short summary of things that we noticed in your report. For more details we refer to the document itself, with more extended comments. 
 
-The most important thing we noticed is that there is no consistency in the SMS service to residents. You never mention how this is done, but you do assume it is possible. We don't have a different section for chapter 4 since there are just some typo's and rephrasing things. 
+Furthermore, the number of pages in the document overpasses the maximum number of pages allowed. It is better to make things more compact or put some detailed images to appendices. Please have a look at the Architecture Project Description to make sure that the pages meet the maximum limitation per chapter.
 
-\section{Chapter 1}
-When talking about a flood monitoring system, the first thing that came to our mind was, dikes. If dikes are not in your scope, thats oke, but maybe you can mention it in your context. In the system context you could also mention which authorities you like to warn. You say appropriate, but which authorities are appropriate?
+\section{Introduction}
+You could make your target more specific. Rural and urban area of Europe are such a big area with lots of difference in terms of terrains and geographical structures. Designing an architecture that fits in this criteria is difficult thing to do.
 
-\section{Chapter 2}
-You could make your vision more specific. You want to be the next generation of flood monitoring software instead of hoping to be it. And why is it next generation. In section 2.9 you mention there are no known competitors. If there is no current system that does this, how can yours be the next generation? 
+\section{Business Information}
+You mentioned in section 2.3 that your system will use SDI-12 as the protocol, which is nice to have a specific protocol to use. However, you probably can also explain it there, briefly, why do you use that protocol.
 
-In section 2.4 it is not really clear if and how you send warnings to residents, this was also not really clear from your presentation. Besides this, this section suggests that officials issue warnings to the authorities, when we read further we know this isn't true, but it is not clear from this section.
+In section 2.4, it is not clear which kind of guidance you would provide. Furthermore, the target audience seems to be too broad and unclear as you mentioned that your target will be the Netherlands and abroad, but it is not declared which other countries. Are those countries your primary consideration? Or those countries will be your road map implementation?
 
-We don't fully agree with your business model. We don't think UAV's should be in there, since they are part of you actual system. This model should contain the third parties you need to complete your product, for example hardware suppliers.
+The time range of the milestones in road map seems to be too ambitious. Are you sure that your system will be launched to three continents only in 4 years? Since it would take longer time even to implement to a more specific area. Furthermore, try to look ad section 4.3, technology roadmap. Because section 4.3 roadmap and this roadmap are not consistent.
 
-The costs relating to the servers are very optimistic and only mention the storage servers. Try to get a more complete estimation of the server costs and explain how you get to the total costs number. Right now, it says a 1000 euro without an explanation of how that number was computed.
+Why did you choose Poland as a test case to calculate hardware cost? Are you planning to implement the system there? It is nice to separate the cost, but it is also better to show total cost of your system.
 
-\section{Chapter 3}
-According to your definition of a high priority stakeholder, we still think citizens should be a high priority stakeholder. We already had a discussion about during the presentation, but we think citizens fall under `or it is critical to them that the system is operational'.
-In your presentation you mentioned that UAV's will have different kind of sensors to monitor dikes. In the report you only mention photographs.
+\section{Requirements}
+Generally this chapter seems to be quite good and robust. We noticed that section 3.11 is suppose to be a subsection of section 3.10, which is evolution requirements.
 
-In the requirements, it is stated that the system will send SMS to citizens, but in the document it remains quite unclear if there will be third parties registering for your system's flood alert and then warning citizens by text, or if your system itself will send the SMS. The technical requirement suggests it will be your system.
+You can try to make this chapter more compact. This chapter contains more that 20 pages, but in the project description, this chapter is suppose to have only 10 pages.
 
+\section{Analysis}
+\begin{itemize}
+\item Decision HD2 horizontal rule bumps with the right edge of the page.
+
+\item Some decisions do not have sufficient number of alternatives, even decision HD6 has only one alternative. It is better to have 3 alternatives.
+
+\item The alternatives for HD4 are not well aligned so that it looks like it only has one alternative.
+
+\item By using private cloud, as describe in HD5, can you make sure the security and privacy of sensitive data is not compromised?
+\end{itemize}
 
 \section{System Architecture}
 \begin{itemize}
