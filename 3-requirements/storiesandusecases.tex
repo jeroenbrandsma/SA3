@@ -129,8 +129,11 @@ This section will give an overview of the different use-cases. Figure \ref{fig:u
 		}\\
 	Postcondition & Citizen is subscribed to the SMS service \\
 	Alternatives & \compactList{itemize}{%
-		\item[2a.] The text message is not received \\
-		The use-case ends
+		\item[2a.] 
+		\begin{enumerate}
+			\item The text message is not received \\
+			\item The use-case ends
+		\end{enumerate}
 		}\\
 	Related requirements & \ref{fr:citizens-subscribe} \\
 }
@@ -261,7 +264,8 @@ This section will give an overview of the different use-cases. Figure \ref{fig:u
 	Description & Third parties can use the API exposed by the flood monitoring system in third party applications (providing guidance to citizens) \\
 	Stakeholders and interests & \compactList{itemize}{%
 		\item \textbf{Third parties}: Third parties want to access the data of the flood monitoring system to use in their applications
-		\item \textbf{Citizens}: Citizens want to receive guidance in case of a flood.
+		\item \textbf{Citizens}: Citizens want to receive guidance in case of a flood
+		\item \textbf{Safety region}: The safety region wants to get updates on the imminent flood
 		}\\
 	Primary actor & Third party \\
 	Scope & The API part of the system \\
@@ -274,6 +278,13 @@ This section will give an overview of the different use-cases. Figure \ref{fig:u
 		\item The system sends the retrieved data to the third party application
 		}\\
 	Postcondition & The third party application has received the requested data \\
+	Alternatives &  \compactList{itemize}{
+		\item[1a.] 
+		\begin{enumerate}
+			\item The third party can't connect to the API
+			\item The use-case ends
+		\end{enumerate}
+		}\\
 	Related requirements & \ref{fr:expose-api} \\
 }
 \caption{UC-\arabic{uc}: Third party accessing data through the systems API}
@@ -343,6 +354,7 @@ This section will give an overview of the different use-cases. Figure \ref{fig:u
 		\item The maintainer takes necessary action to resolve any issues
 		}\\
 	Postcondition & The maintainer is aware of reported problems with the system \\
+	Alternatives &  \\
 	Related requirements & \ref{fr:controlpanel}, \ref{fr:report-faultysensors}, \ref{fr:controlpanel-warnings}, \ref{fr:controlpanel-errors}, \ref{fr:controlpanel-sensors} \\
 }
 \caption{UC-\arabic{uc}: Maintenance employee checks system state}
