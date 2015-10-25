@@ -10,6 +10,26 @@ The figure \ref{fig:database} below shows how the database is structured.
 	\label{fig:database}
 \end{figure}
 
+The database diagram shows all the information the API can provide to the users. \\
+The database is made of ten tables. \\
+
+In green is the name of the table. \\
+In grey the primary key. \\
+In the second column of each table are the types of the data. \\
+
+The first table \textbf{aeracitizen} deals with the area where live the citizens : area : the name of the area and citizencount gives the number of citizen in this area.\\ %citizengeold 	?
+The table \textbf{aeraaltitude} gives information about the area such as its altitude.
+The table \textbf{UAVdata} provides data sent by the UAVs which will give more information about the flood such as : uavid which identifies a specific uav, datetime, altitude , latlong, gpssatelite, mpegimage, \\
+The table \textbf{registereduser} contains information to identify a specific user to provide him the warning, guidance and help the safety region : his id, phonenumber and if he is registered or not. \\
+
+Six table are related and provide information about the sensors : \\
+%Verification (?) \\
+%The table \textbf{Floodsensorverification} (?) \\
+The table \textbf{flood} gives information about the flood : its id by floodid , starttime , endtimide , area. \\
+The table \textbf{monitor} : monitorid , its location, attributename. \\
+The table \textbf{sensor} : sensorid identifies each sensor, its location , which monitor it depends on, and its type. \\
+The table \textbf{sensordata} contains several information such as sensordataid which identifies each data of the sensor, sensorid, datetime which gives the exact time of when the data has been sent ,value and rawvalue. 
+
 
 
 
