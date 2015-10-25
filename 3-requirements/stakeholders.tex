@@ -6,7 +6,7 @@
 %kind of QA's (accourding to "Software Requirements" 3rd edition, Karll Wiegers and Joy Beatty)
 %from page 263:
 
-This section defines all stakeholders of our system and describe the concerns of the stakeholders. A stakeholder might be a person, group of persons, or organization that are involved in our system. There are eight stakeholders, ranged from first parties to third parties stakeholders. We use several quality standards from "Software Requirements" book by Microsoft \cite{wiegers2013software}. Those quality standards are described in \autoref{table:qa_standard}.
+This section defines all stakeholders of our system and describe the concerns of the stakeholders. A stakeholder might be a person, group of persons, or organization that are involved in our system. There are ten stakeholders, ranged from first parties to third parties stakeholders. We use several quality standards from the "Software Requirements" book by Microsoft \cite{wiegers2013software}. Those quality standards are described in \autoref{table:qa_standard}.
 
 \begin{table}[!htbp] \centering
 	\caption{Quality attributes of Software Architecture from "Software Requirements" Book \cite{wiegers2013software}.}
@@ -17,7 +17,7 @@ This section defines all stakeholders of our system and describe the concerns of
 		Availability                & The extent to which the system's services are available when and where they are needed                            \\
 		Interoperability            & How easily the system can interconnect and exchange data with other systems or components                         \\
 		Performance                 & How quickly and predictable the system responds to user inputs or other events                                    \\
-		Reliability                 & How long the system runs before experiencing a failure and how reliable the results of the system are (accuracy). \\
+		Reliability                 & How reliable the results of the system are (accuracy). \\
 		Security                    & How well the system protects against unauthorized access to the application and its data                          \\
 		Usability                   & How easy it is for people to learn, remember, and use the system                                                  \\
 		\bottomrule
@@ -42,6 +42,8 @@ There are six quality attributes, as can be seen in \autoref{table:qa_standard},
 	\item[Product owner] is concerned about the reliability and profitability of the system. The product owner funds the whole project and is highly concerned about the profitability. Thus, to gain big market share and extract large profit from this product, the product owner has to make this product reliable.
 			 
 	\item[Developers] are concerned about interoperability, performance and security. We, the architect team of RugSAG3 company, are also part of this. This stakeholder is responsible for the development of the systems until it is ready for production. Including architecting, designing, analyzing, testing and implementing this SFM System.
+	
+	\item[Maintainers] are concerned about the reliability and availability of the system. These stakeholders are responsible for repairing sensors which break down and monitoring the system to act on reported faults.
 			
 	\item[Third party developers] are concerned about interoperability, availability, usability and reliability. Third party developers are important for our system since they need to provide an application that will give the users guidance in case of a flood.
 			
@@ -59,7 +61,7 @@ There are six quality attributes, as can be seen in \autoref{table:qa_standard},
 	\item[Safety region] is responsible for the emergency services and is concerned about interoperability, performance, availability, reliability and usability. Emergency services are important when any accident happens, including flood. They will be really concerned about the thing that makes this system reliable, and inter-operable to their current system.
 \end{description}
 
-\autoref{table:stakeholder_concern} illustrates the stakeholder concern matrix. In our approach every stakeholders are equally the same. Thus, each stakeholder receives 100 points in total that has to be distributed among all the concerns.
+\autoref{table:stakeholder_concern} illustrates the stakeholder concern matrix. In our approach every stakeholder is assigned a weight according to how important that stakeholder is. 
 
 \begin{table}[!htbp] \centering
 	\caption{Matrix of stakeholders concern.}
@@ -69,17 +71,18 @@ There are six quality attributes, as can be seen in \autoref{table:qa_standard},
 		& \textbf{Stakeholder} & \rot{Weight} & \rot{Availability} & \rot{Interoperability} & \rot{Performance} 
 		& \rot{Reliability} & \rot{Security} & \rot{Usability} & \rot{Profitability}\\
 		\cmidrule[1pt]{2-10}		
-		%   	   weight ava inte perf reli sec  usa  prof
+		 %                	   weight ava  inte  perf  reli sec   usa  prof
 		  & Product owner       & 1 &     &    &     & 60  &    &    & 40  \\
 		  & Developers          & 1 &     & 40 & 30  &     & 30 &    &     \\
+		  & Maintainers         & 1 & 60  &    &     & 40  &    &    &     \\
 		  & Competitors         & 1 &     &    &     & 40  &    &    & 60  \\
-		  & Government          & 2 & 60  &    &     & 40  &    &    &     \\
-		  & Citizens            & 2 & 40  &    &     & 40  &    & 20 &     \\
+		  & Government          & 2 & 40  &    & 20  & 40  &    &    &     \\
+		  & Citizens            & 2 & 35  &    & 10  & 35  &    & 20 &     \\
 		  & Insurance companies & 1 & 35  &    & 15  & 50  &    &    &     \\
 		  & Local companies     & 1 & 60  &    &     & 40  &    &    &     \\
-		  & Safety region       & 3 & 20  & 15 & 20  & 30  &    & 15 &     \\
+		  & Safety region       & 3 & 20  & 10 & 25  & 30  &    & 15 &     \\
 		\cmidrule{2-10}
-		  & Total               &   & 355 & 85 & 105 & 440 & 30 & 85 & 100 \\
+		  & Total               &   & 365 & 70 & 180 & 470 & 30 & 85 & 100 \\
 		\cmidrule{2-10}
 	\end{tabular}
 \end{table}
