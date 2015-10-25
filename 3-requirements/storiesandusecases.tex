@@ -16,7 +16,7 @@ This section will give an overview of the different use-cases. Figure \ref{fig:u
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.35]{images/usecaseDiagramNew.png}
+	\includegraphics[scale=0.5]{images/usecaseDiagramNew.png}
 	\caption{Use-case diagram}
 	\label{fig:usecase-diagram}
 \end{figure}
@@ -33,6 +33,7 @@ This section will give an overview of the different use-cases. Figure \ref{fig:u
 
 
 \subsection{Receive sensor data}
+\begin{table}[H]
 \pgfplotstabletypeset[%
 	UCTable
 ]{%
@@ -63,41 +64,49 @@ This section will give an overview of the different use-cases. Figure \ref{fig:u
 		} \\
 	Related requirements & \ref{fr:receive-waterlevel}, \ref{fr:receive-pressure}, \ref{fr:store-sensordata}, \ref{fr:retrieve-sensordata}\\
 }
+\caption{UC-\arabic{uc}: Receive sensor data}
+\label{table:uc-receive-sensordata}
+\end{table}
 
 \clearpage
-\subsection{Receive weather/GEO data}
+\subsection{Receive weather/GEO/demographic data}
+\begin{table}[H]
 \pgfplotstabletypeset[%
 	UCTable
 ]{%
 	value & description \\
 	Number & \req{uc}\\
-	Description & The system receives data from the weather forecast service \\
+	Description & The system receives data from the weather forecast service, geographic data form the geographic API and demographic data from the demographic API \\
 	Stakeholders and interests & 
 	\textbf{Developers}: Developers would like to have a simple to use API \\
 	Primary actor & System\\
 	Scope & Monitoring part of the system \\
 	Level & Sub process\\
-	Precondition & The system needs external weather data to predict floods \\
+	Precondition & The system needs some external data to predict floods \\
 	Main success scenario & \compactList{enumerate}{%
-		\item The processing unit determines it needs forecast weather data%
-		\item A call is made to the weather forecast service%
-		\item The weather forecast service returns the requested data
+		\item The processing unit determines it needs external data%
+		\item A call is made to the relevant extrnal API%
+		\item The external API returns the requested data
 		}\\
-	Postcondition & The system received the forecast data \\
+	Postcondition & The system received the external data \\
 	Alternatives & \compactList{itemize}{%
 		\item[3a.] 
 		\begin{enumerate}
 			\item The data cannot be returned.
-			\item Repeat this process with another weather forecast service.
-			\item If none are available, proceed monitoring without weather forecast data.
+			\item Repeat this process with another external API service.
+			\item If none are available, proceed monitoring without the requested external data.
 			\item After 5 minutes try to reconnect.
 		\end{enumerate}
 		}\\
-	Related requirements & \ref{fr:receive-weather}\\
+	Related requirements & \ref{fr:receive-weather}, \ref{fr:receive-geographic}, \ref{fr:compute-nrcivilians}\\
 }
+\caption{UC-\arabic{uc}: Receive weather/GEO data}
+\label{table:uc-receive-weathergeo}
+\end{table}
 
 \clearpage
 \subsection{Subscribing to SMS Service}
+\begin{table}[H]
 \pgfplotstabletypeset[%
 	UCTable
 ]{%
@@ -112,7 +121,7 @@ This section will give an overview of the different use-cases. Figure \ref{fig:u
 	Level & User goal \\
 	Precondition & Citizen has a mobile phone and is not subscribed to the SMS service \\
 	Main success scenario & \compactList{enumerate}{
-		\item Citizen sends a text message to our SMS service
+		\item Citizen sends a text message containing his/her address information to our SMS service
 		\item The SMS service receives the text message
 		\item The SMS service sends the phone number to the SFM system
 		\item The SFM system stores the phone number in the database
@@ -125,9 +134,13 @@ This section will give an overview of the different use-cases. Figure \ref{fig:u
 		}\\
 	Related requirements & \ref{fr:citizens-subscribe} \\
 }
+\caption{UC-\arabic{uc}: Subscribing to SMS Service}
+\label{table:uc-sms-service}
+\end{table}
 
 \clearpage
 \subsection{Determining flood probability}
+\begin{table}[H]
 \pgfplotstabletypeset[%
 	UCTable
 ]{%
@@ -136,7 +149,7 @@ This section will give an overview of the different use-cases. Figure \ref{fig:u
 	Description & The central processing unit calculates the probability of a flood \\
 	Stakeholders and interests & \compactList{itemize}{%
 		\item \textbf{Safety region}: The safety region wants to know when a flood warning is triggered
-		\item \textbf{Government}: The government would also like to know when a flood warning is triggered
+		\item \textbf{Citizens}: The citizens want to be alerted if there is a high enough probability of a flood occuring
 		}\\
 	Primary actor & System\\
 	Scope & Monitoring and warning part of the system\\
@@ -149,18 +162,30 @@ This section will give an overview of the different use-cases. Figure \ref{fig:u
 		\item The central processing unit stores the probability value in the database
 		\item The central processing unit determines that a flood is imminent based on the probability value
 		\item A warning is send to the emergency services (they will warn the government)
-		\item A warning is send to the citizens
+		\item A warning is send to the citizens (see \hyperref[table:uc-warn-citizens]{UC-5})
 		}\\
 	Postcondition & The flood probability is calculated and stored. If the probability exceeds a certain threshold, a warning is sent to the authorities and citizens \\
 	Alternatives & \compactList{itemize}{
-		\item[5a.] The probability is not above the threshold \\
-		The use-case ends
+		\item[5a.] 
+		\begin{enumerate}
+		  \item The probability is not above the threshold
+		  \item The use-case ends
+		\end{enumerate}
+		\item[5b.]
+		\begin{enumerate}
+		  \item The system cannot determine with enough certainty there is a flood
+		  \item A UAV is dispatched to check
+		\end{enumerate}
 		}\\
 	Related requirements & \ref{fr:detect-flood} \\
 }
+\caption{UC-\arabic{uc}: Determining flood probability}
+\label{table:uc-determine-flood-probability}
+\end{table}
 
 \clearpage
 \subsection{Warn citizens in case of an imminent flood}
+\begin{table}[H]
 \pgfplotstabletypeset[%
 	UCTable
 ]{%
@@ -191,9 +216,13 @@ This section will give an overview of the different use-cases. Figure \ref{fig:u
 		}\\
 	Related requirements & \ref{fr:warn-citizens} \\
 }
+\caption{UC-\arabic{uc}: Warn citizens in case of an imminent flood}
+\label{table:uc-warn-citizens}
+\end{table}
 
 \clearpage
 \subsection{Warn safety region in case of an imminent flood}
+\begin{table}[H]
 \pgfplotstabletypeset[%
 	UCTable
 ]{%
@@ -201,7 +230,6 @@ This section will give an overview of the different use-cases. Figure \ref{fig:u
 	Number & \req{uc}\\
 	Description & The safety region needs to receive a warning about an imminent flood\\
 	Stakeholders and interests & \compactList{itemize}{%
-		\item \textbf{Government}: The government wants to warn the citizens in case of a flood
 		\item \textbf{Safety regions}: The emergency services want to help the citizens in case of a flood
 		}\\
 	Primary actor & Safety region \\
@@ -212,15 +240,19 @@ This section will give an overview of the different use-cases. Figure \ref{fig:u
 		\item The processing unit determines what area will be under water in case of a flood
 		\item The processing unit determines how many people will be affected by the imminent flood
 		\item The processing unit predicts how the flood will develop in the following period 
-		\item The processing unit will create a map based on the current state and predictions
-		\item The processing unit sends the map to the government and emergency services
+		\item The processing unit sends a warning to the safety region
 		}\\
-	Postcondition & A map with current and predicted data is sent to the government and emergency authorities \\
+	Postcondition & A warning about the flood has been send to the safety region \\
+	Alternatives &  \\
 	Related requirements & \ref{fr:compute-area}, \ref{fr:analyze-waterlevel}, \ref{fr:estimate-waterlevel}, \ref{fr:compute-nrcivilians}, \ref{fr:warn-safetyregion} \\
 }
+\caption{UC-\arabic{uc}: Warn safety region in case of an imminent flood}
+\label{table:uc-warn-safetyregion}
+\end{table}
 
 \clearpage
 \subsection{Third party accessing data through the systems API}
+\begin{table}[H]
 \pgfplotstabletypeset[%
 	UCTable
 ]{%
@@ -244,10 +276,14 @@ This section will give an overview of the different use-cases. Figure \ref{fig:u
 	Postcondition & The third party application has received the requested data \\
 	Related requirements & \ref{fr:expose-api} \\
 }
+\caption{UC-\arabic{uc}: Third party accessing data through the systems API}
+\label{table:uc-thirdparty-api}
+\end{table}
 
 \clearpage
 \subsection{Detecting a faulty sensor}
 \label{subsec:detecting-faulty-sensor}
+\begin{table}[H]
 \pgfplotstabletypeset[%
 	UCTable
 ]{%
@@ -256,6 +292,7 @@ This section will give an overview of the different use-cases. Figure \ref{fig:u
 	Description & The system is able to detect when a sensor is not functioning properly \\
 	Stakeholders and interests & \compactList{itemize}{%
 		\item \textbf{Product owner}: The product owner wants the system to be reliable and errors/broken sensors to be fixed
+		\item \textbf{Maintainers}: The maintainers are responsible for repairing/replacing the faulty sensors
 		}\\
 	Primary actor & The system \\
 	Scope & The monitoring part of the system \\
@@ -272,15 +309,20 @@ This section will give an overview of the different use-cases. Figure \ref{fig:u
 		\item[3a.] 
 		\begin{enumerate}
 			\item The system cannot determine the abnormal reading is not caused by a flood
+			\item The system will dispatch a UAV to check for a flood
 			\item The system keeps using this sensors data, until it can determine that the readings are not caused by a flood, or it determines that it is caused by a flood (in which case it will issue warnings, see \hyperref[uc:4]{UC-4})
 		\end{enumerate}
 		}\\
 	Related requirements & \ref{fr:detect-faultysensor}, \ref{fr:report-faultysensors}, \ref{fr:controlpanel-warnings}, \ref{fr:controlpanel-errors}, \ref{fr:controlpanel-sensors}
 	\\
 }
+\caption{UC-\arabic{uc}: Detecting a faulty sensor}
+\label{table:uc-detect-faultysensor}
+\end{table}
 
 \clearpage
 \subsection{Maintenance employee checks system state}
+\begin{table}[H]
 \pgfplotstabletypeset[%
 	UCTable
 ]{%
@@ -303,4 +345,7 @@ This section will give an overview of the different use-cases. Figure \ref{fig:u
 	Postcondition & The maintainer is aware of reported problems with the system \\
 	Related requirements & \ref{fr:controlpanel}, \ref{fr:report-faultysensors}, \ref{fr:controlpanel-warnings}, \ref{fr:controlpanel-errors}, \ref{fr:controlpanel-sensors} \\
 }
+\caption{UC-\arabic{uc}: Maintenance employee checks system state}
+\label{table:uc-maintanance-check-state}
+\end{table}
 
