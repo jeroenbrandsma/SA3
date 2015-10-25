@@ -122,7 +122,7 @@
 \newcommand{\nsl}[2]{\newshortlabel{#1}{#2}}
 
 				
-		\newcommand{\hlReqRow}[3]{%
+		\newcommand{\hlReqRow}[4]{%
 			\midrule
 			\\
 			\phantomsection
@@ -132,8 +132,8 @@
 			\else
 				#2
 			\fi
-			&
-			#3
+			& \textbf{#3} \\
+			& & #4
 			\\
 			\\
 		}
