@@ -1,6 +1,6 @@
 % !TEX root = ../report.tex
 \section{Architecture evaluation}
-The architecture that is shown in the previous chapters needs to be evaluated. This is done with the ATAM method. ATAM stands for Architecture Trade-off Analysis Method. This evaluation method is used to determine if the system meets the requirements that are composed in chapter 3. ATAM identifies critical design decisions and verifies them againts our key drivers. If the design decisions do not fulfill the key drivers, risks for the system will be inevitable. In order to terminate these risks, solutions are provided to deal with the risks. In the remainder of this chapter the architectural approaches, utility tree and the scenarios are provided. 
+The architecture that is shown in the previous chapters needs to be evaluated. This is done with the ATAM method. ATAM stands for Architecture Trade-off Analysis Method. This evaluation method is used to determine if the system meets the requirements that are composed in chapter 3. ATAM identifies critical design decisions and verifies them against our key drivers. If the design decisions do not fulfill the key drivers, risks for the system will be inevitable. In order to terminate these risks, solutions are provided to deal with the risks. In the remainder of this chapter the architectural approaches, utility tree and the scenarios are provided. 
 
 
 % The ATAM method is used to evaluate the software architecture. The purpose of ATAM is elicit and refine a precise statement of the architecture’s driving quality attribute requirements\\
@@ -58,14 +58,14 @@ In this section the utility tree is built according to the key drivers of our sy
 The scenarios serve as the leafs of the utility tree and the architecture is evaluated by considering how it makes the scenarios possible. \\
 
 
-There are four levels in the three . The first node is the root : " Utility " , then follow the Quality factors wich are our key drivers , then the tree goes deeper in precison with refined the key drivers in subfactors which are demonstrated by the leaves with the scenarios we expect our system to manifest. \\
+There are four levels in the three . The first node is the root : " Utility " , then follow the Quality factors which are our key drivers , then the tree goes deeper in precision with refined the key drivers in subfactors which are demonstrated by the leaves with the scenarios we expect our system to manifest. \\
 
 In order to prioritize the scenarios two criterias are used and classified as follow: \\
 \textit{Importance  to system success}: High (Very important feature for the system : essential), Medium, Low (Not mandatory)\\
 \textit{ Risk/difficulty in achieving}: High, Medium, Low\\
 To get the meaning of High , Medium and Low we can use a scale from 10 to 0 as reference: High : 10-7, Medium 6-4, Low 4-0.
 
-\includegraphics[scale=0.5]{images/utilitytree1.png}
+\includegraphics[scale=0.8]{images/utilitytree1.png}
 
 The interesting scenarios are the ones with high priority (H,H),(H,M) and (M,H), focus will be put on them in the next section.
 %Using this table we can give points to those scenarios.
@@ -74,6 +74,10 @@ The interesting scenarios are the ones with high priority (H,H),(H,M) and (M,H),
 
 In this part high priority scenarios derived from the utility tree will be analysed and as a result will come the identification of sensitivity points, tradeoffs, risks and non risks.
 
+
+% From reading material:
+% Risks are potentially problematic architectural decisions. 
+% Non-risks are good decisions that rely on assumptions that are frequently implicit in the architecture.
 
 \begin{table}[H]
 	\begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
@@ -87,7 +91,7 @@ In this part high priority scenarios derived from the utility tree will be analy
 			\begin{tabular}{l|lllll}
 				\textbf{Decision} & Req. & Sensitiv. & Tradeoff & Risk & Non-Risk \\ \hline
 				
-				Detection algorithm & \ref{fr:detect-faultysensor}, \ref{rel:2} & \nsl{s}{faultysensor} & \nsl{to}{faultysensor} &  &   \\
+				Detection algorithm & \ref{fr:detect-faultysensor}, \ref{rel:2} & \nsl{s}{faultysensor} & \nsl{to}{faultysensor} &  & \nsl{nr}{detection}  \\
 				Reporting & \ref{fr:report-faultysensors} &  &  & \nsl{r}{reportfaultysensor} &  \\
 				UAV & \ref{fr:uav} & \nsl{s}{uav} & \nsl{to}{uav} & \nsl{r}{uav-weather} & \\
 				
@@ -106,8 +110,13 @@ In this part high priority scenarios derived from the utility tree will be analy
 				\item \ref{to:uav}: Reliability (+) vs. Performance (-) -- The UAV checks if a flood is present/developing when the sensor data is not conclusive. It has a large dispatch time, which means (if there is a flood), it will be detected with a larger delay. 
 				\end{itemize} ~\\[-0.5cm]
 				\textbf{Risks:} 
-				\begin{itemize} \setlength{\itemsep}{-15pt}
-				\item \ref{r:reportfaultysensor}: There is a risk that the config panel where the faulty sensors are reported, is not checked often enough, leading to broken sensors not being replaced.
+				\begin{itemize} \setlength{\itemsep}{-3pt}
+				\item \ref{r:reportfaultysensor}: There is a risk that the config panel where the faulty sensors are reported, is not checked often enough, leading to broken sensors not being replaced. See \ref{risk:configpanel-notchecked}.
+				\item \ref{r:uav-weather}: There is a risk that the weather will not allow the UAV to fly. See \ref{risk:uav-badweather}.
+				\end{itemize}
+				\textbf{Non-Risks:} 
+				\begin{itemize} \setlength{\itemsep}{-3pt}
+					\item \ref{nr:detection}: The presence of a detection algorithm will increase reliability, since it will filter faulty sensor data
 				\end{itemize}
 			}} \\
 
@@ -136,10 +145,10 @@ In this part high priority scenarios derived from the utility tree will be analy
 			\begin{tabular}{l|lllll}
 				\textbf{Decision} & Req. & Sensitiv. & Tradeoff & Risk & Non-Risk \\ \hline
 				
-				Database cluster & \ref{ava:1}, \ref{ava:2} &  & \nsl{to}{cluster} &  &   \\
-				Analytic cluster & \ref{ava:1}, \ref{ava:2} &  & \ref{to:cluster} &  &  \\
+				Database cluster & \ref{ava:1}, \ref{ava:2} &  & \nsl{to}{cluster} &  & \nsl{nr}{clusterdb}  \\
+				Analytic cluster & \ref{ava:1}, \ref{ava:2} &  & \ref{to:cluster} &  & \nsl{nr}{clusteranalytic} \\
 				Multiple data centers & \ref{ava:1}, \ref{ava:2} &  & \nsl{to}{datacentre} &  & \nsl{nr}{datacenters} \\
-				Arduino               & \ref{ava:1}, \ref{ava:2} & \nsl{s}{arduinofail} &  &  &  \\
+				Arduino               & \ref{ava:1}, \ref{ava:2} & \nsl{s}{arduinofail} &  & \nsl{r}{arduinofail} &  \\
 				
 			\end{tabular} 
 			} \\
@@ -154,9 +163,16 @@ In this part high priority scenarios derived from the utility tree will be analy
 				\item \ref{to:cluster}: Availability (+) vs. Affordability (-) -- Using a cluster is more expensive, but provides a fallback in case of failures, increasing the availability. \\
 				\item \ref{to:datacentre}: Also Availability (+) vs Affordability (-) -- The costs of the system increase significantly by having a second data center. However, this guarantees the availability of the system in case of problems with one of the data centers.
 				\end{itemize} ~\\[-0.5cm]
-				\textbf{Nonrisks:} 
-				\begin{itemize} \setlength{\itemsep}{-15pt}
+				\textbf{Risks}
+				\begin{itemize}
+				\item \ref{r:arduinofail}: Since only one Arduino is used to connect several sensors, the Arduino going offline will mean that multiple sensor become detached from the system. See \ref{risk:arduino-broken}.
+				\end{itemize}
+				
+				\textbf{Non-Risks:} 
+				\begin{itemize} \setlength{\itemsep}{-3pt}
 				\item \ref{nr:datacenters}: Multiple data centers aid with increasing the availability only when they are not placed in close proximity to each other.
+				\item \ref{nr:clusterdb}: The database cluster will be configured for replication, which means the availability of the data is guaranteed
+				\item \ref{nr:clusteranalytic}: Using a cluster for the analytics will assure not only availability of the analytic component, but also increase the performance, since the computational load is divided amongst multiple analytic nodes
 				\end{itemize}
 			}} \\
 
@@ -187,8 +203,8 @@ In this part high priority scenarios derived from the utility tree will be analy
 			\begin{tabular}{l|lllll}
 				\textbf{Decision} & Req. & Sensitiv. & Tradeoff & Risk & Non-Risk \\ \hline
 				
-				Using multiple API providers offering same service/data & \ref{fr:receive-weather}, \ref{fr:receive-geographic} &  & \nsl{to}{apis} &  &   \\
-				SMS service & \ref{fr:warn-citizens}, \ref{fr:citizens-subscribe} & \nsl{s}{onesmsservice} &  &  & \nsl{nr}{storingphonenrs}  \\
+				Using multiple API providers offering same service/data & \ref{fr:receive-weather}, \ref{fr:receive-geographic} &  & \nsl{to}{apis} &  & \nsl{nr}{multipleapi}  \\
+				SMS service & \ref{fr:warn-citizens}, \ref{fr:citizens-subscribe} & \nsl{s}{onesmsservice} &  & \nsl{r}{sms} & \nsl{nr}{storingphonenrs}  \\
 				Emergency room API & \ref{fr:warn-safetyregion} &  &  &  &  \nsl{nr}{emergencyroomapi} \\
 				
 				
@@ -204,10 +220,15 @@ In this part high priority scenarios derived from the utility tree will be analy
 				\begin{itemize} \setlength{\itemsep}{-15pt}
 				\item \ref{to:apis}: Reliability (+) vs. Affordability (-) -- Most APIs charge a usage fee, which means that using multiple APIs increases the costs. \\
 				\end{itemize} ~\\[-1.0cm]
-				\textbf{Nonrisks:} 
-				\begin{itemize} \setlength{\itemsep}{-15pt}
-				\item \ref{nr:storingphonenrs}: The phone numbers of citizens who subscribed are stored in the database of the system instead of the SMS Service provider's database. \\
+				\textbf{Risks:} 
+				\begin{itemize} \setlength{\itemsep}{-3pt}
+				\item \ref{r:sms}: Since the system depends on a single SMS Service, if this SMS service goes offline, it cannot be used to warn the citizens. See \ref{risk:sms-service-online}.
+				\end{itemize}
+				\textbf{Non-Risks:} 
+				\begin{itemize} \setlength{\itemsep}{-3pt}
+				\item \ref{nr:storingphonenrs}: The phone numbers of citizens who subscribed are stored in the database of the system instead of the SMS Service provider's database.
 				\item \ref{nr:emergencyroomapi}: It is assumed that the emergency room API is always available, which is the responsibility of the safety region.
+				\item \ref{nr:multipleapi}: Using multiple APIs for the external data services allows access to such data if one of the APIs are offline.
 				\end{itemize}
 			}} \\
 

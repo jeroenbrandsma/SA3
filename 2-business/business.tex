@@ -161,7 +161,12 @@ there is an overview of the implementation of natural disasters over time. \\
 
 Here is a strategic planning through a roadmap of RUGSA3 over the years.
 
-\includegraphics[scale=0.5]{images/Roadmap.png}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{images/Roadmap.png}
+	\caption{Roadmap of \CompanyName{}}
+	\label{fig:roadmap}
+\end{figure}
 
 * The expansion to Europe and the world is made by starting with countries which have high risk and history of floods ( the team gets documentation, studies in order to choose countries which really need our product , countries where this market doesn't exist yet or at least isn't in expansion. This is a business strategy which leads to more production. \\
 
@@ -189,8 +194,8 @@ The software architecture team of \CompanyName consists of six members. Creating
 \subsection{Development costs}
 The costs of developing the system is approximated in table \ref{table:develop-costs}, shown below.
 
-\begin{table}[H]
 
+\begin{table}[H]
 	\pgfplotstabletypeset[%
 		KeyValue,
 		display columns/0/.append style={
@@ -214,7 +219,6 @@ The costs of developing the system is approximated in table \ref{table:develop-c
 	}
 	\caption{Approximation of development costs}
 	\label{table:develop-costs}
-
 \end{table}
 %\Joris
 Development of the system comprises the development of several different aspects. For each of these aspects, table \ref{table:develop-costs} shows an approximation of the hours needed for the development. Resulting in a total amount of $9770$ hours needed to create the system.\\
@@ -309,17 +313,44 @@ $ 6.000 * 200 = \EUR1.200.000 * 1.2 = \EUR1.440.000$\\
 The yearly maintenance costs for the dike sensors is estimated to be around \EUR$4.500.000$ per year. If the depreciation of the GeoBead sensor is added, this becomes $4.500.000 + 33*825.000 = \EUR31.725.000$. 
 
 \subsubsection{Servers}
-The system then needs several servers:
-\begin{itemize}
-	\item Sensors
-	\item {State monitor server}
-	\item {Danger check server}	
-	\item {Warning system server}	
-	\item {Guidance server}	
-\end{itemize}
+The \gls{SFM} will use two kind of clusters, those are analytics cluster and database clusters. Analytics cluster consist of six rack, while database clusters consist of four racks. This specification is written on section \ref{sec:hardware-description}. Each analytic rack has five server and one switch, while database cluster has two servers, three storage machines, and one switch. This cluster also needs cables and other materials in order to operate. Thus, the Server cost ($SC$) is calculated as follows:
 
-There are four servers and each server costs $\EUR{}1.500$. To enhance the availability, the servers will be redundantly set up four times. Resulting in a hardware cost for the servers of\\
-Server cost$=4*1500*4=24.000$. 
+\begin{equation*}
+SC = (AC + DC + OC) \times 3
+\end{equation*}
+
+where $AC$ is analytic cluster cost, $DC$ is database cluster cost, and $OC$ is other cost. The cost will be multiplied by three because there are three data centers of this system. The other cost is assumed will be \EUR 1.500 and this cost is around cabling and other electrical needs. Table \ref{table:server-cost} depicts analytic and database cluster cost calculation.
+
+\begin{table}[H]
+\centering
+\caption{Server cost calculation}
+\label{table:server-cost}
+\begin{tabular}{lrrrr}
+\hline
+\textit{Detail}  & \multicolumn{1}{l}{\textit{Cost}} & \multicolumn{1}{l}{\textit{Quantity}} & \multicolumn{1}{l}{\textit{Subquantity}} & \multicolumn{1}{l}{\textit{Total}} \\ \hline
+\multicolumn{5}{l}{\textbf{Analytic cluster}}                                                                                                                                \\ \hline
+Server rack      & 700                               & 6                                     & 1                                        & 4.200                              \\
+Servers          & 1.880                             & 6                                     & 5                                        & 56.400                             \\
+Switches         & 1.273                             & 6                                     & 1                                        & 7.638                              \\ \hline
+\multicolumn{4}{r}{\textbf{Total}}                                                                                                      & \textit{\textbf{68.238}}           \\ \hline
+\multicolumn{5}{l}{\textbf{Database cluster}}                                                                                                                                \\ \hline
+Server racks     & 700                               & 4                                     & 1                                        & 2.800                              \\
+Servers          & 1.880                             & 4                                     & 2                                        & 15.040                             \\
+Storage machines & 1.149                             & 4                                     & 3                                        & 13.788                             \\
+Switches         & 1.273                             & 4                                     & 1                                        & 5.092                              \\ \hline
+\multicolumn{4}{r}{\textbf{Total}}                                                                                                      & \textit{\textbf{36.720}}          
+\end{tabular}
+\end{table}
+
+Therefore. the total cost for server will be:
+
+\begin{equation*}
+SC = (AC + DC + OC) \times 3
+\end{equation*}
+
+\begin{equation*}
+SC = (68.238 + 36.720 + 1.500) \times 3 = \EUR 319.374
+\end{equation*}
 
 \subsubsection{Total hardware costs}
 The total hardware costs is shown in the table below.
@@ -330,8 +361,8 @@ The total hardware costs is shown in the table below.
 		Description & Cost\\
 		Installation costs & $\EUR{}$384.240.000\\
 		Maintenance costs per year & $\euro{}$31.725.000\\
-		Server costs & $\euro{}$24.000\\
-		Total cost & $\euro{}$415.989.000\\
+		Server costs & $\euro{}$319.374\\
+		Total cost & $\euro{}$416.284.374\\
 	}
 	\caption{Total hardware cost}
 	\label{table:total-hardw-cost}
@@ -339,7 +370,7 @@ The total hardware costs is shown in the table below.
 
 \subsection{Total costs}
 The total costs for the system is calculated in the table below.\\
-\newline
+
 \begin{table}[H]
 	\pgfplotstabletypeset[%
 		Costs
@@ -347,13 +378,13 @@ The total costs for the system is calculated in the table below.\\
 		Description & Cost\\
 		Software Architecture costs & \EUR{}157.500\\
 		Development costs & $\euro{}$488.500\\
-		Hardware costs & $\euro{}$2.443.600\\
-		Total cost & $\euro{}$3.089.600\\
+		Hardware costs & $\euro{}$416.284.374\\
+		Total cost & $\euro{}$416.930.374\\
 	}
 	\caption{Total cost of the system}
 	\label{table:totalcosts}
 \end{table}
-So the total costs of the system is \euro{}3.089.600\\
+So the total costs of the system is \euro{}416.930.374\\
 % Guntur: Doubled financial model sections?
 % \section{Financial model}
 % The financial model will be a low product price. This in order to price the product low in the market. A service description for maintenance will be offered. Also updates will be sold to the customer
