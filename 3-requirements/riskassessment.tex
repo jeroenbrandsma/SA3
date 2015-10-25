@@ -48,6 +48,7 @@ The tables below explain the meaning of the definition for probability and conse
 {Severe. There can be a loss of human lives and damages, loss of trust in the system by end-users.}
 {Make sure the number of sensors is sufficient and that they are in good state (as low failure rate as possible, when necessary repair or replace them). Perform regular checks of the sensors. Make sure faults in sensors are reported. }
 {Make changes in the algorithm for the flood detection, add more and new sensors which have good rates according to quality tests.}
+{risk:flood-detect}
 
 \risk{T}
 {The system sends warnings of a non-existing flood (false positive)} % WHEN THERE IS A FLOOD YOU KNOW IT
@@ -55,13 +56,23 @@ The tables below explain the meaning of the definition for probability and conse
 {Significant. People can become more negligent to future messages and unneeded social disturbance can be caused.}
 {UAVs watching the area where the supposed flood is to confirm.}
 {Send a message as soon as the mistake is detected to tell the population/emergency center it was a false alert. }
+{risk:warning-nonexisting}
 
 \risk{T}
 {The system cannot send messages to the necessary people because the communication platform is also destroyed by the flood}
 {Medium}
 {Severe. If the warning is not send, the area might not be evacuated timely. Potential loss of human lives, casualties and damages to property. }
 {}
-{Send the warning to the government using a different medium.}
+{Send the warning to the safety board using a different medium.}
+{risk:cantwarn}
+	
+\risk{T}
+{The config panel is not checked often enough and broken sensors are not fixed}
+{Low}
+{Moderate. The accuracy and reliability of the system diminish if less sensors are available to the system.}
+{Make sure there is a clear schedule for maintenance personnel to check the control panel.}
+{Repair/replace all the sensors which were not repaired timely}
+{risk:configpanel-notchecked}
 	
 %\risk{T}
 %{The system sends incorrect information}
@@ -78,6 +89,31 @@ The tables below explain the meaning of the definition for probability and conse
 {Severe. The hacker may sent incorrect information deliberately during the flood. This can cause unneeded evacuation, but in the case of a flood also loss of human lives. The system is not reliable anymore.}
 {Change password and hash codes every three months. Hire specialists in the security field to audit the security system on a regular basis (penetration testing).}
 {Update the security system / change it. Find a new algorithm for the creation of password and hash codes.}
+{risk:hacker}
+
+\risk{T}
+{UAV cannot fly because of the weather}
+{Medium}
+{Moderate. If the UAV cannot fly, the system cannot use the data it would have collected for the flood probability computation.}
+{Bad weather cannot be prevented. Use UAVs which can fly in suboptimal weather conditions.}
+{If the UAV really cannot fly and the system is not sure about the flood probability, lower the threshold for warning safety region/citizens.}
+{risk:uav-badweather}
+
+\risk{T}
+{Arduino becomes unavailable}
+{Low}
+{Minor. The Arduino has a limited number of attached sensors, so the consequences of a single Arduino failures are not too large.}
+{Install the Arduino in such a way, that it is not exposed to external forces (like bad weather). This will decrease the odds of an Arduino failure.}
+{The broken Arduino is reported in the control panel (several failing sensors) and should be replaced/repaired by maintenance personnel.}
+{risk:arduino-broken}
+
+\risk{T}
+{SMS Service goes offline when there is a flood}
+{Low}
+{Moderate. The SMS Service is essential to warn citizens, which is a significant part of high-level requirement \ref{HL:2}.}
+{Make sure the SMS Service which is used has good availability guarantees.}
+{Use an alternative SMS Service or coordinate with the SMS Service provider to get the service back online.}
+{risk:sms-service-online}
 
 
 
@@ -89,6 +125,7 @@ The tables below explain the meaning of the definition for probability and conse
 {Significant. The final product does not have the features expected.}
 {The team needs an accountant or at least someone taking care of the follow-up of the money. Make sure there are regular evaluations to keep track of the money flow.}
 {Remove some requirements or features of the product, or change the hardware components used.}
+{risk:budget}
 
 \risk{B}
 {The money invested in the fabrication and achievement of the product/system is not covered by the sales (shortfall/deficit)}
@@ -96,6 +133,7 @@ The tables below explain the meaning of the definition for probability and conse
 {Moderate. Stopping the sale}
 {The team needs an accountant or at least someone taking care of the follow-up of the money.}
 {Adding more features to the product in order to make it more competitive in the market.}
+{risk:shortfall}
 
 \risk{B}
 {Third-party developers do not build third-party applications using the systems API}
@@ -103,6 +141,7 @@ The tables below explain the meaning of the definition for probability and conse
 {Moderate. Without third-party applications, the citizens do not receive guidance in case of a flood}
 { Make sure the API exposes all features which are relevant to develop a third-party application for guidance. }
 { Promote the use of the API by third-party developers using, for example, a contest. }
+{risk:3rdparty}
 
 %\risk{B}
 %{Competitors lowering their prices}
@@ -117,7 +156,8 @@ The tables below explain the meaning of the definition for probability and conse
 {Medium}
 {Moderate. Sensors will fail and need replacing over time, if new sensors are not available anymore, this becomes impossible.}
 { Choose a sensor that is not too old and is expected to be available for at least the next 5 years. }
-{ Use a different sensor and modify the system so it can operate with this sensor. }	
+{ Use a different sensor and modify the system so it can operate with this sensor. }
+{risk:sensor-notsold}
 
 %\textbf{ B-RISK4 The sensors company become bankrupt or at least stops its sales.} \\
 %\textit{Probability of Occurence}: Low \\
@@ -133,3 +173,4 @@ The tables below explain the meaning of the definition for probability and conse
 {Significant. Pressure for all the team members, loss of credibility regarding the customers, selling a product with less features than expected.}
 { SRA , Schedule Risk analysis : Estimation of the duration of the project by its manager ( with the use of probability and statistics ) . Meeting for the team members every week to keep track of the timing and take decisions according to the deadline. }
 { Postpone the deadline or remove some features when the deadline can't be postponed. }
+{risk:schedule}
