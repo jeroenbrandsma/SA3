@@ -1,12 +1,48 @@
-%!TEX root = ../report.tex}
+%!TEX root = ../report.tex
 \section{Evolution requirements}
 
-When establishing the project, architects of the system listed a certain number of requirements which describe the features of the system. However, due to environmental changes and changing stakeholders interests, for example, the requirements may evolve. \\
+%\label{subsec:evolrequir}
 
+%Typical change-cases with respect to the environement, the features and the technology of the system
+%http://www.agilemodeling.com/artifacts/changeCase.htm
+When establishing the project, architects of the system listed a certain number of requirements which describe the features of the system. However, due to environmental changes and changing stakeholder interests, for example, the requirements may evolve.
+
+%\textbf{ER-1 : Changes in the display of the map } \\
+%\textit { Evolution of \ref{fr:construct-map}}. Citizens who subscribed for flood warnings get a map with specific route information (according to their location) to a safe area through the API. \\
+
+%\begin{longtable}{L{0.1\textwidth} L{0.12\textwidth} L{0.7\textwidth}}
+	%\textbf{Nr.} & \textbf{Name}  & \textbf{Description} \\
 \begin{longtable}{L{0.1\textwidth} L{0.12\textwidth} L{0.7\textwidth}}
-	\textbf{Nr.} & \textbf{Name}  & \textbf{Description} \\
+	\textbf{Nr.} & \textbf{Prio}  & \textbf{Description} \\
+	%\reqRow{rel}{Must}{Sensor sites are equipped with at least two sensors} ( why two ? )
+	\reqRow{er}{Could}{Citizens can contribute to the guidance application by providing extra information.}
+
+	\reqRow{er}{Could}{The system is able to work with new sensors technologies.} 
 	
-	\reqRow{ER}{Adding of external input}{Citizens can contribute to the guidance by giving extra information (for example if they identified a safe route near their location). This information can be checked by an operator (thanks to photograph by the UAVs for example) .  Functionality can be added to the system in the future, that can take citizen feedback into account to get more information about the current flood}. 
+	\reqRow{er}{Could}{The system is able to implement improved algorithms to determine the flood probability}
+	 
+	%\reqRow{rel}{Must}{Redundancy} % GK: if redundancy is required, which it should be, in what way?
+	%This means adding redundancy to the system so that failure of a component does not mean failure of the entire system
+	\bottomrule
+\end{longtable}
+
+
+
+% \textbf{ER-1 : Adding of external input}\\
+%  Citizens can contribute to the guidance by giving extra information (for example if they identified a safe route near their location). This information can be checked by an operator (thanks to photograph by the UAVs for example). 
+ 
+%  Functionality can be added to the system in the future, that can take citizen feedback into account for the flood prediction.
+%  \\
+ 
+% \textbf{ER-2 : New sensors } The system is able to work with new sensors technologies, which are coming on the market over the years. \\
+
+% \textbf{ER-3 : Improved algorithms for detecting a flood} \\
+% New algorithms may become available, which have a better accuracy for the flood prediction described in \ref{fr:detect-flood}. The part of the system with the flood prediction algorithm has to be modular, so that it can be replaced with an improved algorithm, once such an algorithm becomes available.
+
+%\begin{longtable}{L{0.1\textwidth} L{0.12\textwidth} L{0.7\textwidth}}
+	%\textbf{Nr.} & \textbf{Name}  & \textbf{Description} \\
+	
+	%\reqRow{ER}{Adding of external input}{Citizens can contribute to the guidance by giving extra information (for example if they identified a safe route near their location). This information can be checked by an operator (thanks to photograph by the UAVs for example) .  Functionality can be added to the system in the future, that can take citizen feedback into account to get more information about the current flood}. 
 	
 	%\reqRow{ER}{New sensors}{The system is able to work with new sensors technologies, which are coming on the market over the years}.
 	
@@ -15,6 +51,6 @@ When establishing the project, architects of the system listed a certain number 
 	%\bottomrule
 
 	
-\end{longtable}
+%\end{longtable}
 
 
