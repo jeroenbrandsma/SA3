@@ -15,7 +15,7 @@
 *.out
 *.toc
 /report.pdf
-/report_*-*.pdf
+/*.pdf
 
 ## Intermediate documents:
 *.dvi
