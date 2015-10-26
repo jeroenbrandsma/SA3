@@ -194,32 +194,27 @@ The software architecture team of \CompanyName consists of six members. Creating
 \subsection{Development costs}
 The costs of developing the system is approximated in table \ref{table:develop-costs}, shown below.
 
-
 \begin{table}[H]
-	\pgfplotstabletypeset[%
-		KeyValue,
-		display columns/0/.append style={
-			column name={\textbf{Description}},
-		},
-		display columns/1/.append style={
-			column name={\textbf{Man hours}},
-		},
-	]{%
-		Description & Man hours \\
-		Get values from various sensors & 160 \\ 
-		Get weather forecasts & 160 \\ 
-		Flood prediction algorithm & 3100 \\ 
-		Warning messaging system  & 2000 \\ 
-		Guidance information system & 1500 \\ 
-		Redundancy and fail over systems & 1000 \\ 
-		Testing \& debugging & 600 \\ 
-		Release build & 250 \\
-		Overhead & 1000 \\ 
-		Total hours & 9770 \\
-	}
+	\centering
+	\begin{tabular}{lr}
+	\toprule
+	\textbf{Description} & \multicolumn{1}{l}{\textbf{Man hours}} \\ \hline
+	Get values from various sensors & 160 \\ 
+	Get weather forecasts & 160 \\ 
+	Flood prediction algorithm & 3100 \\ 
+	Warning messaging system  & 2000 \\ 
+	Guidance information system & 1500 \\ 
+	Redundancy and fail over systems & 1000 \\ 
+	Testing \& debugging & 600 \\ 
+	Release build & 250 \\
+	Overhead & 1000 \\ 
+	Total hours & 9770 \\
+	\bottomrule
+	\end{tabular}
 	\caption{Approximation of development costs}
 	\label{table:develop-costs}
 \end{table}
+
 %\Joris
 Development of the system comprises the development of several different aspects. For each of these aspects, table \ref{table:develop-costs} shows an approximation of the hours needed for the development. Resulting in a total amount of $9770$ hours needed to create the system.\\
 The development is done by \CompanyName self. Each member of the project team assigned to develop this system is paid $\euro{}50$ an hour. This results in a development cost of $50*9770=488.550$. As shown in the table below.
@@ -228,28 +223,36 @@ The development is done by \CompanyName self. Each member of the project team as
 %Members & 6 \\
 %Duration & $\approx$41 weeks \\
 
-\pgfplotstableread%
-[%
-	row sep=\\,
-	col sep=&,
-	format=inline
-]%
-{\\%
-	Description & Costs \\
+% \pgfplotstableread%
+% [%
+% 	row sep=\\,
+% 	col sep=&,
+% 	format=inline
+% ]%
+% {\\%
+% 	Description & Costs \\
+% 	Hours & 9770 \\
+% 	Cost per hour & \EUR{}50 \\
+% 	Total cost & \EUR{}488.500 \\
+% 	}\tdevcost
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{lr}
+	\toprule
+	\textbf{Description} & \multicolumn{1}{l}{\textbf{Costs}} \\ \hline
 	Hours & 9770 \\
 	Cost per hour & \EUR{}50 \\
 	Total cost & \EUR{}488.500 \\
-	}\tdevcost
-
-\begin{table}[H]
-	\pgfplotstabletypeset[
-		Costs
-	]\tdevcost
+	\bottomrule
+	\end{tabular}
 	\caption{Total costs of development}
 	\label{table:total-dev-costs1}
 \end{table}
 
 \subsection{Hardware costs}
+The hardware cost of the \gls{SFM} is separated in to dike sensors cost, water level sensor cost, maintenance cost, and server cost.
+
 \subsubsection{Dike sensors}
 Around 17.000 kilometers of dikes protect the Netherlands against flooding \cite{DMC}. 
 The monitoring system consists of GeoBeads sensors with a claimed life time of 10 years, which are installed with conventional push-in techniques. 
@@ -261,18 +264,33 @@ Each push-in costs about \EUR{}200 and three sensors can be installed per push-i
 The following table gives an overview of the costs related to the dike sensors:
 
 \begin{table}[H]
-	\pgfplotstabletypeset[
-		KeyValue
-	]{%
-		Description & Value & UoM\\
-		Total length of all dikes to be monitored & $2.500$ & km \\
-		Number of GeoBeads per kilometer & 330 & \\
-		Sensor cost & 320 & \EUR{} \\
-		Installment cost per cross-section & 200 &\EUR{} \\
-		Sensors per cross-section & 3 & \\
-		Base installation cost factor like labor and wiring & 0.2 & \\
-		Life expectancy of GeoBeads & 10 & years \\
-	}
+	% \pgfplotstabletypeset[
+	% 	KeyValue
+	% ]{%
+	% 	Description & Value & UoM\\
+	% 	Total length of all dikes to be monitored & $2.500$ & km \\
+	% 	Number of GeoBeads per kilometer & 330 & \\
+	% 	Sensor cost & 320 & \EUR{} \\
+	% 	Installment cost per cross-section & 200 &\EUR{} \\
+	% 	Sensors per cross-section & 3 & \\
+	% 	Base installation cost factor like labor and wiring & 0.2 & \\
+	% 	Life expectancy of GeoBeads & 10 & years \\
+	% }
+
+
+	\centering
+	\begin{tabular}{lrl}
+	\toprule
+	\textbf{Description} & \multicolumn{1}{l}{\textbf{Value}} & \textbf{UoM} \\ \hline
+	Total length of all dikes to be monitored & $2.500$ & km \\
+	Number of GeoBeads per kilometer & 330 & \\
+	Sensor cost & 320 & \EUR{} \\
+	Installment cost per cross-section & 200 &\EUR{} \\
+	Sensors per cross-section & 3 & \\
+	Base installation cost factor like labor and wiring & 0.2 & \\
+	Life expectancy of GeoBeads & 10 & years \\
+	\bottomrule
+	\end{tabular}
 	\label{table:total-dev-costs2} 
 	\caption{Total costs of development. UoM=Unit of measurement}
 \end{table}
@@ -288,16 +306,28 @@ The estimated price of the water level sensors is around 200 euro and the assume
 The following table gives an overview of the costs related to the dike sensors:
 
 \begin{table}[H]
-	\pgfplotstabletypeset[
-		KeyValue
-	]{%
-		Description & Value & UoM\\
-		Total length of waterways to be monitored & $6.000$ & km \\
-		Number of water level sensors per kilometer & 1 & \\
-		Sensor cost & 100 & \EUR{} \\
-		Installment cost & 100 &\EUR{} \\
-		Base installation cost factor like labor and wiring & 0.2 & \\
-	}
+	% \pgfplotstabletypeset[
+	% 	KeyValue
+	% ]{%
+	% 	Description & Value & UoM\\
+	% 	Total length of waterways to be monitored & $6.000$ & km \\
+	% 	Number of water level sensors per kilometer & 1 & \\
+	% 	Sensor cost & 100 & \EUR{} \\
+	% 	Installment cost & 100 &\EUR{} \\
+	% 	Base installation cost factor like labor and wiring & 0.2 & \\
+	% }
+
+	\centering
+	\begin{tabular}{lrl}
+	\toprule
+	\textbf{Description} & \multicolumn{1}{l}{\textbf{Value}} & \textbf{UoM} \\ \hline
+	Total length of waterways to be monitored & $6.000$ & km \\
+	Number of water level sensors per kilometer & 1 & \\
+	Sensor cost & 100 & \EUR{} \\
+	Installment cost & 100 &\EUR{} \\
+	Base installation cost factor like labor and wiring & 0.2 & \\
+	\bottomrule
+	\end{tabular}
 	\label{table:total-dev-costs3} 
 	\caption{Total costs of water level sensors. UoM=Unit of measurement}
 \end{table}
@@ -355,15 +385,26 @@ SC = (68.238 + 36.720 + 1.500) \times 3 = \EUR 319.374
 \subsubsection{Total hardware costs}
 The total hardware costs is shown in the table below.
 \begin{table}[H]
-	\pgfplotstabletypeset[
-		Costs
-	]{
-		Description & Cost\\
-		Installation costs & $\EUR{}$384.240.000\\
-		Maintenance costs per year & $\euro{}$31.725.000\\
-		Server costs & $\euro{}$319.374\\
-		Total cost & $\euro{}$416.284.374\\
-	}
+	% \pgfplotstabletypeset[
+	% 	Costs
+	% ]{
+	% 	Description & Cost\\
+	% 	Installation costs & $\EUR{}$384.240.000\\
+	% 	Maintenance costs per year & $\euro{}$31.725.000\\
+	% 	Server costs & $\euro{}$319.374\\
+	% 	Total cost & $\euro{}$416.284.374\\
+	% }
+
+	\centering
+	\begin{tabular}{lr}
+	\toprule
+	\textbf{Description} & \multicolumn{1}{l}{\textbf{Costs}} \\ \hline
+	Installation costs & $\EUR{}$384.240.000\\
+	Maintenance costs per year & $\euro{}$31.725.000\\
+	Server costs & $\euro{}$319.374\\
+	Total cost & $\euro{}$416.284.374\\
+	\bottomrule
+	\end{tabular}
 	\caption{Total hardware cost}
 	\label{table:total-hardw-cost}
 \end{table}
@@ -372,15 +413,26 @@ The total hardware costs is shown in the table below.
 The total costs for the system is calculated in the table below.\\
 
 \begin{table}[H]
-	\pgfplotstabletypeset[%
-		Costs
-	]{%
-		Description & Cost\\
-		Software Architecture costs & \EUR{}157.500\\
-		Development costs & $\euro{}$488.500\\
-		Hardware costs & $\euro{}$416.284.374\\
-		Total cost & $\euro{}$416.930.374\\
-	}
+	% \pgfplotstabletypeset[%
+	% 	Costs
+	% ]{%
+	% 	Description & Cost\\
+	% 	Software Architecture costs & \EUR{}157.500\\
+	% 	Development costs & $\euro{}$488.500\\
+	% 	Hardware costs & $\euro{}$416.284.374\\
+	% 	Total cost & $\euro{}$416.930.374\\
+	% }
+
+	\centering
+	\begin{tabular}{lr}
+	\toprule
+	\textbf{Description} & \multicolumn{1}{l}{\textbf{Costs}} \\ \hline
+	Software Architecture costs & \EUR{}157.500\\
+	Development costs & $\euro{}$488.500\\
+	Hardware costs & $\euro{}$416.284.374\\
+	Total cost & $\euro{}$416.930.374\\
+	\bottomrule
+	\end{tabular}
 	\caption{Total cost of the system}
 	\label{table:totalcosts}
 \end{table}
