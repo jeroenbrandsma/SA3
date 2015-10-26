@@ -1,4 +1,6 @@
 ###LaTeX###
+#dolphin
+.directory
 #meld
 *.orig
 # For Mac
