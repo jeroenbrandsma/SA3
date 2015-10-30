@@ -71,38 +71,12 @@ In figure~\ref{fig:sequence-sensordata} a sequence diagram of sending the sensor
 	\label{fig:sequence-sensordata}
 \end{figure}
 
-\textbf{\textsc{URL}}
-\begin{lstlisting}
-/monitor/{monitorid}/sensorvalues
-\end{lstlisting}
-
-\textbf{\textsc{REQUEST HEADERS}}
-\begin{lstlisting}
-Content-Type: application/json
-Authorization: <<Hash>>
-\end{lstlisting}
-
-\textbf{\textsc{REQUEST BODY}}
-\begin{lstlisting}
-[
-	{
-		sensor: "<<sensorid>>",
-		value: "<<value>>"
-	},
-	{
-		sensor: "<<sensorid2>>",
-		value: "<<value2>>"
-	},
-	...
-]
-\end{lstlisting}
-
 
 %TODO (should push/pull be a decision?)
 %TODO (HMAC should be a decision, could also use other hashes and verification)
 
-The arduino system only pushes the data to the server. This push model reduces the load of the arduino systems because there are no incoming requests. This way, the arduino also doesn't have to store or manage any data, which also means the arduino doesn't need security measurements to secure this data.\\
-The server does however need to verify that the messages it receives from the arduino monitoring systems are in fact send by our arduino systems. Otherwise a hacker could send sensor messages too, which would jeopardize the entire flood warning system.The downside to having the arduino systems push the data, is that data will be received by the server was not needed or wanted. Defect sensors data will still be send. \\
+The Arduino system only pushes the data to the server. This push model reduces the load of the Arduino systems because there are no incoming requests. This way, the Arduino also doesn't have to store or manage any data, which also means the Arduino doesn't need security measurements to secure this data.\\
+The server does however need to verify that the messages it receives from the Arduino monitoring systems are in fact send by our arduino systems. Otherwise a hacker could send sensor messages too, which would jeopardize the entire flood warning system.The downside to having the Arduino systems push the data, is that data will be received by the server was not needed or wanted. Defect sensors data will still be send. \\
 %http://rc3.org/2011/12/02/using-hmac-to-authenticate-web-service-requests/
 % HMAC suggested by microsoft: https://msdn.microsoft.com/en-us/library/dd203052.aspx
  
