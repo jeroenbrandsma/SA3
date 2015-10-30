@@ -12,7 +12,7 @@
 
 
 \section{Stories and use-cases}
-This section will give an overview of the different use-cases. Figure \ref{fig:usecase-diagram} displays the use-case diagram. This provides an overview of the use-cases with their actors. In the subsections below, the architectural important use-cases are explained in more detail.
+This section will give an overview of the different use-cases. Figure \ref{fig:usecase-diagram} displays the use-case diagram. The diagram is made using the UML notation. In this diagram, we introduce the «after» notation to indicate that one use-case occurs after another use case in time. This provides an overview of the use-cases with their actors. In the subsections below, the architectural important use-cases are explained in more detail.
 
 \begin{figure}[H]
 	\centering
@@ -32,41 +32,6 @@ This section will give an overview of the different use-cases. Figure \ref{fig:u
 %	Sub-variations & \\
 
 
-\subsection{Receive sensor data}
-\begin{table}[H]
-\pgfplotstabletypeset[%
-	UCTable
-]{%
-	value & description \\
-	Number & \req{uc}\\
-	Description & The system receives data from the different sensors deployed \\
-	Stakeholders and interests & 
-	\textbf{Developers}: Developers need to work with the sensor data \\
-	Primary actor & System\\
-	Scope & Monitoring part of the system \\
-	Level & Sub process\\
-	Precondition & The sensor is connected to a processing unit \\
-	Main success scenario & \compactList{enumerate}{%
-		\item The sensor does a measurement every 10 seconds
-		\item The sensor sends the data to the central server every minute
-		\item The central server normalizes the received data
-		\item The central server stores the normalized data to the database
-		\item The database stores the data
-		}\\
-	Postcondition & The database received and stored the sensor data \\
-	Alternatives & \compactList{itemize}{%
-		\item[2a.] 
-		\begin{enumerate}
-			\item The data cannot be sent
-			\item Data will be lost
-			\item The use-case ends 
-		\end{enumerate}
-		} \\
-	Related requirements & \ref{fr:receive-waterlevel}, \ref{fr:receive-pressure}, \ref{fr:store-sensordata}, \ref{fr:retrieve-sensordata}\\
-}
-\caption{UC-\arabic{uc}: Receive sensor data}
-\label{table:uc-receive-sensordata}
-\end{table}
 
 \clearpage
 \subsection{Receive weather/GEO/demographic data}
@@ -187,7 +152,7 @@ This section will give an overview of the different use-cases. Figure \ref{fig:u
 \end{table}
 
 \clearpage
-\subsection{Warn citizens in case of an imminent flood}
+\subsection{Warn citizens}
 \begin{table}[H]
 \pgfplotstabletypeset[%
 	UCTable
@@ -224,7 +189,7 @@ This section will give an overview of the different use-cases. Figure \ref{fig:u
 \end{table}
 
 \clearpage
-\subsection{Warn safety region in case of an imminent flood}
+\subsection{Warn safety region}
 \begin{table}[H]
 \pgfplotstabletypeset[%
 	UCTable
@@ -254,7 +219,7 @@ This section will give an overview of the different use-cases. Figure \ref{fig:u
 \end{table}
 
 \clearpage
-\subsection{Third party accessing data through the systems API}
+\subsection{Allow 3rd party access to data (API)}
 \begin{table}[H]
 \pgfplotstabletypeset[%
 	UCTable
@@ -332,7 +297,7 @@ This section will give an overview of the different use-cases. Figure \ref{fig:u
 \end{table}
 
 \clearpage
-\subsection{Maintenance employee checks system state}
+\subsection{Checking the system state}
 \begin{table}[H]
 \pgfplotstabletypeset[%
 	UCTable

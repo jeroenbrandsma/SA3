@@ -20,12 +20,12 @@ This section defines decisions made regarding the hardware selection. Tables wil
 		\midrule
 		\textbf{Arguments}      & \\
 		&   \begin{tabular}{l|lllllll|l}
-		&       \rot{Reliability} & \rot{Resilience} & \rot{Interoperability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline
-		%                    rel res per int cost
-		Weights     & 3 & 2 & 3 & 2 & 2 &    \\ \hline
-		GeoBeads    & 5 & 4 & 4 & 3 & 2 & 45 \\ 
-		Piezometer  & 4 & 2 & 3 & 2 & 3 & 35 \\
-		Volt meters & 1 & 5 & 3 & 2 & 5 & 36 \\
+		& \rot{Reliability} & \rot{Resilience} & \rot{Performance} & \rot{Interoperability} & \rot{Security} & \rot{Scalability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline
+		%                rel res per int sec sca cost
+		Weights        	& 3 & 2 & 3 & 2 & 2 & 2 & 2 \\ \hline
+		GeoBeads        & 5 & 4 & 4 & 2 & 2 & 3 & 2 & 53 \\ 
+		Piezometer      & 4 & 2 & 3 & 2 & 2 & 3 & 3 & 45 \\
+		Volt meters 	& 1 & 5 & 3 & 2 & 2 & 3 & 5 & 46 \\
 	\end{tabular} \\
 	\\ \bottomrule
 	\end{tabular}
@@ -56,11 +56,11 @@ This section defines decisions made regarding the hardware selection. Tables wil
 						                            
 		\begin{tabular}{l|lllllll|l}
 		               & \rot{Reliability} & \rot{Resilience} & \rot{Performance} & \rot{Interoperability} & \rot{Security} & \rot{Scalability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline
-		%                       rel res per int sec sca cost
+		%               rel res per int sec sca cost
 		Weights        & 3 & 2 & 3 & 2 & 2 & 2 & 2 \\ \hline
-		Wired          & 5                 & 4                & 3                 & 3                      & 2              & 2                 & 2          & 50                   \\ 
-		ZigBee         & 4                 & 2                & 2                 & 2                      & 2              & 4                 & 3          & 42                   \\
-		ISM Radio band & 1                 & 5                & 2                 & 2                      & 2              & 3                 & 5          & 43                   \\
+		Wired          & 5 & 4 & 3 & 3 & 2 & 2 & 2 & 50 \\ 
+		ZigBee         & 4 & 2 & 2 & 2 & 2 & 4 & 3 & 42 \\
+		ISM Radio band & 1 & 5 & 2 & 2 & 2 & 3 & 5 & 43 \\
 	\end{tabular} \\
 	\\ \bottomrule
 	\end{tabular}
@@ -105,8 +105,11 @@ This section defines decisions made regarding the hardware selection. Tables wil
 						
 		\textbf{Name}          & \textbf{UAVs}                                                                                                                                                              \\ \toprule
 		\textbf{Decision}      & \textbf{\req{hw}}                                                                                                                                                             
-								\textit{Skyjib 8 Titanium} \\ 
-								& Flight mode : GPS, computer based, Time of flight :  12-25 min  , Speed : 12m/s. \\                                                                                         \midrule
+								\textit{A2 Multi spectral X4} \\ 
+								& Flight mode : GPS, computer based, Time of flight, long range:90 min. \\                                                                                        
+								% Price : 9000
+								%\textit{Skyjib 8 Titanium} \\ 
+								%& Flight mode : GPS, computer based, Time of flight :  12-25 min  , Speed : 12m/s. \\                                                                                         \midrule
 		\textbf{Status}        & \textbf{Approved}                                                                                                                                                          \\ \midrule
 		\textbf{Problem/Issue} & The system uses UAV's in order to get more data during a flood and to create a map of the flooded area.                                                                    \\ \midrule
 		\textbf{Alternatives} 
