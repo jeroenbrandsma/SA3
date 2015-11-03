@@ -115,9 +115,9 @@ This section will give an overview of the different use-cases. Figure \ref{fig:u
 	value & description \\
 	Number & \req{uc}\\
 	Description & The central processing unit calculates the probability of a flood \\
-	Stakeholders and interests & 
-		\item \textbf{Safety region}: The safety region wants to know when a flood warning is triggered
-		\item \textbf{Citizens}: The citizens want to be alerted if there is a high enough probability of a flood occuring
+	Stakeholders and interests & \compactCell{
+		\textbf{Safety region}: The safety region wants to know when a flood warning is triggered \\
+		\textbf{Citizens}: The citizens want to be alerted if there is a high enough probability of a flood occuring}
 		\\
 	Primary actor & System\\
 	Scope & Monitoring and warning part of the system\\
@@ -161,7 +161,7 @@ This section will give an overview of the different use-cases. Figure \ref{fig:u
 	Number & \req{uc}\\
 	Description & Citizens who are subscribed to the SMS service will be warned through text messages in case of an imminent flood\\	
 	Stakeholders and interests & 
-		\item \textbf{Citizens}: When they are subscribed, they want to be warned in case of an imminent flood
+		\textbf{Citizens}: When they are subscribed, they want to be warned in case of an imminent flood
 		\\
 	Primary actor & Citizen\\
 	Scope & Warning part of the system \\
@@ -205,10 +205,12 @@ This section will give an overview of the different use-cases. Figure \ref{fig:u
 	Level & User goal \\
 	Precondition & There is an imminent flood\\
 	Main success scenario & 
+	\compactList{enumerate}{
 		\item The processing unit determines what area will be under water in case of a flood
 		\item The processing unit determines how many people will be affected by the imminent flood
 		\item The processing unit predicts how the flood will develop in the following period 
 		\item The processing unit sends a warning to the safety region
+		}
 		\\
 	Postcondition & A warning about the flood has been send to the safety region \\
 	Alternatives &  \\
@@ -227,10 +229,10 @@ This section will give an overview of the different use-cases. Figure \ref{fig:u
 	value & description \\
 	Number & \req{uc}\\
 	Description & Third parties can use the API exposed by the flood monitoring system in third party applications (providing guidance to citizens) \\
-	Stakeholders and interests & 
-		\item \textbf{Third parties}: Third parties want to access the data of the flood monitoring system to use in their applications
-		\item \textbf{Citizens}: Citizens want to receive guidance in case of a flood
-		\item \textbf{Safety region}: The safety region wants to get updates on the imminent flood
+	Stakeholders and interests & \compactCell{
+		\textbf{Third parties}: Third parties want to access the data of the flood monitoring system to use in their applications \\
+		\textbf{Citizens}: Citizens want to receive guidance in case of a flood \\
+		\textbf{Safety region}: The safety region wants to get updates on the imminent flood}
 		\\
 	Primary actor & Third party \\
 	Scope & The API part of the system \\
@@ -266,9 +268,9 @@ This section will give an overview of the different use-cases. Figure \ref{fig:u
 	value & description \\
 	Number & \req{uc}\\
 	Description & The system is able to detect when a sensor is not functioning properly \\
-	Stakeholders and interests & 
-		\item \textbf{Product owner}: The product owner wants the system to be reliable and errors/broken sensors to be fixed
-		\item \textbf{Maintainers}: The maintainers are responsible for repairing/replacing the faulty sensors
+	Stakeholders and interests & \compactCell{
+		\textbf{Product owner}: The product owner wants the system to be reliable and errors/broken sensors to be fixed \\
+		\textbf{Maintainers}: The maintainers are responsible for repairing/replacing the faulty sensors}
 		\\
 	Primary actor & The system \\
 	Scope & The monitoring part of the system \\
@@ -306,7 +308,7 @@ This section will give an overview of the different use-cases. Figure \ref{fig:u
 	Number & \req{uc}\\
 	Description & A maintainer of the system regularly checks the state of the system in the control panel to see if there are errors or sensors that need maintenance. \\
 	Stakeholders and interests & 
-		\item \textbf{Maintainer}: The maintainer wants to detect errors in the system in a reliable and simple way.
+		\textbf{Maintainer}: The maintainer wants to detect errors in the system in a reliable and simple way.
 		\\
 	Primary actor & Maintainer \\
 	Scope & The maintenance part of the system \\
