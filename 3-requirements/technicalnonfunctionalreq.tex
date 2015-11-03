@@ -14,9 +14,9 @@ Reliability is an important non-functional requirement for the system, and a key
 \begin{longtable}{L{0.1\textwidth} L{0.12\textwidth} L{0.7\textwidth}}
 	\textbf{Nr.} & \textbf{Prio}  & \textbf{Description} \\
 	%\reqRow{rel}{Must}{Sensor sites are equipped with at least two sensors} ( why two ? )
-	\reqRow{rel}{Must}{Data from the sensors reaches the central server in 99.9\% of all cases} % Already mention REST here?
+	\reqRow{rel}{Must}{Data from the sensors reaches the central server in 99.9\% of all cases.} % Already mention REST here?
 	 
-	\reqRow{rel}{Must}{The system must detect if a sensor supplies wrong measurements, which can be caused, e.g. by improper calibration or defects in the sensor.} 
+	\reqRow{rel}{Must}{The system must detect if a sensor supplies values that are not correct for the specific real world environment.} 
 	
 	\reqRow{rel}{Must}{The system must at no time fail to detect a flood when this flood becomes imminent (\textit{false negative}).}
 	
@@ -45,13 +45,13 @@ The system needs to be resilient to recover from errors and mistakes without imp
 	
 	\reqRow{res}{Must}{The system recognizes failures within half an hour}
 
-	\reqRow{res}{Must}{The system recovers from failures without the \qos or the functionality of the system being affected.}
+	\reqRow{res}{Must}{The system recovers from failures without the performance or the functionality of the system being affected.}
 	
 	\reqRow{res}{Must}{All system data must be backed up every 24 hours.}
 	
 	\reqRow{res}{Must}{In case of a data loss, the data should be retrieved and restored from a backup within 2 hours.}
 	
-	\reqRow{res}{Must}{Backup copies are stored in a secure location which is not in the same area as the system (50 km away).}
+	\reqRow{res}{Must}{Backup copies are stored in a location which is not in the same area as the system (50 km away).}
 	
 	\bottomrule
 \end{longtable}
@@ -86,8 +86,8 @@ The system has dependencies on several third-party systems and also allows third
 	%\reqRow{intr}{Must}{When the system detects a high risk of flood, it warns the government automatically using the government provided API.} WM: removed this, the safety region will warn the government (mayor etc.)
 	%\reqRow{intr}{Must}{When the system detects a flood, it notifies the safety region through an API provided by them.}
 	%\reqRow{intr}{Must}{The system sends out a SMS to all users who are subscribed to flood warnings using the mobile network.}
-	\reqRow{intr}{Must}{The system is able to retrieve data from different types of sensors.}
-	\reqRow{intr}{Must}{The system is able to retrieve external data from different APIs.}
+	\reqRow{intr}{Must}{The system is able to retrieve data from different types of water level sensors and dike sensors. Also future versions of the sensors should be supported.}
+	\reqRow{intr}{Must}{The system is able to retrieve external data from different weather forecast, demographic and geographic APIs. Also future versions of the APIs should be supported.}
 	%\reqRow{intr}{Must}{The system exposes an API, allowing third parties to develop applications using the systems data.}
 	% \reqRow{intr}{Must}{The sensors are able to communicate with the system using a mobile broadband connection.} REMOVED: because we have decided to use wired connection later on.
 
@@ -120,7 +120,7 @@ The system has to be designed in a way that it can expand over time. Not only sh
 
 	\reqRow{scale}{Must}{The system is configurable to run in different areas and with different sensors.}
 	
-	\reqRow{scale}{Must}{The system maintains the performance requirements when the geographic area the system covers is expanded.}
+	\reqRow{scale}{Must}{The system maintains the performance requirements when the number of sensors is increased and the data from sensors is expanded.}
 	
 	\bottomrule
 \end{longtable}
