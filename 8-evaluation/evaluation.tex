@@ -295,142 +295,152 @@ The requirements from chapter 3 are evaluated in this section. The section is sp
 
 	\subsection{Commercial non-functional requirements}
 	\begin{table}[H]
-	\begin{tabular}{lllll}
+	\begin{tabular}{lllllL{\tw{0.4}}}
 	
-	Nr.    & Priority & Fulfilled & Location & Remarks \\ \hline
+	Nr.    & Priority & Fulfilled & Decision & Chapter & Remarks \\ \hline
 	
 %	\reqRow{cnfr}{Must}{The system is affordable. The initial price of the system is lower than 95\%\ of the competitors price in the same market.}
-	CNFR-1 & Must     & ~        & ~         & ~       \\ 
+	CNFR-1 & Must     & ~        & ~ & ~         & ~       \\ \hline
 	
 %	\reqRow{cnfr}{Must}{The sensors have a good quality, so they do not have to be replaced often. The expected lifetime of the sensors should be at least three years.}
-	CNFR-2 & Must     & ~        & ~         & ~       \\
+	CNFR-2 & Must     & ~        & ~ & ~         & ~       \\ \hline
 	
 	\end{tabular}
 	\end{table}
+
 	\subsection{Technical non-functional requirements}
+	This subsection elaborates about technical non-functional requirements that contain reliability, availability, resilience, performance, interoperability, security, and scalability.
+
 	\subsubsection{Reliability}
 	\begin{table}[H]
-	\begin{tabular}{lllll}
+	\begin{tabular}{lllllL{\tw{0.4}}}
 	
-	Nr.   & Priority & Fulfilled & Location & Remarks \\ \hline
+	Nr.   & Priority & Fulfilled & Decision & Chapter & Remarks \\ \hline
 	
 %	\reqRow{rel}{Must}{Data from the sensors is sent via a TCP connection} %	
-	REL-1 & Must     & ~        & ~         & ~       \\ 
+	REL-1 & Must     & ~        & ~ & ~         & ~       \\ \hline
 	
 %	\reqRow{rel}{Must}{The system must detect if a sensor supplies wrong measurements, which can be caused, e.g. by improper calibration or defects in the sensor.} 
-	REL-2 & Must     & Yes      & ~    \ref{subsec:detecting-faulty-sensor}     & Fulfilled, faulty sensor will be detected and later be repaired.       \\ 
+	REL-2 & Must     & Yes      & ~ & ~    \ref{subsec:detecting-faulty-sensor}     & Fulfilled, faulty sensor will be detected and later be repaired.       \\ \hline
 	
 %	\reqRow{rel}{Must}{The system must at no time fail to detect a flood when this flood becomes imminent (\textit{false negative}).}
-	REL-3 & Must     & ~        & ~         & ~       \\ 
+	REL-3 & Must     & ~        & ~ & ~         & ~       \\ \hline
 	
 %	\reqRow{rel}{Must}{The system must not detect a flood, when this flood is not there in reality (\textit{false positive}), on average more than once per 5 years.}
-	REL-4 & Must     & ~        & ~         & ~       \\
+	REL-4 & Must     & ~        & ~ & ~         & ~       \\ \hline
 	
 	\end{tabular}
 	\end{table}
 	
 	\subsubsection{Availability}
 	\begin{table}[H]
-	\begin{tabular}{lllll}
+	\begin{tabular}{lllllL{\tw{0.4}}}
 	
-	Nr.   & Priority & Fulfilled & Location & Remarks \\ \hline
+	Nr.   & Priority & Fulfilled & Decision & Chapter & Remarks \\ \hline
 	
 %	\reqRow{ava}{Must}{The system must have an uptime of $99.7\%$. This effectively means, that the system should not be down for more than 2 hours per month.
-	AVA-1 & Must     & Yes        & \ref{subsec:availability}         & Fulfilled.       \\ 
-	
+	AVA-1 & Must     & Yes      & & \ref{subsec:availability}         & Fulfilled.       \\ \hline
 %	\reqRow{ava}{Must}{The system must not experience a period of downtime, spanning more than 12 hours. Within twelve hours of the system going offline, it should be back up again. }
-	AVA-2 & Must     & ~        & ~         & ~       \\
+	AVA-2 & Must     & ~        & & ~         & ~       \\ \hline
+% \reqRow{ava}{Must}{The system pulls weather forecasts from at least two weather forecasting services.}
+	AVA-3 & Must     & ~        & & ~         & ~       \\ \hline
 	
 	\end{tabular}
 	\end{table}
 	
 	\subsubsection{Resilience}
 	\begin{table}[H]
-	\begin{tabular}{lllll}
+	\begin{tabular}{lllllL{\tw{0.4}}}
 	
-	Nr.   & Priority & Fulfilled & Location & Remarks \\ \hline
+	Nr.   & Priority & Fulfilled & Decision & Chapter & Remarks \\ \hline
 	
 %	\reqRow{res}{Must}{The system recognizes failures within half an hour}
 	
-	RES-1 & Must     & ~        & ~         & ~       \\ 
+	RES-1 & Must     & ~        & ~ & ~         & ~       \\ \hline
 	
 %	\reqRow{res}{Must}{The system recovers from failures without the \qos or the functionality of the system being affected.} % GK: split in two requirements. reduce to detect sensor failures within half an hour
 	
-	RES-2 & Must     & ~        & ~         & ~       \\ 
+	RES-2 & Must     & ~        & ~ & ~        & ~       \\ \hline
 	
 %	\reqRow{res}{Must}{All system data must be backed up every 24 hours, so that in case of data loss, this data can be restored.}
-	RES-3 & Must     & Yes        & \ref{subsec:database-data}         & Fulfilled, the data is also duplicated in database.       \\ 
+	RES-3 & Must     & Yes      & ~ & \ref{subsec:database-data}         & Fulfilled, the data is also duplicated in database.       \\ \hline
 	
 %	\reqRow{res}{Must}{In case of a data loss, the data should be retrieved and restored from a backup within 2 hours.}
-	RES-4 & Must     & ~        & ~         & ~       \\ 
+	RES-4 & Must     & ~        & ~ & ~         & ~       \\ \hline
 	
 %	\reqRow{res}{Must}{Backup copies are stored in a secure location which is not in the same area as the system (50 km).}		
-	RES-5 & Must     & Yes        & \ref{sec:hardware-overview}         & Fulfilled, the data centers will be located in three different places.       \\
+	RES-5 & Must     & Yes      & ~ & \ref{sec:hardware-overview}         & Fulfilled, the data centers will be located in three different places.       \\ \hline
 	
 	\end{tabular}
 	\end{table}
 	
 	\subsubsection{Performance}
 	\begin{table}[H]
-	\begin{tabular}{llllL{0.5\textwidth}}
+	\begin{tabular}{lllllL{0.4\textwidth}}
 	
-	Nr.    & Priority & Fulfilled & Location & Remarks \\ \hline
+	Nr.    & Priority & Fulfilled & Decision & Chapter & Remarks \\ \hline
 	
 %	\reqRow{perf}{Must}{Data is transmitted from and to the system with a minimum average speed of 10 megabits per second}
-	PERF-1 & Must     & Unknown  & -         & Expected, not yet tested. \\
+	PERF-1 & Must     & Unknown  & - & -         & Expected, not yet tested. \\ \hline
 	
 %	\reqRow{perf}{Must}{	The data transmission between the sensors and the system is on average at least 10 megabits per second for each sensor.}
-	PERF-2 & Must     & Unknown  & -         & Expected, not yet tested. \\
+	PERF-2 & Must     & Unknown  & - & -         & Expected, not yet tested. \\ \hline
 	
 %	\reqRow{perf}{Must}{	The time for the system to compute if there is a flood or not according to a critical level and the data received from the sensors is at most 5 minutes. }
-	PERF-3 & Must     & Unknown  & -         & Expected, not yet tested. \\
+	PERF-3 & Must     & Unknown  & - & -         & Expected, not yet tested. \\ \hline
 	
 %	\reqRow{perf}{Must}{ If an imminent flood is detected, the warning text message to citizens arrives in 5 minutes. }
-	PERF-4 & Must     & Unknown  & -         & Expected, not yet tested. \\
+	PERF-4 & Must     & Unknown  & - & -         & Expected, not yet tested. \\ \hline
 	
 %	\reqRow{perf}{Must}{ If an imminent flood is detected, the warning to the emergency room arrives within 1 minute. }
-	PERF-5 & Must     & Unknown  & -         & Expected, not yet tested. \\
+	PERF-5 & Must     & Unknown  & - & -         & Expected, not yet tested. \\ \hline
 						
 	\end{tabular}
 \end{table}
 
 \subsubsection{Interoperability}
 \begin{table}[H]
-	\begin{tabular}{lllll}
-						    
-		Nr.    & Priority & Fulfilled & Location & Remarks \\ \hline
-		INTR-1 & Must     & Yes      &\ref{subsec:external-system} & Fulfilled by using several weather forecast API providers.       \\ 
-		INTR-2 & Must     & Yes      &\ref{subsec:users-roles}, \ref{subsec:external-system}, \ref{subsec:channels-information-flows}& Fulfilled by notifying Safety Region using API.\\ 
-		INTR-3 & Must     & Yes      &\ref{subsec:external-system} & Fulfilled by sending SMS to subscribed citizens. \\ 
-		INTR-4 & Must     & Yes      & \ref{sec:hardware-overview} & Fulfilled by using GeoBeads and Water level sensor. \\ 
-		INTR-5 & Must     & Yes      & \ref{subsec:external-system} & Fulfilled by gathering ground height and waterways data. \\ 
-		INTR-6 & Must     & Yes      & \ref{subsec:users-roles} & Fulfilled by exposing API to third party developers.       \\ 
+	\begin{tabular}{lllllL{\tw{0.4}}}
+	
+		Nr.    & Priority & Fulfilled & Decision & Chapter & Remarks \\ \hline
+% \reqRow{intr}{Must}{The system is able to retrieve data from different types of water level sensors and dike sensors. Also future versions of the sensors should be supported.}
+		INTR-1 & Must     & Yes      & \ref{dec:3} & \ref{sec:hardware-overview} & Fulfilled by using GeoBeads and Water level sensor. \\ \hline
+% \reqRow{intr}{Must}{The system is able to retrieve external data from different weather forecast, demographic and geographic APIs. Also future versions of the APIs should be supported.}
+		INTR-2 & Must     & Yes      & &\ref{subsec:external-system} & Fulfilled by using several external API providers.       \\ \hline
 						
 	\end{tabular}
 \end{table}
 
 \subsubsection{Security}
 \begin{table}[H]
-	\begin{tabular}{lllll}
-						    
-		Nr.   & Priority & Fulfilled & Location & Remarks \\ \hline
-		SEC-1 & Must     & Yes      & \ref{subsec:system-diagram} & Fulfilled. \\ 
-		SEC-2 & Must     & Yes      & \ref{subsec:channels-information-flows} & Fulfilled. \\ 
-		SEC-3 & Must     & Yes      & \ref{subsec:database-data} & Fulfilled, applied in Elasticsearch DB. \\ 
-		SEC-4 & Must     & Yes      & \ref{sec:hardware-overview} & Fulfilled, in the data center level. \\ 
-		SEC-5 & Must     & Yes      & \ref{sec:hardware-overview} & Fulfilled, by using Arduino to send data.\\
+	\begin{tabular}{lllllL{\tw{0.4}}}
+		Nr.   & Priority & Fulfilled & Decision & Chapter & Remarks \\ \hline
+% \reqRow{sec}{Must}{Access to the system is restricted to users, which are authorized and authenticated using a password protected user account.}
+		SEC-1 & Must     & Yes      & & \ref{subsec:system-diagram} & Fulfilled, the user must be authorized to enter the system. \\ \hline
+% \reqRow{sec}{Must}{All communication to, from and within the system is encrypted.}
+		SEC-2 & Must     & Yes      & \ref{dec:9} & \ref{subsec:channels-information-flows} & Fulfilled, by using secure channel. \\ \hline
+% \reqRow{sec}{Must}{User account information is stored encrypted.}
+		SEC-3 & Must     & Yes      & \ref{dec:6} & \ref{subsec:database-data} & Fulfilled, applied in Elasticsearch DB. \\ \hline
+% \reqRow{sec}{Must}{The system is protected on both the application layer and network layer.}
+		SEC-4 & Must     & Yes      & & \ref{sec:hardware-overview} & Fulfilled, in the data center level. \\ \hline
+% \reqRow{sec}{Must}{The system communicates with the sensors via a secure HTTPS connection.}
+		SEC-5 & Must     & Yes      & \ref{dec:9} & \ref{sec:hardware-overview} & Fulfilled, by using Arduino to send data. \\ \hline
 						
 	\end{tabular}
 \end{table}
 
 \subsubsection{Scalability}
 \begin{table}[H]
-	\begin{tabular}{lllll}
+	\centering
+	\begin{tabular}{lllllL{\tw{0.4}}}
 						    
-		Nr.     & Priority & Fulfilled & Location & Remarks \\ \hline
-		SCALE-1 & Must     & Yes      & \ref{subsec:database-data} & Fulfilled by adapting Elasticsearch. \\ 
-		SCALE-2 & Must     & Yes      & \ref{sec:hardware-overview} & Fulfilled by adapting multiple data centers and multiple sensor type. \\ 
-		SCALE-3 & Must     & Unknown  & -         & Expected, not yet tested. \\
+		Nr.     & Priority & Fulfilled & Decision & Chapter & Remarks \\ \hline
+% \reqRow{scale}{Must}{The database and services of the system can scale within 1 hour, when the systems resource usage increases.}
+		SCALE-1 & Must     & Yes      & \ref{dec:6} & \ref{subsec:database-data} & Fulfilled by adapting Elasticsearch. \\ \hline
+% \reqRow{scale}{Must}{The system is configurable to run in different areas and with different sensors.}
+		SCALE-2 & Must     & Yes      & & \ref{sec:hardware-overview} & Fulfilled by adapting multiple data centers and multiple sensor type. \\ \hline
+% \reqRow{scale}{Must}{The system maintains the performance requirements when the number of sensors is increased and the data from sensors is expanded.}
+		SCALE-3 & Must     & Unknown  & & -         & Expected, not yet tested. \\ \hline
 						
 	\end{tabular}
 \end{table}
