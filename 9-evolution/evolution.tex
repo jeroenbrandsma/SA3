@@ -4,25 +4,32 @@
 \label{ch:evolution}
 In the previous chapters the system design is documented and evaluated. In this chapter future functions for the system are explained. These improvements will be made in order to stay ahead of the competition by using the newest technologies.
 
-\section{Other countries}
-This system is first designed for the Netherlands. The Netherlands is used as a starting point for designing such a system because they thrive to have the newest technologies for water protection. But FMS is designed in such a way that it can be used in other countries. When is proven that in real live the FMS is working properly marketing the system to other countries will start.
+\section{Business}
 
-\section{Third party guidance evolution}
-Third party application companies will use the API that is provided in order to provide guidance or other services. Close connections with those companies should be hold in order to now what kind of data they need in order to create services that will contribute to the safety when there are imminent floods. 
+\subsection{Other countries}
+This system is first designed for the Netherlands. The Netherlands is used as a starting point for designing such a system because they thrive to have the newest technologies for water protection. But FMS is designed in such a way that it can be used in other countries. For example, the SMS service can be chosen based on the country. The same holds for the geographic/demographic/weather API.
+The third party API will allow development for country-specific applications.
 
-\section{Other disasters}
+When it is proven that in real live the FMS is working properly marketing the system to other countries will start. First Europe, since it is most familiar, then the rest of the world.
+
+
+\section{Technical}
+\subsection{Other disasters}
 There are different kind of disasters happening over the world which cause tremendous damage and harm to people and their belongings. For other kind of disasters other kind of sensors can be installed and calculations with different algorithms can detect other disasters, like earthquakes or volcano eruptions. This will be done in close collaboration with third party application developers.
+For other disasters, the warning part of the system can still be used and different sensors can be connected to the Arduinos for this. This means that the software architecture can be used for more disasters as well.
+First, earthquakes can be added, later on other disasters, like volcanoes.
 
-\section{UAV evolution}
-UAV's are used in order to check faulty sensors and which area's are flooded. In the future the UAV's will be used in order to spot citizens that need help and guide them or alert emergency services in order to rescue them. 
+\subsection{UAV evolution}
+UAVs are used in order to check faulty sensors and which areas are flooded. In the future the UAVs will be used in order to spot citizens that need help. The UAV will send images to the central servers, which will identify citizens that need help and then the UAV will guide them or the emergency services will be alerted in order to rescue them. 
 
-\section{Wireless network connection} 
-At this moment the best solution for communication is a wired network. Right now improvements are made in wireless network communication. LoRa (Long range radio) could be used for data transfers. For this type of communication a low amount of energy is used and the sensor can transfer data when it is in the range of 10 kilometers.
+\subsection{Wireless network connection} 
+At this moment the best solution for communication is a wired network. Recently, coverage of the LoRa network started growing. LoRa (Long range radio) could be used for data transfers. For this type of communication a low amount of energy is used and the sensor can transfer data when it is in the range of 10 kilometers.
+LoRa modules for the Arduino are already available.
 
-\section{Satellite}
-Using satellites, real time images can be used in order to see what the results are when there is a flood. This makes it easier to guide people to saver area's and assist emergency services. Even pictures could be made to check the state of a dyke.
+\subsection{Satellite}
+Using satellites, real time images can be used in order to see what the results are when there is a flood. This makes it easier to guide people to safer areas and assist emergency services. Even pictures could be made to check the state of a dyke. Using the satellite images would make the system depend less on the sensors and UAV.
 
-%\section{Versions}
+\section{Versions}
 
 
 
