@@ -13,9 +13,6 @@ This section lists the functional requirements of the system.
 	% GK: In what way is the information delivered from the sensors?
 	%   WM: Is that not for analysis?
 			    
-	\frReqRow{analyze-waterlevel}{Must}
-	{ The system is able to perform an analysis for the water level in the waterways based on the input from the water level sensors. }
-			    
 	\frReqRow{receive-pressure}{Must}
 	{The system is able to receive input from the dike sensors.}
 				
@@ -26,16 +23,19 @@ This section lists the functional requirements of the system.
 	{ The system can store the sensor data. }
 				
 	\frReqRow{retrieve-sensordata}{Must}
-	{ Sensor data, which has been previously stored, can be retrieved at a later moment. }
+	{ Sensor data can be retrieved at a later moment. }
 			
 	\frReqRow{receive-weather}{Must}
-	{The system retrieves weather forecasting data from weather forecasting services, which consists of predictions about the precipitation, wind data and tide information. This is used by the system to help in determining when a flood becomes imminent.}
+	{The system retrieves weather forecasting data from weather forecasting services, which consists of predictions about the precipitation, wind data, air pressure, and tide information. This is used by the system to help in determining when a flood becomes imminent.}
 			     
 	\frReqRow{detect-flood}{Must}
-	{ The system is able to detect when a flood is imminent by combining the retrieved sensor data and weather forecasting data. }
+	{ The system is able to detect when a flood is imminent by combining the retrieved sensor data, weather forecasting data and geographic data. }
 			    
 	\frReqRow{receive-geographic}{Must}
-	{ The system retrieves geographic information, consisting of road data, terrain height data and demographic data (number of civilians living in affected area) from an external API.}
+	{ The system retrieves geographic information, consisting of road data, terrain height data from an external API.}
+	
+	\frReqRow{receive-demographic}{Must}
+	{ The system retrieves demographic data (number of civilians living in affected area) from an external API. }
 			        
 	\frReqRow{compute-area}{Must}
 	{ The system computes the area affected by a flood, up to 5 km accuracy, by using the location data of the sensors and geographic information. }
@@ -44,7 +44,7 @@ This section lists the functional requirements of the system.
 	%{ The system can construct a map, showing which areas are affected by the flood. }
 			    
 	\frReqRow{analyze-waterlevel}{Must}
-	{ The system is able to perform an analysis, resulting in an estimated expected water level for  areas which are affected by a flood, based on the water level sensor data, geographic data and weather forecast information. }
+	{ The system is able to perform an analysis, resulting in an estimated expected water level for areas which are affected by a flood, based on the water level sensor data, geographic data and weather forecast information. }
 			    
 	\frReqRow{estimate-waterlevel}{Should}
 	{ The system estimates how the water level in the areas affected by the flood will develop for every hour, up to 12 hours in the future. } % WM: i am not sure if it is possible to predict 12h into the future, we might have to lower this is in a later stage
@@ -54,9 +54,6 @@ This section lists the functional requirements of the system.
 			    
 	\frReqRow{warn-safetyregion}{Must}
 	{ When a flood is imminent, the system sends a warning to the safety region, containing information about the flood: the area affected by the flood, the expected water level in those areas, how the water level will develop in the coming hours and the number of civilians living in the affected area. }
-			    
-	\frReqRow{compute-safearea}{Must}
-	{ The system can compute a safe area, not affected by the flood, where citizens can be evacuated to in case of an (imminent) flood. }
 			    
 	\frReqRow{citizens-subscribe}{Must}
 	{ Citizens are able to subscribe to flood warnings about imminent floods. }
@@ -97,12 +94,21 @@ This section lists the functional requirements of the system.
 			    
 	\frReqRow{expose-api}{Must}
 	{ The system exposes an API, allowing third parties to develop applications for guidance of the citizens during a flood. }
-			
-	\frReqRow{detect-extremephenomena}{Could}
-	{ The system is able to detect extreme weather phenomena, like storms etc. }
 		
+	\frReqRow{uavflood}{Should}
+	{ The UAV is able to take images of a flood area. }
+	
+	\frReqRow{uavfaulty}{Should}
+	{ The UAV is able to take images of an area with possibly faulty sensors. }
+		
+	\frReqRow{uavprocessfaulty}{Should}
+	{ The system processes data collected using a UAV, to verify if a sensor is faulty or not. }	
+	
+	\frReqRow{uavprocessflood}{Should}
+	{ The system processes data collected using a UAV to determine the current water levels in flooded areas. }	
+	
 	\frReqRow{uav}{Should}
-	{ The system processes and stores data collected using a UAV. }	
+	{ The system stores data collected using a UAV. }	
 			    
 	\bottomrule
 	\caption{Functional Requirements}
