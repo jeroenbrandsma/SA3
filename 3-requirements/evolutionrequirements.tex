@@ -12,19 +12,37 @@ When establishing the project, architects of the system listed a certain number 
 
 %\begin{longtable}{L{0.1\textwidth} L{0.12\textwidth} L{0.7\textwidth}}
 	%\textbf{Nr.} & \textbf{Name}  & \textbf{Description} \\
-\begin{longtable}{L{0.1\textwidth} L{0.12\textwidth} L{0.7\textwidth}}
-	\textbf{Nr.} & \textbf{Prio}  & \textbf{Description} \\
-	%\reqRow{rel}{Must}{Sensor sites are equipped with at least two sensors} ( why two ? )
-	\reqRow{er}{Could}{Citizens can contribute to the guidance application by providing extra information.}
-
-	\reqRow{er}{Could}{The system is able to work with new sensors technologies.} 
 	
-	\reqRow{er}{Could}{The system is able to implement improved algorithms to determine the flood probability}
-	 
-	%\reqRow{rel}{Must}{Redundancy} % GK: if redundancy is required, which it should be, in what way?
-	%This means adding redundancy to the system so that failure of a component does not mean failure of the entire system
-	\bottomrule
-\end{longtable}
+\textbf{Change case}: Earthquakes should also be detected by the system. \\
+\textbf{Likelihood}: Very likely, in the northern part of the Netherlands earthquakes are already happening. \\ 
+\textbf{Impact}:  Large. Different sensors and algorithms would be needed to detect the earthquakes. \\
+
+
+\textbf{Change case}: The LoRa network technology has sufficient coverage to use it for sending sensor data. \\
+\textbf{Likelihood}: High, KPN is already working on this. Also, an initiative of The Things Network, is increasing the coverage in the Netherlands. Eventually, this network will have sufficient coverage. \\
+\textbf{Impact}: The Arduinos should be changed so they can send the data via the LoRa network, the cables become obsolete, and powering via solar energy becomes a possibility. \\
+
+
+\textbf{Change case}: The safety board also wants the system to automatically trigger the civil defense siren. \\
+\textbf{Likelihood}: Low, the safety board can trigger the siren themselves and the government is considering to stop using this system by 2018.\cite{luchtalarm}. Maybe in the future, the keep using the system. \\
+\textbf{Impact}: Low. The warning part of the system can be connected to the civil defense siren, without affecting other parts of the system.
+
+
+
+	
+%\begin{longtable}{L{0.1\textwidth} L{0.12\textwidth} L{0.7\textwidth}}
+%	\textbf{Nr.} & \textbf{Prio}  & \textbf{Description} \\
+%	%\reqRow{rel}{Must}{Sensor sites are equipped with at least two sensors} ( why two ? )
+%	%\reqRow{er}{Could}{Citizens can contribute to the guidance application by providing extra information.}
+%
+%	\reqRow{er}{Could}{The system is able to work with new sensors technologies.} 
+%	
+%	\reqRow{er}{Could}{The system is able to implement improved algorithms to determine the flood probability}
+%	 
+%	%\reqRow{rel}{Must}{Redundancy} % GK: if redundancy is required, which it should be, in what way?
+%	%This means adding redundancy to the system so that failure of a component does not mean failure of the entire system
+%	\bottomrule
+%\end{longtable}
 
 
 

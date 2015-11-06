@@ -5,6 +5,7 @@
 In the previous chapters the system design is documented and evaluated. In this chapter future functions for the system are explained. These improvements will be made in order to stay ahead of the competition by using the newest technologies.
 
 \section{Business}
+This section lists the evolution of the system from a business perspective.
 
 \subsection{Other countries}
 This system is first designed for the Netherlands. The Netherlands is used as a starting point for designing such a system because they thrive to have the newest technologies for water protection. But FMS is designed in such a way that it can be used in other countries. For example, the SMS service can be chosen based on the country. The same holds for the geographic/demographic/weather API.
@@ -14,6 +15,7 @@ When it is proven that in real live the FMS is working properly marketing the sy
 
 
 \section{Technical}
+This section lists the evolution of the system from a technical perspective.
 \subsection{Other disasters}
 There are different kind of disasters happening over the world which cause tremendous damage and harm to people and their belongings. For other kind of disasters other kind of sensors can be installed and calculations with different algorithms can detect other disasters, like earthquakes or volcano eruptions. This will be done in close collaboration with third party application developers.
 For other disasters, the warning part of the system can still be used and different sensors can be connected to the Arduinos for this. This means that the software architecture can be used for more disasters as well.
@@ -32,5 +34,18 @@ Using satellites, real time images can be used in order to see what the results 
 \section{Versions}
 
 
-
+\begin{figure}[H]
+	\centering
+	\begin{tabular}{|c|c|}
+		\hline \textbf{Version} & \textbf{Description} \\ 
+		\hline 1.0                 & Initial version                       \\ 
+		\hline 1.1                 & UAV evolution                       \\ 
+		\hline 1.2					& Satellite \\
+		\hline 2.0                  & Wireless connection over LoRa                       \\ 
+		\hline 3.0					& Support for earthquakes \\
+		\hline
+	\end{tabular} 
+	\label{table:versions}
+	\caption{Version table}
+\end{figure}
 
