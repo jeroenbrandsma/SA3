@@ -47,24 +47,57 @@ Figure \ref{fig:deployment-diagram} contains several artifacts that are derived 
 	\label{table:sensing-artifacts}
 \end{table}
 
+%\pgfplotstabletypeset[%
+%	UCTable
+%]{%
+%	value & description \\
+%	Number & \req{uc}\\
+%	Description & The system receives data from the weather forecast service, the geographic API and the demographic API \\
+%	Stakeholders and interests & 
+%	\textbf{Third Party}, \textbf{Safety Region} and \textbf{Citizens}: They want to receive accurate warnings about floods. \\
+%	Primary actor & System (timer)\\
+%	Scope & Monitoring part of the system \\
+%	Level & Sub process\\
+%	Precondition & There is a connection between the API and our system \\
+%	Main success scenario & \compactList{enumerate}{%
+%		\item The processing unit determines it needs external data%
+%		\item A call is made to the relevant external API%
+%		\item The external API returns the requested data
+%		}\\
+%	Postcondition & The system received the external data \\
+%	Alternatives & \compactList{itemize}{%
+%		\item[3a.] 
+%		\begin{enumerate}
+%			\item The data cannot be returned.
+%			\item Repeat this process with another external API service.
+%			\item If none are available, proceed monitoring without the requested external data.
+%			\item After 5 minutes try to reconnect.
+%		\end{enumerate}
+%		}\\
+%	Related requirements & \ref{fr:receive-weather}, \ref{fr:receive-geographic}, \ref{fr:receive-demographic}, \ref{fr:compute-nrcivilians}\\
+%}
+
 \subsubsection*{Main Analytics Clusters}
-% \begin{longtabletable}[H]
-\begin{longtable}{L{0.2\textwidth} L{0.6\textwidth}}
-	\centering
-	\textbf{Artifact}          & \textbf{Description}                                                                              \\ \toprule
-	Sensor Manager             & Sensor manager is responsible for managing input 									coming from multiple sensors (Arduino). \\ \midrule
-	\gls{UAV} Manager          & \gls{UAV} manager is responsible for handling incoming 							 data from \gls{UAV}s.              \\ \midrule
-	Demographic Data Gatherer  & This is responsible for getting data from demographic 							data provider.                       \\ \midrule
-	Geographic Data Gatherer   & This is responsible for getting data from geographic 								data provider.                       \\ \midrule
-	Weather Data Gatherer      & This is responsible for getting data from weather data 							 provider.                          \\ \midrule
-	Abnormality Algorithm      & Abnormality algorithm is responsible for detecting 								faulty sensors.                        \\ \midrule
-	Flood Prediction Algorithm & This is the main part of algorithm, which will detect 							imminent flood.                      \\ \midrule
-	SMS manager                & SMS manager is responsible for handling outgoing SMS 								to certain users.                    \\ \midrule
-	Subscription Manager       & Subscription manager is responsible for managing 									subscription of citizens/users.         \\ \midrule
-	Warning Sender             & Warning sender is responsible for sending warnings to 							Safety region.                       \\ \midrule
-	API Manager                & This is responsible for managing outgoing API to third 							 party developers.                  \\ \bottomrule
+\begin{table}[H]
 	\caption{Artifact for main analytics cluster}
 	\label{table:main-analytics-artifacts}
-\end{longtable}
+\pgfplotstabletypeset[
+	KeyValue
+]{%
+	key & value \\
+	\textbf{Artifact} & \textbf{Description} \\
+	Sensor Manager & Sensor manager is responsible for managing input coming from multiple sensors (Arduino). \\
+	\gls{UAV} Manager & \gls{UAV} manager is responsible for handling incoming data from \gls{UAV}s. \\
+	Demographic Data Gatherer & This is responsible for getting data from demographic data provider. \\
+	Geographic Data Gatherer & This is responsible for getting data from geographic data provider. \\
+	Weather Data Gatherer & This is responsible for getting data from weather data provider. \\
+	Abnormality Algorithm & Abnormality algorithm is responsible for detecting faulty sensors. \\
+	Flood Prediction Algorithm & This is the main part of algorithm, which will detect imminent flood. \\
+	SMS manager & SMS manager is responsible for handling outgoing SMS to certain users. \\
+	Subscription Manager & Subscription manager is responsible for managing subscription of citizens/users. \\
+	Warning Sender & Warning sender is responsible for sending warnings to Safety region. \\
+	API Manager & This is responsible for managing outgoing API to third party developers. \\
+}
+\end{table}
 
 % \end{longtable}

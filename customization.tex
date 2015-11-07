@@ -75,11 +75,11 @@
 %			\end{longtable}
 %			\end{minipage}
 %		},
-%		every head row/.style={
-%			output empty row,
-%			before row={},
-%			after row={},			
-%		},
+		every head row/.style={
+			output empty row,
+			before row={},
+			after row={},
+		},
 		every last row/.style={%
 			after row=\bottomrule,
 		},
@@ -93,24 +93,21 @@
 		before row=\midrule,
 	},
 	KeyValue/.append style={
-%		begin table=\begin{longtable},
-%		end table=\end{longtable},
-		column type=l,
-		every last row/.style={%
-			after row=\bottomrule,
-		},
 		every head row/.style={
-			before row={\toprule},
-			after row={\midrule},			
+			output empty row,
+			before row={},
+			after row={},			
 		},
 		every last row/.style={%
 			after row=\bottomrule,
 		},
-		%			To add borders:
-		%			column type/.add={|}{},
-		%			every last column/.style={column type/.add={}{|}}
-		%			Set width of specific column:
-		%			display columns/0/.style={column type={L{\tw{0.6}}}},
+		columns/key/.style={
+			column type=L{\tw{0.3}},
+		},
+		columns/value/.style={
+			column type=L{\tw{0.6}},
+		},
+		before row=\midrule,
 	},
 	Costs/.append style={
 		KeyValue,
