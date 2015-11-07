@@ -1,12 +1,48 @@
 \documentclass[a4paper]{report}
 
 %----------------------------------------------------------------------------------------
+%	PRE-DOCUMENT PAGES
+%----------------------------------------------------------------------------------------
+%
+%\makeglossaries
+%
+%\graphicspath{{img/}}
+%\setmarginsrb{3 cm}{2.5 cm}{3 cm}{2.5 cm}{1 cm}{1.5 cm}{1 cm}{1.5 cm}
+\newcommand\myworries[1]{\textcolor{red}{#1}}
+
+%----------------------------------------------------------------------------------------
 %	LATEX BUILD INFO
 %----------------------------------------------------------------------------------------
 
 \input{packages.tex}
 \input{commands.tex}
 \input{customization.tex}
+
+\title{Smart Flood Monitoring}		
+
+\author{
+		\texttt{Eedema, Gerrit}\\
+		\texttt{Putra, Guntur}\\
+		\texttt{Fakambi, Aur\'{e}lie}\\
+		\texttt{Schaefers, Joris}\\
+		\texttt{Brandsma, Jeroen}\\
+		\texttt{Menninga, Wouter}\\
+		(\texttt{Klinkenberg, Guus})
+}
+
+\date{\today}											% Date
+
+\makeatletter
+\let\thetitle\@title
+\let\theauthor\@author
+\let\thedate\@date
+\makeatother
+
+\pagestyle{fancy}
+\fancyhf{}
+\cfoot{\thepage}
+
+\begin{document}
 
 
 %----------------------------------------------------------------------------------------
@@ -17,13 +53,8 @@
 \newcommand{\CompanyName}{RugSAG3\xspace}
 \newcommand{\ProjectName}{Smart Monitoring\xspace}
 
-%----------------------------------------------------------------------------------------
-%	PRE-DOCUMENT PAGES
-%----------------------------------------------------------------------------------------
+\newglossaryentry{SFM}{name=SFM, description={Smart Flood Monitoring}}
 
-\makeglossaries
-
-\begin{document}
 \bibliographystyle{plain}
 
 \input{0-predocument/titlepage.tex}
