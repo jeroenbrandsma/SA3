@@ -100,9 +100,8 @@
 		\newcommand{\req}[1]{%
 			\uppercase{#1}-\nextNrRef{#1}
 		}
-		
-\newcommand{\frReqRow}[3]{%
-	\midrule
+
+\newcommand{\frReqRowNoRule}[3]{%
 	\phantomsection
 	\getNext{FR}
 	\manuallabel{fr:#1}{FR-\arabic{FR}} 	
@@ -115,6 +114,12 @@
 	 &
 	#3
 	\\
+
+}
+	
+\newcommand{\frReqRow}[3]{%
+	\midrule
+	\frReqRowNoRule{#1}{#2}{#3}
 }	
 
 \newcommand{\newshortlabel}[2]{\phantomsection\getNext{#1}\manuallabel{#1:#2}{\uppercase{#1}-\arabic{#1}}\uppercase{#1}-\arabic{#1}}

@@ -1,4 +1,7 @@
 ###LaTeX###
+#swap files:
+*.swp
+*.kate-swp
 #dolphin
 .directory
 #meld
