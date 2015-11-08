@@ -19,15 +19,6 @@
     ,~\ref{subsec:logicalview} 
     & Fulfilled by the system providing a REST server the arduino sensor systems can use to post the sensor data to. \\ \midrule
 
-    %TODO create a decision for the algorithms used?
-    %The system is able to perform an analysis for the water level in the waterways based on the input from the water level sensors. 
-    ~\ref{fr:analyze-waterlevel}  
-    & Must     
-    & Yes       
-    & 
-    &~\ref{subsec:logicalview}       
-    & Fulfilled by having the system use several algorithms to analyze the sensor input for abnormalities \\ \midrule
-
     %The system is able to receive input from the dike sensors.
     ~\ref{fr:receive-pressure}
     & Must
@@ -95,7 +86,7 @@
     & Must
     & Yes
     & ~\ref{dec:6}
-    & ~\ref{database-data},~\ref{subsec:external-system}
+    & ~\ref{subsec:database-data},~\ref{subsec:external-system}
     & Fulfilled by the system storing the geographical data in an ElasticSearch database, capable of performing queries to get the specified area \\ \midrule 
 
     %		%The system is able to perform an analysis, resulting in an estimated expected water
@@ -133,15 +124,6 @@
     & ~
     & ~\ref{sec:system-context}, ~\ref{subsec:logicalview}, ~\ref{subsubsec:components}, ~\ref{subsec:view-process}
     & Fulfilled by invoking the emergency room API with a message containing data gathered from the sensor data analysis that led to this warning.\\ \midrule 
-
-    %		\frReqRow{compute-safearea}{Must}
-    %		{ The system can compute a safe area, not affected by the flood, where citizens can be evacuated to in case of an (imminent) flood. }
-    ~\ref{fr:compute-safearea}
-    & Must
-    & Yes
-    & 
-    & ~\ref{subsec:logicalview},    ~\ref{subsec:external-system}
-    & Fulfilled by using an external geoinformation API together with Elasticsearch \\ \midrule 
 
     %		\frReqRow{citizens-subscribe}{Must}
     %		{ Citizens are able to subscribe to flood warnings about imminent floods. }	
@@ -272,12 +254,12 @@
     %TODO 	Can it?
     %		\frReqRow{detect-extremephenomena}{Could}
     %		{ The system is able to detect extreme weather phenomena, like storms etc. }
-    ~\ref{fr:detect-extremephenomena}
-    & Could
-    & Partially
-    & ~
-    & ~ 
-    & Partially fulfilled by gathering information from various external weather API's in combination with using a correlation analysis between the sensor values and the external weather data.\\ \midrule
+%    ~\ref{fr:detect-extremephenomena}
+%    & Could
+%    & Partially
+%    & ~
+%    & ~ 
+%    & Partially fulfilled by gathering information from various external weather API's in combination with using a correlation analysis between the sensor values and the external weather data.\\ \midrule
 
     %TODO explain what algorithms are used?
     %		\frReqRow{uav}{Should}
