@@ -1,4 +1,4 @@
-
+%!TEX root = ../report.tex
 %############################################################
 %## Commercial non-functional 
 %############################################################
@@ -134,21 +134,21 @@ This subsection elaborates about technical non-functional requirements that cont
     \bo{Nr.} & \bo{Priority} & \bo{Fulfilled} & \bo{Decision} & \bo{Chapter} & \bo{Remarks} \\ \toprule \endhead
 
         %	\reqRow{perf}{Must}{Data is transmitted from and to the system with a minimum average speed of 10 megabits per second}
-        PERF-1 & Must     & Unknown  & - & -         & Expected, not yet tested. \\ \midrule
+        PERF-1 & Must     & Yes  & \ref{hw:7} & \ref{sec:hardware-decisions}, \ref{sec:hardware-description} & Fulfilled, each components of the system are connected by Gigabit Ethernet. \\ \midrule
 
         %	\reqRow{perf}{Must}{	The data transmission between the sensors and the system is on average at least 10 megabits per second for each sensor.}
-        PERF-2 & Must     & Unknown  & - & -         & Expected, not yet tested. \\ \midrule
+        PERF-2 & Must     & Yes  & \ref{hw:3} & \ref{sec:hardware-decisions} & Fulfilled, Arduinos that are connected to sensors send data in 10 Megabits per second. \\ \midrule
 
         %	\reqRow{perf}{Must}{	The time for the system to compute if there is a flood or not according to a critical level and the data received from the sensors is at most 5 minutes. }
-        PERF-3 & Must     & Unknown  & - & -         & Expected, not yet tested. \\ \midrule
+        PERF-3 & Must     & Yes  & ~ & \ref{sec:hardware-description} & Fulfilled, analytics cluster will compute this calculation. \\ \midrule
 
         %	\reqRow{perf}{Must}{ If an imminent flood is detected, the warning text message to citizens arrives in 5 minutes. }
-        PERF-4 & Must     & Unknown  & - & -         & Expected, not yet tested. \\ \midrule
+        PERF-4 & Must     & Yes  & ~ & \ref{subsec:external-system}         & Fulfilled, SMS service will make sure the SMS will arrive within 5 minutes. \\ \midrule
 
         %	\reqRow{perf}{Must}{ If an imminent flood is detected, the warning to the emergency room arrives within 1 minute. }
-        PERF-5 & Must     & Unknown  & - & -         & Expected, not yet tested. \\ \midrule
+        PERF-5 & Must     & Unknown  & ~ & \ref{subsec:external-system}         & Fulfilled, TCP/IP connection guarantees that the information will arrive within one minute. \\ \midrule
 
-	\caption{Evaluation of technical NF-requirements}
+	\caption{Evaluation of non-functional performance requirements}
     \label{table:eval-technical-nf}\\
     \end{longtable}
 
