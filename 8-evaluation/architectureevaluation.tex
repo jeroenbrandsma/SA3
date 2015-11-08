@@ -90,7 +90,7 @@ In this part high priority scenarios derived from the utility tree will be analy
 			\begin{tabular}{l|lllll}
 				\textbf{Decision} & Req. & Sensitiv. & Tradeoff & Risk & Non-Risk \\ \hline
 				
-				Detection algorithm & \ref{fr:detect-faultysensor}, \ref{rel:2} & \nsl{s}{faultysensor} & \nsl{to}{faultysensor} &  & \nsl{nr}{detection}  \\
+				Detection algorithm & \ref{fr:detect-faultysensor}, \ref{REL:sensor-incorrectvalues} & \nsl{s}{faultysensor} & \nsl{to}{faultysensor} &  & \nsl{nr}{detection}  \\
 				Reporting & \ref{fr:report-faultysensors} &  &  & \nsl{r}{reportfaultysensor} &  \\
 				UAV & \ref{fr:uav} & \nsl{s}{uav} & \nsl{to}{uav} & \nsl{r}{uav-weather} & \\
 				
@@ -144,10 +144,10 @@ In this part high priority scenarios derived from the utility tree will be analy
 			\begin{tabular}{l|lllll}
 				\textbf{Decision} & Req. & Sensitiv. & Tradeoff & Risk & Non-Risk \\ \hline
 				
-				Database cluster & \ref{ava:1}, \ref{ava:2} &  & \nsl{to}{cluster} &  & \nsl{nr}{clusterdb}  \\
-				Analytic cluster & \ref{ava:1}, \ref{ava:2} &  & \ref{to:cluster} &  & \nsl{nr}{clusteranalytic} \\
-				Multiple data centers & \ref{ava:1}, \ref{ava:2} &  & \nsl{to}{datacentre} &  & \nsl{nr}{datacenters} \\
-				Arduino               & \ref{ava:1}, \ref{ava:2} & \nsl{s}{arduinofail} &  & \nsl{r}{arduinofail} &  \\
+				Database cluster & \ref{AVA:uptime}, \ref{AVA:downtime} &  & \nsl{to}{cluster} &  & \nsl{nr}{clusterdb}  \\
+				Analytic cluster & \ref{AVA:uptime}, \ref{AVA:downtime} &  & \ref{to:cluster} &  & \nsl{nr}{clusteranalytic} \\
+				Multiple data centers & \ref{AVA:uptime}, \ref{AVA:downtime} &  & \nsl{to}{datacentre} &  & \nsl{nr}{datacenters} \\
+				Arduino               & \ref{AVA:uptime}, \ref{AVA:downtime} & \nsl{s}{arduinofail} &  & \nsl{r}{arduinofail} &  \\
 				
 			\end{tabular} 
 			} \\
