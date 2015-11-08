@@ -131,7 +131,7 @@ This subsection elaborates about technical non-functional requirements that cont
 \subsubsection{Resilience}
 \begin{longtable}{llllL{\tw{0.1}}L{\tw{0.4}}}
     \bo{Nr.} & \bo{Priority} & \bo{Fulfilled} & \bo{Decision} & \bo{Chapter} & \bo{Remarks} \\ \toprule \endhead
-
+    
     % %format:
     % ~\ref{} %nr
     % & %priority
@@ -141,24 +141,50 @@ This subsection elaborates about technical non-functional requirements that cont
     % & %Remarks
     % \\ \midrule
 
-%		Nr.   & Priority & Fulfilled & Decision & Chapter & Remarks \\ \midrule
-%
-%        %	\reqRow{res}{Must}{The system recognizes failures within half an hour}
-%
-%        RES-1 & Must     & ~        & ~ & ~         & ~       \\ \midrule
-%
-%        %	\reqRow{res}{Must}{The system recovers from failures without the \qos or the functionality of the system being affected.} % GK: split in two requirements. reduce to detect sensor failures within half an hour
-%
-%        RES-2 & Must     & ~        & ~ & ~        & ~       \\ \midrule
-%
-%        %	\reqRow{res}{Must}{All system data must be backed up every 24 hours, so that in case of data loss, this data can be restored.}
-%        RES-3 & Must     & Yes      & ~ & ~\ref{subsec:database-data}         & Fulfilled, the data is also duplicated in database.       \\ \midrule
-%
-%        %	\reqRow{res}{Must}{In case of a data loss, the data should be retrieved and restored from a backup within 2 hours.}
-%        RES-4 & Must     & ~        & ~ & ~         & ~       \\ \midrule
-%
-%        %	\reqRow{res}{Must}{Backup copies are stored in a secure location which is not in the same area as the system (50 km).}		
-%        RES-5 & Must     & Yes      & ~ & ~\ref{sec:hardware-overview}         & Fulfilled, the data centers will be located in three different places.       \\ \midrule
+    %\reqRow{RES}{recognizefail}{Must}{The system recognizes failures within half an hour}
+    ~\ref{RES:recognizefail} %nr
+    & Must
+    & Yes
+    & ~
+    & \ref{subsec:logicalview}
+    & Fulfilled, the system recognizes failure in each data reads which means significantly less than half an hour.
+    \\ \midrule
+
+    % \reqRow{RES}{failrecover}{Must}{The system recovers from failures without the performance or the functionality of the system being affected.}
+    ~\ref{RES:failrecover} %nr
+    & Must
+    & Yes
+    & \ref{hw:5}, \ref{hw:6}
+    & \ref{sec:hardware-overview}, \ref{sec:hardware-description}
+    & Fulfilled, the servers are replicated thus the system is fault-tolerant.
+    \\ \midrule
+
+    % \reqRow{RES}{backup}{Must}{All system data must be backed up every 24 hours.}
+    ~\ref{RES:backup} %nr
+    & Must
+    & Yes
+    & ~
+    & \ref{subsec:database-data}
+    & Fulfilled, the database is replicated which means the data is always backed up.
+    \\ \midrule
+
+    % \reqRow{RES}{backuprestore}{Must}{In case of a data loss, the data should be retrieved and restored from a backup within 2 hours.}
+    ~\ref{RES:backuprestore} %nr
+    & Must
+    & Yes
+    & ~
+    & \ref{subsec:database-data}
+    & Fulfilled, the database is redundant which means restoring data takes significantly less than two hours.
+    \\ \midrule
+
+    % \reqRow{RES}{backuparea}{Must}{Backup copies are stored in a location which is not in the same area as the system (50 km away).}
+    ~\ref{RES:backuparea} %nr
+    & Must
+    & Yes
+    & ~
+    & \ref{sec:hardware-overview}, \ref{subsec:database-data}
+    & Fulfilled, the SFM has three data centers that are located more than 50km away.
+    \\ \midrule
 
 	\caption{Evaluation of non-functional resilience requirements}
     \label{table:eval-technical-nf}\\
