@@ -15,7 +15,7 @@
 	\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
 	\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
 	
-	\chapter{Hardware}
+	\chapter{Hardware Architecture}
 	\section{Server Specification}
 	% Probably move this into appendix
 	\begin{table}[!htbp]
@@ -43,6 +43,39 @@
 	\caption{Hardware specification of Dell PowerEdge R530}
 	\label{table:server-specs}
 	\end{table}
+	
+	\chapter{Software Architecture}
+	\section{Database diagram}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[height=14cm, width=0.9\textwidth]{{\viewimages/database}.jpg}
+		\caption{Database diagram}
+		\label{fig:database}
+	\end{figure}
+
+	% \afterpage{
+	\begin{landscape}
+	\section{Activity diagram}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[keepaspectratio=true,width=1.0\textwidth]{{\viewimages/activity_monitoring}.png}
+		\caption{An activity diagram of the flood monitoring process}
+		\label{fig:activity-monitoring}
+	\end{figure}
+	% \end{landscape}
+	% }
+	
+	% \afterpage{
+	% \begin{landscape}
+	\section{Deployment diagram}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[keepaspectratio=true,width=0.8\textwidth]{{\viewimages/deployment-view}.png}
+		\caption{Deployment diagram}
+		\label{fig:deployment-diagram}
+	\end{figure}
+	\end{landscape}
+	% }\clearpage
 
 	\input{appendices/timetracking.tex}
 	% \input{appendices/todo.tex}
