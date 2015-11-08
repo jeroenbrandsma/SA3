@@ -1,5 +1,4 @@
 %!TEX root = ../../report.tex
-\clearpage
 \subsection{Implementation view}
 \label{subsec:implementview}
 
@@ -12,7 +11,6 @@ The implementation view, also known as the development view, describes the syste
 \label{subsubsec:components}
 The system consists of a set of components that all interact with each other. In figure~\ref{fig:component} below, these different components are shown. Each component can provide interfaces and uses sockets to connect to interfaces of other components. This way, the implementation of each component can independently be replaced and deployed. 
 
-\clearpage
 \begin{figure}[H]
 	%\centering
 	\includegraphics[keepaspectratio=true,height=13cm,width=0.9\textwidth]{{\viewimages/component}.jpg}
@@ -83,4 +81,5 @@ The following external packages are used:
 \begin{itemize}
 	\item SMS Service: This package is used to let citizen subscribe to the warning services and send out warnings.
 	\item Safety region API: When a flood is imminent a warning is send by the system to the safety region API package.
+	\item GEO/Weather/Demographic API, these software packages are API's provided by third parties.
 \end{itemize}

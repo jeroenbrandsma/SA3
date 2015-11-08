@@ -39,7 +39,6 @@ The different software layers of SMF can be seen in Figure~\ref{fig:layers} and 
 	This layer stores all relevant data that is needed or produced by the system. 
 \end{itemize}
 
-\clearpage
 \begin{figure}[H]
 	%\centering
 	\includegraphics[keepaspectratio=true,width=0.9\textwidth]{{\viewimages/layers}.jpg}
@@ -48,7 +47,7 @@ The different software layers of SMF can be seen in Figure~\ref{fig:layers} and 
 \end{figure}
 
 \subsubsection*{Service layer}
-The Service layer pattern \cite{Fowler:2002:PEA:579257} is used as domain logic pattern. In this pattern, the service layer provides a set of operations that can be executed in the application. The service layer serves and coordinates the calls to these provides operation. The application logic in the domain layer is then separated from how it is called and how it should respond.\\
+The Service layer pattern \cite{Fowler:2002:PEA:579257} is used as domain logic pattern. In this pattern, the service layer provides a set of operations that can be executed in the application. The service layer serves and coordinates the calls to these provided operations. The application logic in the domain layer is then separated from how it is called and how it should respond.\\
 The main functionality of this layer consists of:
 \begin{itemize}
 	\item Providing a REST server the Arduino monitoring units can send their raw sensor data to
@@ -65,7 +64,7 @@ The class diagram for this layer is shown in figure \ref{fig:service1}
 	\label{fig:service1}
 \end{figure}
 
-In figure~\ref{fig:sequence-sensordata} a sequence diagram of sending the sensor data can be seen. As elaborated in decision~\ref{dec:5}, the sensors will push their data to the server. The sensor has two running threads: one reading the measurements and the other for sending the data every 60 seconds.
+In figure~\ref{fig:sequence-sensordata} a sequence diagram of sending the sensor data can be seen. As elaborated in decision~\ref{dec:8}, the sensors will push their data to the server. The sensor has two running threads: one reading the measurements and the other for sending the data every 60 seconds.
 
 \begin{figure}[H]
 	\centering
@@ -73,10 +72,6 @@ In figure~\ref{fig:sequence-sensordata} a sequence diagram of sending the sensor
 	\caption{A sequence diagram of sending the sensor data}
 	\label{fig:sequence-sensordata}
 \end{figure}
-
-
-%TODO (should push/pull be a decision?)
-%TODO (HMAC should be a decision, could also use other hashes and verification)
 
 The Arduino system only pushes the data to the server. This push model reduces the load of the Arduino systems because there are no incoming requests. This way, the Arduino also doesn't have to store or manage any data, which also means the Arduino doesn't need security measurements to secure this data.\\
 The server does however need to verify that the messages it receives from the Arduino monitoring systems are in fact send by our arduino systems. Otherwise a hacker could send sensor messages too, which would jeopardize the entire flood warning system.The downside to having the Arduino systems push the data, is that data will be received by the server was not needed or wanted. Defect sensors data will still be send. \\
@@ -96,7 +91,7 @@ The API calls the service layer receives that request information, don't need to
 The third party sends a HTTP GET request to the REST server of SMF. Upon receiving this request, the REST server checks if the request is secure. This logic is located in the service layer. When the request is secure, the REST server calls the mapper object in order to get the requested data. The mapper object first checks the identity map if the data is already loaded. This will reduce the amount of queries executed on the database. If this identity map doesn't hold the data, the mapper sends a query to the database. The data returned from the database is then returned to the REST server, who sends the data to the third party.
 
 \paragraph{Distribute warnings}
-In figure~\ref{fig:warning} a sequence diagram of sending warnings to the emergency room and citizens can be seen. The sequence diagram contains a time constraint of 10 seconds and 5 minutes, for warning the emergency room and all citizens respectively.
+In figure~\ref{fig:warning} a sequence diagram of sending warnings to the emergency room and citizens can be seen. The sequence diagram contains a time constraint of 60 seconds and 5 minutes, for warning the emergency room and all citizens respectively.
 
 \begin{figure}[H]
 	\centering
@@ -110,7 +105,7 @@ In figure~\ref{fig:warning} a sequence diagram of sending warnings to the emerge
 
 \subsubsection*{Domain layer}
 The domain layer contains all the logic of the system. This includes the logic for the algorithms used to decide if a warning should be issued. And it includes the logic for managing the sensor data.\\
-The sensor manager checks if the sensor is still working correctly.%todo
+The sensor manager checks if the sensor is still working correctly. %todo
 If the sensor is working correctly, the sensor data gets stored and processed.\\
 The class diagram for handling incoming REST server calls is shown in figure \ref{fig:domain1}.
 \begin{figure}[H]
@@ -157,7 +152,7 @@ How strongly correlated two types of data are will be calculated using Longitudi
 
 \subsubsection*{Data source layer}
 The data mapper \cite{Fowler:2002:PEA:579257} is used to completely separate and ignore the database in the domain model. The domain object only uses an interface to a "find" function that returns the requested object. This could be either from the database or from the internal memory.\\
-How the database is structured will be discussed in the implementation view section.
+How the database is structured will be discussed in subsection~\ref{subsec:databaseview}.
 
 % \begin{figure}[H]
 % %\centering
