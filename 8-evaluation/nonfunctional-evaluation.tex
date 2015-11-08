@@ -78,16 +78,31 @@ This subsection elaborates about technical non-functional requirements that cont
     % & %Chapter
     % & %Remarks
     % \\ \midrule
-    
-%Nr.   & Priority & Fulfilled & Decision & Chapter & Remarks \\ \midrule
-%
-%        %	\reqRow{ava}{Must}{The system must have an uptime of $99.7\%$. This effectively means, that the system should not be down for more than 2 hours per month.
-%        AVA-1 & Must     & Yes      & & ~\ref{subsec:availability}         & Fulfilled.       \\ \midrule
-%        %	\reqRow{ava}{Must}{The system must not experience a period of downtime, spanning more than 12 hours. Within twelve hours of the system going offline, it should be back up again. }
-%        AVA-2 & Must     & ~        & & ~         & ~       \\ \midrule
-%        % \reqRow{ava}{Must}{The system pulls weather forecasts from at least two weather forecasting services.}
-%        AVA-3 & Must     & ~        & & ~         & ~       \\ \midrule    
-%    
+
+    \ref{AVA:uptime} %nr
+    & Must
+    & Yes
+    & ~
+    & \ref{subsec:availability}
+    & Fulfilled, the SFM will not be down for more than 2 hours per month.
+    \\ \midrule
+
+    \ref{AVA:downtime} %nr
+    & Must
+    & Yes
+    & ~
+    & \ref{sec:hardware-overview}
+    & Fulfilled, the SFM has multiple data centers that will minimize downtime.
+    \\ \midrule
+
+    \ref{AVA:forecastingservices} %nr
+    & Must
+    & Yes
+    & ~
+    &~\ref{subsec:external-system}
+    & Fulfilled by the system contacting several API's to base the decisions on.
+    \\ \midrule 
+
     \caption{Evaluation of non-functional availability requirements} 
     \label{table:eval-functional-requirements}
 \end{longtable}
@@ -146,7 +161,7 @@ This subsection elaborates about technical non-functional requirements that cont
         PERF-4 & Must     & Yes  & ~ & \ref{subsec:external-system}         & Fulfilled, SMS service will make sure the SMS will arrive within 5 minutes. \\ \midrule
 
         %	\reqRow{perf}{Must}{ If an imminent flood is detected, the warning to the emergency room arrives within 1 minute. }
-        PERF-5 & Must     & Unknown  & ~ & \ref{subsec:external-system}         & Fulfilled, TCP/IP connection guarantees that the information will arrive within one minute. \\ \midrule
+        PERF-5 & Must     & Yes  & ~ & \ref{subsec:external-system}         & Fulfilled, TCP/IP connection guarantees that the information will arrive within one minute. \\ \midrule
 
 	\caption{Evaluation of non-functional performance requirements}
     \label{table:eval-technical-nf}\\

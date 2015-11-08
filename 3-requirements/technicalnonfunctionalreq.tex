@@ -30,10 +30,10 @@ Reliability is an important non-functional requirement for the system, and a key
 \subsection{Availability}
 \begin{longtable}{L{0.1\textwidth} L{0.12\textwidth} L{0.7\textwidth}}
 	\textbf{Nr.} & \textbf{Prio}  & \textbf{Description} \\
-	\reqRow{ava}{uptime}{Must}{The system must have an uptime of $99.7\%$. This effectively means, that the system should not be down for more than 2 hours per month. $AV = \frac{\text{MTTF}}{\text{MTTF} + \text{MTTR}} = \frac{\text{6 months}}{\text{6 months }+\text{ 12 hours}} = \frac{4380 \text{ hours}}{4380 + 12 \text{ hours}} = 99.7 \%$}
+	\reqRow{AVA}{uptime}{Must}{The system must have an uptime of $99.7\%$. This effectively means, that the system should not be down for more than 2 hours per month. $AV = \frac{\text{MTTF}}{\text{MTTF} + \text{MTTR}} = \frac{\text{6 months}}{\text{6 months }+\text{ 12 hours}} = \frac{4380 \text{ hours}}{4380 + 12 \text{ hours}} = 99.7 \%$}
 
-	\reqRow{ava}{downtime}{Must}{The system must not experience a period of downtime, spanning more than 12 hours. Within twelve hours of the system going offline, it should be back up again. }
-	\reqRow{ava}{forecastingservices}{Must}{The system pulls weather forecasts from at least two weather forecasting services.}
+	\reqRow{AVA}{downtime}{Must}{The system must not experience a period of downtime, spanning more than 12 hours. Within twelve hours of the system going offline, it should be back up again. }
+	\reqRow{AVA}{forecastingservices}{Must}{The system pulls weather forecasts from at least two weather forecasting services.}
 	\bottomrule
 \end{longtable}
 
@@ -43,15 +43,15 @@ The system needs to be resilient to recover from errors and mistakes without imp
 \begin{longtable}{L{0.1\textwidth} L{0.12\textwidth} L{0.7\textwidth}}
 	\textbf{Nr.} & \textbf{Prio}  & \textbf{Description} \\
 	
-	\reqRow{res}{recognizefail}{Must}{The system recognizes failures within half an hour}
+	\reqRow{RES}{recognizefail}{Must}{The system recognizes failures within half an hour}
 
-	\reqRow{res}{failrecover}{Must}{The system recovers from failures without the performance or the functionality of the system being affected.}
+	\reqRow{RES}{failrecover}{Must}{The system recovers from failures without the performance or the functionality of the system being affected.}
 	
-	\reqRow{res}{backup}{Must}{All system data must be backed up every 24 hours.}
+	\reqRow{RES}{backup}{Must}{All system data must be backed up every 24 hours.}
 	
-	\reqRow{res}{backuprestore}{Must}{In case of a data loss, the data should be retrieved and restored from a backup within 2 hours.}
+	\reqRow{RES}{backuprestore}{Must}{In case of a data loss, the data should be retrieved and restored from a backup within 2 hours.}
 	
-	\reqRow{res}{backuparea}{Must}{Backup copies are stored in a location which is not in the same area as the system (50 km away).}
+	\reqRow{RES}{backuparea}{Must}{Backup copies are stored in a location which is not in the same area as the system (50 km away).}
 	
 	\bottomrule
 \end{longtable}
