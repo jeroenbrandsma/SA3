@@ -175,6 +175,7 @@
 %		}
 						
 		\newcommand{\risk}[7]{%
+		  \begin{table}[H]
 			\begin{tabular}{L{0.3\textwidth} L{0.7\textwidth}}\toprule\phantomsection\getNext{#1-RISK}\manuallabel{#7}{#1-RISK\arabic{#1-RISK}}\textbf{#1-RISK\arabic{#1-RISK}} & \textbf{#2} \\*
 				\midrule
 				\textbf{Probability of occurrence} & #3 \\*
@@ -186,7 +187,9 @@
 				\textbf{Reaction}                  & #6 \\*
 				\bottomrule
 			\end{tabular}
-			\\[0.8cm]
+          \caption{#1-RISK\arabic{#1-RISK} -- #2}
+		  \end{table}
+		  ~\\[0.8cm]
 		}
 		
 %		\newcommand{\evolutionreq}[7]{%
