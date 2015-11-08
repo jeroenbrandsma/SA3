@@ -1,3 +1,4 @@
+%!TEX root = ../../report.tex
 \clearpage
 \subsection{Implementation view}
 \label{subsec:implementview}
@@ -9,7 +10,7 @@ The implementation view, also known as the development view, describes the syste
 
 \subsubsection{Components}
 \label{subsubsec:components}
-The system consists of a set of components tat all interact with each other. In figure~\ref{fig:component} below, these different components are shown. Each component can provide interfaces and uses sockets to connect to interfaces of other components. This way, the implementation of each component can independently be replaced and deployed. 
+The system consists of a set of components that all interact with each other. In figure~\ref{fig:component} below, these different components are shown. Each component can provide interfaces and uses sockets to connect to interfaces of other components. This way, the implementation of each component can independently be replaced and deployed. 
 
 \clearpage
 \begin{figure}[H]
@@ -23,21 +24,19 @@ There components are placed in three layers. The data source  layer, domain laye
 
 In the data source layer the data is stored and the data mapper. It consist of two components. 
 \begin{itemize}
-	\item Database: This is the database that holds all the stored data of the system.
+	\item ElasticSearchDatabase: This is the database that holds all the stored data of the system.
 	\item DataMapper: This component is responsible for reading from the database and adding new data.
 \end{itemize}
 
 In the domain layer the business rules and logic is placed. The following components are placed:
 \begin{itemize}
-	\item UserData: Responsible for gathering the user data and normalizing
-	\item SensorData: Responsible for gathering sensor data and normalizing
-	\item FloodData: Responsible for gathering flood data and normalizing
-	\item UAVData: Responsible for gathering UAV data and normalizing
-	\item UserManager: Responsible for maintaining the phone numbers and other information of the registered users.
-	\item DataProvider: Responsible for obtaining the data the REST server requests. 
-	\item SensorManager: Component that is used for installing, update and delete sensors and retrieving data from the sensors.
-	\item Algorithms: Component used for algorithms that calculated the flood probability.
-	\item RESTController: Component to enable RESTful support.
+	\item DomainObject: Responsible for managing the data streams with the database
+	\item UserManager: Responsible for gathering the user data and normalizing
+	\item DataProvider: Responsible for obtaining the data the REST server requests
+	\item SensorManager: Component that is used for installing, update and delete sensors and retrieving data from the sensors
+	\item Algorithms: Component used for algorithms that calculate the flood probability
+	\item DomainController: Responsible for the data streams with the service layer
+	\item ExternalData: Gets external data that is used to calculate the flood probability
 \end{itemize}
 
 In the Service layer the services are included used by external actors. The following components are included:

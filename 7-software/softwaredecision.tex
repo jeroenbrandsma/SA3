@@ -23,67 +23,111 @@ This section highlights some of the software design decisions that have been mad
 %\url{https://pix4d.com/}
 	
 %TODO (HMAC should be a decision, could also use other hashes and verification)	
-
 \begin{table}[H]
-	\pgfplotstabletypeset[%
-		UCTable
-	]{%
-		value & description \\
-		Name & Data source architectural pattern \\
-		Decision & \req{dec}\\
-		Problem/Issue & The system components need to be abstract and individually replaceable without having to alter the entire system\\
-		Decision & 	\compactCell{The data mapper \cite{Fowler:2002:PEA:579257} is used to completely separate and ignore the database in the domain model. This provides a more flexible architecture that allows modifications of either the database or the domain model independently without having to alter the other layer.}.\\
-		Alternatives & Table data gateway, row gateway, active record \\
-		Arguments & 	\compactCell{%
-			\textbf{Table data gateway} The table data gateway is a pattern that, for each domain class, provides a gateway class. This gateway class provides methods to that do all the database interaction. This way all the SQL statements will be stored in the gateway class and thus is separated from the domain layer.%
-			\\
-			\textbf{Row gateway} Same idea as the table data gateway, but now for individual rows, instead of a table.
-			\\%
-			\textbf{Active record} This is the most basic approach. In this pattern, the domain object also contains the logic of storing that object to the database.
-			}\\
-	}
+	\begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
+		\textbf{Name} 			& \textbf{Data source architectural pattern} \\ \toprule
+		\textbf{Decision} 		& \req{dec} \\ \midrule \midrule
+		\textbf{Status} 		& \textbf{Approved} \\ \midrule
+		\textbf{Problem/Issue} 	& The system components need to be abstract and individually replaceable without having to alter the entire system. \\
+		\midrule
+		\textbf{Decision} 		&  The data mapper \cite{Fowler:2002:PEA:579257} is used to completely separate and ignore the database in the domain model. This provides a more flexible architecture that allows modifications of either the database or the domain model independently without having to alter the other layer. \\ \midrule
+		\textbf{Alternatives} 	& Table data gateway, row gateway, active record \\ \midrule
+		\textbf{Arguments} 		&
+			\textbf{Table data gateway} The table data gateway is a pattern that, for each domain class, provides a gateway class. This gateway class provides methods to that do all the database interaction. This way all the SQL statements will be stored in the gateway class and thus is separated from the domain layer. \\\\
+			& \textbf{Row gateway} Same idea as the table data gateway, but now for individual rows, instead of a table. \\\\
+			& \textbf{Active record} This is the most basic approach. In this pattern, the domain object also contains the logic of storing that object to the database.
+	\\ \bottomrule
+	\end{tabular}
 	\caption{Decision -- Data source architectural pattern}
-	\label{table:architectural-pattern}
+	\label{table:linux}
 \end{table}
 
+
+% \begin{table}[H]
+% 	\pgfplotstabletypeset[%
+% 		UCTable
+% 	]{%
+% 		value & description \\
+% 		Name & Data source architectural pattern \\
+% 		Decision & \req{dec}\\
+% 		Problem/Issue & The system components need to be abstract and individually replaceable without having to alter the entire system\\
+% 		Decision & 	\compactCell{The data mapper \cite{Fowler:2002:PEA:579257} is used to completely separate and ignore the database in the domain model. This provides a more flexible architecture that allows modifications of either the database or the domain model independently without having to alter the other layer.}.\\
+% 		Alternatives & Table data gateway, row gateway, active record \\
+% 		Arguments & 	\compactCell{%
+% 			\textbf{Table data gateway} The table data gateway is a pattern that, for each domain class, provides a gateway class. This gateway class provides methods to that do all the database interaction. This way all the SQL statements will be stored in the gateway class and thus is separated from the domain layer.%
+% 			\\
+% 			\textbf{Row gateway} Same idea as the table data gateway, but now for individual rows, instead of a table.
+% 			\\%
+% 			\textbf{Active record} This is the most basic approach. In this pattern, the domain object also contains the logic of storing that object to the database.
+% 			}\\
+% 	}
+% 	\caption{Decision -- Data source architectural pattern}
+% 	\label{table:architectural-pattern}
+% \end{table}
+
 \begin{table}[H]
-	\pgfplotstabletypeset[%
-		UCTable
-	]{%
-		value & description \\
-		Name & Database \\
-		Decision & \req{dec}\\
-		Problem/Issue & The system needs a database that \compactList{itemize}{%
-			\item Is highly scalable
-			\item Has a very good performance
-			\item Has a high availability
-			\item Has allot of features for storing and querying geospacial data}\\
-		Decision & 	\compactCell{The Elasticsearch database is the best database for the SMF system. Elasticsearch is open source, so it will not increase the SMF system costs.  It has native geospacial data / querying support \cite{elasticgeo} and very good geospacial query capabilities \cite{elasticgeoquery}.
-			Elasticsearch is extremely distributed and scalable\cite{elasticdistributed}. And Elasticsearch has a very good performance}\\ %\citep{mongovselastic}} \\
-		%	https://www.elastic.co/products/elasticsearch
-		%	http://stackoverflow.com/questions/1284083/choosing-a-stand-alone-full-text-search-server-sphinx-or-solr
-		Alternatives & PostGreSQL, SQL Server, Oracle, MySQL, SOIR, Sphynx, MongoDB\\
-		Arguments & 	\compactCell{%
-			\textbf{SQL Server} Has the ability to cluster, but only failover clusters \cite{sqlserverdo}, so no workload balancing. \\
-			\\%
-			\textbf{Oracle} Has failover clustering options and load balancing options \cite{oracleworkload}, however but costs money.\\
-			\\%
-			\textbf{MySQL} In previous versions only had support for bounding box capabilities, it had no polygon support \cite{mysqlspacial}. The latest version (Version 5.6.1) does have support for polygons \cite{mysqlspacial}. However, MySQL has not yet proven itself to be very good with spacial data. 
-			MySQL can be clustered and load balanced by using other tools \cite{mysqlcluster}.This, however, is a solution that does not provide the scalability the SMF system is looking for. \\
-			\\%
-			\textbf{SOIR and Sphynx} Are both good choices. Both are able to cluster and distribute and both support geospacial data. However, Elasticsearch scales and distributes better then both \cite{elasticsearchcreator}.\\
-			\\
+	\begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
+		\textbf{Name} 			& \textbf{Database} \\ \toprule
+		\textbf{Decision} 		& \req{dec} \\ \midrule \midrule
+		\textbf{Status} 		& \textbf{Approved} \\ \midrule
+		\textbf{Problem/Issue} 	& The system needs a database that is highly scalable, has a very good performance, a high availability and alot of features for storing and querying geospacial data. \\
+		\midrule
+		\textbf{Decision} 		&  The Elasticsearch database is the best database for the SMF system. Elasticsearch is open source, so it will not increase the SMF system costs.  It has native geospacial data / querying support \cite{elasticgeo} and very good geospacial query capabilities \cite{elasticgeoquery}. \\ \midrule
+		\textbf{Alternatives} 	& PostGreSQL, SQL Server, Oracle, MySQL, SOIR, Sphynx, MongoDB\\ \midrule
+		\textbf{Arguments} 		&
+			\textbf{SQL Server} Has the ability to cluster, but only failover clusters \cite{sqlserverdo}, so no workload balancing. \\\\
+			& \textbf{Oracle} Has failover clustering options and load balancing options \cite{oracleworkload}, however but costs money.\\\\
+			& \textbf{MySQL} In previous versions only had support for bounding box capabilities, it had no polygon support \cite{mysqlspacial}. The latest version (Version 5.6.1) does have support for polygons \cite{mysqlspacial}. However, MySQL has not yet proven itself to be very good with spacial data. MySQL can be clustered and load balanced by using other tools \cite{mysqlcluster}.This, however, is a solution that does not provide the scalability the SMF system is looking for. \\\\
+			& \textbf{SOIR and Sphynx} Are both good choices. Both are able to cluster and distribute and both support geospacial data. However, Elasticsearch scales and distributes better then both \cite{elasticsearchcreator}.\\\\
 			%http://docs.mongodb.org/manual/applications/geospatial-indexes/
-			\textbf{MongoDB} Has every feature the SFM system needs. It provides allot of support for geodata storing and querying. It is also very good in clustering and distributed querying. However, the performance of Elasticsearch is allot better \cite{mongovselastic}.\\
-			\\%
-			\textbf{PostGreSQL} is Opensource and has very good geodata support. It supports master-slave clustering, which is not good enough for SFM. However, by using third party applications like pg shard, it is possible to create a cluster of "shards" which is the same technique Elasticsearch uses. This makes PostGreSQL also a good option for SFM. Elasticsearch, however, has a better performance and flexibility.
+			& \textbf{MongoDB} Has every feature the SFM system needs. It provides allot of support for geodata storing and querying. It is also very good in clustering and distributed querying. However, the performance of Elasticsearch is allot better \cite{mongovselastic}.\\\\
+			& \textbf{PostGreSQL} is Opensource and has very good geodata support. It supports master-slave clustering, which is not good enough for SFM. However, by using third party applications like pg shard, it is possible to create a cluster of "shards" which is the same technique Elasticsearch uses. This makes PostGreSQL also a good option for SFM. Elasticsearch, however, has a better performance and flexibility.
 			%	%http://docs.mongodb.org/v2.4/core/sharded-cluster-architectures-production/)
 			%However, the performance of elasticsearch is allot better \cite{mongovselastic}.
-			}\\
-	}
+	\\ \bottomrule
+	\end{tabular}
 	\caption{Decision -- Database}
-	\label{table:database}
+	\label{table:linux}
 \end{table}
+
+% \begin{table}[H]
+% 	\pgfplotstabletypeset[%
+% 		UCTable
+% 	]{%
+% 		value & description \\
+% 		Name & Database \\
+% 		Decision & \req{dec}\\
+% 		Problem/Issue & The system needs a database that \compactList{itemize}{%
+% 			\item Is highly scalable
+% 			\item Has a very good performance
+% 			\item Has a high availability
+% 			\item Has allot of features for storing and querying geospacial data}\\
+% 		Decision & 	\compactCell{The Elasticsearch database is the best database for the SMF system. Elasticsearch is open source, so it will not increase the SMF system costs.  It has native geospacial data / querying support \cite{elasticgeo} and very good geospacial query capabilities \cite{elasticgeoquery}.
+% 			Elasticsearch is extremely distributed and scalable\cite{elasticdistributed}. And Elasticsearch has a very good performance}\\ %\citep{mongovselastic}} \\
+% 		%	https://www.elastic.co/products/elasticsearch
+% 		%	http://stackoverflow.com/questions/1284083/choosing-a-stand-alone-full-text-search-server-sphinx-or-solr
+% 		Alternatives & PostGreSQL, SQL Server, Oracle, MySQL, SOIR, Sphynx, MongoDB\\
+% 		Arguments & 	\compactCell{%
+% 			\textbf{SQL Server} Has the ability to cluster, but only failover clusters \cite{sqlserverdo}, so no workload balancing. \\
+% 			\\%
+% 			\textbf{Oracle} Has failover clustering options and load balancing options \cite{oracleworkload}, however but costs money.\\
+% 			\\%
+% 			\textbf{MySQL} In previous versions only had support for bounding box capabilities, it had no polygon support \cite{mysqlspacial}. The latest version (Version 5.6.1) does have support for polygons \cite{mysqlspacial}. However, MySQL has not yet proven itself to be very good with spacial data. 
+% 			MySQL can be clustered and load balanced by using other tools \cite{mysqlcluster}.This, however, is a solution that does not provide the scalability the SMF system is looking for. \\
+% 			\\%
+% 			\textbf{SOIR and Sphynx} Are both good choices. Both are able to cluster and distribute and both support geospacial data. However, Elasticsearch scales and distributes better then both \cite{elasticsearchcreator}.\\
+% 			\\
+% 			%http://docs.mongodb.org/manual/applications/geospatial-indexes/
+% 			\textbf{MongoDB} Has every feature the SFM system needs. It provides allot of support for geodata storing and querying. It is also very good in clustering and distributed querying. However, the performance of Elasticsearch is allot better \cite{mongovselastic}.\\
+% 			\\%
+% 			\textbf{PostGreSQL} is Opensource and has very good geodata support. It supports master-slave clustering, which is not good enough for SFM. However, by using third party applications like pg shard, it is possible to create a cluster of "shards" which is the same technique Elasticsearch uses. This makes PostGreSQL also a good option for SFM. Elasticsearch, however, has a better performance and flexibility.
+% 			%	%http://docs.mongodb.org/v2.4/core/sharded-cluster-architectures-production/)
+% 			%However, the performance of elasticsearch is allot better \cite{mongovselastic}.
+% 			}\\
+% 	}
+% 	\caption{Decision -- Database}
+% 	\label{table:database}
+% \end{table}
 
 \begin{table}[H]
 	\begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
@@ -92,20 +136,18 @@ This section highlights some of the software design decisions that have been mad
 		\textbf{Status} 		& \textbf{Approved} \\ \midrule
 		\textbf{Problem/Issue} 	& The reliable Linux distribution is needed to run the \ProjectName{} \\ \midrule
 		\textbf{Decision} 		&  The warning system will use CentOS Linux as a platform. CentOS is widely used as server and has many supports.\\ \midrule
-		\textbf{Alternatives} 	& \textit{Ubuntu}\\
-		& A Debian based Linux distribution that has high installation counts. This distribution is famous for desktop computers.\\
-		& \textit{Fedora}\\
-		& Up-to-date packages, commercial support by third party available, easy to maintain, but lacks on package availability, and hard to do a live upgrade to a newer version.\\
-		\midrule
-		\textbf{Arguments} 		& \\
-		& 	\begin{tabular}{l|lllllll|l}
-		       & \rot{Reliability} & \rot{Resilience} & \rot{Performance} & \rot{Interopertability} & \rot{Security} & \rot{Scalability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline
-		% 					rel res perf int sec sca cost
-		Weight & 1                 & 1                & 1                 & 1                       & 1              & 1                 & 1          &                      \\ \hline
-		CentOS & 5                 & 4                & 5                 & 4                       & 5              & 4                 & 4          & 31                   \\
-		Ubuntu & 4                 & 3                & 4                 & 4                       & 4              & 5                 & 4          & 28                   \\
-		Fedora & 3                 & 3                & 4                 & 4                       & 4              & 4                 & 4          & 26                   \\
-	\end{tabular} \\
+		\textbf{Alternatives} 	& Ubuntu, Fedora \\ \midrule
+		\textbf{Arguments} 		& 
+	% 	& 	\begin{tabular}{l|lllllll|l}
+	% 	       & \rot{Reliability} & \rot{Resilience} & \rot{Performance} & \rot{Interopertability} & \rot{Security} & \rot{Scalability} & \rot{Cost} & \rot{\textbf{Score}} \\ \hline
+	% 	% 					rel res perf int sec sca cost
+	% 	Weight & 1                 & 1                & 1                 & 1                       & 1              & 1                 & 1          &                      \\ \hline
+	% 	CentOS & 5                 & 4                & 5                 & 4                       & 5              & 4                 & 4          & 31                   \\
+	% 	Ubuntu & 4                 & 3                & 4                 & 4                       & 4              & 5                 & 4          & 28                   \\
+	% 	Fedora & 3                 & 3                & 4                 & 4                       & 4              & 4                 & 4          & 26                   \\
+	% \end{tabular} \\
+		\textbf{Ubuntu} A Debian based Linux distribution that has high installation counts. This distribution is famous for desktop computers.\\\\
+		& \textbf{Fedora} Up-to-date packages, commercial support by third party available, easy to maintain, but lacks on package availability, and hard to do a live upgrade to a newer version.
 	\\ \bottomrule
 	\end{tabular}
 	\caption{Decision -- Linux Distribution}
@@ -119,18 +161,11 @@ This section highlights some of the software design decisions that have been mad
 		\textbf{Status}        & \textbf{Approved}                                           \\ \midrule
 		\textbf{Problem/Issue} & The sensor data has to be sent to the central server        \\ \midrule
 		\textbf{Decision}      & The sensor will push the sensor data to the central server. \\ \midrule
-		\textbf{Alternatives}  & \textit{Push}                                               \\
-		                       & The sensors send their data using push-technology.          \\
-		                       & \textit{Pull}                                               \\
-		                       & The server pulls the data from the sensor.                  \\
-		\midrule
-		\textbf{Arguments}     & \compactCell{                                               
-		\textbf{Pull} \\
-		If the server pulls the data from the sensor an extra request has to be sent to all the sensors, which adds extra overhead.
-		Additionally, the sensor will continuously have to be listening for the servers request. \\
-		\textbf{Push} \\
-		If the sensors push the data to the server, there is no need for the server to send the extra request, nor do the sensors have to be listening for server request.
-		}
+		\textbf{Alternatives}  & Pull \\ \midrule %, Push
+		\textbf{Arguments}     &                                               
+		\textbf{Pull} If the server pulls the data from the sensor an extra request has to be sent to all the sensors, which adds extra overhead.
+		Additionally, the sensor will continuously have to be listening for the servers request.
+		% & \textbf{Push} If the sensors push the data to the server, there is no need for the server to send the extra request, nor do the sensors have to be listening for server request.
 		\\ \bottomrule
 	\end{tabular}
 	\caption{Decision -- Push / Pull for sensor data}
@@ -139,26 +174,21 @@ This section highlights some of the software design decisions that have been mad
 
 \begin{table}[H]
 	\begin{tabular}{L{0.2\textwidth} L{0.6\textwidth}}
-		\textbf{Name}          & \textbf{Securing sensor data communication}                                                                                                                                    \\ \toprule
-		\textbf{Decision}      & \req{dec}                                                                                                                                                                      \\ \midrule \midrule
-		\textbf{Status}        & \textbf{New}                                                                                                                                                                   \\ \midrule
+		\textbf{Name}          & \textbf{Securing sensor data communication} \\ \toprule
+		\textbf{Decision}      & \req{dec}  \\ \midrule \midrule
+		\textbf{Status}        & \textbf{Approved} \\ \midrule
 		\textbf{Problem/Issue} & The communication pathway between the sensors and the central server has to be secured to prevent unauthorized modification of the sensor data.                                \\ \midrule
 		\textbf{Decision}      & The sensor will use a unique token per sensor, to compute a hash which is send with the sensor data, allowing the central server to confirm the authenticity of the sent data. \\ \midrule
-		\textbf{Alternatives}  & \textit{Using unique token}                                                                                                                                                    \\
-		                       & A hash-function is used, taking as input the sensor data and a unique token, producing an output hash, which can be used to verify the data is from the sensor.                \\
-		                       & \textit{Using per-sensor token}                                                                                                                                                \\
-		                       & Instead of a single token, all the sensors will have their own unique token. This allows revoking the token of an individual sensor.                                           \\
-		                       & \textit{Using VPN}                                                                                                                                                             \\
-		                       & A VPN (Virtual Private Network) allows all the sensors and the central server to be in the same virtual network. Access to the VPN requires authentication.                    \\
-		\midrule
-		\textbf{Arguments}     & \compactCell{                                                                                                                                                                  
-		\textbf{Using unique token} \\
-		The downside of using a unique token is that, when compromised, it requires updating the token on all the sensors. \\
-		\textbf{Using per-sensor token} \\
-		This requires the central server to have a list of all the tokens. It however, allows the server to revoke one of the tokens if a sensor gets compromised. \\
-		\textbf{Using VPN} \\
-		A VPN allows communicating over the secure private network. However, the Arduinos which are responsible for sending the sensor data will most likely have problems using a VPN because of their limited CPU and memory.
-		}
+		\textbf{Alternatives}  & Unique token, Per-sensor token, VPN \\
+		                       & A VPN (Virtual Private Network) allows all the sensors and the central server to be in the same virtual network. Access to the VPN requires authentication. \\ \midrule
+		\textbf{Arguments}     &               
+		\textbf{Unique token}
+		A hash-function is used, taking as input the sensor data and a unique token, producing an output hash, which can be used to verify the data is from the sensor. The downside of using a unique token is that, when compromised, it requires updating the token on all the sensors. \\\\
+		& \textbf{Per-sensor token}
+		Instead of a single token, all the sensors will have their own unique token. This allows revoking the token of an individual sensor.
+		This requires the central server to have a list of all the tokens. It however, allows the server to revoke one of the tokens if a sensor gets compromised. \\\\
+		& \textbf{VPN}
+		A VPN (Virtual Private Network) allows all the sensors and the central server to be in the same virtual network. Access to the VPN requires authentication. This means a secure private network is created. However, the Arduinos which are responsible for sending the sensor data will most likely have problems using a VPN because of their limited CPU and memory.
 		\\ \bottomrule
 	\end{tabular}
 	\caption{Decision -- Securing sensor data communication}
