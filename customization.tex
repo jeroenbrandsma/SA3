@@ -9,6 +9,11 @@
 % And it those subsubsections are also included in the table of content
 % The following commands make sure that this numbering/listing happens as in the example.
 
+%\begingroup
+\setlength{\LTleft}{-20cm plus -1fill}
+\setlength{\LTright}{\LTleft}
+%\endgroup
+
 %To number subsubsections:
 \setcounter{secnumdepth}{3}
 
@@ -23,12 +28,12 @@
 	col sep=&,
 	row sep=\\,
 	begin table={%
-		\begin{minipage}{\linewidth}
-		\begin{longtable}[c]
+		%\begin{minipage}{\linewidth}
+		\begin{longtable}
 	},
 	end table={%
 		\end{longtable}
-		\end{minipage}
+		%\end{minipage}
 	},
 	%every head row/.append style={after row=\endhead},
 	%rows/0/.append style={after row=\endhead},

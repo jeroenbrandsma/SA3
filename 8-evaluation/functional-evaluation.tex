@@ -1,0 +1,296 @@
+% %!TEX root = ../report.tex
+
+%############################################################
+%## FUNCTIONAL 
+%############################################################
+
+\subsection{Functional requirements evaluation}
+
+\begin{longtable}{llllL{\tw{0.1}}L{\tw{0.4}}}
+    \bo{Nr.} & \bo{Priority} & \bo{Fulfilled} & \bo{Decision} & \bo{Chapter} & \bo{Remarks} \\ \toprule \endhead
+
+    %		INTR-1 & Must     & Yes      &~\ref{subsec:external-system} & Fulfilled by using several weather forecast API providers.       \\ \midrule \midrule
+    %The system is able to receive input from water level sensors.
+    ~\ref{fr:receive-waterlevel} 
+    & Must     
+    & Yes
+    & ~\ref{hw:1}, ~\ref{hw:2}, ~\ref{hw:3} 
+    & ~\ref{sec:hardware-overview},~\ref{subsubsec:components}
+    ,~\ref{subsec:logicalview} 
+    & Fulfilled by the system providing a REST server the arduino sensor systems can use to post the sensor data to. \\ \midrule
+
+    %TODO create a decision for the algorithms used?
+    %The system is able to perform an analysis for the water level in the waterways based on the input from the water level sensors. 
+    ~\ref{fr:analyze-waterlevel}  
+    & Must     
+    & Yes       
+    & 
+    &~\ref{subsec:logicalview}       
+    & Fulfilled by having the system use several algorithms to analyze the sensor input for abnormalities \\ \midrule
+
+    %The system is able to receive input from the dike sensors.
+    ~\ref{fr:receive-pressure}
+    & Must
+    & Yes
+    & ~\ref{hw:2}
+    &~\ref{sec:hardware-decisions} ~\ref{hw:2}
+    & Fulfilled by having arduino systems sent the dike sensor values over a cabled network to the central system's REST server \\ \midrule
+
+    %The system is able to perform an analysis for the parameters of the dike sensors based on the input from the dike sensors.
+    %TODO This has to be explained better i guess.
+    ~\ref{fr:analyze-pressure}  
+    & Must     
+    & Yes        
+    & ~\ref{hw:1}
+    & ~\ref{subsec:logicalview}, ~\ref{subsec:view-process} 
+    & \\ \midrule
+
+    %FR-5 Must The system can store the sensor data.
+    ~\ref{fr:store-sensordata}  
+    & Must     
+    & Yes        
+    & ~\ref{dec:6}
+    & ~\ref{sec:hardware-overview}, ~\ref{subsec:implementview}, ~\ref{subsec:databaseview}
+    & Fulfilled by using an ElasticSearch database that is capable of storing all the data needed.\\ \midrule 
+
+    ~\ref{fr:retrieve-sensordata}
+    & Must
+    & Yes
+    & ~\ref{dec:6}
+    & ~\ref{subsec:implementview}, ~\ref{subsec:databaseview}
+    &Fulfilled by using an Elasticsearch database that is very robust, high available and scalable. Thereby enhancing the ability to store and receive data at all times. \\ \midrule
+
+    %		%The system retrieves weather forecasting data from weather forecasting services,
+    %which consists of predictions about the precipitation, wind data and tide information.
+    %This is used by the system to help in determining when a flood becomes imminent
+    ~\ref{fr:receive-weather}
+    & Must
+    & Yes
+    & 
+    &~\ref{subsec:external-system}
+    & Fulfilled by the system contacting several API's to base the decisions on. \\ \midrule 
+
+    %The system is able to detect when a flood is imminent by combining the retrieved
+    %sensor data and weather forecasting data.
+    ~\ref{fr:detect-flood}
+    & Must
+    & Yes
+    &
+    &~\ref{subsec:logicalview}, ~\ref{subsubsec:proc-floodmonitor}
+    & Fulfilled by the system using Longitudinal Data Analysis to correlate the sensor data with the forecast data \\ \midrule 
+
+    %		%The system retrieves geographic information, consisting of road data, terrain height
+    %data and demographic data (number of civilians living in affected area) from an
+    %external API.
+    ~\ref{fr:receive-geographic}
+    & Must
+    & Yes
+    &
+    &~\ref{subsec:external-system}
+    & Fulfilled by the system contacting an external GEO API over TCP/IP\\ \midrule
+
+    %		%The system computes the area affected by a flood, in zones of 5 by 5 km, by using the
+    %location data of the sensors and geographic information.
+    ~\ref{fr:compute-area}
+    & Must
+    & Yes
+    & ~\ref{dec:6}
+    & ~\ref{database-data},~\ref{subsec:external-system}
+    & Fulfilled by the system storing the geographical data in an ElasticSearch database, capable of performing queries to get the specified area \\ \midrule 
+
+    %		%The system is able to perform an analysis, resulting in an estimated expected water
+    %level for areas which are affected by a flood, based on the water level sensor data,
+    %geographic data and weather forecast information.
+    ~\ref{fr:analyze-waterlevel}
+    & Must
+    & Yes
+    &
+    &~\ref{sec:elaboratedmodel} ~\ref{subsec:logicalview}
+    & Fulfilled by using several different external API's for additional information together with a correlation algorithm and other analysis algorithms \\ \midrule 
+
+    %The system estimates how the water level in the areas affected by the flood will %develop for every hour, up to 12 hours in the future.
+    ~\ref{fr:estimate-waterlevel}
+    & Should
+    & Yes
+    &
+    & ~\ref{subsec:logicalview}
+    & Fulfilled by having the system multiple prediction algorithms to analyze the flood data\\ \midrule 
+
+    %The system can compute the number of civilians living in the areas affected by the flood.
+    %TODO: Still no idea what those APIs actually give. 
+    ~\ref{fr:compute-nrcivilians}
+    & Should
+    & Yes
+    &
+    & ~\ref{subsec:external-system}
+    & Fulfilled by letting the system obtain the geo information of the civilians from an external API. Then letting the system store this geo data in the ElasticSearch database, capable of executing complex geo queries. \\ \midrule
+
+    %When a flood is imminent, the system sends a warning to the safety region, containing information about the flood: the area affected by the flood, the expected water level in those areas, how the water level will develop in the coming hours and the number of civilians living in the affected area.
+    %TODO explain better in ch7?
+    ~\ref{fr:warn-safetyregion}
+    & Must
+    & Yes
+    & ~
+    & ~\ref{sec:system-context}, ~\ref{subsec:logicalview}, ~\ref{subsubsec:components}, ~\ref{subsec:view-process}
+    & Fulfilled by invoking the emergency room API with a message containing data gathered from the sensor data analysis that led to this warning.\\ \midrule 
+
+    %		\frReqRow{compute-safearea}{Must}
+    %		{ The system can compute a safe area, not affected by the flood, where citizens can be evacuated to in case of an (imminent) flood. }
+    ~\ref{fr:compute-safearea}
+    & Must
+    & Yes
+    & 
+    & ~\ref{subsec:logicalview},    ~\ref{subsec:external-system}
+    & Fulfilled by using an external geoinformation API together with Elasticsearch \\ \midrule 
+
+    %		\frReqRow{citizens-subscribe}{Must}
+    %		{ Citizens are able to subscribe to flood warnings about imminent floods. }	
+    ~\ref{fr:citizens-subscribe}
+    & Must
+    & Yes
+    & ~
+    & ~\ref{subsec:external-system}, ~\ref{subsec:logicalview}
+    & Fulfilled by using an external SMS service provider and providing an API that allows user registration\\ \midrule
+
+    %		\frReqRow{warn-citizens}{Must}
+    %		{ Citizens who are subscribed for flood warnings are warned about imminent floods by text message. }
+    ~\ref{fr:warn-citizens}
+    & Must
+    & Yes
+    & ~
+    & ~\ref{subsec:system-alter}
+    & Fulfilled by sending the warning message to the external SMS service provider,  who then distributes it\\ \midrule 
+
+    %		\frReqRow{detect-faultysensor}{Must}
+    %		{ The system can detect a faulty sensor, either when the sensor raises an error or when the data from the sensor is inconsistent with other sensor data. }
+
+    %TODO add references:
+    %TODO not explained good enough
+    ~\ref{fr:detect-faultysensor}
+    & Must
+    & Yes
+    & ~
+    & ~\ref{subsec:logicalview}
+    & Fulfilled by using algorithms to detect abnormalities and then verifying the abnormalities using the other sensors and algorithms\\ \midrule 
+
+    %TODO way to little in the doc about this
+    %		\frReqRow{controlpanel}{Must}
+    %		{ There is a control panel, where maintainers of the system have access to. } 
+    ~\ref{fr:controlpanel}
+    & Must
+    & Yes
+    & ~
+    & ~\ref{subsec:view-process}
+    & Fulfilled by allowing maintainers to visit a control panel site that uses the REST interface. \\ \midrule 
+
+    %TODO This control panel is not enough described (and do we still use it?)
+    %		\frReqRow{report-faultysensors}{Must}
+    %		{ The system reports faulty sensors, so they can be viewed in the control panel. }
+    ~\ref{fr:report-faultysensors}
+    & Must
+    & Yes
+    & ~
+    & ~\ref{subsec:view-process}
+    & Fulfilled by storing abnormal sensor data in a different way in the database, allowing the control panel to distinguishes the faulty sensors \\ \midrule 
+
+    %		\frReqRow{controlpanel-warnings}{Must}
+    %		{ Warnings of the system can be viewed in the control panel.}
+    ~\ref{fr:controlpanel-warnings}
+    & Must
+    & Yes
+    & ~
+    & ~\ref{subsec:view-process}
+    & Fulfilled by providing a control panel site the maintainers can visit that shows the warnings that the algorithms stored in the database. \\ \midrule 
+
+    %		\frReqRow{controlpanel-errors}{Must}
+    %		{ Errors of the system can be viewed in the control panel. }
+    ~\ref{fr:controlpanel-errors}
+    & Must
+    & ~
+    & ~%############################################################
+%## Commercial non-functional 
+%############################################################
+    & ~\ref{subsec:view-process}
+    & Fulfilled by providing a control panel site the maintainers can visit that shows the errors that the algorithms stored in the database. \\ \midrule 
+
+    %		\frReqRow{controlpanel-sensors}{Must}
+    %		{ The readings of the sensors can be viewed in the control panel. }
+    ~\ref{fr:controlpanel-sensors}
+    & Must
+    & Yes
+    & ~
+    & ~\ref{subsec:view-process}
+    & Fulfilled by providing a control panel site that uses the REST API to get and display the sensor data.\\ \midrule 
+
+    %TODO not explained
+    %		Joris: The backups are kind of created by having redundancy
+    %		\frReqRow{make-backups}{Must}
+    %		{ The system can make backups of its data (configuration data etc.). }
+    ~\ref{fr:make-backups}
+    & Must
+    & Yes
+    & ~\ref{dec:7}
+    & 
+    & Fulfilled by using CentOS as an operating system. This allows the system to be backed up in various ways.\\ \midrule 
+
+    %		\frReqRow{store-backups}{Must}
+    %		{ The system can store created backups on a remote location.}
+    ~\ref{fr:store-backups}
+    & Must
+    & Yes
+    & ~\ref{dec:7}
+    & 
+    & Fulfilled by creating backups using rsync \\ \midrule 
+
+    %		\frReqRow{retrieve-backups}{Must}
+    %		{ The system can retrieve the backups it previously created.}
+    ~\ref{fr:retrieve-backups}
+    & Must
+    & Yes
+    & ~\ref{dec:7}
+    & ~
+    & Fulfilled by using rsync to backup the system to a accessible location, allowing the system to retrieve the backups\\ \midrule 
+
+    %		\frReqRow{restore-backups}{Must}
+    %		{ The system can restore the backups it previously created after retrieving them. }
+    ~\ref{fr:restore-backups}
+    & Must
+    & Yes
+    & ~\ref{dec:7}
+    & ~
+    & Fulfilled by letting the system rsync the backup into the current running system.\\ \midrule 
+
+    %		\frReqRow{expose-api}{Must}
+    %		{ The system exposes an API, allowing third parties to develop applications for guidance of the citizens during a flood. }
+    ~\ref{fr:expose-api}
+    & Must
+    & Yes
+    & ~\ref{sec:system-context}
+    & ~\ref{sec:elaboratedmodel}, ~\ref{subsec:logicalview}, ~\ref{sec:archvision}, ~\ref{subsec:implementview}
+    & Fulfilled by hosting a REST sever API\\ \midrule 
+
+    %TODO 	Can it?
+    %		\frReqRow{detect-extremephenomena}{Could}
+    %		{ The system is able to detect extreme weather phenomena, like storms etc. }
+    ~\ref{fr:detect-extremephenomena}
+    & Could
+    & Partially
+    & ~
+    & ~ 
+    & Partially fulfilled by gathering information from various external weather API's in combination with using a correlation analysis between the sensor values and the external weather data.\\ \midrule
+
+    %TODO explain what algorithms are used?
+    %		\frReqRow{uav}{Should}
+    %		{ The system processes and stores data collected using a UAV. }	
+    ~\ref{fr:uav}
+    & Should
+    & Yes
+    & ~\ref{hw:4}
+    & ~\ref{subsec:databaseview}
+    & Fulfilled by having a database capable of storing images and geo information\\ \midrule		
+
+    \caption{Evaluation of functional-requirements}
+    \label{table:eval-functional-requirements}
+\end{longtable}
+%\end{longtable}
+%\end{adjustbox}

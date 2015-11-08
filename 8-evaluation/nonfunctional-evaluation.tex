@@ -1,0 +1,199 @@
+
+%############################################################
+%## Commercial non-functional 
+%############################################################
+
+\subsection{Commercial non-functional requirements}
+
+\begin{longtable}{llllL{\tw{0.1}}L{\tw{0.4}}}
+    \bo{Nr.} & \bo{Priority} & \bo{Fulfilled} & \bo{Decision} & \bo{Chapter} & \bo{Remarks} \\ \toprule \endhead
+
+    
+	1 & 2 & 2 & 4 & 5 & 6 \\
+	
+    % %format:
+    % ~\ref{} %nr
+    % & %priority
+    % & %fulfilled
+    % & %Decision
+    % & %Chapter
+    % & %Remarks
+    % \\ \midrule
+
+    %	\reqRow{cnfr}{Must}{The system is affordable. The initial price of the system is lower than 95\%\ of the competitors price in the same market.}
+
+    %	\reqRow{cnfr}{Must}{The sensors have a good quality, so they do not have to be replaced often. The expected lifetime of the sensors should be at least three years.}
+
+    \caption{Evaluation of non-functional commercial requirements} 
+    \label{table:eval-commercialNF-requirements}\\
+\end{longtable}
+
+\subsection{Technical non-functional(NF) requirements}
+This subsection elaborates about technical non-functional requirements that contain reliability, availability, resilience, performance, interoperability, security, and scalability.
+
+\subsubsection{Reliability}
+
+\begin{longtable}{llllL{\tw{0.1}}L{\tw{0.4}}}
+    \bo{Nr.} & \bo{Priority} & \bo{Fulfilled} & \bo{Decision} & \bo{Chapter} & \bo{Remarks} \\ \toprule \endhead
+
+    % %format:
+    % ~\ref{} %nr
+    % & %priority
+    % & %fulfilled
+    % & %Decision
+    % & %Chapter
+    % & %Remarks
+    % \\ \midrule
+
+    %	\reqRow{cnfr}{Must}{The system is affordable. The initial price of the system is lower than 95\%\ of the competitors price in the same market.}
+
+    %	\reqRow{cnfr}{Must}{The sensors have a good quality, so they do not have to be replaced often. The expected lifetime of the sensors should be at least three years.}
+
+
+    %	\reqRow{rel}{Must}{Data from the sensors is sent via a TCP connection} %	
+    REL-1 & Must     & ~        & ~ & ~         & ~       \\ \midrule
+
+    %	\reqRow{rel}{Must}{The system must detect if a sensor supplies wrong measurements, which can be caused, e.g. by improper calibration or defects in the sensor.} 
+    REL-2 & Must     & Yes      & ~ & ~    ~\ref{subsec:detecting-faulty-sensor}     & Fulfilled, faulty sensor will be detected and later be repaired.       \\ \midrule
+
+    %	\reqRow{rel}{Must}{The system must at no time fail to detect a flood when this flood becomes imminent (\textit{false negative}).}
+    REL-3 & Must     & ~        & ~ & ~         & ~       \\ \midrule
+
+    %	\reqRow{rel}{Must}{The system must not detect a flood, when this flood is not there in reality (\textit{false positive}), on average more than once per 5 years.}
+    REL-4 & Must     & ~        & ~ & ~         & ~       \\ \midrule
+	\caption{Evaluation of non-functional reliability requirements}
+    \label{table:eval-technical-nf}\\
+\end{longtable}
+
+
+\subsubsection{Availability}
+\begin{longtable}{llllL{\tw{0.1}}L{\tw{0.4}}}
+    \bo{Nr.} & \bo{Priority} & \bo{Fulfilled} & \bo{Decision} & \bo{Chapter} & \bo{Remarks} \\ \toprule \endhead
+
+    % %format:
+    % ~\ref{} %nr
+    % & %priority
+    % & %fulfilled
+    % & %Decision
+    % & %Chapter
+    % & %Remarks
+    % \\ \midrule
+    
+%Nr.   & Priority & Fulfilled & Decision & Chapter & Remarks \\ \midrule
+%
+%        %	\reqRow{ava}{Must}{The system must have an uptime of $99.7\%$. This effectively means, that the system should not be down for more than 2 hours per month.
+%        AVA-1 & Must     & Yes      & & ~\ref{subsec:availability}         & Fulfilled.       \\ \midrule
+%        %	\reqRow{ava}{Must}{The system must not experience a period of downtime, spanning more than 12 hours. Within twelve hours of the system going offline, it should be back up again. }
+%        AVA-2 & Must     & ~        & & ~         & ~       \\ \midrule
+%        % \reqRow{ava}{Must}{The system pulls weather forecasts from at least two weather forecasting services.}
+%        AVA-3 & Must     & ~        & & ~         & ~       \\ \midrule    
+%    
+    \caption{Evaluation of non-functional availability requirements} 
+    \label{table:eval-functional-requirements}
+\end{longtable}
+
+\subsubsection{Resilience}
+\begin{longtable}{llllL{\tw{0.1}}L{\tw{0.4}}}
+    \bo{Nr.} & \bo{Priority} & \bo{Fulfilled} & \bo{Decision} & \bo{Chapter} & \bo{Remarks} \\ \toprule \endhead
+
+    % %format:
+    % ~\ref{} %nr
+    % & %priority
+    % & %fulfilled
+    % & %Decision
+    % & %Chapter
+    % & %Remarks
+    % \\ \midrule
+
+%		Nr.   & Priority & Fulfilled & Decision & Chapter & Remarks \\ \midrule
+%
+%        %	\reqRow{res}{Must}{The system recognizes failures within half an hour}
+%
+%        RES-1 & Must     & ~        & ~ & ~         & ~       \\ \midrule
+%
+%        %	\reqRow{res}{Must}{The system recovers from failures without the \qos or the functionality of the system being affected.} % GK: split in two requirements. reduce to detect sensor failures within half an hour
+%
+%        RES-2 & Must     & ~        & ~ & ~        & ~       \\ \midrule
+%
+%        %	\reqRow{res}{Must}{All system data must be backed up every 24 hours, so that in case of data loss, this data can be restored.}
+%        RES-3 & Must     & Yes      & ~ & ~\ref{subsec:database-data}         & Fulfilled, the data is also duplicated in database.       \\ \midrule
+%
+%        %	\reqRow{res}{Must}{In case of a data loss, the data should be retrieved and restored from a backup within 2 hours.}
+%        RES-4 & Must     & ~        & ~ & ~         & ~       \\ \midrule
+%
+%        %	\reqRow{res}{Must}{Backup copies are stored in a secure location which is not in the same area as the system (50 km).}		
+%        RES-5 & Must     & Yes      & ~ & ~\ref{sec:hardware-overview}         & Fulfilled, the data centers will be located in three different places.       \\ \midrule
+
+	\caption{Evaluation of non-functional resilience requirements}
+    \label{table:eval-technical-nf}\\
+\end{longtable}
+
+
+\subsubsection{Performance}
+\begin{longtable}{llllL{\tw{0.1}}L{\tw{0.4}}}
+    \bo{Nr.} & \bo{Priority} & \bo{Fulfilled} & \bo{Decision} & \bo{Chapter} & \bo{Remarks} \\ \toprule \endhead
+
+        %	\reqRow{perf}{Must}{Data is transmitted from and to the system with a minimum average speed of 10 megabits per second}
+        PERF-1 & Must     & Unknown  & - & -         & Expected, not yet tested. \\ \midrule
+
+        %	\reqRow{perf}{Must}{	The data transmission between the sensors and the system is on average at least 10 megabits per second for each sensor.}
+        PERF-2 & Must     & Unknown  & - & -         & Expected, not yet tested. \\ \midrule
+
+        %	\reqRow{perf}{Must}{	The time for the system to compute if there is a flood or not according to a critical level and the data received from the sensors is at most 5 minutes. }
+        PERF-3 & Must     & Unknown  & - & -         & Expected, not yet tested. \\ \midrule
+
+        %	\reqRow{perf}{Must}{ If an imminent flood is detected, the warning text message to citizens arrives in 5 minutes. }
+        PERF-4 & Must     & Unknown  & - & -         & Expected, not yet tested. \\ \midrule
+
+        %	\reqRow{perf}{Must}{ If an imminent flood is detected, the warning to the emergency room arrives within 1 minute. }
+        PERF-5 & Must     & Unknown  & - & -         & Expected, not yet tested. \\ \midrule
+
+	\caption{Evaluation of technical NF-requirements}
+    \label{table:eval-technical-nf}\\
+    \end{longtable}
+
+\subsubsection{Interoperability}
+\begin{longtable}{llllL{\tw{0.1}}L{\tw{0.4}}}
+    \bo{Nr.} & \bo{Priority} & \bo{Fulfilled} & \bo{Decision} & \bo{Chapter} & \bo{Remarks} \\ \toprule \endhead
+
+        Nr.    & Priority & Fulfilled & Decision & Chapter & Remarks \\ \midrule
+        % \reqRow{intr}{Must}{The system is able to retrieve data from different types of water level sensors and dike sensors. Also future versions of the sensors should be supported.}
+        INTR-1 & Must     & Yes      & ~\ref{dec:3} & ~\ref{sec:hardware-overview} & Fulfilled by using GeoBeads and Water level sensor. \\ \midrule
+        % \reqRow{intr}{Must}{The system is able to retrieve external data from different weather forecast, demographic and geographic APIs. Also future versions of the APIs should be supported.}
+        INTR-2 & Must     & Yes      & &~\ref{subsec:external-system} & Fulfilled by using several external API providers.       \\ \midrule
+
+	\caption{Evaluation of non-functional interoperability requirements}
+    \label{table:eval-technical-nf}\\
+\end{longtable}
+\subsubsection{Security}
+\begin{longtable}{llllL{\tw{0.1}}L{\tw{0.4}}}
+
+        Nr.   & Priority & Fulfilled & Decision & Chapter & Remarks \\ \midrule
+        % \reqRow{sec}{Must}{Access to the system is restricted to users, which are authorized and authenticated using a password protected user account.}
+        SEC-1 & Must     & Yes      & & ~\ref{subsec:system-diagram} & Fulfilled, the user must be authorized to enter the system. \\ \midrule
+        % \reqRow{sec}{Must}{All communication to, from and within the system is encrypted.}
+        SEC-2 & Must     & Yes      & ~\ref{dec:9} & ~\ref{subsec:channels-information-flows} & Fulfilled, by using secure channel. \\ \midrule
+        % \reqRow{sec}{Must}{User account information is stored encrypted.}
+        SEC-3 & Must     & Yes      & ~\ref{dec:6} & ~\ref{subsec:database-data} & Fulfilled, applied in Elasticsearch DB. \\ \midrule
+        % \reqRow{sec}{Must}{The system is protected on both the application layer and network layer.}
+        SEC-4 & Must     & Yes      & & ~\ref{sec:hardware-overview} & Fulfilled, in the data center level. \\ \midrule
+        % \reqRow{sec}{Must}{The system communicates with the sensors via a secure HTTPS connection.}
+        SEC-5 & Must     & Yes      & ~\ref{dec:9} & ~\ref{sec:hardware-overview} & Fulfilled, by using Arduino to send data. \\ \midrule
+
+	\caption{Evaluation of non-functional security requirements}
+    \label{table:eval-technical-nf}\\
+\end{longtable}
+
+\subsubsection{Scalability}
+\begin{longtable}{llllL{\tw{0.1}}L{\tw{0.4}}}
+        Nr.     & Priority & Fulfilled & Decision & Chapter & Remarks \\ \midrule
+        % \reqRow{scale}{Must}{The database and services of the system can scale within 1 hour, when the systems resource usage increases.}
+        SCALE-1 & Must     & Yes      & ~\ref{dec:6} & ~\ref{subsec:database-data} & Fulfilled by adapting Elasticsearch. \\ \midrule
+        % \reqRow{scale}{Must}{The system is configurable to run in different areas and with different sensors.}
+        SCALE-2 & Must     & Yes      & & ~\ref{sec:hardware-overview} & Fulfilled by adapting multiple data centers and multiple sensor type. \\ \midrule
+        % \reqRow{scale}{Must}{The system maintains the performance requirements when the number of sensors is increased and the data from sensors is expanded.}
+        SCALE-3 & Must     & Unknown  & & -         & Expected, not yet tested. \\ \midrule
+
+	\caption{Evaluation of non-functional scalability requirements}
+    \label{table:eval-technical-nf}\\
+\end{longtable}

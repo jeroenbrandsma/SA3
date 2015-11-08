@@ -143,17 +143,19 @@
 			\\
 		}
 		
-		\newcommand{\reqRow}[3]{%
+		\newcommand{\reqRow}[4]{%
 			\midrule
 			\phantomsection
-			\req{#1} &
-			\ifcase\pdfstrcmp{#2}{Must}%
-				\textbf{#2}
+			\req{#1}
+			\manuallabel{#1:#2}{#1-\arabic{#1}} &
+			
+			\ifcase\pdfstrcmp{#3}{Must}%
+				\textbf{#3}
 			\else
-				#2
+				#3
 			\fi
 			&
-			#3
+			#4
 			\\
 		}		
 						
