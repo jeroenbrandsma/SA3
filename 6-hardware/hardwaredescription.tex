@@ -67,7 +67,7 @@ As can be seen in \autoref{fig:database-cluster}, SFM will use four database rac
 
 \subsection{Analytics Components}
 \label{subsec:analytics}
-Analytics component will be the main brain of SFM. The intelligent algorithm will run on this machine. This components are also responsible for checking faulty sensors by analyzing incoming sensor data. Thus, there is a big dependency to this components. To increase availability and reliability, SFM will have six server racks to do the processing as depicted in \autoref{fig:analytic-cluster}.
+Analytics component will be the main brain of SFM. The intelligent algorithm will run on this machine. This components are also responsible for checking faulty sensors by analyzing incoming sensor data. The time for the system to compute, whether there is a flood or not, is at most 5 minutes. Thus, there is a big dependency to this components. To increase availability and reliability, SFM will have six server racks to do the processing as depicted in \autoref{fig:analytic-cluster}.
 
 \begin{figure}[H]
 \centering
@@ -76,6 +76,6 @@ Analytics component will be the main brain of SFM. The intelligent algorithm wil
 \label{fig:analytic-cluster}
 \end{figure}
 
-The analytics components will also be the hub for the main connection of SFM. Thus, this system also need a high performance switch to accomplish this purpose. As have been mentioned before, this system will use Cisco Catalyst 2960S-24TS-L Switch.
+The analytics components will also be the hub for the main connection of SFM. Thus, this system also need a high performance switch to accomplish this purpose. As have been mentioned before, this system will use Cisco Catalyst 2960S-24TS-L Switch meaning it has Gigabit ethernet support (more than 10Mbps).
 
 The analytics components will use Dell PowerEdge R530 as server and it will be mounted on a server rack. The detailed hardware specifications of Dell PowerEdge R530 is listed in \autoref{table:server-specs}.

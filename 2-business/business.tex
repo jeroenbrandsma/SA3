@@ -153,11 +153,11 @@ The last subsystem (provides data to third party developers) will publish data t
 
 The service will include maintenance for the product and upgrades.
 
-As described before, floods will be the first natural disaster the initial system supports. The system will be based on an architecture which allow other kinds of disasters that can be monitored by sensors to be easily implemented. Natural disasters that can be monitored in the future by the system are: Volcano eruption, earthquakes, and slides. By implementing sensors and algorithms for these natural disasters our system will become more viable for the future. \\
+As described before, floods will be the first natural disaster the initial system supports. The system will be based on an architecture which allow other kinds of disasters that can be monitored by sensors to be easily implemented. Natural disasters that can be monitored in the future by the system are: Volcano eruption, earthquakes, and slides. By implementing sensors and algorithms for these natural disasters our system will become more viable for the future.
 
-\underline{Business Plan and expansion of \CompanyName} \\
-
-Here is a strategic planning through a roadmap of \CompanyName over the years.
+%\subsection{Business Plan and expansion of \CompanyName}
+Besides implementing other natural disasters, other functionalities can be implemented too. These improvements will be developed over the years. 
+Figure~\ref{fig:roadmap} provides a roadmap with the strategic planning over the years.
 
 \begin{figure}[H]
 	\centering
@@ -166,7 +166,7 @@ Here is a strategic planning through a roadmap of \CompanyName over the years.
 	\label{fig:roadmap}
 \end{figure}
 
-*1 The statistics are made according to the goals in the part 2.2. \\
+*1 The statistics are made according to the goals in part 2.2. \\
 *2 The expansion to Europe and the world is made by starting with countries which have high risk and history of floods (the team will get documentation, studies in order to choose countries which really need our product, countries where this market doesn't exist yet or at least isn't in expansion. This is a business strategy which should lead to more production and profit.\\
 
 \section{System in the market}
@@ -334,6 +334,9 @@ The following table gives an overview of the costs related to the dike sensors:
 This makes the costs for the dike monitoring as follows: \\
 $ 6.000 * 200 = \EUR1.200.000 * 1.2 = \EUR1.440.000$\\
 
+\subsubsection{Arduino}
+Based on the number of dike sensors and water level sensors, one arduino is needed for every kilometer. In this way 1 water level sensor can connect to the arduino, combined with multiple GeoBeads sensors. This means 6000 arduinos are needed. These arduinos can be bought in large amounts to press the costs. This results in a price of \EUR45 per arduino. In total this is $6.000 * \EUR45 = 270.000$
+
 \subsubsection{Maintenance}
 
 
@@ -381,7 +384,7 @@ SC = (AC + DC + OC) \times 3
 SC = (68.238 + 36.720 + 1.500) \times 3 = \EUR 319.374
 \end{equation*}
 
-\subsection{UAVs costs}
+\subsubsection{UAVs costs}
 
 The price of the Airborne A2xA4 is 31.273$\euro{}$ and the system will use fifty UAVs . Total cost = $\euro{}$1.563.650. The number of UAVs released depends on the size of the flooded area but the system has fifty UAVs available. \\
 The maintenance costs of the UAV for all of them are rising to $\euro{}$500 per UAV per year so for the first ten years of the project : 500*50*10=$\euro{}$250.000. \\
@@ -406,11 +409,11 @@ The total hardware costs is shown in the table below.
 	\begin{tabular}{lr}
 	\toprule
 	\textbf{Description} & \multicolumn{1}{l}{\textbf{Costs}} \\ \hline
-	Installation costs & $\EUR{}$384.240.000\\
+	Installation costs & $\EUR{}$384.510.000\\
 	Maintenance costs per year & $\euro{}$31.725.000\\
 	Server costs & $\euro{}$319.374\\
 	UAVs & $\euro{}$1.796.301\\
-	Total cost & $\euro{}$418.080.675 \\
+	Total cost & $\euro{}$418.350.675 \\
 	
 
 	\bottomrule
@@ -439,8 +442,8 @@ The total costs for the system is calculated in the table below.\\
 	\textbf{Description} & \multicolumn{1}{l}{\textbf{Costs}} \\ \hline
 	Software Architecture costs & \EUR{}157.500\\
 	Development costs & $\euro{}$488.500\\
-	Hardware costs & $\euro{}$418.080.675\\
-	Total cost & $\euro{}$418.726.675\\
+	Hardware costs & $\euro{}$418.350.675\\
+	Total cost & $\euro{}$418.996.675\\
 	
 	
 	\bottomrule
@@ -448,7 +451,7 @@ The total costs for the system is calculated in the table below.\\
 	\caption{Total cost of the system}
 	\label{table:totalcosts}
 \end{table}
-So the total costs of the system is $\euro{}$418.726.675\\
+So the total costs of the system is $\euro{}$418.996.675\\
 % Guntur: Doubled financial model sections?
 % \section{Financial model}
 % The financial model will be a low product price. This in order to price the product low in the market. A service description for maintenance will be offered. Also updates will be sold to the customer
