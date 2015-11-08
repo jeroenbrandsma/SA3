@@ -1,4 +1,5 @@
 ###LaTeX###
+*.glsdefs
 #swap files:
 *.swp
 *.kate-swp
