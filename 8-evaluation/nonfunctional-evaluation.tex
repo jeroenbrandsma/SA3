@@ -49,23 +49,39 @@ This subsection elaborates about technical non-functional requirements that cont
     % & %Chapter
     % & %Remarks
     % \\ \midrule
+    
+    ~\ref{REL:sensors=reachserver} %nr
+    & Must
+    & Yes
+    & ~
+    & \ref{sec:hardware-description}
+    & Fulfilled, TCP/IP connection will guarantee that data can reach the central server in 99.9\% of all cases.
+    \\ \midrule
 
-    %	\reqRow{cnfr}{Must}{The system is affordable. The initial price of the system is lower than 95\%\ of the competitors price in the same market.}
+    ~\ref{REL:sensor-incorrectvalues} %nr
+    & Must
+    & Yes
+    & ~
+    & \ref{subsec:logicalview}, \ref{subsec:deploymentview}
+    & Fulfilled, Sensor Manager and Abnormality algorithm will check for incorrect values.
+    \\ \midrule
 
-    %	\reqRow{cnfr}{Must}{The sensors have a good quality, so they do not have to be replaced often. The expected lifetime of the sensors should be at least three years.}
+    ~\ref{REL:falsenegative} %nr
+    & Must
+    & Yes
+    & ~
+    & \ref{subsec:logicalview}
+    & Fulfilled, algorithm guarantees that the result is always correct (no false negative).
+    \\ \midrule
 
+    ~\ref{REL:falsepositive} %nr
+    & Must
+    & Yes
+    & ~
+    & \ref{table:uc-determine-flood-probability}
+    & Fulfilled, UAV will make sure false positive will not happen.
+    \\ \midrule
 
-    %	\reqRow{rel}{Must}{Data from the sensors is sent via a TCP connection} %	
-    REL-1 & Must     & ~        & ~ & ~         & ~       \\ \midrule
-
-    %	\reqRow{rel}{Must}{The system must detect if a sensor supplies wrong measurements, which can be caused, e.g. by improper calibration or defects in the sensor.} 
-    REL-2 & Must     & Yes      & ~ & ~    ~\ref{subsec:detecting-faulty-sensor}     & Fulfilled, faulty sensor will be detected and later be repaired.       \\ \midrule
-
-    %	\reqRow{rel}{Must}{The system must at no time fail to detect a flood when this flood becomes imminent (\textit{false negative}).}
-    REL-3 & Must     & ~        & ~ & ~         & ~       \\ \midrule
-
-    %	\reqRow{rel}{Must}{The system must not detect a flood, when this flood is not there in reality (\textit{false positive}), on average more than once per 5 years.}
-    REL-4 & Must     & ~        & ~ & ~         & ~       \\ \midrule
 	\caption{Evaluation of non-functional reliability requirements}
     \label{table:eval-technical-nf}\\
 \end{longtable}
@@ -163,10 +179,10 @@ This subsection elaborates about technical non-functional requirements that cont
         PERF-3 & Must     & Yes  & ~ & \ref{sec:hardware-description} & Fulfilled, analytics cluster will compute this calculation. \\ \midrule
 
         %	\reqRow{perf}{Must}{ If an imminent flood is detected, the warning text message to citizens arrives in 5 minutes. }
-        PERF-4 & Must     & Yes  & ~ & \ref{subsec:external-system}         & Fulfilled, SMS service will make sure the SMS will arrive within 5 minutes. \\ \midrule
+        PERF-4 & Must     & Yes  & ~ & \ref{subsec:external-system}, \ref{subsec:logicalview}         & Fulfilled, SMS service will make sure the SMS will arrive within 5 minutes. \\ \midrule
 
         %	\reqRow{perf}{Must}{ If an imminent flood is detected, the warning to the emergency room arrives within 1 minute. }
-        PERF-5 & Must     & Yes  & ~ & \ref{subsec:external-system}         & Fulfilled, TCP/IP connection guarantees that the information will arrive within one minute. \\ \midrule
+        PERF-5 & Must     & Yes  & ~ & \ref{subsec:external-system}, \ref{subsec:logicalview}         & Fulfilled, TCP/IP connection guarantees that the information will arrive within one minute. \\ \midrule
 
 	\caption{Evaluation of non-functional performance requirements}
     \label{table:eval-technical-nf}\\

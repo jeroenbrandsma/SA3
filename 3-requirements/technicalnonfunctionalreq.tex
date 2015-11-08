@@ -14,13 +14,13 @@ Reliability is an important non-functional requirement for the system, and a key
 \begin{longtable}{L{0.1\textwidth} L{0.12\textwidth} L{0.7\textwidth}}
 	\textbf{Nr.} & \textbf{Prio}  & \textbf{Description} \\
 	%\reqRow{rel}{Must}{Sensor sites are equipped with at least two sensors} ( why two ? )
-	\reqRow{rel}{sensors=reachserver}{Must}{Data from the sensors reaches the central server in 99.9\% of all cases.} % Already mention REST here?
+	\reqRow{REL}{sensors=reachserver}{Must}{Data from the sensors reaches the central server in 99.9\% of all cases.} % Already mention REST here?
 	 
-	\reqRow{rel}{sensor-incorrectvalues}{Must}{The system must detect if a sensor supplies values that are not correct for the specific real world environment.} 
+	\reqRow{REL}{sensor-incorrectvalues}{Must}{The system must detect if a sensor supplies values that are not correct for the specific real world environment.} 
 	
-	\reqRow{rel}{falsenegative}{Must}{The system must at no time fail to detect a flood when this flood becomes imminent (\textit{false negative}).}
+	\reqRow{REL}{falsenegative}{Must}{The system must at no time fail to detect a flood when this flood becomes imminent (\textit{false negative}).}
 	
-	\reqRow{rel}{falsepositive}{Must}{The system must not detect a flood, when this flood is not there in reality (\textit{false positive}), on average more than once per 5 years.}
+	\reqRow{REL}{falsepositive}{Must}{The system must not detect a flood, when this flood is not there in reality (\textit{false positive}), on average more than once per 5 years.}
 	 
 	%\reqRow{rel}{Must}{Redundancy} % GK: if redundancy is required, which it should be, in what way?
 	%This means adding redundancy to the system so that failure of a component does not mean failure of the entire system
