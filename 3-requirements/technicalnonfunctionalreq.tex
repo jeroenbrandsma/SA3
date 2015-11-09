@@ -60,16 +60,16 @@ The system needs to be resilient to recover from errors and mistakes without imp
 
 \begin{longtable}{L{0.1\textwidth} L{0.12\textwidth} L{0.7\textwidth}}
 	\textbf{Nr.} & \textbf{Prio}  & \textbf{Description} \\
-	\reqRow{perf}{}{Must}{Data is transmitted from and to the system with a minimum average speed of 10 megabits per second} % How to calculate GK: Doesn't really matter for requirements, but good to think about. Also: response time to what? Request? Detecting floods? Furthermore, 10 (just saying something) GB of data is not transferable witihin 1 second if you include connection setup time etc etc
+\reqRow{perf}{transmissionspeed}{Must}{Data is transmitted from and to the system with a minimum average speed of 10 megabits per second} % How to calculate GK: Doesn't really matter for requirements, but good to think about. Also: response time to what? Request? Detecting floods? Furthermore, 10 (just saying something) GB of data is not transferable witihin 1 second if you include connection setup time etc etc
 	% GK: only about datatransmission express in dataspeed
 	
-	\reqRow{perf}{}{Must}{The data transmission between the sensors and the system is on average at least 10 megabits per second for each sensor.}
+\reqRow{perf}{transpersec}{Must}{The data transmission between the sensors and the system is on average at least 10 megabits per second for each sensor.}
 	% How many data the system can receive in one second ?
-	\reqRow{perf}{}{Must}{The time for the system to compute if there is a flood or not according to a critical level and the data received from the sensors is at most 5 minutes. }
+	\reqRow{perf}{timetocompflood}{Must}{The time for the system to compute if there is a flood or not according to a critical level and the data received from the sensors is at most 5 minutes. }
 	
-	\reqRow{perf}{}{Must}{ If an imminent flood is detected, the warning text message to citizens arrives in 5 minutes. }
+	\reqRow{perf}{wantextimecitizen}{Must}{ If an imminent flood is detected, the warning text message to citizens arrives in 5 minutes. }
 	
-	\reqRow{perf}{}{Must}{ If an imminent flood is detected, the warning to the safety region arrives within 1 minute. }
+	\reqRow{perf}{warntimetextregion}{Must}{ If an imminent flood is detected, the warning to the safety region arrives within 1 minute. }
 
 	\bottomrule
 \end{longtable}
@@ -86,8 +86,8 @@ The system has dependencies on several third-party systems and also allows third
 	%\reqRow{intr}{Must}{When the system detects a high risk of flood, it warns the government automatically using the government provided API.} WM: removed this, the safety region will warn the government (mayor etc.)
 	%\reqRow{intr}{Must}{When the system detects a flood, it notifies the safety region through an API provided by them.}
 	%\reqRow{intr}{Must}{The system sends out a SMS to all users who are subscribed to flood warnings using the mobile network.}
-	\reqRow{intr}{}{Must}{The system is able to retrieve data from different types of water level sensors and dike sensors. Also future versions of the sensors should be supported.}
-	\reqRow{intr}{}{Must}{The system is able to retrieve external data from different weather forecast, demographic and geographic APIs. Also future versions of the APIs should be supported.}
+	\reqRow{intr}{sensortype}{Must}{The system is able to retrieve data from different types of water level sensors and dike sensors. Also future versions of the sensors should be supported.}
+	\reqRow{intr}{forecast}{Must}{The system is able to retrieve external data from different weather forecast, demographic and geographic APIs. Also future versions of the APIs should be supported.}
 	%\reqRow{intr}{Must}{The system exposes an API, allowing third parties to develop applications using the systems data.}
 	% \reqRow{intr}{Must}{The sensors are able to communicate with the system using a mobile broadband connection.} REMOVED: because we have decided to use wired connection later on.
 
@@ -96,16 +96,17 @@ The system has dependencies on several third-party systems and also allows third
 \todo[inline]{intr-6 Not measurable}
 % GK; Requirement about working with different kind of sensors for the same data
 
+
 \subsection{Security}
 The security of the system is very relevant to its success. The system should be secure, because unauthorized access can have a big impact on society (when e.g. false flood warnings are triggered).
 \begin{longtable}{L{0.1\textwidth} L{0.12\textwidth} L{0.7\textwidth}}
 	\textbf{Nr.} & \textbf{Prio}  & \textbf{Description} \\
-	\reqRow{sec}{}{Must}{Access to the system is restricted to users, which are authorized and authenticated using a password protected user account.}
-	\reqRow{sec}{}{Must}{All communication to, from and within the system is encrypted.}
-	\reqRow{sec}{}{Must}{User account information is stored encrypted.} %hashed using bcrypt after being salted with 128 randomly generated characters.
-	\reqRow{sec}{}{Must}{The system is protected on both the application layer and network layer.}
+	\reqRow{sec}{userpassprotect}{Must}{Access to the system is restricted to users, which are authorized and authenticated using a password protected user account.}
+	\reqRow{sec}{encryptedcomm}{Must}{All communication to, from and within the system is encrypted.}
+	\reqRow{sec}{encryptaccount}{Must}{User account information is stored encrypted.} %hashed using bcrypt after being salted with 128 randomly generated characters.
+	\reqRow{sec}{networkprotection}{Must}{The system is protected on both the application layer and network layer.}
 	% WM: does communication within the system mean between the different components of the system?
-	\reqRow{sec}{}{Must}{The system communicates with the sensors via a secure HTTPS connection.} % Do we want to communicate with the sensors via REST? WM: Could this be more generic? Like: 'the system communicates with the sensors via a secure connection'
+	\reqRow{sec}{https}{Must}{The system communicates with the sensors via a secure HTTPS connection.} % Do we want to communicate with the sensors via REST? WM: Could this be more generic? Like: 'the system communicates with the sensors via a secure connection'
 
 	\bottomrule
 \end{longtable}
@@ -116,11 +117,11 @@ The system has to be designed in a way that it can expand over time. Not only sh
 % The system will be able to cover more areas and use more sensors in the future. GK: too vague, but added scale-3 based on this idea
 \begin{longtable}{L{0.1\textwidth} L{0.12\textwidth} L{0.7\textwidth}}
 	\textbf{Nr.} & \textbf{Prio}  & \textbf{Description} \\
-	\reqRow{scale}{}{Must}{The database and services of the system can scale within 1 hour, when the systems resource usage increases.}
+	\reqRow{scale}{scaletime}{Must}{The database and services of the system can scale within 1 hour, when the systems resource usage increases.}
 
-	\reqRow{scale}{}{Must}{The system is configurable to run in different areas and with different sensors.}
+	\reqRow{scale}{areas}{Must}{The system is configurable to run in different areas and with different sensors.}
 	
-	\reqRow{scale}{}{Must}{The system maintains the performance requirements when the number of sensors is increased and the data from sensors is expanded.}
+	\reqRow{scale}{moresensors}{Must}{The system maintains the performance requirements when the number of sensors is increased and the data from sensors is expanded.}
 	
 	\bottomrule
 \end{longtable}

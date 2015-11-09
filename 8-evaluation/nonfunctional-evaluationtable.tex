@@ -44,8 +44,8 @@
     & Fulfilled, some evolutions are planned.
     \\ \midrule
 
-    \caption{Evaluation of non-functional commercial requirements} 
-    \label{table:eval-commercialNF-requirements}\\
+%    \caption{Evaluation of non-functional commercial requirements} 
+%    \label{table:eval-commercialNF-requirements}\\
 \end{longtable}
 
 \subsection{Technical non-functional(NF) requirements}
@@ -97,8 +97,8 @@ This subsection elaborates about technical non-functional requirements that cont
     & Fulfilled, UAV will make sure false positive will not happen.
     \\ \midrule
 
-	\caption{Evaluation of non-functional reliability requirements}
-    \label{table:eval-technical-nf}\\
+%	\caption{Evaluation of non-functional reliability requirements}
+%    \label{table:eval-technical-nf}\\
 \end{longtable}
 
 
@@ -139,8 +139,8 @@ This subsection elaborates about technical non-functional requirements that cont
     & Fulfilled by the system contacting several API's to base the decisions on.
     \\ \midrule 
 
-    \caption{Evaluation of non-functional availability requirements} 
-    \label{table:eval-functional-requirements}
+%    \caption{Evaluation of non-functional availability requirements} 
+%    \label{table:eval-functional-requirements}
 \end{longtable}
 
 \subsubsection{Resilience}
@@ -201,76 +201,113 @@ This subsection elaborates about technical non-functional requirements that cont
     & Fulfilled, the SFM has three data centers that are located more than 50km away.
     \\ \midrule
 
-	\caption{Evaluation of non-functional resilience requirements}
-    \label{table:eval-technical-nf}\\
+%	\caption{Evaluation of non-functional resilience requirements}
+%    \label{table:eval-technical-nf}\\
 \end{longtable}
-
 
 \subsubsection{Performance}
 \begin{longtable}{llllL{\tw{0.1}}L{\tw{0.4}}}
+	\caption{Evaluation of non-functional performance requirements}
+    \label{table:eval-technical-nf}\\
+
     \bo{Nr.} & \bo{Priority} & \bo{Fulfilled} & \bo{Decision} & \bo{Chapter} & \bo{Remarks} \\ \toprule \endhead
 
         %	\reqRow{perf}{Must}{Data is transmitted from and to the system with a minimum average speed of 10 megabits per second}
-        PERF-1 & Must     & Yes  & \ref{hw:7} & \ref{sec:hardware-decisions}, \ref{sec:hardware-description} & Fulfilled, each components of the system are connected by Gigabit Ethernet. \\ \midrule
-
+        \ref{perf:transmissionspeed}
+        & Must
+        & Yes
+        & \ref{hw:7}
+        & \ref{sec:hardware-decisions}, \ref{sec:hardware-description} 
+        & Fulfilled, each components of the system are connected by Gigabit Ethernet. \\ \midrule
+        
         %	\reqRow{perf}{Must}{	The data transmission between the sensors and the system is on average at least 10 megabits per second for each sensor.}
-        PERF-2 & Must     & Yes  & \ref{hw:3} & \ref{sec:hardware-decisions} & Fulfilled, Arduinos that are connected to sensors send data in 10 Megabits per second. \\ \midrule
-
+        \ref{perf:transpersec} 
+        & Must     
+        & Yes  
+        & \ref{hw:3} 
+        & \ref{sec:hardware-decisions} 
+        & Fulfilled, Arduinos that are connected to sensors send data in 10 Megabits per second. \\ \midrule
+        
         %	\reqRow{perf}{Must}{	The time for the system to compute if there is a flood or not according to a critical level and the data received from the sensors is at most 5 minutes. }
-        PERF-3 & Must     & Yes  & ~ & \ref{sec:hardware-description} & Fulfilled, analytics cluster will compute this calculation. \\ \midrule
-
+        \ref{perf:timetocompflood} 
+        & Must     
+        & Yes  
+        & ~ 
+        & \ref{sec:hardware-description} 
+        & Fulfilled, analytics cluster will compute this calculation. \\ \midrule
+        
         %	\reqRow{perf}{Must}{ If an imminent flood is detected, the warning text message to citizens arrives in 5 minutes. }
-        PERF-4 & Must     & Yes  & ~ & \ref{subsec:external-system}, \ref{subsec:logicalview}         & Fulfilled, SMS service will make sure the SMS will arrive within 5 minutes. \\ \midrule
-
+        \ref{perf:wantextimecitizen} 
+        & Must     
+        & Yes  
+        & ~ 
+        & \ref{subsec:external-system}, \ref{subsec:logicalview}         
+        & Fulfilled, SMS service will make sure the SMS will arrive within 5 minutes. \\ \midrule
+        
         %	\reqRow{perf}{Must}{ If an imminent flood is detected, the warning to the emergency room arrives within 1 minute. }
-        PERF-5 & Must     & Yes  & ~ & \ref{subsec:external-system}, \ref{subsec:logicalview}         & Fulfilled, TCP/IP connection guarantees that the information will arrive within one minute. \\ \midrule
-
-	\caption{Evaluation of non-functional performance requirements}
-    \label{table:eval-technical-nf}\\
+        \ref{perf:warntimetextregion} 
+        & Must     
+        & Yes  
+        & ~ 
+        & \ref{subsec:external-system}, \ref{subsec:logicalview}         
+        & Fulfilled, TCP/IP connection guarantees that the information will arrive within one minute. \\ \midrule
     \end{longtable}
 
 \subsubsection{Interoperability}
+
 \begin{longtable}{llllL{\tw{0.1}}L{\tw{0.4}}}
+
+%	\caption{Evaluation} of non-functional interoperability requirements}
+%    \label{table:eval-technical-nf}
+    
     \bo{Nr.} & \bo{Priority} & \bo{Fulfilled} & \bo{Decision} & \bo{Chapter} & \bo{Remarks} \\ \toprule \endhead
-
-        Nr.    & Priority & Fulfilled & Decision & Chapter & Remarks \\ \midrule
-        % \reqRow{intr}{Must}{The system is able to retrieve data from different types of water level sensors and dike sensors. Also future versions of the sensors should be supported.}
-        INTR-1 & Must     & Yes      & ~\ref{dec:3} & ~\ref{sec:hardware-overview} & Fulfilled by using GeoBeads and Water level sensor. \\ \midrule
+		% \reqRow{intr}{Must}{The system is able to retrieve data from different types of water level sensors and dike sensors. Also future versions of the sensors should be supported.}       
+        \ref{intr:sensortype} & Must     & Yes      & ~\ref{dec:3} & ~\ref{sec:hardware-overview} & Fulfilled by using GeoBeads and Water level sensor. \\ \midrule
         % \reqRow{intr}{Must}{The system is able to retrieve external data from different weather forecast, demographic and geographic APIs. Also future versions of the APIs should be supported.}
-        INTR-2 & Must     & Yes      & &~\ref{subsec:external-system} & Fulfilled by using several external API providers.       \\ \midrule
-
-	\caption{Evaluation of non-functional interoperability requirements}
-    \label{table:eval-technical-nf}\\
+        \ref{intr:forecast} & Must     & Yes      & &~\ref{subsec:external-system} & Fulfilled by using several external API providers.       \\ \midrule
 \end{longtable}
+
 \subsubsection{Security}
 \begin{longtable}{llllL{\tw{0.1}}L{\tw{0.4}}}
-
+%	\caption{Evaluation of non-functional security requirements}
+%    \label{table:eval-technical-nf}
+    
         Nr.   & Priority & Fulfilled & Decision & Chapter & Remarks \\ \midrule
         % \reqRow{sec}{Must}{Access to the system is restricted to users, which are authorized and authenticated using a password protected user account.}
-        SEC-1 & Must     & Yes      & & ~\ref{subsec:system-diagram} & Fulfilled, the user must be authorized to enter the system. \\ \midrule
+        \ref{sec:userpassprotect} & Must     & Yes      & & ~\ref{subsec:system-diagram} & Fulfilled, the user must be authorized to enter the system. \\ \midrule
+        
         % \reqRow{sec}{Must}{All communication to, from and within the system is encrypted.}
-        SEC-2 & Must     & Yes      & ~\ref{dec:9} & ~\ref{subsec:channels-information-flows} & Fulfilled, by using secure channel. \\ \midrule
+        \ref{sec:encryptedcomm} & Must     & Yes      & ~\ref{dec:9} & ~\ref{subsec:channels-information-flows} & Fulfilled, by using secure channel. \\ \midrule
+        
         % \reqRow{sec}{Must}{User account information is stored encrypted.}
-        SEC-3 & Must     & Yes      & ~\ref{dec:6} & ~\ref{subsec:database-data} & Fulfilled, applied in Elasticsearch DB. \\ \midrule
+        
+        \ref{sec:encryptaccount} & Must     & Yes      & ~\ref{dec:6} & ~\ref{subsec:database-data} & Fulfilled, applied in Elasticsearch DB. \\ \midrule
+        
         % \reqRow{sec}{Must}{The system is protected on both the application layer and network layer.}
-        SEC-4 & Must     & Yes      & & ~\ref{sec:hardware-overview} & Fulfilled, in the data center level. \\ \midrule
+        
+        \ref{sec:networkprotection} & Must     & Yes      & & ~\ref{sec:hardware-overview} & Fulfilled, in the data center level. \\ \midrule
         % \reqRow{sec}{Must}{The system communicates with the sensors via a secure HTTPS connection.}
-        SEC-5 & Must     & Yes      & ~\ref{dec:9} & ~\ref{sec:hardware-overview} & Fulfilled, by using Arduino to send data. \\ \midrule
+        
+        \ref{sec:https} & Must     & Yes      & ~\ref{dec:9} & ~\ref{sec:hardware-overview} & Fulfilled, by using Arduino to send data. \\ \midrule
 
-	\caption{Evaluation of non-functional security requirements}
-    \label{table:eval-technical-nf}\\
 \end{longtable}
 
 \subsubsection{Scalability}
 \begin{longtable}{llllL{\tw{0.1}}L{\tw{0.4}}}
+%	\caption{Evaluation of non-functional scalability requirements}
+%    \label{table:eval-technical-nf}\\
         Nr.     & Priority & Fulfilled & Decision & Chapter & Remarks \\ \midrule
         % \reqRow{scale}{Must}{The database and services of the system can scale within 1 hour, when the systems resource usage increases.}
-        SCALE-1 & Must     & Yes      & ~\ref{dec:6} & ~\ref{subsec:database-data} & Fulfilled by adapting Elasticsearch. \\ \midrule
+        
+        \ref{scale:scaletime} & Must     & Yes      & ~\ref{dec:6} & ~\ref{subsec:database-data} & Fulfilled by adapting Elasticsearch. \\ \midrule
         % \reqRow{scale}{Must}{The system is configurable to run in different areas and with different sensors.}
-        SCALE-2 & Must     & Yes      & & ~\ref{sec:hardware-overview} & Fulfilled by adapting multiple data centers and multiple sensor type. \\ \midrule
+        
+        \ref{scale:areas} & Must     & Yes      & & ~\ref{sec:hardware-overview} & Fulfilled by adapting multiple data centers and multiple sensor type. \\ \midrule
+        
         % \reqRow{scale}{Must}{The system maintains the performance requirements when the number of sensors is increased and the data from sensors is expanded.}
-        SCALE-3 & Must     & Unknown  & & -         & Expected, not yet tested. \\ \midrule
+        
+        \ref{scale:moresensors} & Must     & Unknown  & & -         & Expected, not yet tested. \\ \midrule
 
-	\caption{Evaluation of non-functional scalability requirements}
-    \label{table:eval-technical-nf}\\
+
 \end{longtable}
+

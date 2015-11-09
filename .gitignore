@@ -1,9 +1,12 @@
 ###LaTeX###
+
+/myBuild/*
+/build/*
+
 *.glsdefs
 #swap files:
 *.swp
 *.kate-swp
-/build/*
 #dolphin
 .directory
 #meld

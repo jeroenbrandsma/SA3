@@ -4,7 +4,7 @@
 ## PARAMETERS
 ##############################
 name='report'
-outputDir='build'
+outputDir='myBuild'
 
 #Set them if supplied
 if [[ ! -z $1 ]]; then
@@ -24,7 +24,7 @@ dateNow="date +%m-%d__%H:%M"
 outputName="${name}_$(eval $dateNow)"
 
 latexInBuildDir="-output-directory=${outputDir} -aux-directory=${outputDir}"
-latexcommand='pdflatex -output-directory=build -aux-directory=build -interaction=nonstopmode'
+latexcommand="pdflatex -output-directory=${outputDir} -aux-directory=${outputDir} -interaction=nonstopmode"
 mycmd="${latexcommand} $name"
 
 ##############################

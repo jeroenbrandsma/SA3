@@ -143,12 +143,11 @@
 			\\
 		}
 		
-		\newcommand{\reqRow}[4]{%
+\newcommand{\reqRow}[4]{%
 			\midrule
 			\phantomsection
 			\req{#1}
-			\manuallabel{#1:#2}{#1-\arabic{#1}} &
-			
+			\manuallabel{#1:#2}{\uppercase{#1}-\arabic{#1}} &
 			\ifcase\pdfstrcmp{#3}{Must}%
 				\textbf{#3}
 			\else
@@ -157,23 +156,8 @@
 			&
 			#4
 			\\
-		}		
-						
-%		\newcommand{\reqRow}[4]{%
-%			\midrule
-%			\phantomsection
-%			\manuallabel{#1:#2}{#2} 	
-%			\uppercase{#1}-#2 &
-%			\ifcase\pdfstrcmp{#3}{Must}%
-%				\textbf{#3}
-%			\else
-%				#3
-%			\fi
-%			&
-%			#4
-%			\\
-%		}
-						
+	}		
+												
 		\newcommand{\risk}[7]{%
 		  \begin{table}[H]
 			\begin{tabular}{L{0.3\textwidth} L{0.7\textwidth}}\toprule\phantomsection\getNext{#1-RISK}\manuallabel{#7}{#1-RISK\arabic{#1-RISK}}\textbf{#1-RISK\arabic{#1-RISK}} & \textbf{#2} \\*
@@ -192,19 +176,6 @@
 		  ~\\[0.5cm]
 		}
 		
-%		\newcommand{\evolutionreq}[7]{%
-%					\begin{tabular}{L{0.3\textwidth}L{0.7\textwidth}} & \textbf{#2} \\*
-%						\midrule
-%						\textbf{Change case} & #3 \\*
-%						\midrule
-%						\textbf{Likelihood}              & #4 \\*
-%						\midrule
-%						\textbf{Impact}                & #5 \\*
-%						\bottomrule
-%					\end{tabular}
-%					\\[0.8cm]
-%				}
-%		
 		\makeatother
 						
 		\renewcommand{\todonote}[1]{\textcolor{red}{#1}}
