@@ -1,7 +1,9 @@
 ###LaTeX###
 
-/myBuild/*
-/build/*
+# */myBuild/*
+# */build/*
+myBuild/*
+build/*
 
 *.glsdefs
 #swap files:
@@ -22,7 +24,7 @@
 *.fls
 *.out
 *.toc
-/report.pdf
+report.pdf
 .*.pdf
 
 ## Intermediate documents:
@@ -152,4 +154,3 @@ sympy-plots-for-*.tex/
 # WinEdt
 *.bak
 *.sav
-/build/*.pdf
